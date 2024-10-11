@@ -3,5 +3,73 @@ html body {
     padding: 0;
     width: 100%;
     height: 100%;
+    font-family: Roboto, Geneva, Tahoma, sans-serif;
+}
 
+/*Reuse*/
+.mid_align{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.row{
+    flex-direction: row;
+}
+.col{
+    flex-direction: column;
+}
+
+.rectangle{
+    width: 1px;
+    height: 30%;
+    background-color: rgba(90, 90, 90, 0.49);
+}
+
+/*Header*/
+#header {
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    justify-content: space-between;
+}
+
+.nav_title{
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #20212D;
+}
+
+
+.right_header{
+    height: 100%;
+}
+
+.right_header ul{
+    list-style: none;
+    height: 100%;
+    margin: 0;
+    padding: 0px 20px;
+    color: #20212D;
+}
+
+.right_header li{
+    padding: 0px 10px;
+    font-size: 22px;
+    font-weight: 100;
+}
+
+.avtar{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    overflow: hidden;
+
+}
+
+.avtar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
