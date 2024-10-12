@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Giới hạn component */
+
+.container {
+    min-width: 1200px;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Điều chỉnh biểu đồ */
+
+#grid-chart {
+    min-width: 1100px;
+    height: 200px;
+    position: absolute;
+    top: 25%;
+    left: 20px;
+
+}
