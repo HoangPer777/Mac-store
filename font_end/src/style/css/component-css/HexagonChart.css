@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+#radarChart {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(186, 179, 179, 0.25);
+}

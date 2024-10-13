@@ -19,9 +19,9 @@ const options = {
         show: true,
         strokeDashArray: 4,
         padding: {
-            left: 2,
-            right: 2,
-            top: -26,
+            // left: 2,
+            // right: 2,
+            // top: -26,
         },
     },
     series: [
@@ -37,7 +37,7 @@ const options = {
         },
     ],
     chart: {
-        height: 300,
+        height: 250,
         width: 1100,
         type: "area",
         fontFamily: "Inter, sans-serif",

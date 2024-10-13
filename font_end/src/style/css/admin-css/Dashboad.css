@@ -1,0 +1,143 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica Neue, Helvetica, Arial, serif;
+}
+
+/*Reuse*/
+
+
+
+.mid_align{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.rec_horizontal{
+    width: 70%;
+    height: 1px;
+    background-color: #cfcfcf;
+}
+
+i{
+    color: #616060;
+}
+
+
+
+/*Container*/
+.container{
+
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+
+
+
+
+/*Sidebar*/
+.side_bar{
+
+    justify-content: center;
+    width: 15%;
+}
+
+
+.side_bar #frame_side_bar{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+/*Header*/
+
+.main  {
+    width: 85% ;
+
+}
+
+#header{
+    width: 100%;
+    height: 8%;
+}
+
+
+#frame_header{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+/*Body*/
+
+#body{
+    width: 100%;
+    height: 92%;
+    background-color: rgba(223, 221, 221, 0.48);
+}
+
+
+/*Card List*/
+.card_list{
+    width: 100%;
+    height: 250px;
+    background-color:darkgoldenrod ;
+    justify-content: center;
+}
+.card_list .card {
+    width: 20%;
+    height: 220px;
+    background-color: #1C64F2;
+    display: flex;
+    margin: 0px 20px;
+
+}
+
+
+/*Over View*/
+
+.over_view{
+    width: 100%;
+    height: 450px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+#frame_over_view{
+    width: 100%;
+    height: 90%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
