@@ -7164,7 +7164,7 @@ building-user:
     pro:
       - family: classic
         style: solid
-  label: Building User
+  label: Building Uuser
   search:
     terms:
       - apartment
@@ -9293,7 +9293,7 @@ chalkboard-user:
     pro:
       - family: classic
         style: solid
-  label: Chalkboard User
+  label: Chalkboard user
   search:
     terms:
       - blackboard
@@ -11525,7 +11525,7 @@ circle-user:
         style: solid
       - family: classic
         style: regular
-  label: Circle User
+  label: Circle user
   search:
     terms:
       - employee
@@ -11811,7 +11811,7 @@ clipboard-user:
     pro:
       - family: classic
         style: solid
-  label: Clipboard User
+  label: Clipboard user
   search:
     terms:
       - attendance
@@ -26494,7 +26494,7 @@ hospital-user:
     pro:
       - family: classic
         style: solid
-  label: Hospital User
+  label: Hospital user
   search:
     terms:
       - covid-19
@@ -26978,7 +26978,7 @@ house-chimney-user:
     pro:
       - family: classic
         style: solid
-  label: House Chimney User
+  label: House Chimney user
   search:
     terms:
       - covid-19
@@ -27495,7 +27495,7 @@ house-user:
     pro:
       - family: classic
         style: solid
-  label: House User
+  label: House user
   search:
     terms:
       - house
@@ -45574,7 +45574,7 @@ square-web-awesome:
       - '  crown'
       - '  web'
       - ' awesome'
-      - ' components'
+      - ' component-js'
   unicode: e683
   voted: false
 square-web-awesome-stroke:
@@ -45594,7 +45594,7 @@ square-web-awesome-stroke:
       - '  crown'
       - '  web'
       - ' awesome'
-      - ' components'
+      - ' component-js'
   unicode: e684
   voted: false
 square-whatsapp:
@@ -51311,7 +51311,7 @@ user:
         style: solid
       - family: classic
         style: regular
-  label: User
+  label: user
   search:
     terms:
       - adult
@@ -51350,7 +51350,7 @@ user-astronaut:
     pro:
       - family: classic
         style: solid
-  label: User Astronaut
+  label: user Astronaut
   search:
     terms:
       - avatar
@@ -51382,7 +51382,7 @@ user-check:
     pro:
       - family: classic
         style: solid
-  label: User Check
+  label: user Check
   search:
     terms:
       - employee
@@ -51413,7 +51413,7 @@ user-clock:
     pro:
       - family: classic
         style: solid
-  label: User Clock
+  label: user Clock
   search:
     terms:
       - employee
@@ -51449,7 +51449,7 @@ user-doctor:
     pro:
       - family: classic
         style: solid
-  label: User Doctor
+  label: user Doctor
   search:
     terms:
       - covid-19
@@ -51487,7 +51487,7 @@ user-gear:
     pro:
       - family: classic
         style: solid
-  label: User Gear
+  label: user Gear
   search:
     terms:
       - employee
@@ -51516,7 +51516,7 @@ user-graduate:
     pro:
       - family: classic
         style: solid
-  label: User Graduate
+  label: user Graduate
   search:
     terms:
       - uer
@@ -51547,7 +51547,7 @@ user-group:
     pro:
       - family: classic
         style: solid
-  label: User Group
+  label: user Group
   search:
     terms:
       - bust
@@ -51580,7 +51580,7 @@ user-injured:
     pro:
       - family: classic
         style: solid
-  label: User Injured
+  label: user Injured
   search:
     terms:
       - employee
@@ -51612,7 +51612,7 @@ user-large:
     pro:
       - family: classic
         style: solid
-  label: User Large
+  label: user Large
   search:
     terms:
       - employee
@@ -51642,7 +51642,7 @@ user-large-slash:
     pro:
       - family: classic
         style: solid
-  label: User Large Slash
+  label: user Large Slash
   search:
     terms:
       - disabled
@@ -51673,7 +51673,7 @@ user-lock:
     pro:
       - family: classic
         style: solid
-  label: User Lock
+  label: user Lock
   search:
     terms:
       - employee
@@ -51703,7 +51703,7 @@ user-minus:
     pro:
       - family: classic
         style: solid
-  label: User Minus
+  label: user Minus
   search:
     terms:
       - delete
@@ -51735,7 +51735,7 @@ user-ninja:
     pro:
       - family: classic
         style: solid
-  label: User Ninja
+  label: user Ninja
   search:
     terms:
       - assassin
@@ -51771,7 +51771,7 @@ user-nurse:
     pro:
       - family: classic
         style: solid
-  label: User Nurse
+  label: user Nurse
   search:
     terms:
       - covid-19
@@ -51809,7 +51809,7 @@ user-pen:
     pro:
       - family: classic
         style: solid
-  label: User Pen
+  label: user Pen
   search:
     terms:
       - employee
@@ -51841,7 +51841,7 @@ user-plus:
     pro:
       - family: classic
         style: solid
-  label: User Plus
+  label: user Plus
   search:
     terms:
       - add
@@ -51881,7 +51881,7 @@ user-secret:
     pro:
       - family: classic
         style: solid
-  label: User Secret
+  label: user Secret
   search:
     terms:
       - detective
@@ -51911,7 +51911,7 @@ user-shield:
     pro:
       - family: classic
         style: solid
-  label: User Shield
+  label: user Shield
   search:
     terms:
       - employee
@@ -51940,7 +51940,7 @@ user-slash:
     pro:
       - family: classic
         style: solid
-  label: User Slash
+  label: user Slash
   search:
     terms:
       - ban
@@ -51973,7 +51973,7 @@ user-tag:
     pro:
       - family: classic
         style: solid
-  label: User Tag
+  label: user Tag
   search:
     terms:
       - employee
@@ -52002,7 +52002,7 @@ user-tie:
     pro:
       - family: classic
         style: solid
-  label: User Tie
+  label: user Tie
   search:
     terms:
       - administrator
@@ -52043,7 +52043,7 @@ user-xmark:
     pro:
       - family: classic
         style: solid
-  label: User Xmark
+  label: user Xmark
   search:
     terms:
       - archive
@@ -53850,7 +53850,7 @@ web-awesome:
   search:
     terms:
       - ' coding'
-      - ' components'
+      - ' component-js'
       - ' crown'
       - ' web'
       - awesome
