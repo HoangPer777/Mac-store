@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biểu đồ tỉ lệ bỏ giỏ hàng và mua hàng thành công</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .chart-container {
+      width: 250px;
+      height: 210px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chart-container">
+  <canvas id="myPieChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('myPieChart').getContext('2d');
+  const myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Add to Cart', 'Purchased'],
+      datasets: [{
+        data: [60, 40],  // Ví dụ: 40% bỏ giỏ hàng, 60% mua hàng thành công
+        backgroundColor: ['rgba(188, 247, 218, 1)', 'rgb(250,197,225)'],
+        borderColor: ['rgb(124,232,183)', 'rgb(189,158,176)'],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(tooltipItem) {
+              const total = tooltipItem.chart.data.datasets[tooltipItem.datasetIndex].data.reduce((a, b) => a + b, 0);
+              const currentValue = tooltipItem.raw;
+              const percentage = Math.floor((currentValue / total) * 100 + 0.5); // Tính phần trăm
+              return `${currentValue} (%)`; // Hiển thị giá trị và phần trăm
+            }
+          }
+        }
+      }
+    }
+  });
+
+</script>
+
+</body>
+</html>
