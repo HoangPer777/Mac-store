@@ -234,4 +234,11 @@ li.menu-item ul.tab li.tab-item:last-child {
 .carousel-dots .dot.active {
     background-color: #7DB642;
 }
-
+h4{
+    padding-top: 13px;
+    height: 50px;
+    background-color: #222222;
+    text-align: center;
+    justify-content: center;
+    color: white;
+}
