@@ -11,123 +11,134 @@
     <nav id="sidebar">
 
         <ul class="navbar-nav theme-brand flex-row  d-none d-lg-flex">
-            <!-- <li class="nav-item d-flex">
-                <a href="index.html" class="navbar-brand">
-                    <img src="assets/img/logo-3.png" class="img-fluid" alt="logo">
-                </a>
-                <p class="border-underline"></p>
-            </li> -->
             <li class="nav-item theme-text">
-                
-                <a href="index.html" class="nav-link"> Image Logo </a>
+                <img class="logo" src="../../../resource/Image/logo/KoNen_logoNgang_Ngang2.png" alt=" Image Logo ">
+                <a href="index.html" class="nav-link"></a>
             </li>
         </ul>
 
 
         <ul class="list-unstyled menu-categories" id="accordionExample">
-            <!-- <li class="menu">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <i class="flaticon-computer-6 ml-3"></i>
-                        <span>dashboard</span>
-                    </div>
 
-                    <div>
-                        <span class="badge badge-pill badge-secondary mr-2">7</span>
-                    </div>
-                </a>
-                <ul class="collapse submenu list-unstyled" id="dashboard" data-parent="#accordionExample">
-                    <li>
-                        <a href="index.html"> <i class="flaticon-computer-4"></i> Default </a>
-                    </li>
-                    <li>
-                        <a href="accounting_dashboard.html"> <i class="flaticon-chart-line"></i> Accounting </a>
-                    </li>
-                    <li>
-                        <a href="analytics_dashboard.html"> <i class="flaticon-computer-2"></i> Analytics </a>
-                    </li>
-                    <li>
-                        <a href="car_dashboard.html"> <i class="flaticon-car"></i> Car </a>
-                    </li>
-                    <li>
-                        <a href="classic_dashboard.html"> <i class="flaticon-computer-8"></i> Classic </a>
-                    </li>
-                    <li>
-                        <a href="stock_market_dashboard.html"> <i class="flaticon-up-chart"></i> Stock Market </a>
-                    </li>
-                    <li>
-                        <a href="cryptocurrency_dashboard.html"> <i class="flaticon-bitcoin-circle"></i> Cryptocurrency </a>
-                    </li>
-                </ul>
-            </li> -->
             <li class="menu">
-                <a href="#ecommerce" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                <a href="#ProductManagement:" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <div class="">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>Ecommerce</span>
+                        <i class="fa-solid fa-users"></i>
+                        <span>User Dashboard</span>
                     </div>
                     <div>
                         <i class="flaticon-right-arrow"></i>
                     </div>
                 </a>
+                
+            </li>
+
+            <li class="menu">
+                <a href="#ProductManagement.html" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Product Management</span>
+                    </div>
+                    
+                </a>
+                <ul class="submenu list-unstyled collapse show" id="ecommerce" data-parent="#accordionExample">
+                    <li >
+                        <a href="ecommerce_dashboard.html"> Products </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_orders.html"> Product Catalog </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_product.html"> Product Details </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_product_catalog.html"> Add/Edit Products </a>
+                    </li>
+                   
+                    <li>
+                        <a href="ecommerce_addedit_product.html"> Add/Edit Categories </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_addedit_categories.html"> Low Stock </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_view_cart.html"> Best Sellers </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_view_payments.html"> Search Terms </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_view_customers.html"> Reviews </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="menu">
+                <a href="#OrderManagement.html" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>Order Management</span>
+                    </div>
+                </a>
                 <ul class="submenu list-unstyled collapse show" id="ecommerce" data-parent="#accordionExample" style="">
                     <li >
-                        <a href="ecommerce_dashboard.html"> Dashboard </a>
+                        <a href="ecommerce_dashboard.html"> View Cart </a>
                     </li>
                     <li>
                         <a href="ecommerce_orders.html"> Orders </a>
                     </li>
                     <li>
-                        <a href="ecommerce_product.html"> Products </a>
+                        <a href="ecommerce_product.html"> Checkout </a>
                     </li>
                     <li>
-                        <a href="ecommerce_product_catalog.html"> Product Catalog </a>
+                        <a href="ecommerce_product_catalog.html"> Invoice </a>
                     </li>
                     <li>
-                        <a href="#product-details" data-toggle="collapse" aria-expanded="false" class="list-unstyled-child" data-parent="#ecommerce"> Product Details <i class="flaticon-right-arrow"></i> </a>
-                        <ul class="collapse list-unstyled sub-submenu" id="product-details">
-                            <li>
-                                <a href="ecommerce_product_details_1.html"> Product Details 1 </a>
-                            </li>
-                            <li>
-                                <a href="ecommerce_product_details_2.html"> Product Details 2 </a>
-                            </li>
-                        </ul>
+                        <a href="ecommerce_addedit_product.html"> Shipments </a>
                     </li>
                     <li>
-                        <a href="ecommerce_addedit_product.html"> Add/Edit Products </a>
+                        <a href="ecommerce_addedit_categories.html"> Products in Cart </a>
                     </li>
                     <li>
-                        <a href="ecommerce_addedit_categories.html"> Add/Edit Categories </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_view_cart.html"> View Cart </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_view_payments.html"> View Payments </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_view_customers.html"> View Customers </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_checkout.html"> Checkout </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_products_cart.html"> Products in Cart </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_best_sellers.html"> Best Sellers </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_search_terms.html"> Search Terms </a>
-                    </li>
-                    <li>
-                        <a href="ecommerce_reviews.html"> Reviews </a>
+                        <a href="ecommerce_view_cart.html"> Refunds </a>
                     </li>
                 </ul>
             </li>
             
-            
+            <li class="menu">
+                <a href="#OrderManagement.html" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-brands fa-space-awesome"></i>
+                        <span>Promotion program</span>
+                    </div>
+                </a>
+                <ul class="submenu list-unstyled collapse show" id="ecommerce" data-parent="#accordionExample" style="">
+                    <li >
+                        <a href="ecommerce_dashboard.html"> Coupons </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_orders.html"> Newsletters </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <a href="#OrderManagement.html" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        <span>Analysis</span>
+                    </div>
+                </a>
+                <ul class="submenu list-unstyled collapse show" id="ecommerce" data-parent="#accordionExample" style="">
+                    <li >
+                        <a href="ecommerce_dashboard.html"> DataTables </a>
+                    </li>
+                    <li>
+                        <a href="ecommerce_orders.html"> chart </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
 

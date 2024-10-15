@@ -28,9 +28,6 @@ html{
 }
 
 
-
-
-
 #sidebar {
     font-family: Roboto, sans-serif;
     width: 100%;
@@ -59,13 +56,6 @@ ul li {
     transition: background 0.3s;
 }
 
-
-
-ul li.active,
-ul li:hover {
-    /* background-color: #393e46; */
-}
-
 ul li a {
     color: #fff;
     text-decoration: none;
@@ -92,20 +82,9 @@ ul li a i {
     font-size: 12px;
 }
 
-/* Submenu styling */
-/* ul.submenu {
-    display: none;
-} */
 
 ul.submenu li {
-    /* background-color: #2a2a3e; */
-    /* padding-left: 35px; */
     padding: 18px 0 18px 30px;
-}
-
-ul.submenu li.active,
-ul.submenu li:hover {
-    /* background-color: #3e4455; */
 }
 
 ul.sub-submenu {
@@ -128,10 +107,6 @@ ul.sub-submenu li {
     transform: rotate(90deg);
 }
 
-/* ul.submenu.show, 
-ul.sub-submenu.show {
-    display: block;
-} */
 
 .collapse.show + ul {
     display: block;
@@ -226,4 +201,20 @@ ul.sub-submenu.show {
 
 #sidebar #accordionExample .menu ul li:hover a{
     color: #fff;
+}
+
+.navbar-nav .nav-item .logo{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.navbar-nav .nav-item {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar {
+    /* max-height: 100vh; */
+    overflow-y: auto;
 }
