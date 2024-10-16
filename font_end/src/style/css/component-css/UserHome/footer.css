@@ -16,8 +16,12 @@
   padding-right: 5px;
   width: 20%;
 }
+a{
+  text-decoration: none;
+}
 a:hover{
   color: greenyellow;
+  
 }
 .custom-link {
   color: inherit; /* Hoặc màu nào đó khác như black, red */
@@ -37,6 +41,10 @@ img:hover{
 div{
   background-color: black;
   color:aliceblue;
+  
+}
+div.container{
+  max-width: 100%;
 }
 h5{
   text-transform: uppercase;
@@ -52,4 +60,7 @@ hr {
 }
 .below_footer{
  text-align: center;
+}
+.above_footer{
+  background-color: gray;
 }
