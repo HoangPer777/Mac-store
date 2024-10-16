@@ -1,0 +1,55 @@
+.grid {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.grid_column-2-4 {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 20%;
+}
+a:hover{
+  color: greenyellow;
+}
+.custom-link {
+  color: inherit; /* Hoặc màu nào đó khác như black, red */
+  text-decoration: none;
+}
+img:hover{
+  background-color: greenyellow;
+  transition: background-color 0.3s ease-in;
+  border-radius: 40px 40px 40px 40px; 
+}
+.img-icon:hover{
+  background-color: rgb(136, 139, 133);
+  transition: background-color 0.3s ease-in;
+  border-radius: 40px 40px 40px 40px; 
+ 
+}
+div{
+  background-color: black;
+  color:aliceblue;
+}
+h5{
+  text-transform: uppercase;
+}
+li{
+  margin: 10px 0;
+}
+hr {
+  border: none;
+  height: 4px; /* Độ dày của đường ngăn cách */
+  background-color: #e8ecec; /* Màu sắc của đường ngăn cách */
+  margin: 20px 0; /* Khoảng cách trên và dưới */
+}
+.below_footer{
+ text-align: center;
+}
