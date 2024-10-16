@@ -1,6 +1,5 @@
 /* Đảm bảo .bg-secondary có màu xám và chiếm toàn bộ chiều rộng */
 .bg-secondary {
-  background-color: #6c757d !important; /* Màu xám */
   width: 100vw; /* Chiếm toàn bộ chiều rộng của màn hình */
   margin: 0; /* Bỏ margin để không có khoảng cách bên ngoài */
   padding: 20px 0; /* Thêm khoảng cách trên dưới để nội dung thoáng hơn */
@@ -12,6 +11,7 @@ div.container, .grid {
   padding-left: 0;
   padding-right: 0;
   margin: 0;
+
 }
 
 /* Giữ bố cục flex cho grid */
@@ -50,7 +50,6 @@ img:hover {
 }
 
 .img-icon:hover {
-  background-color: rgb(136, 139, 133);
   transition: background-color 0.3s ease-in;
   border-radius: 40px 40px 40px 40px;
 }
