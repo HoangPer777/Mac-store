@@ -1,0 +1,141 @@
+* {
+    background-color: #F5F5F7;
+}
+
+.product-img {
+    vertical-align: middle;
+    /* Đảm bảo ảnh thẳng hàng giữa dòng */
+    width: 24px;
+    /* Đặt kích thước ảnh phù hợp nếu cần */
+    height: auto;
+}
+
+.product-name {
+    font-size: 16px;
+    vertical-align: middle;
+    /* Đảm bảo chữ thẳng hàng với ảnh */
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.macbook-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.macbook-nav li {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.macbook-nav li:hover {
+    background-color: #7ac142;
+    transition: background-color 0.3s ease-in;
+}
+.macbook-nav a:hover {
+    background-color: #7ac142;
+    transition: background-color 0.3s ease-in;
+}
+li {
+    font-size: 10px;
+}
+
+div {
+    font-size: small;
+}
+
+img {
+    height: 180px;
+    /* Thu nhỏ ảnh */
+    object-fit: cover;
+    /* Đảm bảo ảnh không bị méo */
+}
+
+.custom-card {
+    width: 200px;
+    /* Đặt kích thước chiều rộng nhỏ hơn */
+    height: auto;
+    /* Đảm bảo chiều cao tự động thay đổi theo nội dung */
+    margin: 10px; /* Thêm margin trên và dưới */
+}
+
+
+
+.custom-card .card-body {
+    padding: 10px;
+    /* Giảm khoảng cách giữa các phần tử trong card */
+}
+
+.custom-card .card-title {
+    font-size: 14px;
+    /* Thu nhỏ tiêu đề */
+}
+
+.custom-card .card-text {
+    font-size: 9px;
+    /* Thu nhỏ nội dung */
+}
+
+div {
+    text-align: center;
+}
+
+.card.custom-card {
+    font-size: smaller;
+    /* Giảm kích thước font */
+}
+
+.cost {
+    color: red;
+}
+
+.badge-new {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #7ac142;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.badge-hot {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #D91656;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+img:hover {
+    transform: scale(1.1);
+    /* Phóng to ảnh khi rê chuột vào */
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Hiệu ứng chuyển đổi */
+}
+.all-product{
+    text-align: center;
+    font-size: 10px;
+}
+li a{
+    color: inherit; /* Xóa màu xanh, đặt màu đen */
+    text-decoration: none;
+    
+}
