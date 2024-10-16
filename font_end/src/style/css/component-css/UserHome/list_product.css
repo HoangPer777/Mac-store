@@ -1,5 +1,6 @@
 * {
     background-color: #F5F5F7;
+    overflow: hidden;
 }
 
 .product-img {
@@ -50,6 +51,7 @@ li {
 
 div {
     font-size: small;
+    overflow: hidden;
 }
 
 img {
@@ -61,10 +63,9 @@ img {
 
 .custom-card {
     width: 200px;
-    /* Đặt kích thước chiều rộng nhỏ hơn */
     height: auto;
-    /* Đảm bảo chiều cao tự động thay đổi theo nội dung */
     margin: 10px; /* Thêm margin trên và dưới */
+    overflow: hidden;
 }
 
 
