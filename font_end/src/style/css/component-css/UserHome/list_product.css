@@ -1,28 +1,26 @@
-* {
-    background-color: #F5F5F7;
-    overflow: hidden;
+
+/* General Styles */
+body {
+    background-color: #F5F5F7 !important; /* Màu xám nhạt */
+    font-family: 'Roboto', sans-serif;
+    color: #333;
 }
 
 .product-img {
     vertical-align: middle;
-    /* Đảm bảo ảnh thẳng hàng giữa dòng */
-    width: 24px;
-    /* Đặt kích thước ảnh phù hợp nếu cần */
+    width: 30px;
     height: auto;
 }
 
 .product-name {
-    font-size: 16px;
-    vertical-align: middle;
-    /* Đảm bảo chữ thẳng hàng với ảnh */
+    font-size: 24px;
     text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #222;
 }
 
 .macbook-nav {
     display: flex;
     justify-content: center;
-    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -30,113 +28,124 @@
 
 .macbook-nav li {
     margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #f0f0f0;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.macbook-nav li:hover {
-    background-color: #7ac142;
-    transition: background-color 0.3s ease-in;
+.macbook-nav a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #E5D9F2;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
+
 .macbook-nav a:hover {
     background-color: #7ac142;
-    transition: background-color 0.3s ease-in;
-}
-li {
-    font-size: 10px;
+    color: #fff;
 }
 
-div {
-    font-size: small;
-    overflow: hidden;
-}
-
-img {
-    height: 180px;
-    /* Thu nhỏ ảnh */
-    object-fit: cover;
-    /* Đảm bảo ảnh không bị méo */
-}
-
-.custom-card {
-    width: 200px;
-    height: auto;
-    margin: 10px; /* Thêm margin trên và dưới */
-    overflow: hidden;
-}
-
-
-
-.custom-card .card-body {
-    padding: 10px;
-    /* Giảm khoảng cách giữa các phần tử trong card */
-}
-
-.custom-card .card-title {
-    font-size: 14px;
-    /* Thu nhỏ tiêu đề */
-}
-
-.custom-card .card-text {
-    font-size: 9px;
-    /* Thu nhỏ nội dung */
-}
-
-div {
-    text-align: center;
+.container {
+    max-width: 1200px;
+    margin: auto;
 }
 
 .card.custom-card {
-    font-size: smaller;
-    /* Giảm kích thước font */
+    position: relative;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.card.custom-card:hover {
+    transform: translateY(-5px);
+}
+
+.card.custom-card .card-body {
+    padding: 15px;
+}
+
+.card.custom-card .card-title {
+    font-size: 16px;
+    color: #333;
+}
+
+.card.custom-card .card-text {
+    font-size: 12px;
+    color: #777;
 }
 
 .cost {
-    color: red;
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .badge-new {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     background-color: #7ac142;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
 }
 
 .badge-hot {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #D91656;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
+    background-color: #d91656;
+}
 
+img.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 img:hover {
-    transform: scale(1.1);
-    /* Phóng to ảnh khi rê chuột vào */
-    transition: transform 0.3s ease, filter 0.3s ease;
-    /* Hiệu ứng chuyển đổi */
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
-.all-product{
-    text-align: center;
-    font-size: 10px;
-}
-li a{
-    color: inherit; /* Xóa màu xanh, đặt màu đen */
+
+.all-product {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7ac142;
+    color: #fff;
     text-decoration: none;
-    
+    font-size: 14px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.all-product:hover {
+    background-color: #5a9f2d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .macbook-nav li a {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .card.custom-card {
+        margin-bottom: 20px;
+    }
+
+    img.card-img-top {
+        height: 180px;
+    }
+
+    .all-product {
+        font-size: 12px;
+    }
 }
