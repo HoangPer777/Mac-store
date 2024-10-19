@@ -61,6 +61,7 @@ li.menu-item {
     background-color var(--transition-duration) ease-in-out,
     transform var(--transition-duration) ease-in-out;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1), 1px 3px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+
 }
 
 li.menu-item:hover {
@@ -194,13 +195,16 @@ li.menu-item ul.tab li.tab-item:last-child {
     justify-content: center;
     background-color: #939393;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
     opacity: 0.2;
+    box-shadow: 0 4px 8px 1px rgba(0, 0, 0, .08);
+    transition: transform 0.3s ease;
+    transform-origin: center;
 }
 
 .carousel-nav .prev:hover,
 .carousel-nav .next:hover {
     opacity: 1;
+    transform: translateY(-50%) scale(1.2);
 }
 
 
