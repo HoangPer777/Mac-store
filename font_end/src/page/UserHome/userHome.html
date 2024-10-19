@@ -20,13 +20,13 @@
       padding: 0;
     }
 
-
     #header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: 250px;
+      z-index: 1000;
       border: none;
     }
 
@@ -40,17 +40,14 @@
       margin-top: 50px;
       height: 93.5%;
     }
-    #footer{
-      width: 100%;
-      height: 100%;
-    }
+
   </style>
 </head>
 <body>
-<iframe src="header.html" id="header"></iframe>
-<iframe src="banner.html" id="banner"></iframe>
-<iframe src="topProduct.html" id="topProducts"></iframe>
-<iframe src="listProduct.html" id = "listProduct" ></iframe>
-<iframe src="footer.html" id = "footer"></iframe>
+  <iframe src="../../components/UserHome/header.html" id="header"></iframe>
+  <iframe src="../../components/UserHome/banner.html" id="banner"></iframe>
+  <iframe src="../../components/UserHome/topProduct.html" id="topProducts"></iframe>
+  <iframe src="../../components/UserHome/listProduct.html" id = "listProduct" ></iframe>
+  <iframe src="../../components/UserHome/footer.html" id = "footer"></iframe>
 </body>
 </html>
