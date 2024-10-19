@@ -30,7 +30,8 @@ html body {
 #header {
     width: 100%;
     height: 70px;
-    background-color: white;
+    /* background-color: rgba(36, 170, 93, 0.1); */
+    background-color: rgba(204, 204, 204, 0.15);
     justify-content: space-between;
 }
 
@@ -41,6 +42,10 @@ html body {
     color: #20212D;
 }
 
+.nav_title span{
+    font-family: Roboto, sans-serif;
+    margin: 0 20px;
+}    
 
 .right_header{
     height: 100%;
@@ -50,12 +55,12 @@ html body {
     list-style: none;
     height: 100%;
     margin: 0;
-    padding: 0px 20px;
+    padding: 0px 30px;
     color: #20212D;
 }
 
 .right_header li{
-    padding: 0px 10px;
+    padding: 0px 15px;
     font-size: 22px;
     font-weight: 100;
 }
