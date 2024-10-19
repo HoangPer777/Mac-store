@@ -76,7 +76,7 @@ ul li a i {
 
 /* Badge styling */
 .badge {
-    background-color: #9c88ff;
+    background-color: #24aa5d;
     border-radius: 12px;
     padding: 2px 10px;
     font-size: 12px;
@@ -99,7 +99,7 @@ ul.sub-submenu li {
 /* Active and open menu items */
 .menu.active > a, 
 .menu.active > a:hover {
-    background-color: #9c88ff;
+    background-color: #24aa5d;
     color: white;
 }
 
@@ -133,7 +133,7 @@ ul.sub-submenu li {
 .border-underline {
     width: 50px;
     height: 3px;
-    background-color: #9c88ff;
+    background-color: #24aa5d;
     margin-left: 20px;
     margin-top: 5px;
 }
@@ -183,7 +183,7 @@ ul.sub-submenu li {
 }
 
 #sidebar #accordionExample .menu .dropdown-toggle:hover {
-    background-color: #9c88ff;
+    background-color: #24aa5d;
 }
 
 #sidebar #accordionExample .menu .dropdown-toggle:hover + ul {
@@ -195,7 +195,7 @@ ul.sub-submenu li {
 }
 
 #sidebar #accordionExample .menu ul li:hover{
-    background-color: #9c88ff;
+    background-color: #24aa5d;
     display: block;
 }
 
