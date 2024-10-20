@@ -110,10 +110,10 @@ img.card-img-top {
     border-top-right-radius: 8px;
 }
 
-img:hover {
+/* img:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
-}
+} */
 
 .all-product {
     display: inline-block;
