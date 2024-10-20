@@ -1,4 +1,6 @@
 
+// For Primary Image
+
 
 const primaryImg = document.getElementById("primary_img");
 const placeholderImg = document.getElementById("placeholder");
@@ -43,4 +45,6 @@ xIcon.addEventListener("click", (e) => {
 
 })
 
-console.log(xIcon)
+
+
+// For list Image

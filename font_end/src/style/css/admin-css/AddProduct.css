@@ -59,16 +59,19 @@ i{
     font-size: 26px;
     font-weight: bold;
     font-family: Roboto, sans-serif;
+    background-color: rgba(253, 253, 253, 0.63);
+
 }
 
 
 .content{
-    padding:0  25px;
+    padding:0 25px;
     width: 100%;
     display: flex;
-    height: 90vh;
-    background-color: rgba(243, 243, 243, 0.63);
+    min-height: 100vh;
+    background-color: rgba(253, 253, 253, 0.63);
     justify-content: space-evenly;
+    align-items: normal;
 
 
 
@@ -78,28 +81,35 @@ i{
 
 /*Left Panel*/
 .left_panel{
-    width: 20%;
-    height: 100%;
-    background-color: white;
-    padding: 0 20px;
+    width: 25%;
+    background-color: rgba(232, 232, 232, 0.25);
+    padding: 10px;
     border-radius: 15px;
 }
 
-.left_panel .title{
+
+#primary_img{
+    padding-bottom: 20px;
+    min-height: 50px;
+    height: 80%;
+    cursor: pointer;
+}
+
+
+#primary_img .title{
     padding: 10px 0;
     font-size: 18px;
     margin-bottom: 10px;
+    font-weight: 400;
+    background-color: #F7F7F7;
 
 }
 
-#primary_img{
-    padding: 10px 0;
-    height: 35%;
-    cursor: pointer;
-}
+
 #placeholder{
-    background-color: rgba(163, 163, 163, 0.25);
-    height: 100%;
+    margin: 10px 0;
+    background-color: rgb(255, 255, 255);
+    min-height: 100%;
     border-radius: 10px;
 }
 
@@ -110,6 +120,7 @@ i{
 
 #placeholder span{
     color: #818181;
+    font-size: 12px;
 }
 #display_img {
     background-color: rgba(163, 163, 163, 0.25);
@@ -121,17 +132,24 @@ i{
 
 }
 
-#image_hidden #image_input{
-    display: none;
-}
-
 
 #image_hidden{
     display: none;
     position: relative;
     width: 100%;
     height: 100%;
+    background-color: #EEF2F7;
+    border-radius: 15px;
+    margin: 10px 0;
 }
+
+
+#image_hidden #image_input{
+    display: none;
+}
+
+
+
 
 #image_hidden i{
     position: absolute;
@@ -141,7 +159,28 @@ i{
     color: #cfcfcf;
 }
 
+/* tag*/
+.tag   {
+    margin: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
 
+
+.tag label{
+    width: 100%;
+
+}
+.tag label span{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+ #options{
+    height: 40px;
+     border-radius: 5px;
+}
 
 
 
@@ -163,8 +202,71 @@ i{
 /*Right Panel*/
 .right_panel {
     width: 70%;
-    height: 100%;
-    background-color: rgba(93, 128, 214, 0.26);
-    padding: 0 10px;
+    background-color: rgba(232, 232, 232, 0.25);
+    padding: 20px 20px;
     border-radius: 15px;
+}
+
+
+
+/*photo_section*/
+.photo_section{
+    border-radius: 10px;
+    width: 100%;
+    background-color: white;
+}
+
+.photo_section>.photo_title{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 18px;
+    padding: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+
+
+
+.photo_section #photos_list{
+    padding: 20px;
+    width: 100%;
+    height: 35vh;
+}
+
+#photos_list .wrap_content{
+    border: 3px dashed #cfcfcf;
+    height: 100%;
+}
+
+
+
+#photos_placeholder{
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+}
+
+#photos_placeholder i{
+    font-size: 36px;
+    padding: 10px;
+    color: #7a7a7a;
+}
+
+#photos_placeholder .desc{
+    color: #404040;
+
+}
+
+
+#photo_hidden{
+    display: none;
+}
+
+/*section_information*/
+.section_infor{
+    width: 100%;
+    height: 60vh;
+    background-color: #0b1c2f;
 }
