@@ -17,8 +17,12 @@ h1 {
     display: flex;
     justify-content: space-between;
     padding: 20px 200px;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
-
+.product-container::-webkit-scrollbar {
+    display: none; 
+}
 .product {
     background-color: #fff;
     border: 1px solid #ddd;
