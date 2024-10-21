@@ -17,6 +17,7 @@ html, body{
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
 }
 
 .row{
@@ -38,6 +39,7 @@ html, body{
 
 i{
     color: #616060;
+
 }
 
 
@@ -48,8 +50,8 @@ i{
 
 #body{
     width: 100%;
-    height: 92%;
-    background-color: rgba(243, 243, 243, 0.26);
+    height: 100%;
+
 }
 
 .title{
@@ -57,4 +59,112 @@ i{
     font-size: 26px;
     font-weight: bold;
     font-family: Roboto, sans-serif;
+}
+
+
+.content{
+    padding:0  25px;
+    width: 100%;
+    display: flex;
+    height: 90vh;
+    background-color: rgba(243, 243, 243, 0.63);
+    justify-content: space-evenly;
+
+
+
+    /*min-height: 200px;*/
+}
+
+
+/*Left Panel*/
+.left_panel{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    padding: 0 20px;
+    border-radius: 15px;
+}
+
+.left_panel .title{
+    padding: 10px 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+
+}
+
+#primary_img{
+    padding: 10px 0;
+    height: 35%;
+    cursor: pointer;
+}
+#placeholder{
+    background-color: rgba(163, 163, 163, 0.25);
+    height: 100%;
+    border-radius: 10px;
+}
+
+#placeholder i{
+    font-size: 22px;padding: 10px;
+    color: #818181;
+}
+
+#placeholder span{
+    color: #818181;
+}
+#display_img {
+    background-color: rgba(163, 163, 163, 0.25);
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+#image_hidden #image_input{
+    display: none;
+}
+
+
+#image_hidden{
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#image_hidden i{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    color: #cfcfcf;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Right Panel*/
+.right_panel {
+    width: 70%;
+    height: 100%;
+    background-color: rgba(93, 128, 214, 0.26);
+    padding: 0 10px;
+    border-radius: 15px;
 }
