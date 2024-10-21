@@ -108,6 +108,7 @@ time, mark, audio, video {
     margin-top: 50px;
     padding-top: 10px;
     padding-left: 30px;
+    padding-bottom: 20px;
 }
 
 .table {
@@ -196,8 +197,13 @@ tr th.col-subtotal p {
     border: none;
     height: 30px;
     border-radius: 50%;
+    background-color: #d3d3d3;
 }
 
+
+.btn__remove:hover  {
+    background-color: red;
+}
 
 .table .col-quantity input {
     max-width: 60px;
@@ -210,7 +216,7 @@ tr th.col-subtotal p {
 }
 
 .table .cart-remove i {
-    color: #999;
+    color: #fff;
     font-size: 18px;
 }
 
@@ -221,6 +227,7 @@ tr th.col-subtotal p {
 /* Coupon and buttons section */
 .form-row {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .form-group {
@@ -229,7 +236,7 @@ tr th.col-subtotal p {
 }
 
 .form-group.col-md-4 {
-    width: 30%;
+    width: 32%;
 }
 
 .form-group.text-md-right {
@@ -251,11 +258,14 @@ input.form-control {
 
 .btn-outline-dark {
     border: 1px solid #ccc;
-    color: #000;
 }
 
 .btn-outline-dark:hover {
-    background-color: #333;
+    background-color: var(--primary-color);
+    
+}
+
+.btn-outline-dark:hover span {
     color: #fff;
 }
 
@@ -266,18 +276,85 @@ input.form-control {
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: red;
+}    
+.btn-primary:hover span{
+    font-weight: 600;
 }
 
-/* Tooltip styling */
-.flaticon-question {
+.form-row .form-group a {
+    text-decoration: none;
+    color: #757575;
+
+}
+
+.form-row :last-child a {
+    color: #fff;
+}
+
+.view-cart-table{
+    padding-right: 30px;
+}
+.view-cart-table td {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+
+/* .flaticon-question {
     color: #ccc;
     font-size: 12px;
     cursor: pointer;
+} */
+
+/* total table */
+.cart-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 50px auto 20px auto;
 }
 
-.flaticon-question:hover {
-    color: #007bff;
+.cart-table td {
+    padding: 20px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
 }
+
+.cart-table td:first-child {
+    font-weight: 100;
+}
+
+.cart-table .text-right {
+    text-align: right;
+    font-size: 16px;
+    color: #9899a4;
+    text-decoration: none;
+}
+
+
+
+.cart-table td:last-child {
+    font-weight: 100;
+}
+
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.text-right {
+    text-align: right;
+    margin: 50px;
+}
+
+.col-md-12 .text-right a{
+    text-decoration: none;
+}
+
+
 
        
