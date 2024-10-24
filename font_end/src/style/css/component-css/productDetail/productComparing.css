@@ -1,4 +1,6 @@
-/* Path: ../../style/css/component-css/productDetail/productComparing.css */
+
+
+/* Đảm bảo toàn bộ trang tuân theo màu sắc chủ đạo trắng và xám */
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -6,6 +8,7 @@ body {
     padding: 0;
 }
 
+/* Container của bảng so sánh */
 .comparison-container {
     max-width: 1200px;
     margin: 20px auto;
@@ -15,6 +18,7 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Tiêu đề bảng */
 h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -22,109 +26,93 @@ h1 {
     color: #333;
 }
 
-.product-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-.product-card {
-    width: 100%;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 15px;
-    flex: 1;
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #eaeaea;
-}
-
-.product-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #333;
-}
-
-.product-price {
-    color: #ff5722;
-    font-size: 20px;
-    margin: 5px 0;
-}
-
-.product-original-price {
-    text-decoration: line-through;
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
-}
-
-.product-button {
-    display: inline-block;
-    margin: 10px 0;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.product-specs {
-    text-align: left;
-    margin-top: 10px;
-}
-
-.product-specs div {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #555;
-}
-
-/* Table comparison section */
+/* Bảng so sánh */
 .comparison-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-}
-
-.comparison-table th,
-.comparison-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
     font-size: 14px;
+    color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF; /* Nền trắng chủ đạo */
 }
 
-.comparison-table th {
-    background-color: #f0f0f0;
+/* Đầu bảng */
+.comparison-table thead th {
+    background-color: #4CAF50;  /* Xanh đậm */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Đường viền mềm mại và đồng đều */
+.comparison-table th, 
+.comparison-table td {
+    padding: 12px 15px;
+    border: 1px solid #CCCCCC;  /* Border xám đậm */
+    text-align: center;
+    vertical-align: middle;
+    background-color: #fff; /* Nền trắng cho ô */
+    transition: background-color 0.3s ease;
+}
+
+/* Màu nền cho các hàng chẵn */
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;  /* Xám nhạt */
+}
+
+/* Đảm bảo các ô trong bảng có kích thước đồng đều */
+.comparison-table td {
+    background-color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+/* Màu xám cho các hàng nổi bật (row-gray) */
+.comparison-table .row-gray {
+    background-color: #E0E0E0;  /* Xám nhạt hơn */
+}
+
+/* Tùy chỉnh hình ảnh */
+.comparison-table img {
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Hiệu ứng hover trên các ô */
+.comparison-table tbody td:hover {
+    background-color: #eaeaea;  /* Xám nhạt khi hover */
+}
+
+/* Màu sắc đặc biệt cho ô có giá sản phẩm */
+.comparison-table .product-price {
+    color: #ff5722;
+    font-size: 18px;
     font-weight: bold;
 }
 
-.comparison-table td {
-    background-color: #fff;
+/* Giá gốc */
+.comparison-table .product-original-price {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 12px;
 }
 
-.comparison-table .highlight {
-    background-color: #ffeb3b;
-}
-
+/* Responsive khi màn hình nhỏ */
 @media screen and (max-width: 768px) {
-    .product-grid {
-        flex-direction: column;
-    }
-
-    .product-card {
-        margin-bottom: 20px;
-    }
-
-    .comparison-table {
+    .comparison-table th,
+    .comparison-table td {
         font-size: 12px;
+        padding: 8px;
+    }
+
+    .comparison-table img {
+        max-height: 50px;
     }
 }
