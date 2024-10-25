@@ -59,16 +59,19 @@ i{
     font-size: 26px;
     font-weight: bold;
     font-family: Roboto, sans-serif;
+    background-color: rgb(240, 240, 240);
+
 }
 
 
 .content{
-    padding:0  25px;
+    padding:0 25px;
     width: 100%;
     display: flex;
-    height: 90vh;
-    background-color: rgba(243, 243, 243, 0.63);
+    min-height: 100vh;
+    background-color: rgb(240, 240, 240);
     justify-content: space-evenly;
+    align-items: normal;
 
 
 
@@ -78,38 +81,47 @@ i{
 
 /*Left Panel*/
 .left_panel{
-    width: 20%;
-    height: 100%;
-    background-color: white;
-    padding: 0 20px;
+    width: 25%;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px;
     border-radius: 15px;
 }
 
-.left_panel .title{
-    padding: 10px 0;
-    font-size: 18px;
-    margin-bottom: 10px;
-
-}
 
 #primary_img{
-    padding: 10px 0;
-    height: 35%;
+    padding-bottom: 20px;
+    min-height: 50px;
+    height: 300px;
     cursor: pointer;
 }
+
+
+#primary_img .title{
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    background-color: #ffffff;
+
+}
+
+
 #placeholder{
-    background-color: rgba(163, 163, 163, 0.25);
-    height: 100%;
+    margin: 10px 0;
+    background-color: rgb(228, 228, 228);
+    height: 300px;
     border-radius: 10px;
 }
 
 #placeholder i{
-    font-size: 22px;padding: 10px;
-    color: #818181;
+    font-size: 28px;
+    padding: 10px;
+    color: #ffffff;
 }
 
 #placeholder span{
-    color: #818181;
+    color: #505050;
+    font-size: 16px;
 }
 #display_img {
     background-color: rgba(163, 163, 163, 0.25);
@@ -118,11 +130,8 @@ i{
     object-fit: cover;
     width: 100%;
     overflow: hidden;
+    border: 1px solid rgba(221, 221, 221, 0.83);
 
-}
-
-#image_hidden #image_input{
-    display: none;
 }
 
 
@@ -131,7 +140,18 @@ i{
     position: relative;
     width: 100%;
     height: 100%;
+    background-color: #EEF2F7;
+    border-radius: 15px;
+    margin: 10px 0;
 }
+
+
+#image_hidden #image_input{
+    display: none;
+}
+
+
+
 
 #image_hidden i{
     position: absolute;
@@ -141,7 +161,29 @@ i{
     color: #cfcfcf;
 }
 
+/* tag*/
+.tag   {
+    margin: 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
 
+
+.tag label{
+    width: 100%;
+
+}
+.tag label span{
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0;
+}
+ #options{
+    height: 40px;
+     border-radius: 5px;
+     border: 1px solid rgb(221, 221, 221);
+}
 
 
 
@@ -163,8 +205,128 @@ i{
 /*Right Panel*/
 .right_panel {
     width: 70%;
-    height: 100%;
-    background-color: rgba(93, 128, 214, 0.26);
-    padding: 0 10px;
+    background-color: rgba(232, 232, 232, 0.25);
+    padding: 20px 20px;
     border-radius: 15px;
+}
+
+
+
+/*photo_section*/
+.photo_section{
+    border-radius: 10px;
+    width: 100%;
+    background-color: white;
+}
+
+.photo_section>.photo_title{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 18px;
+    padding: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+
+
+
+.photo_section #photos_list{
+    padding: 20px;
+    width: 100%;
+    height: 35vh;
+}
+
+#photos_list .wrap_content{
+    border: 3px dashed #cfcfcf;
+    height: 100%;
+}
+
+
+
+#images_placeholder{
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+}
+
+#images_placeholder i{
+    font-size: 36px;
+    padding: 10px;
+    color: #7a7a7a;
+}
+
+#images_placeholder .desc{
+    color: #404040;
+
+}
+
+
+#images_placeholder #input_list_image{
+    display: none;
+}
+
+
+#list_image_hidden{
+    /*display: none;*/
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#list_image_hidden #add_more{
+    height: 150px;
+    width: 180px;
+    background-color: rgba(191, 191, 191, 0.29);
+    border-radius: 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#add_more i{
+    margin: 0 10px;
+    font-size: 22px;
+}
+
+
+#list_image_hidden .image_wrap{
+    height: 150px;
+    width: 180px;
+    margin: 0 10px;
+    padding: 15px;
+    background-color: rgba(191, 191, 191, 0.29);
+    border-radius: 15px;
+}
+
+
+
+#list_image_hidden .image_item{
+    height:100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*section_information*/
+.section_infor{
+    width: 100%;
+    height: 60vh;
+    background-color: #0b1c2f;
 }

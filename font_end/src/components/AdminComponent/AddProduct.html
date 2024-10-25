@@ -11,34 +11,110 @@
 
 <div id="body">
 
-  <div class="title">
-    <span>Add Product</span>
-  </div>
+    <div class="title">
+        <span>Add Product</span>
+    </div>
 
     <div class="content row mid_align">
-        <div class="left_panel">
+        <div class="left_panel col">
 
+            <div class="wrap_content">
 
-            <div id="primary_img">
-                <span class="title"   >Primary Image</span>
+                <div id="primary_img">
+                    <span class="title">Primary Image</span>
 
-                <div id="placeholder" class=" mid_align">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <span>Upload Primary Image </span>
+                    <div id="placeholder" class=" mid_align col">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>Upload Primary Image </span>
+                    </div>
+
+                    <div id="image_hidden">
+                        <i id="remove_img" class="fa-regular fa-circle-xmark"></i>
+                        <img id="display_img" src="#" alt="" srcset="">
+                        <input id="image_input" type="file" name="">
+                    </div>
+
                 </div>
 
-                <div id="image_hidden">
-                    <i id="remove_img" class="fa-regular fa-circle-xmark"></i>
-                    <img id="display_img" src="#" alt="" srcset="">
-                    <input id="image_input" type="file" name="" >
-                </div>
 
+                <div class="tag col">
+                    <label for="options" class="col">
+                        <span>Product Tag</span>
+                    </label>
+                    <select name="options" id="options">
+                        <!--                    <option class="ops_item" value="">tag 1</option>-->
+                        <!--                    <option class="ops_item" value="">tag 2</option>-->
+                        <!--                    <option class="ops_item" value="">tag 3</option>-->
+                        <!--                    <option class="ops_item" value="">tag 4</option>-->
+                    </select>
+
+                </div>
             </div>
 
 
         </div>
+
+
         <div class="right_panel">
-            fd
+
+            <div class="photo_section">
+                <div class="photo_title">
+                    Add Product Photo
+                </div>
+
+
+                <div id="photos_list">
+                    <div class="wrap_content">
+
+<!--                        <div id="images_placeholder" class="mid_align col">-->
+<!--                            <i class="fa-solid fa-cloud-arrow-up"></i>-->
+<!--                            <h3 class="desc">Drop your images here, or click to browser</h3>-->
+<!--                            <h6 class="desc"> 1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed</h6>-->
+<!--                            <input type="file" id="input_list_image" accept="image/*" multiple>-->
+
+<!--                        </div>-->
+
+
+
+                        <div id="list_image_hidden" class="mid_align">
+                            <div id="add_more" class=" mid_align">
+                                <input type="file" id="input_more" accept="image/*" multiple style="display: none">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Add More</span>
+                            </div>
+
+
+
+
+
+                            //Note : đang add thêm cái icon delete cho từng image
+                            <div class="image_wrap">
+                                <i class="remove_item fa-regular fa-circle-xmark"></i>
+                                <img class="image_item" src="../../../resource/Image/mba13-m3-midnight-gallery1-202402.jpeg"  alt=""/>
+                            </div>
+
+
+                            <div class="image_wrap">
+                                <img class="image_item" src="../../../resource/Image/mba13-m3-midnight-gallery1-202402.jpeg"  alt=""/>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="section_infor">
+
+            </div>
+
+
         </div>
     </div>
 
