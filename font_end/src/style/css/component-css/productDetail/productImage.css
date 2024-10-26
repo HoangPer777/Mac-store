@@ -1,15 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
 }
-
-.product-detail {
-    text-align: center;
-    padding: 20px;
-}
-
 .breadcrumbs {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .breadcrumbs a {
@@ -21,7 +25,11 @@ body {
     text-decoration: underline;
 }
 
-/* Product Gallery */
+.product-detail {
+    text-align: center;
+    padding: 20px;
+}
+
 .product-gallery {
     position: relative;
     display: inline-block;
@@ -30,53 +38,41 @@ body {
 .product-image {
     max-width: 500px;
     width: 100%;
-    height: 100%;
 }
 
 .carousel button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-}
-.carousel .prev,
-.carousel .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: #939393;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.3s, background-color 0.3s;
+    padding: 10px 15px;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
-    opacity: 0.2;
-    box-shadow: 0 4px 8px 1px rgba(0, 0, 0, .08);
-}
-.carousel .prev:hover,
-.carousel .next:hover {
-    opacity: 1;
-}
-.prev {
-    left: -40px;
+    margin: 0 20px;
 }
 
-.next {
-    right: -40px;
+.carousel .prev {
+    left: -150px;
+}
+
+.carousel .next {
+    right: -150px;
+}
+
+.carousel button:hover {
+    opacity: 1;
 }
 
 .image-count {
+    font-size: 14px;
+    color: #555;
     margin-top: 10px;
 }
-
 
 .color-selector {
     display: flex;
@@ -86,42 +82,31 @@ body {
 
 .color-option {
     text-align: center;
-    margin: 0 10px;
+    margin: 0 5px;
     cursor: pointer;
-    padding: 5px;
-    border: 1px solid #939393;
+    padding: 8px;
+    border: 2px solid transparent;
     border-radius: 10px;
-    transition: border 0.3s, background-color 0.3s;
-    width: 70px;
-    height: 90px;
-    display: flex;
+    width: 100px;
+    height: 110px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    transition: border-color 0.3s, background-color 0.3s;
 }
 
 .color-option img {
     width: 60px;
     height: 60px;
-    border-radius: 10px;
-    transition: border 0.3s;
+    border-radius: 5px;
 }
 
 .color-option span {
-    display: block;
-    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
 }
 
-.color-option:hover {
+.color-option:hover, .color-option.selected {
     border-color: #007bff;
-    background-color: #e0f0ff;
-}
-
-.color-option.selected {
-    border-color: #007bff;
-    background-color: #e0f0ff;
-}
-
-.color-option.selected img {
-    border-color: #007bff;
+    background-color: #f0f8ff;
 }
