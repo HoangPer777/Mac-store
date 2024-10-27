@@ -6,7 +6,7 @@
 }
 html, body{
     width: 100%;
-    height: 100%;
+
 }
 
 /*Reuse*/
@@ -45,13 +45,12 @@ i{
 
 
 
-
 /*Body*/
 
 #body{
     width: 100%;
-    height: 100%;
 
+    margin-bottom: 100px;
 }
 
 .title{
@@ -85,6 +84,7 @@ i{
     background-color: rgb(255, 255, 255);
     padding: 10px 20px;
     border-radius: 15px;
+    max-height: 80vh;
 }
 
 
@@ -206,8 +206,9 @@ i{
 .right_panel {
     width: 70%;
     background-color: rgba(232, 232, 232, 0.25);
-    padding: 20px 20px;
+    padding: 0 20px 50px 20px;
     border-radius: 15px;
+    overflow: visible;
 }
 
 
@@ -234,7 +235,7 @@ i{
 .photo_section #photos_list{
     padding: 20px;
     width: 100%;
-    height: 35vh;
+    height: 220px;
 }
 
 #photos_list .wrap_content{
@@ -269,7 +270,7 @@ i{
 
 
 #list_image_hidden{
-    /*display: none;*/
+    display: none;
     justify-content: flex-start;
     height: 100%;
     padding: 0 10px;
@@ -278,8 +279,9 @@ i{
 }
 
 #list_image_hidden #add_more{
-    height: 150px;
-    width: 180px;
+    height: 60px;
+    width: 80px;
+    font-size: 12px;
     background-color: rgba(191, 191, 191, 0.29);
     border-radius: 15px;
     margin: 0 10px;
@@ -288,8 +290,8 @@ i{
 }
 
 #add_more i{
-    margin: 0 10px;
-    font-size: 22px;
+    margin-right:5px;
+    font-size: 12px;
 }
 
 
@@ -300,8 +302,8 @@ i{
     padding: 15px;
     background-color: rgba(191, 191, 191, 0.29);
     border-radius: 15px;
+    position: relative;
 }
-
 
 
 #list_image_hidden .image_item{
@@ -309,24 +311,128 @@ i{
     width: 100%;
     object-fit: cover;
     border-radius: 5px;
-
     flex-shrink: 0;
 
 }
 
-
-
-
-
-
-
-
-
-
-
-/*section_information*/
-.section_infor{
-    width: 100%;
-    height: 60vh;
-    background-color: #0b1c2f;
+#list_image_hidden .remove_item{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+    /*section_information*/
+.section_infor, .section_price{
+    width: 100%;
+    /*min-height: 60vh;*/
+    padding: 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.section_infor_title{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 18px;
+    padding: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.infor_item{
+    padding-top: 20px  ;
+    gap: 0;
+}
+
+
+.infor_item label{
+    /*flex: 1;*/
+    flex: 1 1 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+}
+
+
+
+
+.infor_item label span{
+    display: flex;
+    justify-content: flex-start;
+    color: rgba(0, 0, 0, 0.81);
+    font-size: 14px;
+    padding: 0 0 10px 10px;
+}
+.infor_item input{
+    height:35px;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    padding: 0 10px;
+
+}
+.infor_item input::placeholder{
+    color: #cfcfcf;
+
+
+}
+
+#desc{
+   height: 150px;
+    padding: 5px;
+    resize: none;
+    border: 1px solid #cfcfcf;
+
+}
+
+
+.btns{
+    width: 100%;
+    height: 70px;
+    margin-top: 20px;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.btns button:active {
+    transform: scale(0.98);
+}
+
+.btns button:hover {
+    opacity: 0.9;
+}
+
+
+#add_btn{
+    width: 120px;
+    margin: 0 10px;
+    color: white;
+    background-color: #24AA5D;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+#btn_cancel{
+    width: 80px;
+    margin: 0 10px;
+    color: white;
+    background-color: #a6a6a6;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
