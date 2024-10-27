@@ -80,13 +80,46 @@ input_list_image.addEventListener("change", (e) => {
             const reader = new FileReader();
             reader.onload = function (e) {
 
+                // const img = document.createElement("img");
+                // img.src = e.target.result.toString();
+                // img.alt = file.name;
+                // img.classList.add("image_item");
+                // list_image_hidden.appendChild(img);
+                // images_placeholder.style.display = "none";
+                // list_image_hidden.style.display = "flex";
+
+
+                //Create wrap image
+                const wrap_image = document.createElement("div");
+                wrap_image.classList.add("image_wrap");
+
+                // Create img
                 const img = document.createElement("img");
                 img.src = e.target.result.toString();
                 img.alt = file.name;
                 img.classList.add("image_item");
-                list_image_hidden.appendChild(img);
+                wrap_image.appendChild(img);
+
+                // Create delete btn
+                const delete_btn =document.createElement("i");
+                delete_btn.classList.add("remove_item","fa-regular","fa-circle-xmark");
+                wrap_image.appendChild(delete_btn);
+
+                delete_btn.addEventListener("click", (e) => {
+                    list_image_hidden.removeChild(delete_btn.parentElement);
+                    if (list_image_hidden.childElementCount ===1 ){
+                        images_placeholder.style.display = "flex";
+                        list_image_hidden.style.display = "none";
+                    }
+                })
+
+
+
+
+                list_image_hidden.appendChild(wrap_image);
                 images_placeholder.style.display = "none";
                 list_image_hidden.style.display = "flex";
+
 
             }
             reader.readAsDataURL(file);
@@ -113,11 +146,34 @@ input_more.addEventListener("change", (e) => {
             const reader = new FileReader();
             reader.onload = function (e) {
 
+                //Create wrap image
+                const wrap_image = document.createElement("div");
+                wrap_image.classList.add("image_wrap");
+
+                // Create img
                 const img = document.createElement("img");
                 img.src = e.target.result.toString();
                 img.alt = file.name;
-                img.classList.add("image_item a ds ef");
-                list_image_hidden.appendChild(img);
+                img.classList.add("image_item");
+                wrap_image.appendChild(img);
+
+                // Create delete btn
+                 const delete_btn =document.createElement("i");
+                 delete_btn.classList.add("remove_item","fa-regular","fa-circle-xmark");
+                 wrap_image.appendChild(delete_btn);
+
+                 delete_btn.addEventListener("click", (e) => {
+                     list_image_hidden.removeChild(delete_btn.parentElement);
+                     if (list_image_hidden.childElementCount ===1 ){
+                         images_placeholder.style.display = "flex";
+                         list_image_hidden.style.display = "none";
+                     }
+                 })
+
+
+
+
+                list_image_hidden.appendChild(wrap_image);
                 images_placeholder.style.display = "none";
                 list_image_hidden.style.display = "flex";
 
