@@ -14,7 +14,7 @@ body {
 }
 
 .product-card {
-    padding: 20px;
+    padding-top: 20px;
     width: 400px;
     border-radius: 10px;
 }
@@ -46,14 +46,19 @@ body {
 }
 
 .black {
-    background-color: #333;
+    background-color: #1e3047;
     color: #fff;
 }
 
 .silver {
     background-color: #e0e0e0;
 }
-
+.yellow{
+    background-color: yellow;
+}
+.grey{
+    background-color: grey;
+}
 .price-section {
     display: flex;
     justify-content: space-between;
