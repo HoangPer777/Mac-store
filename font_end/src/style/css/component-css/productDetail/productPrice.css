@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.product-card {
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.product-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-id {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.color-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.color-btn {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.black {
+    background-color: #333;
+    color: #fff;
+}
+
+.silver {
+    background-color: #e0e0e0;
+}
+
+.price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.buy-now-price p,
+.installment-price p {
+    font-size: 14px;
+    color: #555;
+}
+
+.buy-now-price h3,
+.installment-price h3 {
+    font-size: 22px;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.student-discount {
+    background-color: #fff4f4;
+    padding: 15px;
+    border: 1px solid #ffd6d6;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.special-offer {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.discount-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.verify-btn {
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.discount-rates {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.discount-amount {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+.warranty-section {
+    margin-bottom: 20px;
+}
+
+.warranty-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.warranty-options {
+    display: flex;
+    gap: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.warranty-btn {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.warranty-btn span {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cart-btn {
+    background-color: #fff;
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.buy-now-btn, .installment-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buy-now-btn {
+    background-color: #d32f2f;
+    color: #fff;
+}
+
+.installment-btn {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.installment-btn span {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.contact-info {
+    font-size: 14px;
+    text-align: center;
+    color: #555;
+}
+
+.contact-info span {
+    font-weight: bold;
+    color: #d32f2f;
+}
+.student-discount::before {
+    content: "🎓 Đặc quyền học sinh - sinh viên - giáo viên";
+    position: absolute;
+    top: -12px;
+    background-color: #ff8a8a;
+    color: #fff;
+    font-size: 14px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    left: -2%;
+}
+.student-discount {
+    background-color: #fff7f7;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ffd6d6;
+    display: flex;
+    flex-direction: column;
+     margin-bottom: 20px;
+    position: relative;
+}
