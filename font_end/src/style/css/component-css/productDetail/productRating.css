@@ -12,7 +12,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f3f4f6;
+    background-color: #FFFFFF;
 }
 
 /* Product review container */
@@ -21,7 +21,6 @@ body {
     max-width: 450px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     background-color: #fff;
 }
 
@@ -52,7 +51,6 @@ body {
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
 }
 
@@ -81,7 +79,7 @@ body {
 }
 
 .star {
-    font-size: 20px;
+    font-size: 30px;
     color: #ccc;
     background-color: transparent;
     border: none;
