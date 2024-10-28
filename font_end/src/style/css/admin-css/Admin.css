@@ -8,6 +8,7 @@
 html, body{
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 
@@ -77,6 +78,7 @@ i{
 .main  {
     width: 85% ;
 
+
 }
 
 #header{
@@ -98,7 +100,7 @@ i{
 
 #body{
     width: 100%;
-    height: 90%;
+    height: 100%;
     background-color: rgba(243, 243, 243, 0.26);
 }
 
