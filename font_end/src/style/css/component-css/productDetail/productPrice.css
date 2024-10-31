@@ -59,6 +59,7 @@ body {
 .grey{
     background-color: grey;
 }
+
 .price-section {
     display: flex;
     justify-content: space-between;
@@ -221,7 +222,7 @@ body {
     color: #d32f2f;
 }
 .student-discount::before {
-    content: "🎓 Đặc quyền học sinh - sinh viên - giáo viên";
+    content: "🎓 Student - student - teacher privileges ";
     position: absolute;
     top: -12px;
     background-color: #ff8a8a;
