@@ -186,13 +186,6 @@ ul.sub-submenu li {
     background-color: #24aa5d;
 }
 
-#sidebar #accordionExample .menu .dropdown-toggle:hover + ul {
-    display: block;
-}
-
-#sidebar #accordionExample .menu ul:hover{
-    display: block;
-}
 
 #sidebar #accordionExample .menu ul li:hover{
     background-color: #24aa5d;
