@@ -207,9 +207,7 @@ tr th.col-remove p {
 }
 
 
-.btn__remove:hover  {
-    background-color: red;
-}
+
 
 .table .col-stock input {
     max-width: 60px;
@@ -248,9 +246,6 @@ tr th.col-remove p {
     width: 90%;
 }
 
-/* .form-group {
-    width: 32%;
-} */
 
 .form-group.text-md-right {
     margin-top: 10px;
@@ -297,9 +292,13 @@ input.form-control {
 }
 
 .btn-primary:hover {
-    background-color: red;
+    cursor: pointer;
 }    
 .btn-primary:hover span{
+    font-weight: 600;
+}
+
+.btn-primary:hover{
     font-weight: 600;
 }
 
@@ -410,4 +409,17 @@ td .action .action-remove a i {
 
 td .action .action-edit {
     margin-right: 20px;
+}
+
+.action .action-edit:hover{
+    background-color: var(--primary-color);
+}
+
+.action .action-remove:hover{
+    background-color: red;
+}
+
+.action .action-edit:hover a i, 
+.action .action-remove:hover a i {
+    color: #fff;
 }
