@@ -10,12 +10,10 @@
 <body>
     <div class="container">
         <div class="title">
-            <span>Add Product</span>
+            <span>View category</span>
         </div>
         
        <div id="container__status">
-            
-    
             <div class="status padding-page">
                 <div class="status__totalItems status__block">
                     <div class="container__text">
@@ -79,94 +77,223 @@
                                 <th class="col-thumbnail">
                                     <p>Product</p>  
                                 </th>
-                                <th class="col-title"></th>
+                                <th class="col-id">
+                                    <p>Product id</p>
+                                </th>
                                 <th class="col-price">
                                     <p>Price</p>
                                 </th>
-                                <th class="col-quantity">
-                                    <p>Quantity</p>
+                                <th class="col-stock">
+                                    <p>Stock</p>
                                 </th>
-                                <th class="col-subtotal">
-                                    <p>Total</p>
+                                <th class="col-manager">
+                                    <p>Manager</p>
                                 </th>
-                                <th class="col-remove"></th>
+                                <th class="col-remove">
+                                    <p>Action</p>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="product">
                                     <a href="#">
                                         <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
-                                    </a></td>
-                                <td>
-                                    <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
-                                    <p><small>Color : while | Ram : 8gb</small></p>
-                                </td>
-                                <td>$3000.00</td>
-                                <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="1">
-                                </td>
-                                <td>$3000.00</td>
-                                <td class="cart-remove text-center">
-                                    <button class="btn__remove">
-                                        <a href="#"><i class="fa-solid fa-xmark"></i></a>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="#">
-                                        <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
+                                        <div>
+                                            <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
+                                            <p><small>Color : while | Ram : 8gb</small></p>
+                                        </div>
                                     </a>
                                 </td>
+                                <td>#Mac-01</td>
+                                <td>$3000.00</td>
                                 <td>
-                                    <h6 class="mb-0"><a href="#">MacBook pro M1</a></h6>
-                                    <p><small>Color : while | Ram : 8gb</small></p>
+                                    <input class="form-control" type="number" step="1" min="1" value="1234">
                                 </td>
-                                <td>$4000.00</td>
-                                <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="1">
-                                </td>
-                                <td>$4000.00</td>
-                                <td class="cart-remove text-center">
-                                    <button class="btn__remove">
-                                        <a href="#"><i class="fa-solid fa-xmark"></i></a>
-                                    </button>
+                                <td>Jane Smith</td>
+                                <td >
+                                    <div class="action">
+                                        <div class="action-edit">
+                                            <a class="btn btn-edit">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action-remove">
+                                            <a class="btn btn-remove">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                       </div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td><a href="#">
-                                    <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
-                                </a></td>
-                                <td>
-                                    <h6 class="mb-0"><a href="#">MacBook pro M2</a></h6>
-                                    <p><small>Color : while | Ram : 16gb</small></p>
+                                <td class="product">
+                                    <a href="#">
+                                        <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
+                                        <div>
+                                            <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
+                                            <p><small>Color : while | Ram : 8gb</small></p>
+                                        </div>
+                                    </a>
                                 </td>
-                                <td>$4500.00</td>
+                                <td>#Mac-01</td>
+                                <td>$3000.00</td>
                                 <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="1">
+                                    <input class="form-control" type="number" step="1" min="1" value="1234">
                                 </td>
-                                <td>$4500.00</td>
-                                <td class="cart-remove text-center">
-                                    <button class="btn__remove">
-                                        <a href="#"><i class="fa-solid fa-xmark"></i></a>
-                                    </button>
+                                <td>Jane Smith</td>
+                                <td >
+                                    <div class="action">
+                                        <div class="action-edit">
+                                            <a class="btn btn-edit">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action-remove">
+                                            <a class="btn btn-remove">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                       </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="product">
+                                    <a href="#">
+                                        <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
+                                        <div>
+                                            <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
+                                            <p><small>Color : while | Ram : 8gb</small></p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>#Mac-01</td>
+                                <td>$3000.00</td>
+                                <td>
+                                    <input class="form-control" type="number" step="1" min="1" value="1234">
+                                </td>
+                                <td>Jane Smith</td>
+                                <td >
+                                    <div class="action">
+                                        <div class="action-edit">
+                                            <a class="btn btn-edit">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action-remove">
+                                            <a class="btn btn-remove">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                       </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="product">
+                                    <a href="#">
+                                        <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
+                                        <div>
+                                            <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
+                                            <p><small>Color : while | Ram : 8gb</small></p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>#Mac-01</td>
+                                <td>$3000.00</td>
+                                <td>
+                                    <input class="form-control" type="number" step="1" min="1" value="1234">
+                                </td>
+                                <td>Jane Smith</td>
+                                <td >
+                                    <div class="action">
+                                        <div class="action-edit">
+                                            <a class="btn btn-edit">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action-remove">
+                                            <a class="btn btn-remove">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                       </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="product">
+                                    <a href="#">
+                                        <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
+                                        <div>
+                                            <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
+                                            <p><small>Color : while | Ram : 8gb</small></p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>#Mac-01</td>
+                                <td>$3000.00</td>
+                                <td>
+                                    <input class="form-control" type="number" step="1" min="1" value="1234">
+                                </td>
+                                <td>Jane Smith</td>
+                                <td >
+                                    <div class="action">
+                                        <div class="action-edit">
+                                            <a class="btn btn-edit">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action-remove">
+                                            <a class="btn btn-remove">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                       </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="product">
+                                    <a href="#">
+                                        <img class="product-thumbnail img-fluid" src="../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
+                                        <div>
+                                            <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
+                                            <p><small>Color : while | Ram : 8gb</small></p>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>#Mac-01</td>
+                                <td>$3000.00</td>
+                                <td>
+                                    <input class="form-control" type="number" step="1" min="1" value="1234">
+                                </td>
+                                <td>Jane Smith</td>
+                                <td >
+                                    <div class="action">
+                                        <div class="action-edit">
+                                            <a class="btn btn-edit">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </a>
+                                        </div>
+                                        <div class="action-remove">
+                                            <a class="btn btn-remove">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                       </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
                     <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <input class="form-control" type="text" placeholder="Coupon Code">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="product id: ">
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group">
                             <a class="btn btn-outline-dark btn-rounded" >
-                                <span>Apply Coupon</span>
+                                <span>Search product</span>
                             </a>
-                            <!-- <i class="fa-solid fa-question"></i> -->
                         </div>
-                        <div class="form-group col-md-4 text-md-right">
+                        <div class="form-group text-md-right">
                             <a class="btn btn-primary btn-rounded" >
                                 <span>Update Cart</span>
                             </a>
@@ -178,11 +305,11 @@
                             <table class="table cart-table">
                                 <tbody>
                                     <tr>
-                                        <td>Subtotal</td>
+                                        <td>Total Stock</td>
                                         <td class="text-right">$21.00</td>
                                     </tr>
                                     <tr>
-                                        <td>Discount</td>
+                                        <td>Price</td>
                                         <td class="text-right">$1.00</td>
                                     </tr>
                                     <tr>
