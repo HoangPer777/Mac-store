@@ -115,7 +115,7 @@ time, mark, audio, video {
     width: 100%;
     margin-bottom: 20px;
     border-collapse: separate;
-    border-spacing: 0 15px; 
+    border-spacing: 0 10px; 
 }
 
 .table thead th {
@@ -124,23 +124,17 @@ time, mark, audio, video {
     padding: 10px 0;
 }
 
-.table tbody tr th{
-    /* border-top: 1px solid #e6e6e6; */
-    /* background-color: white; */
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  */
-}
 
 .table td {
     vertical-align: middle;
-    /* padding: 15px 0; */
 }
 
 .table .product-thumbnail {
-    max-width: 80px;
+    max-width: 70px;
     border-radius: 8px;
 }
 
-.table .col-title h6 {
+.table .col-id h6 {
     font-size: 16px;
     color: #000;
 }
@@ -153,9 +147,11 @@ time, mark, audio, video {
 }
 
 tr th.col-thumbnail p,  
-tr th.col-price p, 
-tr th.col-quantity p,
-tr th.col-subtotal p {
+tr th.col-price p,
+tr th.col-id p,
+tr th.col-stock p,
+tr th.col-manager p, 
+tr th.col-remove p {
     font-weight: 500;
     color: red;
     text-transform: uppercase;
@@ -168,28 +164,38 @@ tr th.col-subtotal p {
 }
 
 .table .col-price, 
-.table .col-quantity, 
-.table .col-subtotal {
+.table .col-stock, 
+.table .col-manager {
     font-size: 16px;
     color: #333;
 }
 
-.table .col-quantity {
-    padding-right: 30px; 
-    width: 350px;
+.col-thumbnail {
+    width: 300px;
 }
 
-.table .col-subtotal {
-    padding-left: 30px; /* Khoảng cách bên trái của cột Total */
+.table .col-id {
+    width: 170px;
 }
 
-.table .col-subtotal {
-    width: 150px;
-    padding-right: 20px;
+.table .col-price {
+    width: 200px;
 }
+
+.table .col-stock {
+    width: 180px;
+}
+
+
+.table .col-manager {
+    /* padding-left: 20px; Khoảng cách bên trái của cột Total */
+    width: 200px;
+}
+
+
 
 .table .col-remove {
-    padding-right: 40px;
+    width: 200px;
 }
 
 .btn__remove {
@@ -201,11 +207,9 @@ tr th.col-subtotal p {
 }
 
 
-.btn__remove:hover  {
-    background-color: red;
-}
 
-.table .col-quantity input {
+
+.table .col-stock input {
     max-width: 60px;
     text-align: center;
 }
@@ -232,21 +236,33 @@ tr th.col-subtotal p {
 
 .form-group {
     display: inline-block;
-    vertical-align: top;
 }
 
-.form-group.col-md-4 {
-    width: 32%;
+.form-row .form-group:first-child {
+    width: 15%;
 }
+
+.form-row .form-group:last-child {
+    width: 90%;
+}
+
 
 .form-group.text-md-right {
+    margin-top: 10px;
     text-align: right;
 }
 
+.form-row .form-group .form-control {
+    width: 200px;
+}
+
 input.form-control {
+    color: #000;
+    font-size: 14px;
+    width: 120px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    padding: 5px 10px;
+    padding: 10px 20px;
 }
 
 .btn {
@@ -276,9 +292,13 @@ input.form-control {
 }
 
 .btn-primary:hover {
-    background-color: red;
+    cursor: pointer;
 }    
 .btn-primary:hover span{
+    font-weight: 600;
+}
+
+.btn-primary:hover{
     font-weight: 600;
 }
 
@@ -356,5 +376,50 @@ input.form-control {
 }
 
 
+tbody tr td.product {
+    display: flex;
+    align-items: center;
+}
 
-       
+tbody tr td.product .product-thumbnail {
+    margin-right: 15px;
+}
+
+td .action {
+    display: flex;
+    
+}
+
+td .action .action-edit, 
+td .action .action-remove {
+    width: 46px;
+    height: 34px;
+    border-radius: 10px;
+    background-color: #24aa5e38;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+td .action .action-edit a i, 
+td .action .action-remove a i {
+    font-size: 16px;
+    color: var(--primary-color)
+}
+
+td .action .action-edit {
+    margin-right: 20px;
+}
+
+.action .action-edit:hover{
+    background-color: var(--primary-color);
+}
+
+.action .action-remove:hover{
+    background-color: red;
+}
+
+.action .action-edit:hover a i, 
+.action .action-remove:hover a i {
+    color: #fff;
+}
