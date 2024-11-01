@@ -1,35 +1,58 @@
-const slides = document.querySelectorAll('.carousel-slide');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-const dots = document.querySelectorAll('.dot');
-let currentIndex = 0;
-const totalSlides = slides.length;
+let slideIndex = 0;
+let slideInterval;
 
 function showSlide(index) {
-    const carousel = document.querySelector('.carousel');
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-    updateDots(index);
+    const slides = document.getElementsByClassName("carousel-slide");
+    const dots = document.getElementsByClassName("dot");
+
+    if (index >= slides.length) slideIndex = 0;
+    if (index < 0) slideIndex = slides.length - 1;
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        dots[i].classList.remove("active");
+    }
+
+    slides[slideIndex].style.display = "block";
+    dots[slideIndex].classList.add("active");
 }
 
-function updateDots(index) {
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
+function nextSlide() {
+    slideIndex++;
+    showSlide(slideIndex);
 }
 
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    showSlide(currentIndex);
+function startCarousel() {
+    showSlide(slideIndex);
+    slideInterval = setInterval(nextSlide, 3000);
+}
+
+function stopCarousel() {
+    clearInterval(slideInterval);
+}
+
+document.querySelector(".prev").addEventListener("click", function () {
+    slideIndex--;
+    showSlide(slideIndex);
+    stopCarousel();
+    startCarousel();
 });
 
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    showSlide(currentIndex);
+document.querySelector(".next").addEventListener("click", function () {
+    slideIndex++;
+    showSlide(slideIndex);
+    stopCarousel();
+    startCarousel();
 });
 
+const dots = document.querySelectorAll('.dot');
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-        currentIndex = index;
-        showSlide(currentIndex);
+        slideIndex = index;
+        showSlide(slideIndex);
+        stopCarousel();
+        startCarousel();
     });
 });
 
+window.onload = startCarousel;
