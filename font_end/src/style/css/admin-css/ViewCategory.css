@@ -171,26 +171,22 @@ tr th.col-remove p {
 }
 
 .col-thumbnail {
-    width: 300px;
+    width: 350px;
 }
 
 .table .col-id {
-    width: 170px;
+    /* width: 170px; */
 }
 
 .table .col-price {
-    width: 200px;
+    /* width: 200px; */
 }
 
 .table .col-stock {
-    width: 180px;
+    /* width: 180px; */
 }
 
 
-.table .col-manager {
-    /* padding-left: 20px; Khoảng cách bên trái của cột Total */
-    width: 200px;
-}
 
 
 
@@ -205,8 +201,6 @@ tr th.col-remove p {
     border-radius: 50%;
     background-color: #d3d3d3;
 }
-
-
 
 
 .table .col-stock input {
