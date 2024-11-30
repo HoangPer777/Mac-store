@@ -2,7 +2,7 @@
 .bg-secondary {
   background-color: #6c757d !important;
   /* Màu xám */
-  width: 100%;
+  width: 100vw;
   /* Chiếm toàn bộ chiều rộng của màn hình */
   margin: 0;
   /* Bỏ margin để không có khoảng cách bên ngoài */

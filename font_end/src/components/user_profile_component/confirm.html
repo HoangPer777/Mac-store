@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Registration Success</title>
+    <link rel="stylesheet" href="../../styles/style-component/style_confirm/confirm.css">
+    <script src="../../styles/style-component/style_confirm/confirm.js"></script>
+</head>
+<body>
+<div class="confirmation-container">
+    <h1>Xin chúc mừng!</h1>
+    <div class="checkmark-circle">
+        <span class="sunshine"></span>
+        <span class="checkmark">✓</span>
+    </div>
+    <p>Tài khoản của bạn đã được đăng ký thành công!</p>
+    <button id="retryButton">ĐĂNG NHẬP</button>
+</div>
+
+<script>
+    // tự động tạo họa tiết trang trí
+    const container = document.querySelector('.confirmation-container');
+    for (let i = 0; i < 25; i++) {
+        const shape = document.createElement('div');
+        shape.classList.add('decor', 'shape');
+
+        // Ngẫu nhiên chọn kiểu dáng và kích thước
+        const shapes = ['circle', 'triangle', 'cross'];
+        const sizes = ['small', 'medium', 'large'];
+        shape.classList.add(shapes[Math.floor(Math.random() * shapes.length)]);
+        shape.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+
+        // Ngẫu nhiên vị trí
+        shape.style.top = `${Math.random() * 80}%`;
+        shape.style.left = `${Math.random() * 100}%`;
+
+        container.appendChild(shape);
+    }
+</script>
+</body>
+</html>
