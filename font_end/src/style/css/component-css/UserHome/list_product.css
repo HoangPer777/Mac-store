@@ -108,6 +108,7 @@ img.card-img-top {
     object-fit: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    object-fit: contain;
 }
 
 /* img:hover {
