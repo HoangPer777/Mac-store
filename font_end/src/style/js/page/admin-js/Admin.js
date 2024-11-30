@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     const sidebar = $('.nav-item');
@@ -8,6 +9,11 @@ $(document).ready(function () {
         var src= ($(item).attr('data-src'));
         if (src){
             console.log(src)
+            item.addEventListener('click',()=> {
+
+               body.attr('src',src);
+                console.log(src)
+            })
         }
     })
 })
