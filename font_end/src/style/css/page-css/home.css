@@ -1,3 +1,10 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica Neue, Helvetica, Arial, serif;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -18,21 +25,23 @@ iframe {
     top: 0;
     left: 0;
     width: 100%;
-    height: 250px;
+    height: 75px;
     z-index: 1000;
     border: none;
 }
+#banner {
+    margin-top: 75px;
+    height: 650px;
+}
 
 #topProducts {
-    height: 580px;
+    height: 550px;
+    margin-top: 50px;
 }
 #listProduct{
     height: 1080px;
 }
-#banner {
-    margin-top: 50px;
-    height: 93.5%;
-}
+
 #footer{
     height: 100%;
 }
