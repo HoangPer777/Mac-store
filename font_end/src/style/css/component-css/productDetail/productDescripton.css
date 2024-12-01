@@ -39,23 +39,27 @@ h3, h4 {
 }
 
 /* Product Description */
+.product-description {
+    text-align: center;
+}
+
+
 .product-description h6 {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #333;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
 }
 
 .product-description p {
     font-size: 1rem;
-    line-height: 1.8; /* Increase line-height */
+    line-height: 1.8; 
     text-align: justify;
     color: #555;
     margin-bottom: 1.25rem;
-    padding: 10px; /* Add padding */
-    background-color: #f9f9f9; /* Softer background for paragraphs */
-    border-radius: 8px; /* Add border-radius */
+    padding: 10px; 
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
 }
 
 .product-description img {
