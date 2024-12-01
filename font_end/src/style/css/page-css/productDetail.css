@@ -43,6 +43,8 @@ body {
     height: 700px;
 }
 
+
+
 #info {
     height: 680px;
     width: 1200px;
@@ -69,12 +71,11 @@ body {
 
 #content{
     border: none;
-    width: 100%;
+    width: 1200px;
     height: 6350px;
 }
 #footer{
     width: 1518px;
-    height: 700px;
     border: none;
 }
 @media (max-width: 992px) {

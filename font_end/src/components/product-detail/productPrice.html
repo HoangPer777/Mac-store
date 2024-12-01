@@ -105,6 +105,9 @@
     <script>
         const divElements = document.querySelectorAll('.options-configure');
         divElements.forEach(div => {
+            if (divElements.length > 0) {
+                divElements[0].classList.add('selected-border');
+            }
             div.addEventListener('click', () => {
                 // Xóa class 'selected-border' khỏi tất cả các div
                 divElements.forEach(item => item.classList.remove('selected-border'));
