@@ -25,7 +25,7 @@ h3, h4 {
     object-fit: contain;
     border-radius: 12px; /* Softer border-radius */
     margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Add shadow effect */
 }
 
 .carousel-control-prev-icon,
@@ -46,7 +46,7 @@ h3, h4 {
 
 .product-description h6 {
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
 }
@@ -55,10 +55,9 @@ h3, h4 {
     font-size: 1rem;
     line-height: 1.8; 
     text-align: justify;
-    color: #555;
+    color: #000;
     margin-bottom: 1.25rem;
     padding: 10px; 
-    background-color: #f9f9f9; 
     border-radius: 8px; 
 }
 
@@ -67,4 +66,23 @@ h3, h4 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+
+.carousel-control-prev i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    color: black;
+    padding: 20px;
+    border-radius: 50%;
+    text-align: center;
+   
+}
+
+.carousel-control-next i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    color: black;
 }
