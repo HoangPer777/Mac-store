@@ -9,212 +9,172 @@
 </head>
 <body>
 
-
-<div id="body">
-
-    <div class="title">
-        <span>Create Product</span>
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col-sm mb-2 mb-sm-0">
+            <h1 class="page-header-title">Thêm sản phẩm</h1>
+        </div>
     </div>
-
-    <div class="content row mid_align">
-        <div class="left_panel col">
-
-            <div class="wrap_content">
-
-                <div id="primary_img">
-                    <!--                    <span class="title">Primary Image</span>-->
-
-                    <div id="placeholder" class=" mid_align col">
-                        <i class="fa-solid fa-cloud-arrow-up" style="color: #24AA5D"></i>
-                        <span>Upload Primary Image </span>
-                    </div>
-
-                    <div id="image_hidden">
-                        <i id="remove_img" class="fa-regular fa-circle-xmark"></i>
-                        <img id="display_img" src="#" alt="" srcset="">
-                        <input id="image_input" type="file" name="">
-                    </div>
-
+</div>
+<div class="main-container">
+    <div class="left-column">
+        <div class="product-information">
+            <h2>Thông tin sản phẩm</h2>
+            <form>
+                <div class="form-group">
+                    <label for="productName">Tên</label>
+                    <input type="text" id="productName" placeholder="Tủ lạnh, máy giặt, ect.">
                 </div>
 
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="sku">Mã SKU</label>
+                        <input type="text" id="sku" placeholder="Ví dụ: 348121032">
+                    </div>
+                    <div class="form-group half-width">
+                        <label >Danh mục</label>
+                        <select class="option-select" >
+                            <option value="size">Tủ lạnh</option>
+                            <option value="color">Máy giặt</option>
+                            <option value="material">Máy lạnh</option>
+                            <option value="style">Lò nướng</option>
+                            <option value="title">Máy hút bụi</option>
+                        </select>
+                    </div>
+                </div>
 
-                <div class="tag col">
-                    <label for="options" class="col">
-                        <span>Product Tag</span>
-                    </label>
-                    <select name="options" id="options">
-                        <option class="ops_item" value="">Tag 1</option>
-                        <option class="ops_item" value="">tag 2</option>
-                        <option class="ops_item" value="">tag 3</option>
-                        <option class="ops_item" value="">tag 4</option>
+                <div class="form-group">
+                    <label for="description">Mô tả (Tùy chọn)</label>
+
+                    <div class="toolbar">
+                        <button type="button" class="toolbar-btn"><i class="fas fa-bold"></i></button> <!-- Bold -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-italic"></i></button> <!-- Italic -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-underline"></i></button> <!-- Underline -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-strikethrough"></i></button> <!-- Strike -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-link"></i></button> <!-- Link -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-image"></i></button> <!-- Image -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-quote-right"></i></button> <!-- Blockquote -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-code"></i></button> <!-- Code -->
+                        <button type="button" class="toolbar-btn"><i class="fas fa-list-ul"></i></button>
+                    </div>
+
+                    <textarea id="description" placeholder="Nhập mô tả của bạn..."></textarea>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="media-section">
+            <div class="media-header">
+                <h2>Hình ảnh</h2>
+            </div>
+
+            <div class="media-upload-box">
+                <div class="upload-icon" id="uploadIcon">
+                    <img id="previewImage" src="../../../resource/Image/img.png" height="170" width="130" alt="Preview Image" />
+
+                </div>
+                <div id="imagePreviewContainer" class="image-preview-container"></div>
+                <p id="dragDropText">Kéo và thả tệp của bạn vào đây</p>
+                <span>hoặc</span>
+                <input type="file" id="fileInput" style="display: none;" multiple />
+                <button class="browse-files" onclick="document.getElementById('fileInput').click();">Tải ảnh lên</button>
+            </div>
+        </div>
+
+
+
+
+        <div id="optionsContainer1" class="options-section">
+            <h2>Biến thể</h2>
+            <div id="optionsContainer" class="options-container">
+                <div class="option-group">
+                    <select class="option-select">
+                        <option value="size">Kích thước</option>
+                        <option value="color">Màu sắc</option>
+                        <option value="material">Chất liệu</option>
+                        <option value="style">Kiểu dáng</option>
+                        <option value="title">Tiêu đề</option>
+                    </select>
+                    <select class="option-select">
+                        <option value="size">Kích thước</option>
+                        <option value="color">Màu sắc</option>
+                        <option value="material">Chất liệu</option>
+                        <option value="style">Kiểu dáng</option>
+                        <option value="title">Tiêu đề</option>
                     </select>
 
+                    <button class="remove-option-button" onclick="removeOptionGroup(this)">×</button>
                 </div>
             </div>
-
-
+            <button class="add-option-button" onclick="addOptionGroup('optionsContainer')">+ Thêm biến thể</button>
         </div>
-
-
-        <div class="right_panel">
-
-            <div class="photo_section">
-                <div class="photo_title">
-                    Add Product Photo
-                </div>
-
-
-                <div id="photos_list">
-                    <div class="wrap_content">
-
-                        <div id="images_placeholder" class="mid_align col">
-                            <i class="fa-solid fa-cloud-arrow-up" style="color: #24AA5D"></i>
-                            <h3 class="desc">Drop your images here, or <span
-                                    style="color: #24AA5D">click to browser</span></h3>
-                            <h6 class="desc"> 1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed</h6>
-                            <input type="file" id="input_list_image" accept="image/*" multiple>
-
-                        </div>
-
-
-                        <div id="list_image_hidden" class="mid_align">
-                            <div id="add_more" class=" mid_align">
-                                <input type="file" id="input_more" accept="image/*" multiple style="display: none">
-                                <i class="fa-solid fa-plus"></i>
-                                <span>Add More</span>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                </div>
-
-
-            </div>
-
-            <div class="section_infor">
-
-                <div class="section_infor_title">
-                    <span>Product Information</span>
-                </div>
-
-                <div class="infor_item row min_align ">
-                    <label for="name" class="col">
-                        <span>Product Name</span>
-                        <input type="text" id="name" name="name" placeholder="Product Name" required>
-                    </label>
-
-                    <label for="category" class="col ">
-                        <span>Category</span>
-                        <input type="text" id="category" name="name" placeholder="Category" required>
-                    </label>
-
-                </div>
-
-
-                <div class="infor_item row min_align">
-                    <label for="brand" class="col">
-                        <span>Brand Name</span>
-                        <input type="text" id="brand" name="brand" placeholder="Brand Name" required>
-                    </label>
-
-                    <label for="chip" class="col">
-                        <span>CPU</span>
-                        <input type="text" id="chip" name="chip" placeholder="CPU" required>
-                    </label>
-
-
-                    <label for="display" class="col">
-                        <span>Display</span>
-                        <input type="text" id="display" name="display" placeholder="Display" required>
-                    </label>
-
-                </div>
-
-
-                <div class="infor_item row min_align">
-                    <label for="ram" class="col">
-                        <span>RAM</span>
-                        <input type="text" id="ram" name="ram" placeholder="RAM" required>
-                    </label>
-
-                    <label for="memory" class="col">
-                        <span>Memory</span>
-                        <input type="text" id="memory" name="chip" placeholder="Memory" required>
-                    </label>
-
-
-                    <label for="color" class="col">
-                        <span>Color</span>
-                        <input type="text" id="color" name="color" placeholder="Color" required>
-                    </label>
-
-                    <label for="stock" class="col">
-                        <span>Stock</span>
-                        <input type="text" id="stock" name="stock" placeholder="Quantity" required>
-                    </label>
-
-
-                </div>
-
-
-                <div class="infor_item row min_align label_description  ">
-                    <label for="desc" class="col  ">
-                        <span>Descriptions</span>
-                        <textarea id="desc" placeholder="Description about your product" required></textarea>
-                    </label>
-
-                </div>
-
-
-            </div>
-
-
-            <div class="section_price">
-
-                <div class="section_infor_title">
-                    <span>Price Detail</span>
-                </div>
-
-                <div class="infor_item row min_align">
-                    <label for="price" class="col">
-                        <span>Price</span>
-                        <input type="text" id="price" name="price" placeholder="Price" required>
-                    </label>
-
-                    <label for="price2" class="col">
-                        <span>Price 2</span>
-                        <input type="text" id="price2" name="price2" placeholder="Price 2" required>
-                    </label>
-
-
-                    <label for="discount" class="col">
-                        <span>Discount</span>
-                        <input type="text" id="discount" name="discount" placeholder="Discount" required>
-                    </label>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="btns row min_align">
-                <button class="btn_add" id="add_btn">Create Product</button>
-                <button class="btn_cancel" id="btn_cancel">Cancel</button>
-            </div>
-
-        </div>
-
-
 
 
     </div>
-</div>
-<script src="../../style/js/component-js/AddProduct.js"></script>
+
+
+    <div class="right-column">
+        <div class="section pricing-section">
+            <h2>Chiếc khấu</h2>
+            <label for="price">Giá</label>
+            <input type="text" id="price" placeholder="0.00">
+
+            <label for="price">Số lượng</label>
+            <input type="text" id="total" placeholder="0">
+
+        </div>
+
+
+        <div class="section">
+            <h2>Thuộc tính</h2>
+            <div id="optionsContainer2" class="options-container">
+                <div class="option-group">
+                    <select class="option-select">
+                        <option value="size">Kích thước</option>
+                        <option value="color">Màu sắc</option>
+                        <option value="material">Chất liệu</option>
+                        <option value="style">Kiểu dáng</option>
+                        <option value="title">Tiêu đề</option>
+                    </select>
+                    <select class="option-select">
+                        <option value="size">Kích thước</option>
+                        <option value="color">Màu sắc</option>
+                        <option value="material">Chất liệu</option>
+                        <option value="style">Kiểu dáng</option>
+                        <option value="title">Tiêu đề</option>
+                    </select>
+                    <button class="remove-option-button" onclick="removeOptionGroup(this)">×</button>
+                </div>
+            </div>
+            <button class="add-option-button" onclick="addOptionGroup('optionsContainer2')">+ Thêm thuộc tính</button>
+        </div>
+
+
+        <div class="section organization-section">
+            <h2>Tổ chức</h2>
+            <label for="vendor">Nhà cung cấp</label>
+            <input type="text" id="vendor" placeholder="eg. Nike">
+
+
+            <label for="collections">Bộ sưu tập</label>
+            <select id="collections">
+                <option value="winter">Nhà bếp</option>
+                <option value="summer">Phòng khách</option>
+                <option value="summer">Phòng ngủ</option>
+                <option value="summer">Khác</option>
+            </select>
+
+
+            <label for="tags">Thẻ</label>
+            <input type="text" id="tags" placeholder="Nhập thẻ tại đây">
+        </div>
+        <div class = "save">
+            <button>Lưu</button>
+        </div>
+    </div>
 
 </div>
+<script src="../../style/js/component-js/AddProduct.js"></script>
 </body>
 </html>
