@@ -1,1 +1,0 @@
-# File quản lý Django project
