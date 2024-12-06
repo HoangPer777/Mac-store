@@ -1,0 +1,174 @@
+* {
+    font-family: "Lexend", sans-serif;
+    margin: 10px;
+    padding: 5px;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 17px;
+    padding: 0px;
+}
+
+button.show-coupons {
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: solid 1px #333333;
+    border-radius: 5px;
+    margin: auto;
+    width: fit-content;
+    font: inherit;
+}
+
+div {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+form .search {
+    justify-content: flex-start;
+}
+
+img {
+    width: fit-content;
+    height: 15px;
+    padding: 0px;
+    margin: 0px;
+}
+
+img#dots {
+    margin-left: 20px;
+}
+
+img#dots:hover {
+    border-radius: 30px;
+    background-color: #f6f6f6;
+}
+
+button.help {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #333333;
+    color: white;
+    padding: 0px;
+    width: fit-content;
+    border-radius: 30px;
+    position: fixed;
+}
+
+button.help:hover {
+    background-color: #4a4a4d;
+    transition: background-color 0.3s;
+}
+
+.help img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.search {
+    --padding: 14px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 100px;
+    background-color: #f6f6f6;
+    transition: box-shadow 0.3s;
+    padding: 0px;
+
+}
+
+.search-input {
+    font-size: 16px;
+    color: #333333;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 300px;
+}
+
+.search-input::placeholder,
+.search-icon {
+    color: rgba(0, 0, 0, 50%);
+}
+
+.add-button {
+    background-color: #008f7a;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+
+.add-button:hover {
+    background-color: #0A97B0;
+}
+
+.content-table {
+    border-collapse: collapse;
+    border-spacing: 20px;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+}
+
+.content-table thead th {
+    background-color: #008f7a;
+    color: #ffffff;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table thead th {
+
+    text-transform: uppercase;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+table tr td {
+    text-transform: capitalize;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    padding: 10px;
+
+}
+
+table tr td.edit-dots {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
