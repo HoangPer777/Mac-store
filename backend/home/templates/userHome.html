@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MacOne</title>
+  {% load static %}
+  <link href="{% static 'style/css/page-css/home.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+{% block content %}
+  {% include 'header.html' %}
+  {% include 'banner.html' %}
+  {% include 'topProduct.html' %}
+  {% include 'listProduct.html' %}
+{% endblock %}
+</body>
+</html>

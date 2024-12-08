@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user_home',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +122,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR.parent / 'font_end',
+    BASE_DIR / 'static',
 ]
 
 
