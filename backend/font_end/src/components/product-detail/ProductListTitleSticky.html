@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details and Comparison</title>
+    <link rel="stylesheet" href="../../style/css/component-css/productDetail/ProductListTitleSticky.css">
+</head>
+<body>
+<div class="tab-container">
+    <div class="tab active" onclick="showPage('productDescription.html', this)">Thông tin sản phẩm</div>
+    <div class="tab" onclick="showPage('productComparing.html', this)">So sánh sản phẩm tương tự</div>
+</div>
+
+<iframe id="contentFrame" src="productDescription.html"></iframe>
+
+<script>
+    function showPage(page, element) {
+        document.getElementById('contentFrame').src = page;
+        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+        element.classList.add('active');
+    }
+</script>
+</body>
+</html>

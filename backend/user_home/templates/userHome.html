@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MacOne</title>
+  {% load static %}
+  <link href="{% static 'src/style/css/page-css/home.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<!--  <iframe src="../../../font_end/src/components/UserHome/header.html" id="header"></iframe>-->
+<!--  <iframe src="../../../font_end/src/components/UserHome/banner.html" id="banner"></iframe>-->
+<!--  <iframe src="../../../font_end/src/components/UserHome/topProduct.html" id="topProducts"></iframe>-->
+<!--  <iframe src="../../../font_end/src/components/UserHome/listProduct.html" id = "listProduct" ></iframe>-->
+<!--  <iframe src="../../../font_end/src/components/UserHome/footer.html" id = "footer"></iframe>-->
+{% block content %}
+
+  {% include 'header.html' %}
+  {% include 'banner.html' %}
+<!--  {% include 'topProduct.html' %}-->
+{% endblock %}
+</body>
+</html>

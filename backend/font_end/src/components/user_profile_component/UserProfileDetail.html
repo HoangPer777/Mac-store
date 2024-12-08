@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Detail</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../style/css/component-css/style-user_profile/UserProfileDetail.css">
+    <link rel="stylesheet" href="../../../resource/fontawesome-free-6.6.0-web/css/all.css">
+    <script src="../../style/css/component-css/style-user_profile/UserProfileDetail.js"></script>
+</head>
+<body>
+
+
+<div id="header" class=" col mid_align">
+    <div class="header_container mid_align  col">
+        <span class="title f22 ">Hồ sơ</span>
+        <span class="description">Quản lý thông tin hồ sơ để giữ an toàn cho tài khoản của bạn</span>
+    </div>
+</div>
+
+
+<div id="body">
+    <div class="body_container row">
+
+        <div   class="info_left">
+
+            <div class="form_infor row mid_align">
+                <div class="avatar">
+                    <img id="avatar" src="../../../resource/Image/avarta.jpg" height="500" width="500"/>
+                    <i id="btn_upload" class="fa-solid fa-camera"></i>
+                    <input type="file" name="" id="upload_avatar" accept="image/*" style="display: none;"/>
+                </div>
+
+                <div class="base_infor col">
+                    <span class=name_title>Họ và Tên :</span>
+                    <input type="text" class="name" placeholder="Full Name" value="Jackie Chan">
+
+                    <span class=name_title>Tên hiển thị :</span>
+                    <input type="text" class="name" placeholder="Display name" value="Jacky">
+
+
+                    <div class="gender row ">
+                        <div class="gender_title">
+                            <span>Giới tính :</span>
+                        </div>
+
+                        <div class="gender_radio mid_align">
+                            <label>
+                                <input type="radio" name="gender" value="male" checked>
+                                Nam
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="female">
+                                Nữ
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="other">
+                                Khác
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="personal_infor">
+                <div class="birth row">
+                   <div class="birth_title">
+                        <span>Ngày sinh : </span>
+                   </div>
+
+                    <div class="birth_form mid_align">
+                        <div class="col">
+                            <select  id="day">
+                                <option value="" disabled selected>Ngày</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <select  id="month">
+                                <option value="" disabled selected>Tháng</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <select  id="year">
+                                <option value="" disabled selected>Năm</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+           <div class="mid_align bottom">
+               <button class="save_btn">
+                   Lưu
+               </button>
+           </div>
+
+
+
+        </div>
+
+
+
+
+        <div class="info_right">
+
+            <!-- Contact infor -->
+            <div class="contact col ">
+                <span>Thông tin liên hệ</span>
+
+                <div class="contact_item row mid_align">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="item_text">0399989979 </span>
+                    <button type="button" class="update_btn">Cập nhật</button>
+                </div>
+
+                <div class="contact_item row mid_align">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span class="item_text ">qhung.fw@gmail.com </span>
+                    <button type="button" class="update_btn">Cập nhật</button>
+                </div>
+
+
+            </div>
+
+
+                <!-- Social Link-->
+            <div class="contact social col ">
+                <span>Liên kết</span>
+
+                <div class="contact_item row mid_align">
+                    <img src="../../../resource/image/facebook.svg" alt="">
+                    <span class="item_text mid_align">Facebook </span>
+                    <button type="button" class="update_btn">Liên kết</button>
+                </div>
+
+                <div class="contact_item row mid_align">
+                    <img src="../../../resource/image/google.svg" alt="">
+                    <span class="item_text ">Google</span>
+                    <button type="button" class="update_btn">Xóa</button>
+                </div>
+
+                <div class="contact_item row mid_align">
+                    <img src="../../../resource/image/Zalo.png" alt="">
+                    <span class="item_text ">Zalo</span>
+                    <button type="button" class="update_btn">Xóa</button>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+    <script src="../../style/css/component-css/style-user_profile/UserDetail.js"></script>
+
+</body>
+</html>

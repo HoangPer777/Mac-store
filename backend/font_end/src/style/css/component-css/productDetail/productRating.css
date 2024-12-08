@@ -1,0 +1,129 @@
+/* Reset basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #FFFFFF;
+}
+
+/* Product review container */
+.product-review-container {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Image container styling */
+.image-container {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Review button styling */
+.review-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff5c5c;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-btn:hover {
+    background-color: #e04848;
+}
+
+/* Comment section styling */
+.comment-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.comment-section h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Star rating styling */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.star {
+    font-size: 30px;
+    color: #ccc;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.star:hover, .star.selected {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+/* Comment input styling */
+.comment-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 12px;
+    transition: border-color 0.3s;
+}
+
+.comment-input:focus {
+    border-color: #ff5c5c;
+    outline: none;
+}
+
+/* Send comment button styling */
+.send-comment-btn {
+    width: 100%;
+    background-color: #ff5c5c;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.send-comment-btn:hover {
+    background-color: #e04848;
+}

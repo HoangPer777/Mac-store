@@ -1,0 +1,115 @@
+/* Đảm bảo .bg-secondary có màu xám và chiếm toàn bộ chiều rộng */
+.bg-secondary {
+  background-color: #6c757d !important;
+  /* Màu xám */
+  width: 100vw;
+  /* Chiếm toàn bộ chiều rộng của màn hình */
+  margin: 0;
+  /* Bỏ margin để không có khoảng cách bên ngoài */
+  /*padding: 40px 0;*/
+  /* Thêm khoảng cách trên dưới để nội dung thoáng hơn */
+}
+
+/* Đảm bảo grid container chiếm toàn bộ chiều rộng màn hình */
+div.container,
+.grid {
+  max-width: 100%;
+  /* Chiếm toàn bộ chiều rộng của màn hình */
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+
+}
+
+/* Giữ bố cục flex cho grid */
+.grid_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+/* Giảm chiều rộng của cột để vẫn duy trì tỷ lệ trên màn hình rộng */
+.grid_column-2-4 {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 20%;
+  /* Hoặc bạn có thể điều chỉnh tùy thuộc vào yêu cầu hiển thị */
+}
+
+/* Các quy tắc chung vẫn giữ nguyên */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: greenyellow;
+}
+
+.custom-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.custom-link-2 {
+  color: inherit;
+  text-decoration: none;
+  color: cornflowerblue;
+
+}
+
+img:hover {
+  background-color: greenyellow;
+  transition: background-color 0.3s ease-in;
+  border-radius: 40px 40px 40px 40px;
+}
+
+.img-icon:hover {
+  transition: background-color 0.3s ease-in;
+  border-radius: 40px 40px 40px 40px;
+}
+
+div footer {
+  background-color: black;
+  color: aliceblue;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+hr {
+  border: none;
+  height: 4px;
+  background-color: #e8ecec;
+  margin: 20px 0;
+}
+
+.below_footer {
+  text-align: center;
+}
+
+.above_footer {
+  background-color: #F4F6FF;
+}
+
+img.mb-2 {
+  background-color: whitesmoke;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+img.mb-2:hover {
+  background-color: greenyellow;
+  border-radius: 30px;
+}
+.py-4{
+  padding: 50px;
+}
