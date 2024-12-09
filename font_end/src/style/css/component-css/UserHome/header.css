@@ -18,7 +18,7 @@ body {
 }
 
 img{
-    width: 130px;
+    width: 150px;
     height: auto;
     justify-content: center;
     display: flex;
@@ -144,7 +144,7 @@ li.menu-item ul.tab li.tab-item:last-child {
     align-items: center;
     display: flex;
     margin-left: auto;
-    padding-left: 100px;
+    padding: 0 60px;
 }
 
 .carousel-container {

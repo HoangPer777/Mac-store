@@ -7,7 +7,7 @@ const colorOptions = document.querySelectorAll(".color-option");
 // Array of image sources
 const images = [
     "../../../resource/Image/2024_3_20_638465487457411344_macbook-air-m3-13-2024-xam-1.jpg", // Grey
-    "../../../resource/Image/2024_3_20_638465487289151222_macbook-air-m3-13-2024-xanh-1.jpg", // Blue Black
+    "../../../resource/Image/macbook-air-m3-13-2024-xanh-1.jpg", // Blue Black
     "../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg", // Silver
     "../../../resource/Image/2024_3_20_638465302276858353_macbook-air-m3-13-2024-vang-1.jpg"  // Yellow
 ];
