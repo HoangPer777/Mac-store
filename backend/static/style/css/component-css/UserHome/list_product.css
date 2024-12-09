@@ -1,0 +1,152 @@
+
+/* General Styles */
+body {
+    background-color: #F5F5F7 !important; /* Màu xám nhạt */
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.product-img {
+    vertical-align: middle;
+    width: 30px;
+    height: auto;
+}
+
+.product-name {
+    font-size: 24px;
+    text-align: center;
+    color: #222;
+}
+
+.macbook-nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.macbook-nav li {
+    margin: 0 10px;
+}
+
+.macbook-nav a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #E5D9F2;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.macbook-nav a:hover {
+    background-color: #7ac142;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card.custom-card {
+    position: relative;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+
+}
+
+.card.custom-card:hover {
+    transform: translateY(-5px);
+}
+
+.card.custom-card .card-body {
+    padding: 15px;
+}
+
+.card.custom-card .card-title {
+    font-size: 16px;
+    color: #333;
+}
+
+.card.custom-card .card-text {
+    font-size: 12px;
+    color: #777;
+}
+
+.cost {
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.badge-new {
+    background-color: #7ac142;
+}
+
+.badge-hot {
+    background-color: #d91656;
+}
+
+img.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: contain;
+}
+
+/* img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+} */
+
+.all-product {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7ac142;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.all-product:hover {
+    background-color: #5a9f2d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .macbook-nav li a {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .card.custom-card {
+        margin-bottom: 20px;
+    }
+
+    img.card-img-top {
+        height: 180px;
+    }
+
+    .all-product {
+        font-size: 12px;
+    }
+}
