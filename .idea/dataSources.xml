@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< HEAD
+    <data-source source="LOCAL" name="db" uuid="06c01557-6844-4f99-8318-1bea9ea74b78">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\aaa\WorkSpace_31\py\pythonProject\Mac-store\myproject\db.sqlite3</jdbc-url>
+=======
     <data-source source="LOCAL" name="db" uuid="e791fb71-9f4e-4356-b41f-198114d531e7">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:G:\Mac-store\myproject\db.sqlite3</jdbc-url>
+>>>>>>> 130a03c23ae11651d824ed871c78e67c6acac0a3
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
