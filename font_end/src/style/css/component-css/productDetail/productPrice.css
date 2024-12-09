@@ -62,21 +62,25 @@ body {
 
 .price-section {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.buy-now-price p,
-.installment-price p {
-    font-size: 14px;
-    color: #555;
+.buy-now-price .price {
+    display: flex;
+    font-weight:bold;
+}
+
+.buy-now-price p {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
 }
 
 .buy-now-price h3,
 .installment-price h3 {
     font-size: 22px;
-    color: #d32f2f;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
@@ -89,7 +93,7 @@ body {
 }
 
 .special-offer {
-    color: #d32f2f;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
@@ -101,7 +105,7 @@ body {
 }
 
 .verify-btn {
-    background-color: #d32f2f;
+    background-color: var(--primary-color);
     color: #fff;
     padding: 5px 15px;
     border: none;
@@ -115,11 +119,6 @@ body {
     margin-top: 10px;
 }
 
-.discount-amount {
-    font-weight: bold;
-    color: #d32f2f;
-}
-
 .warranty-section {
     margin-bottom: 20px;
 }
@@ -127,17 +126,14 @@ body {
 .warranty-label {
     font-size: 16px;
     font-weight: bold;
-    color: #555;
     margin-bottom: 10px;
     display: block;
 }
 
 .warranty-options {
     display: flex;
-    gap: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px;
     background-color: #f9f9f9;
 }
 
@@ -153,10 +149,13 @@ body {
     align-items: center;
     text-align: center;
     flex: 1;
+
+    /* width: 150px;
+    height: 100px; */
 }
 
 .warranty-btn span {
-    color: #d32f2f;
+    color: var(--primary-color);
     font-weight: bold;
     margin-top: 5px;
 }
@@ -169,8 +168,8 @@ body {
 
 .cart-btn {
     background-color: #fff;
-    color: #d32f2f;
-    border: 1px solid #d32f2f;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     padding: 10px;
     border-radius: 5px;
     font-size: 20px;
@@ -193,8 +192,12 @@ body {
 }
 
 .buy-now-btn {
-    background-color: #d32f2f;
+    background-color: var(--primary-color);
     color: #fff;
+}
+
+.buy-now-btn:hover {
+    background-color: var(--primary-color-btn-hover);
 }
 
 .installment-btn {
@@ -219,13 +222,13 @@ body {
 
 .contact-info span {
     font-weight: bold;
-    color: #d32f2f;
+    color: var(--primary-color);
 }
 .student-discount::before {
     content: "🎓 Student - student - teacher privileges ";
     position: absolute;
     top: -12px;
-    background-color: #ff8a8a;
+    background-color: var(--primary-color);
     color: #fff;
     font-size: 14px;
     padding: 3px 8px;
@@ -241,4 +244,23 @@ body {
     flex-direction: column;
      margin-bottom: 20px;
     position: relative;
+}
+
+.warranty-options  {
+    padding: 4px;
+}
+
+.warranty-options .container .row div {
+    margin:0;
+    padding: 6px;
+}
+
+.selected-border {
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color-active);
+    border-radius: 5px; 
+}
+
+.contact-info i {
+    color: var(--primary-color);
 }
