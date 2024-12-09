@@ -13,7 +13,9 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
     stock_quantity = models.PositiveIntegerField(default=0)
     slug = models.SlugField(max_length=200, db_index=True)
-
+    vendor = models.CharField(max_length=200, blank=True)  # Thêm trường nhà cung cấp
+    collections = models.CharField(max_length=200, blank=True)  # Thêm trường bộ sưu tập
+    tags = models.CharField(max_length=200, blank=True)
 
     class Meta:
         ordering = ('name',)
