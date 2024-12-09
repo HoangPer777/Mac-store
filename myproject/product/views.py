@@ -1,11 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
-from .ProductForm import ProductForm
-from .models import Product
+from .forms import ProductForm
 
 
 # Create
@@ -17,4 +15,4 @@ def product_create(request):
             return redirect('product_list')
     else:
         form = ProductForm()
-    return render(request, 'product/product_form.html', {'form': form})
+    return render(request, 'product/AddProduct.html', {'form': form})
