@@ -38,8 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home', 'product', 
-    'coupon','order_detail' #add
+    'home',
+    'coupon',
+    'orders',
+    'user',
+    'product',
+    'order_detail'
+
 ]
 
 MIDDLEWARE = [
