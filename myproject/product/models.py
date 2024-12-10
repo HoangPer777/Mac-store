@@ -6,7 +6,7 @@ from django.db.models import Index
 class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     description = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.IntegerField()
     image = models.CharField(max_length=200)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -16,6 +16,9 @@ class Product(models.Model):
     vendor = models.CharField(max_length=200, blank=True)  # Thêm trường nhà cung cấp
     collections = models.CharField(max_length=200, blank=True)  # Thêm trường bộ sưu tập
     tags = models.CharField(max_length=200, blank=True)
+    image = models.CharField(max_length=200, blank=True)
+    noOfViews= models.IntegerField(default=0)
+    noOfSolds = models.IntegerField(default=0)
 
     class Meta:
         ordering = ('name',)
