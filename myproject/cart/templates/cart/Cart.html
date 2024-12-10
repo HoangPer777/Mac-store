@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="/style/css/component-css/cart/Cart.css">
+    <link rel="stylesheet" href="/resource/fontawesome-free-6.6.0-web/css/all.css">
+    <script src="/style/js/component-js/Cart.js"></script>
+</head>
+<body>
+
+<div id="body" class="mid_align col">
+    <div class="content row">
+        <div class="list_item">
+            <span>Bạn đang có {{ cart|length }} sản phẩm trong giỏ hàng</span>
+            {% for item in cart %}
+                <div class="cart-item">
+                    <span>{{ item.product.name }}</span>
+
+                    <form method="POST" action="{% url 'cart:cart_add' product_id=item.product.id %}">
+                        {% csrf_token %}
+                        {{ item.update_quantity_form.as_p }}
+                        <button type="submit">Cập nhật số lượng</button>
+                    </form>
+                    <form method="POST" action="{% url 'cart:cart_remove' product_id=item.product.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Xóa sản phẩm</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="bill mid_align rol">
+            <div class="summary col">
+
+            </div>
+
+            <div class="wrap_total">
+                <div class="total">
+                    <span>Tổng cộng</span>
+                </div>
+                <span class="note">Đã bao gồm thuế GTGT</span>
+            </div>
+
+            <button type="submit" id="pay" data-src="/checkout/">Thanh Toán</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
