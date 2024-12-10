@@ -8,8 +8,8 @@
     <script src="/style/js/component-js/Cart.js"></script>
 </head>
 <body>
-
-<div id="body" class="mid_align col">
+    {% include 'header.html' %}
+<div id="body" class="mid_align col" style="margin-top: 100px;">
     <div class="content row">
         <div class="list_item">
             <span>Bạn đang có {{ cart|length }} sản phẩm trong giỏ hàng</span>
