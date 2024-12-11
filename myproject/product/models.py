@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import Index
-
+from django.shortcuts import render
 
 # Create your models here.
 class Product(models.Model):

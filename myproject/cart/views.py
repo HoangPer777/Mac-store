@@ -10,21 +10,17 @@ from coupon.forms import CouponApplyForm
 from product.models import Product
 
 
-@require_POST
 def cart_add(request, product_id):
     cart = Cart(request)
-    product = get_object_or_404(Product, id=product_id)
-    form = CartAddProductForm(request.POST)
-    if form.is_valid():
-        cd = form.cleaned_data
-        cart.add(product=product, quantity=cd['quantity'], update_quantity=cd['update'])
+    product = Product.objects.get(id=product_id)
+    cart.add(product=product)
     return redirect('cart:cart_detail')
 
 def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
-    return redirect('cart:cart_detail')
+    return redirect('cart_detail')
 
 def cart_detail(request):
     cart = Cart(request)
@@ -32,3 +28,8 @@ def cart_detail(request):
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'override': True})
     coupon_apply_form = CouponApplyForm()
     return render(request, 'cart/Cart.html', {'cart': cart})
+
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect('cart:cart_detail')
