@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sản phẩm</title>
+</head>
+<body>
+<h1>Danh sách sản phẩm</h1>
+<div style="display: flex; flex-wrap: wrap;">
+    {% for product in products %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px; width: 200px; text-align: center;">
+            <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 100px; height: 100px;">
+            <h2>{{ product.name }}</h2>
+            <p>Giá: {{ product.price }} VND</p>
+            <a href="{% url 'cart:cart_add' product.id %}"  style="background-color: #28a745; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">Thêm vào giỏ hàng</a>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>
