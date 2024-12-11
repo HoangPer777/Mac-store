@@ -38,8 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home', 'product', 
-    'coupon','order_detail','address',#add
+    'django.contrib.humanize',
+    'home',
+    'coupon',
+    'orders',
+    'user',
+    'product',
+    'order_detail',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +139,4 @@ STATICFILES_DIRS = [ #add
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CART_SESSION_ID = 'cart'
