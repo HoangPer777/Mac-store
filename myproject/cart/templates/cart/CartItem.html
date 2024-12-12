@@ -1,0 +1,44 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href= "{% static '../../static/style/css/component-css/cart/Cart.css' %}">
+    <link rel="stylesheet" href=" {% static '../../static/resource/fontawesome-free-6.6.0-web/css/all.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+<div class="wrap mid_align row" style="margin-top: 100px;">
+    <input type="checkbox">
+    <div class="image">
+        <img src="{{ item.product.image }}" alt="{{ item.product.name }}">
+    </div>
+    <div class="description mid_align col  ">
+        <div class="title ">{{ item.product.name }}</div>
+
+        <div class="status">
+            <div class="status">
+                {% if item.quantity > 0 %}
+                    <span>Còn hàng</span>
+                {% else %}
+                    <span>Hết hàng</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="section_price mid_align col">
+        <span class="price">{{ item.product.price }} VND</span>
+        <div class="quantity mid_align row">
+            <button class="fa-solid fa-minus"></button>
+            <span class="num mid_align">{{ item.quantity }}</span>
+            <button class="fa-solid fa-plus"></button>
+        </div>
+        <button class="del fa-solid fa-trash-can"></button>
+    </div>
+
+</div>
+
+</body>
+</html>
