@@ -147,3 +147,23 @@ h2{
     pointer-events: none;
     color: #333;
 }
+
+.cart-item-remove {
+    color: #6B7280;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cart-item-remove:hover {
+    color: #ff4d4d;
+    cursor: pointer;
+}
+
+
+.cart-item-remove-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}

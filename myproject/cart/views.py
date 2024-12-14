@@ -18,13 +18,6 @@ def cart_add(request, product_id):
     return redirect('cart:cart_detail')
 
 
-def cart_remove(request, product_id):
-    cart = Cart(request)
-    product = get_object_or_404(Product, id=product_id)
-    cart.remove(product)
-    return redirect('cart_detail')
-
-
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
@@ -88,3 +81,18 @@ def update_quantity(request):
             "status": "error",
             "message": "Invalid HTTP method"
         }, status=405)
+
+
+def cart_remove(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    cart.remove(product)
+
+    # Return updated cart details in the response
+    cart_total_price = cart.get_total_price()  # Get the updated total price
+
+    return JsonResponse({
+        "status": "success",
+        "message": "Item removed successfully",
+        "new_total_price": cart_total_price
+    })

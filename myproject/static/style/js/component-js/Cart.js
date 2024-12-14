@@ -163,3 +163,31 @@ function getCSRFToken() {
 document.addEventListener('DOMContentLoaded', function () {
     updateCartTotal();
 });
+function removeCart(productId) {
+    const csrfToken = getCSRFToken();
+    fetch(`/cart/remove/${productId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken
+        },
+        body: JSON.stringify({ product_id: productId })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const cartItem = document.getElementById(`product_cart_item_${productId}`);
+                if (cartItem) {
+                    cartItem.remove();
+                }
+                const totalPriceElement = document.getElementById('order_total');
+                totalPriceElement.textContent = data.new_total_price + ' ₫';
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while removing the item.');
+        });
+}
