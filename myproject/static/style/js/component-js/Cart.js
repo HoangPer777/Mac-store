@@ -18,33 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const formattedPrice = formatCurrency(parseFloat(rawPrice));
         element.textContent = formattedPrice;
     });
+
+    // Cập nhật tổng giỏ hàng khi trang đã được tải
+    updateCartTotal();
 });
-
-
-
-window.addEventListener('DOMContentLoaded', function() {
-    // Hàm định dạng tiền tệ
-    function formatCurrency(amount) {
-        if (isNaN(amount)) {
-            console.error("Số không hợp lệ:", amount);
-            return "Giá trị không hợp lệ";
-        }
-        return new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-        }).format(amount);
-    }
-
-    // Áp dụng định dạng cho tất cả các giá trị có class .priceFormat
-    const priceElements = document.querySelectorAll('.priceFormat');
-    priceElements.forEach(function(element) {
-        const rawPrice = element.getAttribute('data-number');
-        const formattedPrice = formatCurrency(parseFloat(rawPrice));
-        element.textContent = formattedPrice;
-    });
-});
-
-
 
 function decreaseQuantity(button) {
     const quantityContainer = button.parentElement.querySelector(".num");
@@ -129,38 +106,6 @@ function updateQuantityOnServer(productId, newQuantity) {
         .catch(error => console.error("Error updating quantity:", error));
 }
 
-function updateCartTotal() {
-    let total = 0;
-    document.querySelectorAll('.total_price').forEach(price => {
-        let priceText = price.textContent.replace(/[^\d,.]/g, ''); // Loại bỏ ký tự không phải số
-        console.log("Price Text: ", priceText); // In ra giá trị chưa xử lý
-
-        let parsedPrice = parseFloat(priceText.replace(',', ''));
-        console.log("Parsed Price: ", parsedPrice); // In ra giá trị đã phân tích
-
-        if (!isNaN(parsedPrice)) {
-            total += parsedPrice;
-        }
-    });
-
-    console.log("Total Price: ", total); // In ra tổng tiền
-
-    // Kiểm tra xem tổng tiền có hợp lệ không
-    if (isNaN(total)) {
-        console.error("Total value is invalid!");
-        total = 0; // Đặt giá trị là 0 nếu không hợp lệ
-    }
-
-    const orderTotalElement = document.getElementById('order_total');
-    if (orderTotalElement) {
-        orderTotalElement.textContent = total.toLocaleString('vi-VN') + " ₫";
-    } else {
-        console.error("Element with id 'order_total' not found.");
-    }
-}
-
-
-
 
 function updateTotalPrice(productId, newQuantity) {
 
@@ -179,31 +124,32 @@ function updateTotalPrice(productId, newQuantity) {
     totalPriceElement.innerText = totalPrice.toFixed(0) + " ₫";
 
 
-    totalPriceElement.setAttribute('data-number', totalPrice);
+    totalPriceElement.setAttribute('data-number', `${totalPrice}`);
+
 
     updateCartTotal();
 }
 function updateCartTotal() {
-    let cartTotal = 0;
+    let total = 0;
 
-    document.querySelectorAll('.product_cart_item').forEach(row => {
-        const totalPriceElement = row.querySelector(".total_price");
-        if (totalPriceElement) {
-            const totalPrice = parseFloat(totalPriceElement.getAttribute('data-number'));
+    // Lặp qua tất cả các phần tử có class .total_price
+    document.querySelectorAll('.total_price').forEach(function(priceElement) {
+        const priceText = priceElement.getAttribute('data-number');
+        const priceValue = parseFloat(priceText);
 
-            if (isNaN(totalPrice)) {
-                console.error("Giá trị tổng tiền không hợp lệ:", totalPrice);
-            } else {
-                cartTotal += totalPrice;
-            }
+        if (!isNaN(priceValue)) {
+            total += priceValue;
+        } else {
+            console.error("Giá trị không hợp lệ trong tổng tiền:", priceText);
         }
     });
 
+    // Hiển thị tổng tiền
     const orderTotalElement = document.getElementById('order_total');
-    if (isNaN(cartTotal)) {
-        console.error("Tổng giỏ hàng không hợp lệ:", cartTotal);
+    if (orderTotalElement) {
+        orderTotalElement.textContent = total.toLocaleString('vi-VN') + " ₫";
     } else {
-        orderTotalElement.innerText = cartTotal.toFixed(0) + " ₫";
+        console.error("Không tìm thấy phần tử có id 'order_total'.");
     }
 }
 
