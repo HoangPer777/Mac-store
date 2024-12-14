@@ -38,6 +38,7 @@ class Cart(object):
             self.cart[str(product.id)]['product'] = product
 
         for item in self.cart.values():
+            item['id'] = item['product'].id
             item['price'] = int(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
@@ -46,8 +47,20 @@ class Cart(object):
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
-        return sum(int(item['price']) * item['quantity'] for item in self.cart.values())
+        total_price = sum(int(item['price']) * item['quantity'] for item in self.cart.values())
+        if total_price <= 0:
+             print("Giá trị tổng không hợp lệ:", total_price)
+             return 0
+
+        return total_price
+
 
     def clear(self):
         del self.session['cart']
         self.save()
+
+    def update(self, product, quantity):
+        product_id = str(product.id)
+        if product_id in self.cart:
+            self.cart[product_id]['quantity'] = int(quantity)
+            self.save()

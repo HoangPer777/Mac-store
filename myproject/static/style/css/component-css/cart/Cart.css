@@ -1,23 +1,51 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #E9E9E9;
 }
+
+.cart-container {
+    margin-top: 80px;
+    /*background-color: #f9f9f9;*/
+}
+
 #body {
     width: 100%;
     max-width: 1200px;
     margin: auto;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 10px;
+    /*padding: 20px;*/
+}
+/*.table {*/
+/*    width: 100%;*/
+/*    border-collapse: collapse;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+td.text-start > div{
+    gap: 15px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+h2{
+    padding: 0px 165px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: bold;
 }
 .table {
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+
 }
+
 .table thead {
     background-color: #f1f1f1;
     text-transform: uppercase;
@@ -37,6 +65,16 @@ body {
     width: 70px;
     height: auto;
     border-radius: 4px;
+}
+
+#product_cart_item_ > td.text-start > div{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 10px
+}
+#product_cart_item_ > td:nth-child(3) > div > span{
+    padding: 0 15px;
 }
 .quantity_value {
     width: 30px;
@@ -65,4 +103,47 @@ body {
 }
 .text-hover-red:hover {
     color: #dc3545;
+}
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.quantity-input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    outline: none;
+    pointer-events: none;
+    color: #333;
 }
