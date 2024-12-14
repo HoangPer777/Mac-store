@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 # chỉ giảm theo phần trăm, có hạn mức giá trị lớn nhất,
 class Coupon(models.Model):
-    code = models.CharField(max_length=10, unique=True) # mã
+    code = models.CharField(max_length=20, unique=True) # mã
     discount = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)]) # %giảm
     maxValue = models.DecimalField(max_digits=10, decimal_places=2) # nếu theo % thì giảm max bao nhiêu
     from_date = models.DateTimeField() 
