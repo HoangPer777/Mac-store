@@ -71,10 +71,13 @@
                 </td>
 
                 <td class="text-center">
-                    <a href="javascript:void(0);" onclick="removeCart('{{ item.id }}')" class="text-muted text-hover-red" data-bs-toggle="tooltip" data-bs-title="Xoá Khỏi Giỏ Hàng?">
-                        <i class="fs-6 bi bi-trash"></i>
+                    <a href="javascript:void(0);" onclick="removeCart('{{ item.id }}')" class="cart-item-remove-container" data-bs-toggle="tooltip" data-bs-title="Xoá Khỏi Giỏ Hàng?">
+                        <i class="fa fa-trash cart-item-remove"></i>
                     </a>
                 </td>
+
+
+
             </tr>
         {% endfor %}
         </tbody>
