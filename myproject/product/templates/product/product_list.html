@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,9 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <style>
+
+
+
         body {
             background-color: #f5f5f7;
         }
@@ -74,12 +78,25 @@
                    <div class="product__body">
                         <h6>{{ product.name }}</h6>
                         <p>{{ product.price }} VND</p>
-                        <a href="{% url 'cart:cart_add' product.id %}">Thêm vào giỏ hàng</a>
+
+                       <a href="#" class="add-to-cart" data-product-id="{{ product.id }}">Thêm vào giỏ hàng</a>
+
+
+
                    </div>
                 </div>
            </div>
        {% endfor %}
     </div>
 </div>
+
+<script src="../../../static/style/js/component-js/product_list.js"></script>;
+<script>
+    function getCSRFToken() {
+        let cookie = document.cookie.split(';').find(item => item.trim().startsWith('csrftoken='));
+        return cookie ? cookie.split('=')[1] : '';
+    }
+</script>
+
 </body>
 </html>
