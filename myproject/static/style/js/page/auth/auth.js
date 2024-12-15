@@ -68,3 +68,34 @@ signInForm.addEventListener("submit", (e) => {
         alert("Email hoặc mật khẩu không đúng!");
     }
 });
+document.getElementById('register-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let data = {
+        full_name: document.getElementById('full_name').value,
+        display_name: document.getElementById('display_name').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        confirm_password: document.getElementById('confirm_password').value
+    };
+
+    fetch('http://127.0.0.1:8000/auth/register/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            const messageDiv = document.getElementById('response-message');
+            if (data.success) {
+                messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+            } else {
+                messageDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});

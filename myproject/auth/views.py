@@ -1,39 +1,57 @@
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-from rest_framework import status
-from user.models import User
-from .serializers import RegisterSerializer, UserSerializer
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.decorators import api_view, permission_classes
 
-@api_view(['POST'])
-@permission_classes([AllowAny])
-def register_user(request):
-    serializer = RegisterSerializer(data=request.data)
-    if serializer.is_valid():
-        # Lưu người dùng và mã hóa mật khẩu
-        user = serializer.save()
-        user.set_password(request.data['password'])  # Mã hóa mật khẩu trước khi lưu
-        user.save()  # Lưu thay đổi mật khẩu
-        return Response({"message": "User registered successfully!"}, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+from django.contrib.auth import authenticate, login, logout
 
+from django.contrib.auth.models import User
 
-@api_view(['POST'])
-def login_user(request):
-    email = request.data.get('email')
-    password = request.data.get('password')
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+import json
 
-    try:
-        user = User.objects.get(email=email)  # Kiểm tra người dùng với email
-        if user.check_password(password):  # Kiểm tra mật khẩu đã mã hóa
-            refresh = RefreshToken.for_user(user)
-            return Response({
-                "access": str(refresh.access_token),
-                "refresh": str(refresh),
-                "user": UserSerializer(user).data
-            }, status=status.HTTP_200_OK)
-        else:
-            return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
-    except User.DoesNotExist:
-        return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+@csrf_exempt
+def register_view(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            full_name = data.get('full_name')
+            display_name = data.get('display_name')
+            email = data.get('email')
+            password = data.get('password')
+            confirm_password = data.get('confirm_password')
+
+            if password != confirm_password:
+                return JsonResponse({'success': False, 'message': 'Passwords do not match!'}, status=400)
+
+            if User.objects.filter(username=email).exists():
+                return JsonResponse({'success': False, 'message': 'Email is already taken!'}, status=400)
+
+            user = User.objects.create_user(
+                username=email,  # Sử dụng email làm username
+                password=password,
+                first_name=full_name,
+                last_name=display_name
+            )
+            return JsonResponse({'success': True, 'message': 'Account created successfully!'}, status=201)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'success': False, 'message': 'Invalid JSON data!'}, status=400)
+
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'}, status=400)
+
+def login_view(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            username = data.get('username')
+            password = data.get('password')
+
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return JsonResponse({'success': True, 'message': 'Login successful!'}, status=200)
+            else:
+                return JsonResponse({'success': False, 'message': 'Invalid credentials!'}, status=400)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'success': False, 'message': 'Invalid JSON data!'}, status=400)
+
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'}, status=400)
