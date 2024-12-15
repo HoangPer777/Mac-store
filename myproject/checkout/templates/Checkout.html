@@ -24,8 +24,24 @@
 
         <div class="left-side">
             <div class="list_product">
-                <iframe src="../cart/CartItem.html" frameborder="0"></iframe>
-                <iframe src="../cart/CartItem.html" frameborder="0"></iframe>
+                <div class="cart-details">
+                <h3>Giỏ hàng:</h3>
+                {% if cart.cart %}
+                    <ul>
+                        {% for item in cart.cart.values %}
+                        <li>
+                            <p>{{ item.product_name }} - {{ item.quantity }} x {{ item.price|floatformat:0 }} ₫</p>
+                            <p>Tổng: {{ item.quantity|floatformat:0 }} x {{ item.price|floatformat:0 }} ₫</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                <h4>Tổng cộng: {{ total_price|floatformat:0 }} ₫</h4>
+                {% else %}
+                    <p>Giỏ hàng của bạn đang trống.</p>
+                {% endif %}
+            </div>
+    </div>
+
             </div>
 
 
@@ -39,17 +55,19 @@
 
 
                     <div class="item_header row mid_align">
-                        <span class="name">{{user.display_name}}</span>
+                         <span class="name">{{ user.full_name|default:"Guest" }}</span>
                         <div class="rec_vertical"></div>
-                        <span class="phone">{{ user.phone }}</span>
+                        <span class="phone">{{ user.phone|default:"N/A" }}</span>
 {#                        <a href="#" class="change">Thay đổi</a>#}
                     </div>
 
                     <div class="address_detail">
-                        <span>Số 8, Đường Hàm Nghi Quận 1, TP.HCM </span>
+                        {% if user.is_authenticated %}
+                            <span>{{ address.detail }}, {{ address.district }}, {{ address.province }}</span>
+                        {% else %}
+                            <span>Đăng nhập để mới có địa chỉ</span>
+                        {% endif %}
                     </div>
-
-
                 </div>
 
 
@@ -67,7 +85,7 @@
                     <div class="item mid_align cod">
                         <i class="fa-solid fa-money-bill"></i>
                         <span>Thanh toán khi nhận hàng</span>
-                        <input type="radio" name="payment-method">
+                        <input type="radio" name="payment-method" checked>
                     </div>
 
 
@@ -144,6 +162,14 @@
                         <label for="voucher"></label>
                         <button type="submit">Áp Dụng</button>
                     </div>
+                    <div class="coupon-form">
+{#                        temp#}
+{#                    <form method="POST" action="{% url 'cart:apply_coupon' %}">#}
+{#                        {% csrf_token %}#}
+{#                        {{ coupon_apply_form.as_p }}#}
+{#                        <button type="submit">Áp dụng mã giảm giá</button>#}
+{#                    </form>#}
+    </div>
 
                 </div>
 
