@@ -4,12 +4,7 @@
     box-sizing: border-box;
 }
 
-:root {
-    --width: 100%;
-    --hover-color: #7DB642;
-    --hover-background: #222222;
-    --transition-duration: 0.3s;
-}
+
 
 body {
     font-family: Roboto, Geneva, Verdana, sans-serif;
@@ -24,19 +19,13 @@ img{
     display: flex;
 }
 
-header {
+#header {
     justify-content: center;
     width: 100%;
-    /*position: fixed;*/
-    /*z-index: 1000;*/
-    top: 0;
-    padding-bottom: 80px;
-}
-
-section {
+    height: 60px;
     display: flex;
+    flex-direction: row;
     background-color: #eeeeee;
-    width: var(--width);
 }
 
 ul {
@@ -60,6 +49,7 @@ li.menu-item {
     padding: 18px;
     position: relative;
     cursor: pointer;
+    font-size: 16px;
     transition: color var(--transition-duration) ease-in-out,
     background-color var(--transition-duration) ease-in-out,
     transform var(--transition-duration) ease-in-out;
