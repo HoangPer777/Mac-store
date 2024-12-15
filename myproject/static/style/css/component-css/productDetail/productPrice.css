@@ -4,18 +4,16 @@
     box-sizing: border-box;
 }
 
-body {
+#body {
     font-family: Arial, sans-serif;
     background-color: #FFFFFF;
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
 .product-card {
     padding-top: 20px;
-    width: 400px;
     border-radius: 10px;
 }
 
