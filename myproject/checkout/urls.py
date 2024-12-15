@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render
 from .forms import CheckoutForm
 from user.models import User
@@ -12,3 +13,11 @@ def profile_view(request):
 
 
 
+=======
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.checkout, name='checkout'),
+]
+>>>>>>> 79d543bf3bc5205beea91efbda29ac9998cb5c6d
