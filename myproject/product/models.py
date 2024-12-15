@@ -11,7 +11,6 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     price = models.IntegerField()
     image = models.CharField(max_length=200)
-
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -20,7 +19,6 @@ class Product(models.Model):
     vendor = models.CharField(max_length=200, blank=True)
     collections = models.CharField(max_length=200, blank=True)
     tags = models.CharField(max_length=200, blank=True)
-    image = models.CharField(max_length=200, blank=True)
     noOfViews= models.IntegerField(default=0)
     noOfSolds = models.IntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
