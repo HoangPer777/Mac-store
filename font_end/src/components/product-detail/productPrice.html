@@ -11,23 +11,15 @@
     <link rel="stylesheet" href="../../style/css/base.css">
 </head>
 <body>
+
 <div class="product-card">
     <h2>Macbook Pro M3 14 2024 8CPU 10GPU/16GB/1TB</h2>
-
-    <div class="color-options">
-        <span>Color: </span>
-        <button class="color-btn black">Blue Black</button>
-        <button class="color-btn silver">Silver</button>
-        <button class="color-btn yellow">Yellow</button>
-        <button class="color-btn grey">Grey</button>
-    </div>
 
     <div class="price-section">
         <div class="buy-now-price">
             <p>Buy now for</p>
             <div class="price">
                 <h3>29,000,000 ₫</h3>
-                <p>&nbsp;/ </p><p><del>45,900,000 đ</del></p>
             </div>
             
         </div>
@@ -36,86 +28,17 @@
 
     </div>
 
-    <!-- <div class="student-discount">
-        <div class="discount-info">
-            <h4>Additional discount up to 1,000,000 ₫</h4>
-            <button class="verify-btn">Verify now</button>
-        </div>
-        <div class="discount-rates">
-            <p>Students - Teachers: <span class="discount-amount">Discount 300,000₫</span></p>
-            <p>New students with score <=9: <span class="discount-amount">Discount 500,000₫</span></p>
-            <p>New students with score >9: <span class="discount-amount">Discount 1,000,000₫</span></p>
-        </div>
-    </div> -->
 
-    <div class="warranty-section">
-        <label class="warranty-label">Select configure</label>
-        <div class="warranty-options">
-            <div class="container" >
-                <div class="row">
-                    <div class="col-6 col-md-6 col-sm-6 " >
-                        <button class="warranty-btn options-configure">Apple M3 (10-core CPU, 10-core GPU) 16GB 1TB<br>
-                            <span>45,900,000 đ</span>
-                        </button>
-                    </div>
-                    <div class="col-6 col-md-6 col-sm-6 " >
-                        <button class="warranty-btn options-configure">Apple M3 (10-core CPU, 10-core GPU) 16GB 1TB<br>
-                            <span>45,900,000 đ</span>
-                        </button>
-                    </div>
-                    <div class="col-6 col-md-6 col-sm-6 " >
-                        <button class="warranty-btn options-configure">Apple M3 (10-core CPU, 10-core GPU) 16GB 1TB<br>
-                            <span>45,900,000 đ</span>
-                        </button>
-                    </div>
-                    <div class="col-6 col-md-6 col-sm-6 " >
-                        <button class="warranty-btn options-configure">Apple M3 (10-core CPU, 10-core GPU) 16GB 1TB<br>
-                            <span>45,900,000 đ</span>
-                        </button>
-                    </div>
 
-                    <div class="col-6 col-md-6 col-sm-6 " >
-                        <button class="warranty-btn options-configure">Apple M3 (10-core CPU, 10-core GPU) 16GB 1TB<br>
-                            <span>45,900,000 đ</span>
-                        </button>
-                    </div>
-
-                    <div class="col-6 col-md-6 col-sm-6 " >
-                        <button class="warranty-btn options-configure">Apple M3 (10-core CPU, 10-core GPU) 16GB 1TB<br>
-                            <span>45,900,000 đ</span>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-           
-            <!-- <button class="warranty-btn">1-to-1 Exchange Warranty for Macbook (BT)<br><span>+2,800,000 ₫ <del>5,000,000₫</del></span></button> -->
-        </div>
-    </div>
 
     <div class="button-container">
         <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
         <button class="buy-now-btn">Buy Now</button>
-        <!-- <button class="installment-btn">Installment<br><span>(From 1,623,167 ₫)</span></button> -->
     </div>
 
     <p class="contact-info"><i class="fa-solid fa-phone"></i> Call <span>1800-6601</span> for purchase advice (Free)</p>
 </div>
 
-    <script>
-        const divElements = document.querySelectorAll('.options-configure');
-        divElements.forEach(div => {
-            if (divElements.length > 0) {
-                divElements[0].classList.add('selected-border');
-            }
-            div.addEventListener('click', () => {
-                // Xóa class 'selected-border' khỏi tất cả các div
-                divElements.forEach(item => item.classList.remove('selected-border'));
 
-                // Thêm class 'selected-border' vào div được chọn
-                div.classList.add('selected-border');
-            });
-        });
-    </script>
 </body>
 </html>
