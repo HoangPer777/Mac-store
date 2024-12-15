@@ -28,7 +28,7 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 10px;
     margin: 10px;
-    padding: 40px 20px;
+    padding: 40px 20px 20px 20px;
     width: calc(25% - 40px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -58,6 +58,7 @@ h1 {
 .product .price {
     font-weight: bold;
     color: #D95350;
+    font-size: 20px;
 }
 
 
