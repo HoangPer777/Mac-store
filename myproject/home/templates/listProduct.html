@@ -1,4 +1,5 @@
-
+  {% load static %}
+    {% load humanize %}
 <head>
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,242 +19,46 @@
 
 <body>
 
-    <div class="container text-center my-5">
-        <div class="product-name">
-            <h2 class="d-inline-block"><b>MacBook Air</b></h2>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row g-3">
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg' %}"
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>18.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-hot">HOT</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465302276858353_macbook-air-m3-13-2024-vang-1.jpg' %} "
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-
-                        <h5 class="card-title">MacBook Pro 2020 13 inch</h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>20.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-
-
-                    <img src="{% static 'resource/Image/macbook-air-m3-13-2024-xanh-1.jpg'%}"
-                        class="card-img-top" alt="MacBook Air 2020">
-
-
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>16.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-
-                    <img src="{% static 'resource/Image/2024_3_20_638465487457411344_macbook-air-m3-13-2024-xam-1.jpg' %}"
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>17.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>18.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-hot">HOT</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465302276858353_macbook-air-m3-13-2024-vang-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>20.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-
-
-                    <img src="{% static 'resource/Image/macbook-air-m3-13-2024-xanh-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title">MacBook Pro 2020 13 inch</h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>16.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-
-                    <img src="{% static 'resource/Image/2024_3_20_638465487457411344_macbook-air-m3-13-2024-xam-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>17.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="container text-center my-5">
+   <div class="container text-center my-5">
         <div class="product-name">
             <h2 class="d-inline-block"><b>MacBook Pro</b></h2>
         </div>
     </div>
     <div class="container">
-        <div class="row g-3">
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg' %}"
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>18.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
+       {% for pro in macPro %}
                 <div class="card custom-card">
                     <div class="badge badge-hot">HOT</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465302276858353_macbook-air-m3-13-2024-vang-1.jpg' %} "
-                        class="card-img-top" alt="MacBook Air 2020">
+                    <img src="{{pro.image}}"  class="card-img-top" alt="{{pro.name}}}">
                     <div class="card-body">
-
-                        <h5 class="card-title">MacBook Pro 2020 13 inch</h5>
+                        <h5 class="card-title">{{pro.name}}</h5>
                         <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>20.500.000₫</strong></p>
+                         <p class="cost"> {{pro.price|intcomma }} ₫</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
+        {% endfor %}
+    </div>
 
 
-                    <img src="{% static 'resource/Image/macbook-air-m3-13-2024-xanh-1.jpg'%}"
-                        class="card-img-top" alt="MacBook Air 2020">
 
-
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>16.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-
-                    <img src="{% static 'resource/Image/2024_3_20_638465487457411344_macbook-air-m3-13-2024-xam-1.jpg' %}"
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>17.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>18.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-hot">HOT</div>
-                    <img src="{% static 'resource/Image/2024_3_20_638465302276858353_macbook-air-m3-13-2024-vang-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>20.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-
-
-                    <img src="{% static 'resource/Image/macbook-air-m3-13-2024-xanh-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title">MacBook Pro 2020 13 inch</h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>16.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card custom-card">
-                    <div class="badge badge-new">NEW</div>
-
-                    <img src="{% static 'resource/Image/2024_3_20_638465487457411344_macbook-air-m3-13-2024-xam-1.jpg'%} "
-                        class="card-img-top" alt="MacBook Air 2020">
-
-                    <div class="card-body">
-                        <h5 class="card-title">MacBook Pro 2020 13 inch </h5>
-                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
-                        <p class="cost"><strong>17.500.000₫</strong></p>
-                    </div>
-                </div>
-            </div>
-
+    <div class="container text-center my-5">
+        <div class="product-name">
+            <h2 class="d-inline-block"><b>MacBook Air</b></h2>
         </div>
     </div>
     
-
-    <div class="text-center mt-4">
-        <a href="#" class="all-product">See All Macbook Air Products</a>
+    <div class="container">
+        {% for air in macAir %}
+                <div class="card custom-card">
+                    <div class="badge badge-new">NEW</div>
+                    <img src="{{air.image}}"  class="card-img-top" alt="{{air.name}}}">
+                    <div class="card-body">
+                        <a href="#" class="card-title">{{air.name}}</a>
+                        <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
+                         <p class="cost"> {{air.price|intcomma }} ₫</p>
+                    </div>
+                </div>
+        {% endfor %}
     </div>
+
 
 </body>

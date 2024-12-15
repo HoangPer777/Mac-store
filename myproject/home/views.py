@@ -6,8 +6,14 @@ from product.models import Product
 
 
 def get_home(request):
-    products = Product.objects.all().order_by('-noOfViews', '-noOfSolds')[:4]
-    for product in products:
-        products.price = int(product.price)
-    return render(request ,'userHome.html' , {'products' :products})
+    top4 = Product.objects.all().order_by('-noOfViews', '-noOfSolds')[:4]
+    macPro = Product.objects.all().filter(category_id=1).order_by('-noOfViews', '-noOfSolds')[:8]
+    macAir = Product.objects.all().filter(category_id=2).order_by('-noOfViews', '-noOfSolds')[:8]
+
+    context ={
+        'top4' :top4,
+        'macPro' :macPro,
+        'macAir' :macAir
+    }
+    return render(request ,'userHome.html' , context)
 

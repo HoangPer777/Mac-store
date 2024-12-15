@@ -8,6 +8,23 @@ from .forms import ProductForm
 from .models import Product
 from django.http import JsonResponse
 
+
+def product_list(request, category_id = None):
+
+    if category_id:
+        products = Product.objects.filter(category = category_id)
+    else:
+        products = Product.objects.all()
+    return render(request, 'product/product_list.html', {'products': products})
+
+
+def product_detail(request, product_id):
+    product = Product.objects.get(id = product_id)
+
+    return render(request, product.template, {'product': product})
+
+
+
 # Create
 def product_create(request):
     if request.method == 'POST':
@@ -19,9 +36,6 @@ def product_create(request):
         form = ProductForm()
     return render(request, 'product/AddProduct.html', {'form': form})
 
-def product_list(request):
-    products = Product.objects.all()
-    return render(request, 'product/product_list.html', {'products': products})
 
 # Thêm sản phẩm vào giỏ hàng
 def cart_add(request, product_id):
