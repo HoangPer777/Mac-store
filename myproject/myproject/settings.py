@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'user',
     'product',
     'order_detail',
-
+    'cart','address','customer',
+    'category'
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,4 @@ STATICFILES_DIRS = [ #add
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CART_SESSION_ID = 'cart'
