@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'product',
     'order_detail',
     'cart','address','customer',
+    'category'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 
 ROOT_URLCONF = 'myproject.urls'
 
