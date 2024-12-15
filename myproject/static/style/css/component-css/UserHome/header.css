@@ -80,7 +80,7 @@ li.menu-item:hover ul.tab {
 li.menu-item ul.tab {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 0px;
     font-weight: normal;
     font-size: 12px;
     width: max-content;
@@ -93,6 +93,7 @@ li.menu-item ul.tab {
     transition: opacity var(--transition-duration) ease-in-out,
     visibility var(--transition-duration) ease-in-out;
     z-index: 1001;
+    padding-left: 0;
 }
 
 li.menu-item:hover ul.tab {
