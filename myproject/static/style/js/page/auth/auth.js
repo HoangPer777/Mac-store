@@ -1,15 +1,27 @@
-const registerButton = document.querySelector(".register-button");
-const loginButton = document.querySelector(".login-button");
 const container = document.querySelector(".container");
 const togglePasswords = document.querySelectorAll(".toggle-password");
 
-// Chuyển đổi giao diện giữa đăng ký và đăng nhập
-registerButton.addEventListener("click", () => {
-    container.classList.add("right-panel-active");
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("container");
+    const registerButton = document.querySelector(".register-button");
+    const loginButton = document.querySelector(".login-button");
+
+    // Kiểm tra sự kiện chuyển sang giao diện đăng ký
+    registerButton.addEventListener("click", function () {
+        container.classList.add("right-panel-active");
+        window.history.pushState({}, "", "/auth/register/");
+        console.log("URL changed to: /auth/register/");
+    });
+
+    // Kiểm tra sự kiện chuyển sang giao diện đăng nhập
+    loginButton.addEventListener("click", function () {
+        container.classList.remove("right-panel-active");
+        window.history.pushState({}, "", "/auth/login/");
+        console.log("URL changed to: /auth/login/");
+    });
 });
-loginButton.addEventListener("click", () => {
-    container.classList.remove("right-panel-active");
-});
+
 
 // Hiển thị/Ẩn mật khẩu
 togglePasswords.forEach((togglePassword) => {
@@ -35,67 +47,73 @@ window.onload = () => {
 
 
 // Xử lý logic đăng nhập
-const signInForm = document.querySelector(".sign-in-container form");
-signInForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.querySelector("#email").value.trim();
-    const password = document.querySelector("#password").value.trim();
+document.querySelector("#login-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Ngăn form gửi GET request mặc định
 
-    // Giả lập tài khoản
-    const accounts = {
-        "admin@gmail.com": {
-            password: "admin123",
-            role: "admin",
-            redirect: "../../../frontEnd/src/pages/Admin.html",
-        },
-        "user@gmail.com": {
-            password: "user123",
-            role: "user",
-            redirect: "../../../frontEnd/src/pages/Home.html",
-        },
-    };
-
-
-    if (accounts[email] && accounts[email].password === password) {
-        // Lưu trạng thái đăng nhập
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userEmail", email);
-        localStorage.setItem("userRole", accounts[email].role);
-
-
-        window.location.href = accounts[email].redirect;
-    } else {
-        alert("Email hoặc mật khẩu không đúng!");
-    }
-});
-document.getElementById('register-form').addEventListener('submit', function (e) {
-    e.preventDefault();
+    let csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
 
     let data = {
-        full_name: document.getElementById('full_name').value,
-        display_name: document.getElementById('display_name').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
-        confirm_password: document.getElementById('confirm_password').value
+        username: document.getElementById('login_email').value,
+        password: document.getElementById('login_password').value
     };
 
-    fetch('http://127.0.0.1:8000/auth/register/', {
-        method: 'POST',
+    fetch("/auth/login/", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrfToken
         },
         body: JSON.stringify(data)
     })
         .then(response => response.json())
         .then(data => {
-            const messageDiv = document.getElementById('response-message');
             if (data.success) {
-                messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+                alert("Login successful!");
             } else {
-                messageDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
+                alert("Error: " + data.message);
             }
         })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        .catch(error => console.error("Error:", error));
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const registerForm = document.querySelector('form[action="/auth/register/"]');
+    registerForm.addEventListener("submit", async function (e) {
+        e.preventDefault(); // Ngăn form submit mặc định
+
+        // Lấy dữ liệu từ form
+        const formData = {
+            full_name: document.getElementById("full_name").value,
+            display_name: document.getElementById("display_name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            confirm_password: document.getElementById("confirm_password").value,
+        };
+
+        try {
+            // Gửi request dạng JSON
+            const response = await fetch("/auth/register/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]").value,
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert("Register successful!");
+                console.log(result);
+            } else {
+                alert("Register failed: " + result.message);
+                console.log(result);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    });
 });

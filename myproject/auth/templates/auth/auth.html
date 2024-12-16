@@ -1,7 +1,5 @@
 {%load static%}
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -16,6 +14,7 @@
             referrerpolicy="no-referrer"
     />
 </head>
+
 <body>
 <div class="container" id="container">
     <!-- Sign up -->
@@ -78,7 +77,7 @@
 
     <!-- Sign in -->
     <div class="form-container sign-in-container">
-        <form action="/auth/login/" method="POST">
+        <form id="login-form" action="/auth/login/" method="POST"><form id="login-form" action="/auth/login/" method="POST">
             {% csrf_token %}
             <h1>Sign In</h1>
             <div class="social-container">
@@ -129,11 +128,6 @@
         </div>
     </div>
 </div>
-
-
-
-<main>
     <script src="{% static 'style/js/page/auth/auth.js' %}"></script>
-</main>
 </body>
-</html>
+
