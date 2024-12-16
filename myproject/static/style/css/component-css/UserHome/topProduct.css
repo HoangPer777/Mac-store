@@ -15,7 +15,7 @@ h1 {
 
 .product-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 20px 200px;
     overflow-x: auto;
     scrollbar-width: none;
@@ -24,19 +24,20 @@ h1 {
     display: none; 
 }
 .product {
-       background-color: #fff;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     margin: 10px;
-    padding: 40px 20px 20px 20px;
-    width: calc(25% - 40px);
+    padding: 10px;
+    width: 280px;
+    height: 330px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -63,7 +64,7 @@ h1 {
 
 
 .product .wrap_img{
-    width: 100%;
+    width: 200px;
     height: 150px;
 }
 

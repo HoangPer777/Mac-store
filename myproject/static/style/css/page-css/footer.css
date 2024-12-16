@@ -1,0 +1,134 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Container */
+.footer-container {
+    width: 100%;
+    background-color: #f8f9fa;
+}
+
+/* Information Section (Top Row) */
+.info-section {
+    background-color: #6c757d;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.info-column {
+    flex: 1 1 200px; /* Giới hạn cột nhỏ nhất */
+    text-align: center;
+    display: flex; /* Căn giữa nội dung bên trong */
+    flex-direction: column;
+    align-items: center; /* Căn giữa theo chiều ngang */
+    justify-content: flex-start; /* Canh về phía trên */
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px; /* Khoảng cách giữa icon và text */
+    object-fit: contain; /* Đảm bảo ảnh không bị méo */
+}
+
+/* Main Footer Section */
+.footer-main {
+    background-color: #000;
+    color: aliceblue;
+    padding: 40px 20px;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1 1 220px;
+    text-align: left;
+    padding: 10px;
+}
+
+.footer-column h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin: 8px 0;
+}
+
+.footer-links li a {
+    color: aliceblue;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: greenyellow;
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+    position: relative;
+    left: -40px;
+    margin-left: 35px;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Footer Divider */
+.footer-divider {
+    border: none;
+    height: 1px;
+    background-color: #444;
+    margin: 30px 0;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #ddd;
+    padding: 10px 0;
+}

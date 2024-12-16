@@ -2,15 +2,10 @@
 const productImage = document.getElementById("product-image");
 const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
-const colorOptions = document.querySelectorAll(".color-option");
+const colorOptions = document.querySelectorAll(".color-option img");
 
-// Array of image sources
-const images = [
-    "../../../resource/Image/2024_3_20_638465487457411344_macbook-air-m3-13-2024-xam-1.jpg", // Grey
-    "../../../resource/Image/macbook-air-m3-13-2024-xanh-1.jpg", // Blue Black
-    "../../../resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg", // Silver
-    "../../../resource/Image/2024_3_20_638465302276858353_macbook-air-m3-13-2024-vang-1.jpg"  // Yellow
-];
+// Array of image sources (dynamically retrieved from img-item elements)
+const images = Array.from(colorOptions).map(option => option.src);
 
 let currentImageIndex = 0;
 
@@ -20,7 +15,7 @@ function updateImage(index) {
 
     // Update the "selected" class for color options
     colorOptions.forEach((opt, optIndex) => {
-        opt.classList.toggle("selected", optIndex === index);
+        opt.parentElement.classList.toggle("selected", optIndex === index);
     });
 }
 
@@ -37,7 +32,7 @@ nextButton.addEventListener("click", () => {
 
 // Event listeners for color options
 colorOptions.forEach((option, index) => {
-    option.addEventListener("click", () => {
+    option.parentElement.addEventListener("click", () => {
         currentImageIndex = index; // Set the current index to the selected color's index
         updateImage(currentImageIndex);
     });

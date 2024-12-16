@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MacBook Pro 2023</title>
      {% load static %}
     <link href="{% static 'style/css/component-css/UserHome/header.css' %}"  rel="stylesheet">
     <link href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}" rel="stylesheet"  >
@@ -11,10 +7,10 @@
 
 </head>
 <body>
-<header>
-    <section class="header">
+
+    <div id="header">
         <div class="logo">
-            <a href="http://127.0.0.1:8000/home">
+            <a href="/home">
                 <img src="/static/resource/Image/test.png" alt="Logo">
             </a>
         </div>
@@ -87,7 +83,6 @@
                 <span>Login</span>
             </a>
         </div>
-    </section>
-</header>
+    </div>
+
 </body>
-</html>
