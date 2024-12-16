@@ -174,3 +174,7 @@ h2{
 .navigate {
     text-align: center;
 }
+
+a.btn_checkout{
+    background-color: red;
+}
