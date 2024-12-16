@@ -85,26 +85,26 @@ a{
 }
 
 /*Header*/
-#header{
-    width: 100%;
-    height: 70px;
-    font-size: 22px;
-    justify-content: center;
-    padding-left: 20px;
-}
+/*#header{*/
+/*    width: 100%;*/
+/*    height: 70px;*/
+/*    font-size: 22px;*/
+/*    justify-content: center;*/
+/*    padding-left: 20px;*/
+/*}*/
 
-#header .nav {
-    font-size: 18px;
-    margin-right: 20px;
-    cursor: pointer;
-}
+/*#header .nav {*/
+/*    font-size: 18px;*/
+/*    margin-right: 20px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-#header span{
-    width: 80%;
-    display: flex;
-    justify-content: flex-start;
+/*#header span{*/
+/*    width: 80%;*/
+/*    display: flex;*/
+/*    justify-content: flex-start;*/
 
-}
+/*}*/
 
 
 /*Body*/

@@ -96,3 +96,8 @@ def cart_remove(request, product_id):
         "message": "Item removed successfully",
         "new_total_price": cart_total_price
     })
+
+def checkout(request):
+    cart = Cart(request)
+    total_price = cart.get_total_price()
+    return render(request, 'cart/Checkout.html', {'cart': cart, 'total_price': total_price})

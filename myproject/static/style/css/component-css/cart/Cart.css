@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     background-color: #E9E9E9;
+
 }
 
 .cart-container {
@@ -166,4 +167,10 @@ h2{
     justify-content: center;
     align-items: center;
     padding: 5px;
+}
+
+
+
+.navigate {
+    text-align: center;
 }
