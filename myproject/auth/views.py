@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 
 from django.contrib.auth.models import User
 from django.shortcuts import render
+from django.urls import reverse
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -57,7 +58,6 @@ def register_view(request):
 
 #login
 def login_view(request):
-
     if request.method == 'GET':
         return render(request, 'auth/auth.html')
     if request.method == "POST":
@@ -74,6 +74,8 @@ def login_view(request):
             # Authenticate user
             user = authenticate(request, username=username, password=password)
             if user is not None:
+                login(request, user)  # Django login function to set session
+
                 # Generate JWT tokens
                 refresh = RefreshToken.for_user(user)
                 tokens = {
@@ -81,14 +83,14 @@ def login_view(request):
                     "refresh": str(refresh),
                 }
 
-                # Set tokens in HttpOnly cookies
                 response = JsonResponse({
                     "success": True,
                     "message": "Login successful!",
-                    "tokens": tokens
+                    "redirect_url": reverse('home'),
+                    "tokens": tokens,
                 }, status=200)
 
-
+                # Set tokens in HttpOnly cookies
                 response.set_cookie(
                     key='access_token',
                     value=tokens['access'],
