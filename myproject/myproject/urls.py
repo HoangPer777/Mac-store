@@ -6,12 +6,13 @@ from myproject import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 urlpatterns = [
-
+                    path('', home.get_home, name='default_home'),
                   path('admin/', admin.site.urls),
                   path('home/', home.get_home, name='home'),
                   path('product/', include('product.url')),
                   path('cart/', include('cart.url')),
-                    path('address/', include('address.url')), path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+                    path('address/', include('address.url')),
+                  path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
                   # path('cart/', include('product.url')),
                   path('auth/', include('auth.urls')),
                      path('checkout/', include('checkout.urls')),
