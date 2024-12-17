@@ -100,6 +100,7 @@ def cart_remove(request, product_id):
         "new_total_price": cart_total_price
     })
 
+# @login_required
 def checkout(request):
     cart = Cart(request)
     total_price = cart.get_total_price()
