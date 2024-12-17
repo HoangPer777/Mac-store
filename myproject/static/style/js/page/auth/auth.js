@@ -47,6 +47,7 @@ window.onload = () => {
 
 
 // Xử lý logic đăng nhập
+// Xử lý logic đăng nhập
 document.querySelector("#login-form").addEventListener("submit", function (e) {
     e.preventDefault(); // Ngăn form gửi GET request mặc định
 
@@ -67,8 +68,10 @@ document.querySelector("#login-form").addEventListener("submit", function (e) {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.success) {
                 alert("Login successful!");
+                window.location.assign(data.redirect_url);
             } else {
                 alert("Error: " + data.message);
             }
