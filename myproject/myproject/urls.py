@@ -15,6 +15,6 @@ urlpatterns = [
                   path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
                   # path('cart/', include('product.url')),
                   path('auth/', include('auth.urls')),
-                     path('checkout/', include('checkout.urls')),
+                     # path('checkout/', include('checkout.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
