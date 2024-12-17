@@ -10,6 +10,9 @@ from cart.models import Cart
 from coupon.forms import CouponApplyForm
 from product.models import Product
 
+from django.utils import timezone
+from coupon.models import Coupon
+from django.http import JsonResponse
 
 def cart_add(request, product_id):
     cart = Cart(request)
@@ -96,3 +99,44 @@ def cart_remove(request, product_id):
         "message": "Item removed successfully",
         "new_total_price": cart_total_price
     })
+
+def checkout(request):
+    cart = Cart(request)
+    total_price = cart.get_total_price()
+    return render(request, 'cart/Checkout.html', {'cart': cart, 'total_price': total_price})
+
+
+
+def apply_coupon(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            code = data.get('coupon_code')
+
+            # Kiểm tra mã giảm giá
+            coupon = Coupon.objects.filter(code=code, active=True, to_date__gte=timezone.now()).first()
+            if not coupon:
+                return JsonResponse({"status": "error", "message": "Mã giảm giá không hợp lệ hoặc đã hết hạn."}, status=400)
+
+            cart = Cart(request)
+            cart_total = cart.get_total_price()
+
+            # Tính toán giá giảm
+            discount_amount = (cart_total * coupon.discount) / 100
+            if discount_amount > coupon.maxValue:
+                discount_amount = coupon.maxValue
+
+            new_total = cart_total - discount_amount
+
+            # Trả về JSON kết quả mới
+            return JsonResponse({
+                "status": "success",
+                "message": "Mã giảm giá đã được áp dụng.",
+                "data": {
+                    "discount_amount": discount_amount,
+                    "new_total": new_total
+                }
+            })
+
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)

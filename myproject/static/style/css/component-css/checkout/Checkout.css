@@ -13,6 +13,7 @@ body{
     width: 100%;
     height: 100%;
     overflow: scroll;
+    /*background-color: #f5f5f7;*/
 }
 
 
@@ -85,26 +86,26 @@ a{
 }
 
 /*Header*/
-#header{
-    width: 100%;
-    height: 70px;
-    font-size: 22px;
-    justify-content: center;
-    padding-left: 20px;
-}
+/*#header{*/
+/*    width: 100%;*/
+/*    height: 70px;*/
+/*    font-size: 22px;*/
+/*    justify-content: center;*/
+/*    padding-left: 20px;*/
+/*}*/
 
-#header .nav {
-    font-size: 18px;
-    margin-right: 20px;
-    cursor: pointer;
-}
+/*#header .nav {*/
+/*    font-size: 18px;*/
+/*    margin-right: 20px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-#header span{
-    width: 80%;
-    display: flex;
-    justify-content: flex-start;
+/*#header span{*/
+/*    width: 80%;*/
+/*    display: flex;*/
+/*    justify-content: flex-start;*/
 
-}
+/*}*/
 
 
 /*Body*/
@@ -297,8 +298,6 @@ a{
     width: 100%;
     /*padding-bottom: 10px;*/
     border-bottom: 1px solid #bcbcbc;
-    margin-bottom: 16px;
-
 }
 
 .discount .title{
@@ -315,25 +314,21 @@ a{
     padding: 5px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 16px;
 }
 .wrap_input input{
     width: 60%;
     height: 100%;
-    padding-left: 5px;
     outline: none;
     border: none;
-
-    /*border-bottom: 1px solid gray;*/
+    font-size: 16px;
 }
 
 .wrap_input button{
-    width: 30%;
-    height:80%;
+    padding: 4px 40px;
     border: 1px solid gray;
-    border-radius: 20px;
+    border-radius: 10px;
     color: white;
-    margin-left: 20px;
-    background-color: #0a7cff;
 }
 
 
@@ -389,11 +384,10 @@ a{
 }
 
 #pay   {
-    width: 100%;
+    width: 80%;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid gray;
-    background-color: #0170F0;
     font-weight: 400;
     font-size: 18px;
     color: white;
@@ -445,4 +439,71 @@ a{
 
 .ads span{
     padding-left:5px;
+}
+
+.product {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    justify-content: space-around;
+
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
+-webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
+}
+
+.product_image {
+    height: 100px;
+    width: auto;
+}
+
+.product__price_prefix {
+    display: flex;
+}
+
+.product_title {
+    margin: 0 10px;
+    width: 350px;
+    text-align: start;
+}
+
+.wrap_input button {
+    background-color: #28a745;
+    font-weight: bold;
+}
+
+.wrap_input button:hover {
+    background-color: #249c3e;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#pay {
+    background-color: #28a745;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.right-side .bill {
+    border: none;
+
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.13);
+-webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.13);
+-moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.13);
+}
+
+.unit_price {
+    font-size: 14px;
+}
+
+.quantity-control .num {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.total_price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
 }
