@@ -1,5 +1,7 @@
 <head>
-{% load static %}
+    {% load static %}
+    {% load humanize %}
+
     <title>Product Detail</title>
     <link rel="stylesheet" href=" {% static 'style/css/component-css/productDetail/productPrice.css' %}">
 </head>
@@ -7,14 +9,13 @@
 <body id="body">
 
 <div class="product-card">
-    <h2>Macbook Pro M3 14 2024 8CPU 10GPU/16GB/1TB</h2>
-{#    <h2>Macbook Pro M3 14 2024 8CPU 10GPU/16GB/1TB</h2>#}
+    <h2>{{ product.name }}</h2>
 
     <div class="price-section">
         <div class="buy-now-price">
             <p>Buy now for</p>
             <div class="price">
-                <h3>29,000,000 ₫</h3>
+                <p class="price_value"> {{product.price|intcomma }} ₫</p>
             </div>
         </div>
 

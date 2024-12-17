@@ -9,11 +9,11 @@
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 
 .product-card {
-    padding-top: 20px;
+    padding: 70px 0;
     border-radius: 10px;
 }
 
@@ -71,12 +71,18 @@
     color: #555;
 }
 
-.buy-now-price h3,
+.buy-now-price .price_value,
 .installment-price h3 {
     font-size: 22px;
     color: #d32f2f;
     font-weight: bold;
 }
+
+.price .price_value{
+    font-size: 28px;
+    padding: 20px 0;
+}
+
 
 .student-discount {
     background-color: #fff4f4;

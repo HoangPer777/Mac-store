@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 
-body {
+#body {
     font-family: Arial, sans-serif;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
 }
 
 
@@ -17,11 +18,14 @@ body {
     display: flex;
     max-width: 1200px;
     width: 100%;
+    flex-direction: row;
 }
 
-.product-card {
+.left {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin-right: 50px;
 }
 
 
@@ -63,8 +67,7 @@ body {
     height: 6350px;
 }
 #footer{
-    width: 1518px;
-    height: 700px;
+    width: 100%;
     border: none;
 }
 @media (max-width: 992px) {

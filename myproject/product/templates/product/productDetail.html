@@ -4,42 +4,53 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'style/css/page-css/productDetail.css' %}">
 </head>
-<body>
+<body id="body">
 {% block content %}
-    {% include 'header.html'%}
+    {% include 'header.html' %}
 
     <div class="product-container">
-        <div class="product-card">
+
+
+        <div class="left">
             {% include 'product/productImage.html' %}
+            <div class="description">
+                {% include 'product/productDescripton.html' %}
+            </div>
+
         </div>
 
-        <div class="product-price">
-            {% include 'product/productPrice.html' %}
+
+        <div class="right">
+            <div class="product-price">
+                {% include 'product/productPrice.html' %}
+            </div>
+
+            <div class="product-info">
+                {% include 'product/productInfor.html' %}
+            </div>
+
+
+            <div class="product-rating">
+                {% include 'product/productRating.html' %}
+            </div>
+
         </div>
 
-{#    </div>#}
-{##}
-{#    <div class="product-info">#}
-{#        {% include 'product/productInfor.html' %}#}
-{#    </div>#}
-{##}
-{##}
-{#    <div class="footer">#}
-        {#    {% include 'footer.html' %}#}
-{#    </div>#}
+    </div>
 
 
 
-    {#    {% include 'product/productImage.html' %}#}
-    {#    {% include 'product/productDescripton.html' %}#}
-    {#    {% include 'product/productPrice.html' %}#}
-    {#    {% include 'product/productInfor.html' %}#}
-
-
-    {#    {% include '../../home/templates/footer.html' %}#}
 
 
 
 {% endblock %}
+
+
+         <div id="footer">
+            {% include 'footer.html' %}
+         </div>
+
+
+
 </body>
 
