@@ -12,7 +12,7 @@
                     <div class="wrap_img">
                         <img src="{{ product.image }}" alt="{{ product.name }}">
                     </div>
-                    <a href="#" class="name"> {{ product.name }}</a>
+                    <a href="/product/detail/{{product.id}}" class="name"> {{ product.name }}</a>
                     <p class="price"> {{product.price|intcomma }} ₫</p>
                 </div>
             {% endfor %}

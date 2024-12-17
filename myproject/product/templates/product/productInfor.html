@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   {%  load static %}
     <title>Technical Specifications</title>
-    <link rel="stylesheet" href="../../../../backend/static/style/css/component-css/productDetail/productInfo.css">
+    <link rel="stylesheet" href="{% static 'style/css/component-css/productDetail/productInfo.css'%} ">
+
 
 </head>
 <body>
@@ -12,7 +11,7 @@
 <!-- Tabs -->
 <div class="tabs">
     <div class="tab-button active" data-tab="tech-specs">Technical Specifications</div>
-    <div class="tab-button" data-tab="reviews">Reviews</div>
+{#    <div class="tab-button" data-tab="reviews">Reviews</div>#}
 </div>
 
 <!-- Content Section -->
@@ -132,11 +131,10 @@
 </div>
 
 <div class="content" id="reviews">
-    <iframe src="../../components/product-detail/productRating.html" id="rating"> </iframe>
+{#    {% include 'product/productRating.html'%}#}
 </div>
 
 <main>
-    <script src="../../../../backend/static/style/js/component-js/productInfo.js"></script>
+    <script src=" {%  static 'style/js/component-js/productInfo.js' %}"></script>
 </main>
 </body>
-</html>

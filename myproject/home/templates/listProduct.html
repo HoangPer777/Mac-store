@@ -28,7 +28,7 @@
                     <div class="badge badge-hot">HOT</div>
                     <img src="{{pro.image}}"  class="card-img-top" alt="{{pro.name}}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{pro.name}}</h5>
+                        <a href="/product/detail/{{pro.id}}" class="card-title">{{pro.name}}</a>
                         <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
                          <p class="cost"> {{pro.price|intcomma }} ₫</p>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="badge badge-new">NEW</div>
                     <img src="{{air.image}}"  class="card-img-top" alt="{{air.name}}}">
                     <div class="card-body">
-                        <a href="#" class="card-title">{{air.name}}</a>
+                        <a href="/product/detail/{{air.id}}"  class="card-title">{{air.name}}</a>
                         <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
                          <p class="cost"> {{air.price|intcomma }} ₫</p>
                     </div>

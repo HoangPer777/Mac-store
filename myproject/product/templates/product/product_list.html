@@ -74,6 +74,7 @@
             color: #333;
             margin: 10px 0;
             font-weight: bold;
+            width: 100%;
         }
 
         .product .price {
@@ -147,7 +148,7 @@
                         <img src="{{ product.image }}" alt="{{ product.name }}">
                     </div>
                     <div class="product__body">
-                        <p class="name"> {{ product.name }}</p>
+                        <a href="/product/detail/{{product.id}}" class="name"> {{ product.name }}</a>
                        <p class="price"> {{product.price|intcomma }} ₫</p>
                         <div class="buttons">
                             <a href="#" class="add-to-cart" data-product-id="{{ product.id }}"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -159,6 +160,8 @@
        {% endfor %}
     </div>
 </div>
+
+{% include 'footer.html' %}
 
 <script src="../../../static/style/js/component-js/product_list.js"></script>
 <script>
