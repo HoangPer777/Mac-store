@@ -1,0 +1,324 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="{% static 'style/css/component-css/checkout/Checkout.css' %}" rel="stylesheet">
+    <link href="{% static 'style/js/component-js/Checkout.js' %}" rel="stylesheet">
+
+</head>
+<body>
+
+{#    {% include 'header.html' %}#}
+{#    <h1>Thanh toán đơn hàng</h1>#}
+<div id="header" class="mid_align row">
+    <span style="font-weight:bold; font-size: 24px; margin: 40px auto;">Thanh toán đơn hàng</span>
+</div>
+
+<div id="body" class="mid_align">
+    <div class="container row">
+
+        <div class="left-side">
+            <div class="list_product">
+            {% if cart %}
+                {% for item in cart %}
+                    <div class="product" style=" display: flex; align-items: center; ">
+                    <td class="text-start">
+                        <div class="d-none d-xl-block me-2">
+                            <a class="product_link" href="{{ item.product.url }}" target="_blank">
+                                <img class="mx-auto product_image"  src="{{ item.product.image }}" alt="{{ item.product.name }}">
+                            </a>
+                        </div>
+
+                        <div>
+                            <div class="product_title">{{ item.product.name }}</div>
+                        </div>
+                    </td>
+
+                    <div class="product__price">
+                        <div class="product__price_prefix">
+                            <td class="text-end">
+                                <div class="priceFormat unit_price" data-number="{{ item.product.price|floatformat:0 }}" data-formatted="{{ item.product.price|floatformat:0 }}">
+                                    {{ item.product.price|floatformat:0 }} ₫
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="quantity-control">
+                                    <span class="num mid_align">x{{ item.quantity }}</span>
+                                </div>
+                            </td>
+                        </div>
+
+                        <td class="text-end">
+                            <div class="priceFormat total_price fw-bold"  data-number="{{ item.total_price|floatformat:0 }}" data-formatted="{{ item.total_price|floatformat:0 }}">
+                                = {{ item.total_price|floatformat:0 }} ₫
+                            </div>
+                        </td>
+                    </div>
+
+{#                    <td class="text-center">#}
+{#                        <a href="javascript:void(0);" onclick="removeCart('{{ item.id }}')" class="cart-item-remove-container" data-bs-toggle="tooltip" data-bs-title="Xoá Khỏi Giỏ Hàng?">#}
+{#                            <i class="fa fa-trash cart-item-remove"></i>#}
+{#                        </a>#}
+{#                    </td>#}
+
+                </div>
+
+
+            </tr>
+                {% endfor %}
+            {% else %}
+                <p>Giỏ hàng của bạn trống. <a href="{% url 'shop:index' %}">Tiếp tục mua sắm</a></p>
+            {% endif %}
+            </div>
+
+
+            <div class="address">
+                <div class="address_title row ">
+                    <span class="">Địa Nhận hàng</span>
+
+                </div>
+
+                <div class="address_body">
+
+
+                    <div class="item_header row mid_align">
+                         <div class="item_header row mid_align">
+                             <span class="name">{{ user.full_name|default:"Guest" }}</span>
+                            <div class="rec_vertical"></div>
+                            <span class="phone">{{ user.phone|default:"N/A" }}</span>
+                        </div>
+                    </div>
+
+                    <div class="address_detail">
+                        {% if user.is_authenticated %}
+                            <span>{{ address.detail }}, {{ address.district }}, {{ address.province }}</span>
+                        {% else %}
+                            <span>Địa chỉ chưa đăng nhập</span>
+                        {% endif %}
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="payment">
+                <div class="payment_title row ">
+                    <span class="">Phương thức thanh toán</span>
+                </div>
+
+                <div class="payment_body col">
+
+                    <div class="item mid_align cod">
+                        <i class="fa-solid fa-money-bill"></i>
+                        <span>Thanh toán khi nhận hàng</span>
+                        <input type="radio" name="payment-method" checked>
+                    </div>
+
+
+                    <div class="item mid_align banking col" >
+
+                        <div class="title">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <span>Thanh toán qua ngân hàng</span>
+                        </div>
+
+
+                        <div class="card_list col">
+                            <div class="card_item">
+                                <div class="wrap_card">
+                                    <i class="fa-brands fa-cc-visa"></i>
+                                    <span>**** 5634</span>
+                                    <input type="radio" name="payment-method">
+                                </div>
+                            </div>
+
+                            <div class="card_item">
+                                <div class="wrap_card">
+                                    <i class="fa-brands fa-cc-jcb"></i>
+                                    <span>**** 4212</span>
+                                    <input type="radio" name="payment-method">
+                                </div>
+                            </div>
+
+                            <div class="card_item">
+                                <div class="wrap_card">
+                                    <i class="fa-brands fa-cc-mastercard"></i>
+                                    <span>**** 1232</span>
+                                    <input type="radio" name="payment-method">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="right-side col ">
+            <div class="bill mid_align col ">
+                <div class="wrap_total">
+                    <div class="total">
+                        <span>Tổng cộng</span>
+                        <span class="priceFormat" data-number="{{ cart.get_total_price }}">{{ cart.get_total_price }}</span>
+                    </div>
+                </div>
+
+
+                <div class="discount">
+{#                    <span class="title">Nhập Mã Khuyến Mãi</span>#}
+
+                    <div class="wrap_input">
+                        <input id="voucher" type="text" placeholder="Voucher hoặc gift code ">
+                        <button id="apply-voucher" type="button">Áp Dụng</button>
+                    </div>
+
+                </div>
+
+                <div class="wrap_total">
+                    <div class="total">
+                        <span>Thành tiền</span>
+                        <span class="last_price priceFormat" data-number="{{ cart.get_total_price}}"> {{ new_total|default:cart.get_total_price}}</span>
+                    </div>
+                    <span class="note">Đẫ bao gồm thuế GTGT</span>
+                </div>
+
+
+                <button type="submit" id="pay" data-src="">Thanh Toán</button>
+
+                <div class="term_condition">
+                <span>Bằng cách gửi đơn đặt hàng,
+                    bạn đồng ý với <a href="#">Điều khoản & điều kiện</a> và
+                    chúng tôi sẽ sử dụng dữ liệu cá nhân của bạn theo
+                    <a href="#">Chính sách quyền riêng tư</a> của chúng tôi.</span>
+                </div>
+
+
+                <div class="ads col">
+                    <div class="ads_item">
+                        <i class="fa-solid fa-medal"></i>
+                        <span>Cam kết giá</span>
+
+                    </div>
+
+                    <div class="ads_item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Giao hàng miễn phí toàn quốc </span>
+
+                    </div>
+                    <div class="ads_item">
+                        <i class="fa-solid fa-percent"></i>
+                        <span>Gói trả góp 0%</span>
+
+                    </div>
+
+                    <div class="ads_item">
+                        <i class="fa-solid fa-rotate"></i>
+                        <span>Đổi sản phẩm theo chính sách quy định trong vòng 14 ngày</span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+    // Định nghĩa hàm formatCurrency ở scope global
+function formatCurrency(amount) {
+    try {
+        const numAmount = parseFloat(amount);
+        if (isNaN(numAmount) || numAmount < 0) {
+            console.error("Số không hợp lệ:", amount);
+            return "Lỗi";
+        }
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        }).format(numAmount);
+    } catch (error) {
+        console.error("Lỗi khi định dạng số:", error);
+        return "Lỗi";
+    }
+}
+
+// Hàm format tất cả các phần tử có class priceFormat
+function formatAllPrices() {
+    const priceElements = document.querySelectorAll('.priceFormat');
+    priceElements.forEach(function(element) {
+        const rawPrice = element.getAttribute('data-number');
+        const numPrice = parseFloat(rawPrice);
+        if (!isNaN(numPrice)) {
+            element.textContent = formatCurrency(numPrice);
+        }
+    });
+}
+
+// jQuery document ready
+$(document).ready(function() {
+    // Xử lý sự kiện click vào nút áp dụng voucher
+    $('#apply-voucher').on('click', function() {
+        const couponCode = $('#voucher').val();
+
+        $.ajax({
+            url: "{% url 'cart:apply_coupon' %}",
+            type: "POST",
+            data: JSON.stringify({ coupon_code: couponCode }),
+            contentType: "application/json",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            success: function(response) {
+                alert(response.message);
+
+                if (response.status === "success") {
+                    const newTotal = response.data.new_total;
+                    console.log("New total:", newTotal); // Debug log
+
+                    // Cập nhật cả data-number và text content
+                    $('.last_price')
+                        .attr('data-number', newTotal)
+                        .text(formatCurrency(newTotal));
+                }
+            },
+            error: function(response) {
+                const errorMessage = response.responseJSON?.message || "Có lỗi xảy ra.";
+                alert(errorMessage);
+            }
+        });
+    });
+});
+
+// DOM Content Loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Format tất cả giá khi trang load
+    formatAllPrices();
+});
+</script>
+
+
+</body>
+</html>
