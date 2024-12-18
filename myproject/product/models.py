@@ -1,3 +1,4 @@
+from cloudinary.models import CloudinaryField
 from django.db import models
 from django.db.models import Index
 from django.shortcuts import render
@@ -10,7 +11,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     description = models.TextField(blank=True)
     price = models.IntegerField()
-    image = models.CharField(max_length=200)
+    image = CloudinaryField('image', null=True, blank=True)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
