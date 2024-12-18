@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +52,8 @@ INSTALLED_APPS = [
     'cart','address','customer',
     'category',
     'card',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +173,18 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN': False,
 }
+
+# Configuration
+cloudinary.config(
+    cloud_name = "dshbh3gvj",
+    api_key = "849919465828344",
+    api_secret = "Al6Zb6SHDru3yMXbgEFyzNvUSKA",
+    secure=True
+)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dshbh3gvj',
+    'API_KEY': '849919465828344',
+    'API_SECRET': 'Al6Zb6SHDru3yMXbgEFyzNvUSKA',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
