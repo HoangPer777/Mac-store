@@ -1,0 +1,50 @@
+{% load static %}
+<head>
+    <title>Title</title>
+  <link rel="stylesheet" href="{% static 'style/css/admin-css/Dashboard.css' %}">
+</head>
+<body>
+
+
+<div id="body">
+
+  <div class="title">
+    <span>G-Apple DashBoard</span>
+  </div>
+
+  <div class="card_list row mid_align">
+    <div class="card ">
+        {% include 'g_admin/Viewport.html' %}
+    </div>
+
+
+
+    <div class="card">
+         {% include 'g_admin/PieChart.html' %}
+    </div>
+
+    <div class="card">
+      <iframe id="frame_total_user" src="../../components/chart/TotalUser.html" frameborder="0"></iframe>
+    </div>
+
+
+    <div class="card">
+      <iframe id="frame_new_user" src="../../components/chart/NewUser.html" frameborder="0"></iframe>
+
+    </div>
+  </div>
+
+
+  <div class="over_view mid_align">
+    <iframe id="frame_over_view" src="../../components/chart/ChartComponent.html" frameborder="0"></iframe>
+
+  </div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
