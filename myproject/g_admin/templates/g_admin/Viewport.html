@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Graph - Page Impressions and Adsense Clicks</title>
     <style>
         body {
@@ -16,8 +14,8 @@
         }
 
         .chart-container {
-            width: 300px;
-            height: 250px;
+            width: 220px;
+            height: 200px;
         }
 
         canvas {
@@ -39,7 +37,7 @@
     const myChart = new Chart(ctx1, {
         type: 'bar',
         data: {
-            labels: ['January', 'February', 'March', 'April'],
+            labels: ['Oct', 'Nov', 'Dec', 'Jan'],
             datasets: [{
                 label: 'Visits',
                 data: [1000, 1405, 1210, 1350],
@@ -69,4 +67,4 @@
 </script>
 
 </body>
-</html>
+

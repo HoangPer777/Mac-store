@@ -76,11 +76,11 @@ i{
 .card_list .card {
     width: 20%;
     height: 220px;
-    display: flex;
-    margin: 0px 20px;
-    /*border: 1px solid rgba(128, 128, 128, 0.29);*/
+    margin: 0 20px;
     background-color: rgba(243, 243, 243, 0.2);
-
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .card iframe{
