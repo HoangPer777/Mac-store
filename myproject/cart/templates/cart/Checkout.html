@@ -71,7 +71,7 @@
             </tr>
                 {% endfor %}
             {% else %}
-                <p>Giỏ hàng của bạn trống. <a href="{% url 'shop:index' %}">Tiếp tục mua sắm</a></p>
+                <p>Giỏ hàng của bạn trống. <a href="">Tiếp tục mua sắm</a></p>
             {% endif %}
             </div>
 
@@ -317,6 +317,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // Format tất cả giá khi trang load
     formatAllPrices();
 });
+
+
+$(document).ready(function () {
+    $('#pay').on('click', function () {
+        const paymentMethod = $('input[name="payment-method"]:checked').val();
+
+        $.ajax({
+            url: "{% url 'cart:process_payment' %}",
+            type: "POST",
+            data: { payment_method: paymentMethod },
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            success: function (response) {
+                alert(response.message);
+                if (response.status === "success") {
+                    // Redirect hoặc xử lý giao diện
+                    window.location.href = "{% url 'cart:thank_you' %}";
+                }
+            },
+            error: function (response) {
+                const errorMessage = response.responseJSON?.message || "Có lỗi xảy ra.";
+                alert(errorMessage);
+            }
+        });
+    });
+});
+
 </script>
 
 
