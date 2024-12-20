@@ -334,7 +334,7 @@ $(document).ready(function () {
                 alert(response.message);
                 if (response.status === "success") {
                     // Redirect hoặc xử lý giao diện
-                    window.location.href = "/thank-you/";
+                    window.location.href = "{% url 'cart:thank_you' %}";
                 }
             },
             error: function (response) {

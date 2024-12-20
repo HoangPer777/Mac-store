@@ -180,7 +180,7 @@ def process_payment(request):
             # Xóa giỏ hàng sau khi thanh toán
             cart.clear()
 
-            return JsonResponse({"status": "success", "message": "Thanh toán thành công.", "order_id": order.id})
+            return JsonResponse({"status": "success", "message": "Thanh toán thành công."})
         except Exception as e:
             return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)
     else:
