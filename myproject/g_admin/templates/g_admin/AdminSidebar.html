@@ -4,8 +4,7 @@
     <title>Navigation Components</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href=" {% static 'style/css/admin-css/AdminSidebar.css'%}">
-{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">#}
-    <script src="{% static 'style/js/page/admin-js/Admin.js'%}"></script>
+{#    <script src="{% static 'style/js/page/admin-js/Admin.js'%}"></script>#}
 </head>
 <body>
     <nav id="sidebar">
@@ -20,7 +19,7 @@
         <ul class="list-unstyled" id="accordionExample">
 
             <li class="menu nav-item" data-src="">
-                <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                <a href="/admin" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <div class="">
                         <i class="fa-solid fa-users"></i>
                         <span>Dashboard</span>
@@ -48,7 +47,7 @@
                         <a  href="#"> Product Details </a>
                     </li>
                     <li class="nav-item" data-src="">
-                        <a  href="#"> Add Products </a>
+                        <a href="{% url 'g_admin:creatProduct' %}">Thêm sản phẩm</a>
                     </li>
 
                     <li class="nav-item" data-src="">
@@ -141,4 +140,3 @@
     <script src="{% static 'style/js/component-js/AdminSidebar.js'%}"></script>
 
 </body>
-</html>

@@ -6,6 +6,7 @@ from .views import product_list, product_detail
 from django.urls import path, include
 app_name = 'product'
 
+
 urlpatterns = [
     path('create/', views.product_create, name='product_create'),
     path('category/<int:category_id>/', product_list, name='product_list_by_category'),
