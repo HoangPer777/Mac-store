@@ -147,22 +147,22 @@ def apply_coupon(request):
             return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)
 
 
-@transaction.atomic
+# @transaction.atomic
 def process_payment(request):
     if request.method == "POST":
         try:
             cart = Cart(request)
             user = request.user
-            if not user.is_authenticated:
-                return JsonResponse({"status": "error", "message": "Bạn cần đăng nhập để thanh toán."}, status=401)
+            # if not user.is_authenticated:
+            #     return JsonResponse({"status": "error", "message": "Bạn cần đăng nhập để thanh toán."}, status=401)
 
             # Tạo đơn hàng
-            order = Order.objects.create(
-                paymentStatus="Pending",
-                totalPrice=cart.get_total_price(),
-                paymentMethod=request.POST.get('payment-method', 'COD'),
-                userId=user
-            )
+            # order = Order.objects.create(
+            #     paymentStatus="Pending",
+            #     totalPrice=cart.get_total_price(),
+            #     paymentMethod=request.POST.get('payment-method', 'COD'),
+            #     userId=user
+            # )
 
             # Duyệt qua sản phẩm trong giỏ hàng
             for item in cart:
