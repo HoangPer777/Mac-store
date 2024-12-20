@@ -1,23 +1,4 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
+
 * {
     box-sizing: border-box; /* Đảm bảo padding và border được tính trong tổng kích thước phần tử */
 }
@@ -38,9 +19,9 @@ html{
 nav#sidebar {
 
     background-color: #1f1f2e;
-    position: fixed;
-    left: 0;
-    top: 0;
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*top: 0;*/
     transition: all 0.3s;
 }
 
@@ -50,13 +31,13 @@ ul {
     list-style: none;
 }
 
-ul li {
+#sidebar ul li {
     /* padding: 15px 0; */
     border: 1px solid #343a40;
     transition: background 0.3s;
 }
 
-ul li a {
+#sidebar ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 15px;
@@ -65,12 +46,12 @@ ul li a {
     justify-content: space-between;
 }
 
-ul li a span {
+ #sidebar ul li a span {
     margin-left: 10px;
 }
 
 /* Sidebar icons */
-ul li a i {
+ #sidebar ul li a i {
     font-size: 16px;
 }
 

@@ -26,7 +26,7 @@
        {% for pro in macPro %}
                 <div class="card custom-card">
                     <div class="badge badge-hot">HOT</div>
-                    <img src="{{pro.image}}"  class="card-img-top" alt="{{pro.name}}}">
+                    <img src="{{pro.images.first.image.url}}"  class="card-img-top" alt="{{pro.name}}}">
                     <div class="card-body">
                         <a href="/product/detail/{{pro.id}}" class="card-title">{{pro.name}}</a>
                         <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>

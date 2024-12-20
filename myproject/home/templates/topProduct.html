@@ -10,7 +10,7 @@
             {% for product in top4 %}
                 <div class="product">
                     <div class="wrap_img">
-                        <img src="{{ product.image }}" alt="{{ product.name }}">
+                        <img src="{{product.images.first.image.url  }}" alt="{{ product.name }}">
                     </div>
                     <a href="/product/detail/{{product.id}}" class="name"> {{ product.name }}</a>
                     <p class="price"> {{product.price|intcomma }} ₫</p>
