@@ -14,6 +14,10 @@ from django.utils import timezone
 from coupon.models import Coupon
 from django.http import JsonResponse
 
+from django.db import transaction
+from orders.models import Order
+
+
 def cart_add(request, product_id):
     cart = Cart(request)
     product = Product.objects.get(id=product_id)
@@ -141,3 +145,47 @@ def apply_coupon(request):
 
         except Exception as e:
             return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)
+
+
+@transaction.atomic
+def process_payment(request):
+    if request.method == "POST":
+        try:
+            cart = Cart(request)
+            user = request.user
+            if not user.is_authenticated:
+                return JsonResponse({"status": "error", "message": "Bạn cần đăng nhập để thanh toán."}, status=401)
+
+            # Tạo đơn hàng
+            order = Order.objects.create(
+                paymentStatus="Pending",
+                totalPrice=cart.get_total_price(),
+                paymentMethod=request.POST.get('payment-method', 'COD'),
+                userId=user
+            )
+
+            # Duyệt qua sản phẩm trong giỏ hàng
+            for item in cart:
+                product = get_object_or_404(Product, id=item['product'].id)
+
+                # Kiểm tra số lượng hàng tồn
+                if product.stock_quantity < item['quantity']:
+                    raise ValueError(f"Sản phẩm {product.name} không đủ số lượng.")
+
+                # Trừ số lượng tồn kho
+                product.stock_quantity -= item['quantity']
+                product.noOfSolds += item['quantity']
+                product.save()
+
+            # Xóa giỏ hàng sau khi thanh toán
+            cart.clear()
+
+            return JsonResponse({"status": "success", "message": "Thanh toán thành công.", "order_id": order.id})
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)
+    else:
+        return JsonResponse({"status": "error", "message": "Phương thức không hợp lệ."}, status=405)
+
+
+def thank_you(request):
+    return render(request, 'cart/thank_you.html')
