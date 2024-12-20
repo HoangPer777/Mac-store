@@ -8,6 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100%;
@@ -15,21 +16,52 @@
             padding: 0;
         }
 
-        .chart-container {
-            width: 300px;
-            height: 250px;
+        .pie-container {
+            width: 200px;
+            height: 180px;
         }
 
         canvas {
             width: 100% !important;
             height: 100% !important;
         }
+
+        .legend-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Khoảng cách giữa các nhãn */
+            margin-top: 10px; /* Khoảng cách giữa biểu đồ và nhãn */
+            flex-direction: column;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%; /* Biểu tượng hình tròn */
+        }
     </style>
 </head>
 <body>
 
-<div class="chart-container">
+<div class="pie-container">
   <canvas id="pie"></canvas>
+</div>
+
+<div class="legend-container">
+    <div class="legend-item">
+        <div class="legend-color" style="background-color: #cbf0bc;"></div>
+        <span>Add to Cart</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background-color: #00b980;"></div>
+        <span>Purchased</span>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -50,6 +82,9 @@
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
+                legend: {
+                    display: false // Ẩn legend mặc định
+                },
                 tooltip: {
                     callbacks: {
                         label: function (tooltipItem) {
