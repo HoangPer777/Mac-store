@@ -38,7 +38,7 @@
                 </a>
                 <ul class="submenu list-unstyled collapse show"  data-parent="#accordionExample">
                     <li class="nav-item" data-src="../AdminComponent/ViewCart.html" >
-                        <a href="#"> Products </a>
+                        <a href="{% url 'g_admin:admin_get_product' %}"> Products </a>
                     </li>
                     <li class="nav-item" data-src="">
                         <a  href="#"> Product Catalog </a>
@@ -47,7 +47,8 @@
                         <a  href="#"> Product Details </a>
                     </li>
                     <li class="nav-item" data-src="">
-                        <a href="{% url 'g_admin:creatProduct' %}">Thêm sản phẩm</a>
+{#                        <a href="{% url 'g_admin:creatProduct' %}">Thêm sản phẩm</a>#}
+                        <a href="#">Thêm sản phẩm</a>
                     </li>
 
                     <li class="nav-item" data-src="">
