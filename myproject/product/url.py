@@ -13,6 +13,7 @@ urlpatterns = [
     path('detail/<int:product_id>/', product_detail, name='product_detail'),
     path('cart/', include('cart.url')),
     path('add/<int:product_id>/', cart_add, name='cart_add'),
+    path('search/', views.search, name='search'),
 
 
 ]

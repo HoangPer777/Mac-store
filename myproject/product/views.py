@@ -1,4 +1,5 @@
 from django.core.serializers import json
+from django.db.models import Q
 from django.shortcuts import render
 
 # Create your views here.
@@ -64,3 +65,18 @@ def total_items_in_cart(request):
 
     # Trả về dữ liệu JSON
     return JsonResponse({'total_items': total_items})
+
+
+
+
+def search (request):
+    if request.method == 'GET':
+        products= []
+        query = request.GET.get('query').strip()
+
+        if query:
+            products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+
+        context = {'query': query,'products': products}
+
+    return render(request, 'product/searchProduct.html' ,context=context )
