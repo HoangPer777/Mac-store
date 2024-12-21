@@ -56,18 +56,6 @@ def cart_add(request, product_id):
 
     return JsonResponse({'success': False}, status=400)
 
-def total_items_in_cart(request):
-    # Lấy giỏ hàng từ session
-    cart = request.session.get('cart', {})
-
-    # Tính tổng sản phẩm
-    total_items = sum(cart.values())
-
-    # Trả về dữ liệu JSON
-    return JsonResponse({'total_items': total_items})
-
-
-
 
 def search (request):
 
