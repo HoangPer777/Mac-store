@@ -69,7 +69,7 @@ MIDDLEWARE = [
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 
-# AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = 'user.User'
 ROOT_URLCONF = 'myproject.urls'
 
 TEMPLATES = [
@@ -168,7 +168,7 @@ REST_FRAMEWORK = {
     )
 }
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=15),  # Token sống 15 phút
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=15),  # Token sống 15 day
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),     # Refresh token sống 1 ngày
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
