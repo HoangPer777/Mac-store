@@ -28,7 +28,7 @@
             <ul class="list-unstyled" id="accordionExample">
 
                 <li class="menu nav-item" data-src="">
-                    <a href="/admin" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                    <a href="/admin/" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                         <div class="">
                             <i class="fa-solid fa-users"></i>
                             <span>Dashboard</span>
@@ -46,17 +46,15 @@
                         </div>
                     </a>
                     <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample">
-                        <li class="nav-item" data-src="../AdminComponent/ViewCart.html">
+                        <li class="nav-item" data-src="{% url 'g_admin:admin_get_product' %}">
                             <a href="#"> Products </a>
                         </li>
                         <li class="nav-item" data-src="">
                             <a href="#"> Product Catalog </a>
                         </li>
-                        <li class="nav-item" data-src="">
-                            <a href="#"> Product Details </a>
-                        </li>
-                        <li class="nav-item" data-src="">
-                            <a href="#" id="add-product-link">Thêm sản phẩm</a>
+
+                        <li class="nav-item"   id="add-product-link" data-src ="{% url 'g_admin:creatProduct' %}">
+                            <a href="#">Thêm sản phẩm</a>
                         </li>
 
                         <li class="nav-item" data-src="">
@@ -169,22 +167,27 @@
 
 </div>
 <script src="{% static 'style/js/page/admin-js/Admin.js' %}"></script>
+
 <script>
 
-    document.getElementById('add-product-link').addEventListener('click', function(event) {
-        event.preventDefault();
-
-        // Gửi yêu cầu AJAX đến server để lấy nội dung của "Add Product"
-        fetch("{% url 'g_admin:creatProduct' %}")
+    navItem = Array.from( document.getElementsByClassName('nav-item'));
+    navItem.forEach( i => {
+        i.addEventListener('click', function (event){
+             event.preventDefault();
+        link = (this.getAttribute('data-src'))
+        if (link){
+            fetch(link)
             .then(response => response.text())
             .then(html => {
-                // Chèn nội dung HTML vào phần tử có id là body
                 document.getElementById('body').innerHTML = html;
             })
             .catch(error => {
                 console.error('Có lỗi xảy ra:', error);
             });
-    });
+        }
+        })
+    })
+
 </script>
 
 </body>

@@ -2,8 +2,6 @@
     {% load static %}
     <link href="{% static 'style/css/component-css/UserHome/header.css' %}" rel="stylesheet">
     <link href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}" rel="stylesheet">
-
-
 </head>
 <body>
 
@@ -17,9 +15,9 @@
         <li class="menu-item">
             <span>MacBook</span>
             <ul class="tab">
-                <li class="tab-item"><a href="{% url 'product:product_list_by_category' category_id=1 %}">MacBook
-                    Pro</a></li>
                 <li class="tab-item"><a href="{% url 'product:product_list_by_category' category_id=2 %}">MacBook
+                    Pro</a></li>
+                <li class="tab-item"><a href="{% url 'product:product_list_by_category' category_id=1 %}">MacBook
                     Air</a></li>
             </ul>
         </li>

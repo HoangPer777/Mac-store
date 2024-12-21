@@ -70,6 +70,7 @@ def total_items_in_cart(request):
 
 
 def search (request):
+
     if request.method == 'GET':
         products= []
         query = request.GET.get('query').strip()
@@ -80,3 +81,10 @@ def search (request):
         context = {'query': query,'products': products}
 
     return render(request, 'product/searchProduct.html' ,context=context )
+
+
+
+
+
+
+
