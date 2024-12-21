@@ -48,7 +48,7 @@
         {% for air in macAir %}
                 <div class="card custom-card">
                     <div class="badge badge-new">NEW</div>
-                    <img src="{{air.image}}"  class="card-img-top" alt="{{air.name}}}">
+                    <img src="{{air.image.first.image.url}}"  class="card-img-top" alt="{{air.name}}}">
                     <div class="card-body">
                         <a href="/product/detail/{{air.id}}"  class="card-title">{{air.name}}</a>
                         <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
