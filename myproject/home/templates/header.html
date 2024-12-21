@@ -79,21 +79,29 @@
             <button type="submit">Search</button>
         </form>
     </div>
-    
-    
+
+
     <div class="icons">
         <a href="/cart/detail/" class="icon cart-icon">
             <i class="fas fa-shopping-cart"></i>
             <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
         </a>
 
-        <a href="#" class="icon search-icon"><i class="fas fa-search"></i>
-        </a>
-        <a href="/auth/login/" class="icon user-login" target="_top">
-            <i class="fas fa-user"></i>
-            <span>Login</span>
-        </a>
+        <a href="#" class="icon search-icon"><i class="fas fa-search"></i></a>
+
+        {% if request.user.is_authenticated %}
+            <a href="#" class="icon user-login" target="_top">
+                <i class="fas fa-user"></i>
+                <span>{{ request.user.get_full_name|default:request.user.display_name  }}</span>
+            </a>
+        {% else %}
+            <a href="/auth/login/" class="icon user-login" target="_top">
+                <i class="fas fa-user"></i>
+                <span>Login</span>
+            </a>
+        {% endif %}
     </div>
+
 </div>
 
 

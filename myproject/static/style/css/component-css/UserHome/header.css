@@ -278,7 +278,7 @@ h4{
 
 
  #header {
-        position: relative;
+        /*position: relative;*/
         background-color: #fff;
         transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
     }
