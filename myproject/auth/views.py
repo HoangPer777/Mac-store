@@ -1,13 +1,14 @@
 
 from django.contrib.auth import authenticate, login, logout
 
-from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.urls import reverse
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
+
+from user.models import User
 
 
 def generate_tokens_for_user(user):
@@ -36,14 +37,14 @@ def register_view(request):
             if password != confirm_password:
                 return JsonResponse({'success': False, 'message': 'Passwords do not match!'}, status=400)
 
-            if User.objects.filter(username=email).exists():
+            if User.objects.filter(email=email).exists():
                 return JsonResponse({'success': False, 'message': 'Email is already taken!'}, status=400)
 
             user = User.objects.create_user(
-                username=email,
+                email=email,
                 password=password,
-                first_name=full_name,
-                last_name=display_name
+                full_name=full_name,
+                display_name=display_name
             )
             tokens = generate_tokens_for_user(user)
 
@@ -55,26 +56,24 @@ def register_view(request):
     return JsonResponse({'success': False, 'message': 'Invalid request method.'}, status=400)
 
 
-
 #login
 def login_view(request):
+
     if request.method == 'GET':
         return render(request, 'auth/auth.html')
+
     if request.method == "POST":
         try:
-            # Parse JSON request body
             data = json.loads(request.body.decode("utf-8"))
-            username = data.get("username")
+            email = data.get("email")
             password = data.get("password")
 
-            # Validate username and password
-            if not username or not password:
-                return JsonResponse({"success": False, "message": "Username and password are required!"}, status=400)
+            if not email or not password:
+                return JsonResponse({"success": False, "message": "Email and password are required!"}, status=400)
 
-            # Authenticate user
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
             if user is not None:
-                login(request, user)  # Django login function to set session
+                login(request, user)
 
                 # Generate JWT tokens
                 refresh = RefreshToken.for_user(user)

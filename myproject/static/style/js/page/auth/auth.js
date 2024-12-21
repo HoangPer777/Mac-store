@@ -47,14 +47,13 @@ window.onload = () => {
 
 
 // Xử lý logic đăng nhập
-// Xử lý logic đăng nhập
 document.querySelector("#login-form").addEventListener("submit", function (e) {
     e.preventDefault(); // Ngăn form gửi GET request mặc định
 
     let csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
 
     let data = {
-        username: document.getElementById('login_email').value,
+        email: document.getElementById('login_email').value,
         password: document.getElementById('login_password').value
     };
 
