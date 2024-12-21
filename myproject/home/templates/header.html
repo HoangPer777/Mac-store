@@ -1,88 +1,129 @@
-
 <head>
-     {% load static %}
-    <link href="{% static 'style/css/component-css/UserHome/header.css' %}"  rel="stylesheet">
-    <link href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}" rel="stylesheet"  >
+    {% load static %}
+    <link href="{% static 'style/css/component-css/UserHome/header.css' %}" rel="stylesheet">
+    <link href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}" rel="stylesheet">
 
 
 </head>
 <body>
 
-    <div id="header">
-        <div class="logo">
-            <a href="/home">
-                <img src="/static/resource/Image/test.png" alt="Logo">
-            </a>
-        </div>
-        <ul class="menu">
-            <li class="menu-item">
-                <span>MacBook</span>
-                <ul class="tab">
-                    <li class="tab-item"><a href="{% url 'product:product_list_by_category' category_id=1  %}">MacBook Pro</a></li>
-                    <li class="tab-item"><a href="{% url 'product:product_list_by_category' category_id=2  %}">MacBook Air</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <span>iMac - Mac Desktop</span>
-                <ul class="tab">
-                    <li class="tab-item">iMac</li>
-                    <li class="tab-item">Mac Mini</li>
-                    <li class="tab-item">Mac Studio</li>
-                    <li class="tab-item">Mac Pro</li>
-                    <li class="tab-item">Apple Display</li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <span>iPhone</span>
-                <ul class="tab">
-                    <li class="tab-item">iPhone 15 Series</li>
-                    <li class="tab-item">iPhone 16 Series</li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <span>iPad</span>
-                <ul class="tab">
-                    <li class="tab-item">iPad</li>
-                    <li class="tab-item">iPad Air</li>
-                    <li class="tab-item">iPad Pro</li>
-                    <li class="tab-item">iPad Mini</li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <span>AirPods</span>
-            </li>
-            <li class="menu-item">
-                <span>Màn hình</span>
-                <ul class="tab">
-                    <li class="tab-item">Màn hình Apple</li>
-                    <li class="tab-item">Màn hình Asus</li>
-                    <li class="tab-item">Màn hình Deel</li>
-
-                </ul>
-            </li>
-            <li class="menu-item">
-                <span>Phụ Kiện</span>
-                <ul class="tab">
-                    <li class="tab-item">Phụ kiện MacBook</li>
-                    <li class="tab-item">Phụ kiện iPhone</li>
-                    <li class="tab-item">Phụ kiện iPad</li>
-                    <li class="tab-item">Phụ kiện Apple khác</li>
-                    <li class="tab-item">Phụ kịện khác</li>
-                </ul>
-            </li>
-        </ul>
-        <div class="icons">
-            <a href="http://127.0.0.1:8000/cart/detail/" class="icon cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
-            </a>
-
-            <a href="#" class="icon search-icon"><i class="fas fa-search"></i></a>
-            <a href="http://127.0.0.1:8000/auth/login/" class="icon user-login" target="_top">
-                <i class="fas fa-user"></i>
-                <span>Login</span>
-            </a>
-        </div>
+<div id="header">
+    <div class="logo">
+        <a href="/home">
+            <img src="/static/resource/Image/test.png" alt="Logo">
+        </a>
     </div>
+    <ul class="menu">
+        <li class="menu-item">
+            <span>MacBook</span>
+            <ul class="tab">
+                <li class="tab-item"><a href="{% url 'product:product_list_by_category' category_id=1 %}">MacBook
+                    Pro</a></li>
+                <li class="tab-item"><a href="{% url 'product:product_list_by_category' category_id=2 %}">MacBook
+                    Air</a></li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <span>iMac - Mac Desktop</span>
+            <ul class="tab">
+                <li class="tab-item">iMac</li>
+                <li class="tab-item">Mac Mini</li>
+                <li class="tab-item">Mac Studio</li>
+                <li class="tab-item">Mac Pro</li>
+                <li class="tab-item">Apple Display</li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <span>iPhone</span>
+            <ul class="tab">
+                <li class="tab-item">iPhone 15 Series</li>
+                <li class="tab-item">iPhone 16 Series</li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <span>iPad</span>
+            <ul class="tab">
+                <li class="tab-item">iPad</li>
+                <li class="tab-item">iPad Air</li>
+                <li class="tab-item">iPad Pro</li>
+                <li class="tab-item">iPad Mini</li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <span>AirPods</span>
+        </li>
+        <li class="menu-item">
+            <span>Màn hình</span>
+            <ul class="tab">
+                <li class="tab-item">Màn hình Apple</li>
+                <li class="tab-item">Màn hình Asus</li>
+                <li class="tab-item">Màn hình Deel</li>
+
+            </ul>
+        </li>
+        <li class="menu-item">
+            <span>Phụ Kiện</span>
+            <ul class="tab">
+                <li class="tab-item">Phụ kiện MacBook</li>
+                <li class="tab-item">Phụ kiện iPhone</li>
+                <li class="tab-item">Phụ kiện iPad</li>
+                <li class="tab-item">Phụ kiện Apple khác</li>
+                <li class="tab-item">Phụ kịện khác</li>
+            </ul>
+        </li>
+    </ul>
+    
+     <div id="search-bar" class="search-bar" style="display: none;">
+        <form action="{% url 'product:search' %}" method="GET">
+            <input type="text" name="query" placeholder="Search for products..." required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    
+    
+    <div class="icons">
+        <a href="/cart/detail/" class="icon cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+        </a>
+
+        <a href="#" class="icon search-icon"><i class="fas fa-search"></i>
+        </a>
+        <a href="/auth/login/" class="icon user-login" target="_top">
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+        </a>
+    </div>
+</div>
+
+
+
+
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchIcon = document.querySelector(".search-icon");
+        const header = document.getElementById("header");
+        const searchBar = document.getElementById("search-bar");
+        let isExpanded = false;
+
+        // Xử lý khi bấm vào icon search
+        searchIcon.addEventListener("click", function(event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định
+
+            if (!isExpanded) {
+                // Mở rộng header và hiển thị thanh search
+                header.classList.add("expanded");
+                searchBar.style.display = "block";
+                isExpanded = true;
+            } else {
+                // Thu gọn header và ẩn thanh search
+                header.classList.remove("expanded");
+                searchBar.style.display = "none";
+                isExpanded = false;
+            }
+        });
+    });
+</script>

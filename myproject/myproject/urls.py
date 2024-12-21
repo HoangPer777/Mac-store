@@ -8,7 +8,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
                     path('', home.get_home, name='default_home'),
                   path('django_admin/', django_admin.site.urls),
-                  path('home/', home.get_home, name='home'),
+                  # path('home/', home.get_home, name='home'),
+                  path('home/',  include('home.urls')),
                   path('product/', include('product.url')),
                   path('cart/', include('cart.url')),
                     path('address/', include('address.url')),
