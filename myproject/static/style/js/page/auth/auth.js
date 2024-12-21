@@ -3,7 +3,6 @@ const togglePasswords = document.querySelectorAll(".toggle-password");
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const container = document.getElementById("container");
     const registerButton = document.querySelector(".register-button");
     const loginButton = document.querySelector(".login-button");
 
@@ -47,36 +46,40 @@ window.onload = () => {
 
 
 // Xử lý logic đăng nhập
-document.querySelector("#login-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Ngăn form gửi GET request mặc định
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.querySelector("#login-form");
+    if (loginForm) { // Kiểm tra tồn tại
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Ngăn form gửi GET request mặc định
+            let csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+            let data = {
+                email: document.getElementById("login_email").value,
+                password: document.getElementById("login_password").value,
+            };
 
-    let csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
-
-    let data = {
-        email: document.getElementById('login_email').value,
-        password: document.getElementById('login_password').value
-    };
-
-    fetch("/auth/login/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if (data.success) {
-                alert("Login successful!");
-                window.location.assign(data.redirect_url);
-            } else {
-                alert("Error: " + data.message);
-            }
-        })
-        .catch(error => console.error("Error:", error));
+            fetch("/auth/login/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken,
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.success) {
+                        alert("Login successful!");
+                        window.location.assign(data.redirect_url);
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                })
+                .catch((error) => console.error("Error:", error));
+        });
+    }
 });
+
 
 
 
