@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from urllib3 import request
 
 from category.models import Category
 from g_admin import templates
@@ -40,4 +41,5 @@ def creatProduct(request):
     return render(request, 'product/AddProduct.html', {"category": category})
 
 
-
+def createCoupon(request):
+    return render(request, 'addCoupon.html' )

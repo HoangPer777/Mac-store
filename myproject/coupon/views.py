@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.timezone import now
-from .forms import CouponApplyForm
+from .forms import CouponApplyForm, CouponForm
 from .models import Coupon
-from .forms import CouponForm
 
 from django.shortcuts import render
 
@@ -10,13 +9,14 @@ from django.shortcuts import render
 
 
 def apply_coupon(request):
+    pass
     message = ""
     discount_amount = 0  # Giá trị giảm được
     if request.method == 'POST':
         form = CouponApplyForm(request.POST)
         if form.is_valid():
             code = form.cleaned_data['code']
-            
+
             # Tìm coupon, raise 404 nếu không tồn tại
             coupon = get_object_or_404(Coupon, code=code, active=True)
 
@@ -42,7 +42,7 @@ def apply_coupon(request):
     else:
         form = CouponApplyForm()
 
-    return render(request, 'coupon/apply_coupon.html', {
+    return render(request, 'apply_coupon.html', {
         'form': form,
         'message': message,
         'discount_amount': discount_amount
@@ -58,4 +58,4 @@ def create_coupon(request):
             return redirect('coupon_list')
     else:
         form = CouponForm()
-    return render(request, 'coupon/create_coupon.html', {'form': form})
+    return render(request, 'addCoupon.html', {'form': form})

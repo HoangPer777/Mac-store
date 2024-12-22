@@ -50,13 +50,30 @@
                         <a  href="#"> Add/Edit Categories </a>
                     </li>
 
-                    <li class="nav-item" data-src="">
-                        <a  href="#">Voucher</a>
-                    </li>
+
 
 
                 </ul>
             </li>
+
+
+            <li class="menu">
+                <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle ">
+                    <div class="">
+                        <i class="fa-brands fa-space-awesome"></i>
+                        <span>Promotion Program</span>
+                    </div>
+                </a>
+                <ul class="submenu list-unstyled collapse show"  data-parent="#accordionExample" style="">
+                    <li >
+                        <a class="" href="#"> Coupons </a>
+                    </li>
+                    <li>
+                        <a class="" href="{% url 'g_admin:createCoupon' %}"> Add Coupon </a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class="menu">
                 <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle nav-item">
@@ -90,22 +107,6 @@
                 </ul>
             </li>
 
-            <li class="menu">
-                <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle ">
-                    <div class="">
-                        <i class="fa-brands fa-space-awesome"></i>
-                        <span>Promotion program</span>
-                    </div>
-                </a>
-                <ul class="submenu list-unstyled collapse show"  data-parent="#accordionExample" style="">
-                    <li >
-                        <a class="" href="#"> Coupons </a>
-                    </li>
-                    <li>
-                        <a class="" href="#"> Newsletters </a>
-                    </li>
-                </ul>
-            </li>
 
             <li class="menu">
                 <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle ">
