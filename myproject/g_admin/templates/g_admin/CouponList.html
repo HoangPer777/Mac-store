@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupon List</title>
+    <link rel="stylesheet" href="{% static 'style/css/admin-css/CouponList.css' %}">
+    <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">
+</head>
+<body>
+<div class="coupon-container">
+    <div class="coupon-title">
+        <h1>Coupon List</h1>
+        <a href="#" class="add-coupon-btn">+ Add Coupon</a>
+    </div>
+
+    <table class="coupon-table">
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Discount (%)</th>
+            <th>Max Value</th>
+            <th>From Date</th>
+            <th>To Date</th>
+            <th>Active</th>
+            <th>Remaining</th>
+            <th>SKU</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for coupon in coupons %}
+            <tr>
+                <td>{{ coupon.code }}</td>
+                <td>{{ coupon.discount }}%</td>
+                <td>{{ coupon.maxValue }}đ</td>
+                <td>{{ coupon.from_date|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ coupon.to_date|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ coupon.active|yesno:"Yes,No" }}</td>
+                <td>{{ coupon.remaining }}</td>
+                <td>{{ coupon.sku }}</td>
+                <td>
+                    <a href="#" class="edit-btn">Edit</a>
+                    <a href="#" class="delete-btn">Delete</a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="9">No coupons available.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

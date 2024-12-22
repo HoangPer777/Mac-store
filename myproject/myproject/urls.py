@@ -5,7 +5,6 @@ from product import views as product
 from myproject import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-
 urlpatterns = [
                   path('', home.get_home, name='default_home'),
                   path('django_admin/', django_admin.site.urls),
@@ -21,5 +20,8 @@ urlpatterns = [
                   path('admin/', include('g_admin.url')),
                 path('coupon/', include('coupon.urls')),
 
+                     # path('checkout/', include('checkout.urls')),
+                path('user/', include('user.urls')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

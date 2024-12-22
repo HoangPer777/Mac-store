@@ -4,6 +4,7 @@ from urllib3 import request
 from category.models import Category
 from g_admin import templates
 from product.models import Product
+from coupon.models import Coupon
 
 # Create your views here.
 app_name = 'g_admin'
@@ -43,3 +44,12 @@ def creatProduct(request):
 
 def createCoupon(request):
     return render(request, 'addCoupon.html' )
+
+
+
+def get_coupon_list(request):
+    coupons = Coupon.objects.all().order_by('-to_date')
+    context = {
+        'coupons': coupons,
+    }
+    return render(request, 'g_admin/CouponList.html', context)

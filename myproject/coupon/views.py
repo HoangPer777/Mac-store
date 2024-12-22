@@ -6,8 +6,6 @@ from .models import Coupon
 from django.shortcuts import render
 
 
-
-
 def apply_coupon(request):
     pass
     # message = ""
