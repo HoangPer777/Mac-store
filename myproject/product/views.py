@@ -10,20 +10,18 @@ from .models import Product
 from django.http import JsonResponse
 
 
-def product_list(request, category_id = None):
-
+def product_list(request, category_id=None):
     if category_id:
-        products = Product.objects.filter(category = category_id)
+        products = Product.objects.filter(category=category_id)
     else:
         products = Product.objects.all()
     return render(request, 'product/product_list.html', {'products': products})
 
 
 def product_detail(request, product_id):
-    product = Product.objects.get(id = product_id)
+    product = Product.objects.get(id=product_id)
 
     return render(request, 'product/productDetail.html', {'product': product})
-
 
 
 # Create
@@ -56,6 +54,7 @@ def cart_add(request, product_id):
 
     return JsonResponse({'success': False}, status=400)
 
+
 def total_items_in_cart(request):
     # Lấy giỏ hàng từ session
     cart = request.session.get('cart', {})
@@ -67,24 +66,14 @@ def total_items_in_cart(request):
     return JsonResponse({'total_items': total_items})
 
 
-
-
-def search (request):
-
+def search(request):
     if request.method == 'GET':
-        products= []
+        products = []
         query = request.GET.get('query').strip()
 
         if query:
             products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
-        context = {'query': query,'products': products}
+        context = {'query': query, 'products': products}
 
-    return render(request, 'product/searchProduct.html' ,context=context )
-
-
-
-
-
-
-
+    return render(request, 'product/searchProduct.html', context=context)
