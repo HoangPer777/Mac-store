@@ -18,19 +18,4 @@ class ProductForm(forms.ModelForm):
             return upload_result.get('url')
         return image
 
-    def save(self, commit=True):
-        product = super().save(commit)
 
-        # Lưu các ảnh nếu có
-        if 'product_images' in self.files:
-            for image in self.files.getlist('product_images'):
-                # Upload ảnh lên Cloudinary
-                upload_result = cloudinary_upload(image)
-                image_url = upload_result.get('url')
-
-                # Tạo mới ProductImage cho mỗi ảnh đã upload
-                ProductImage.objects.create(
-                    product=product,
-                    image=image_url
-                )
-        return product
