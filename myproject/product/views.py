@@ -39,12 +39,12 @@ def product_create(request):
             if 'product_images' in request.FILES:
                 for image in request.FILES.getlist('product_images'):
                     ProductImage.objects.create(product=product, image=image)
+
+            return redirect('g_admin:admin_get_product')
         else:
             print(form.errors)
     else:
-
-        form = ProductForm()
-    return render(request, 'g_admin/ViewCategory.html', {'form': form})
+        return redirect("g_admin:creatProduct")
 
 
 # Thêm sản phẩm vào giỏ hàng
