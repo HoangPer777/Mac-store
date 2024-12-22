@@ -12,9 +12,8 @@ def get_admin(request):
     return render(request, 'g_admin/g_admin.html')
 
 
-def creatProduct(request):
-    category = Category.objects.all()
-    return render(request, 'product/AddProduct.html', {"category": category})
+def get_dashboard(request):
+    return render(request, 'g_admin/dashboard.html')
 
 
 def admin_get_product(request):
@@ -33,6 +32,12 @@ def admin_get_product(request):
         'out_of_stock': out_of_stock,
     }
     return render(request, 'g_admin/ViewCategory.html', context)
+
+
+
+def creatProduct(request):
+    category = Category.objects.all()
+    return render(request, 'product/AddProduct.html', {"category": category})
 
 
 

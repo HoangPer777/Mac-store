@@ -19,7 +19,7 @@
         <ul class="list-unstyled" id="accordionExample">
 
             <li class="menu nav-item" data-src="">
-                <a href="/admin" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                <a href="/admin/dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <div class="">
                         <i class="fa-solid fa-users"></i>
                         <span>Dashboard</span>
@@ -37,35 +37,23 @@
                     </div>
                 </a>
                 <ul class="submenu list-unstyled collapse show"  data-parent="#accordionExample">
+
                     <li class="nav-item" data-src="../AdminComponent/ViewCart.html" >
                         <a href="{% url 'g_admin:admin_get_product' %}"> Products </a>
                     </li>
+
                     <li class="nav-item" data-src="">
-                        <a  href="#"> Product Catalog </a>
-                    </li>
-                    <li class="nav-item" data-src="">
-                        <a  href="#"> Product Details </a>
-                    </li>
-                    <li class="nav-item" data-src="">
-{#                        <a href="{% url 'g_admin:creatProduct' %}">Thêm sản phẩm</a>#}
-                        <a href="#">Thêm sản phẩm</a>
+                        <a href="{% url 'g_admin:creatProduct' %}">Add Product</a>
                     </li>
 
                     <li class="nav-item" data-src="">
                         <a  href="#"> Add/Edit Categories </a>
                     </li>
+
                     <li class="nav-item" data-src="">
-                        <a  href="#"> Low Stock </a>
+                        <a  href="#">Voucher</a>
                     </li>
-                    <li class="nav-item" data-src="">
-                        <a  href="#"> Best Sellers </a>
-                    </li>
-                    <li class="nav-item" data-src="">
-                        <a  href="#"> Search Terms </a>
-                    </li>
-                    <li class="nav-item" data-src="">
-                        <a  href="#"> Reviews </a>
-                    </li>
+
 
                 </ul>
             </li>

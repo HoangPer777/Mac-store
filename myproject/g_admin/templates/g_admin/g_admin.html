@@ -8,186 +8,186 @@
 
 </head>
 <body>
-
-<div class="container row">
-
-    <div class="side_bar mid_align">
+{##}
+{#<div class="container row">#}
+{##}
+{#    <div class="side_bar mid_align">#}
         {#        {% include 'g_admin/AdminSidebar.html' %}#}
-
-        <body>
-        <nav id="sidebar">
-
-            <ul class="navbar-nav ">
-                <li class="nav-item theme-text" data-src="abdb">
-                    <img class="logo" src="{% static 'resource/Image/logo/KoNen_logoNgang_Ngang2.png' %}"
-                         alt=" Image Logo ">
-                </li>
-            </ul>
-
-
-            <ul class="list-unstyled" id="accordionExample">
-
-                <li class="menu nav-item" data-src="">
-                    <a href="/admin/" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
-                        <div class="">
-                            <i class="fa-solid fa-users"></i>
-                            <span>Dashboard</span>
-                        </div>
-
-                    </a>
-
-                </li>
-
-                <li class="menu">
-                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
-                        <div class="">
-                            <i class="fa-solid fa-list-check"></i>
-                            <span>Product Management</span>
-                        </div>
-                    </a>
-                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample">
-                        <li class="nav-item" data-src="{% url 'g_admin:admin_get_product' %}">
-                            <a href="#"> Products </a>
-                        </li>
-                        <li class="nav-item" data-src="">
-                            <a href="#"> Product Catalog </a>
-                        </li>
-
-                        <li class="nav-item"   id="add-product-link" data-src ="{% url 'g_admin:creatProduct' %}">
-                            <a href="#">Thêm sản phẩm</a>
-                        </li>
-
-                        <li class="nav-item" data-src="">
-                            <a href="#"> Add/Edit Categories </a>
-                        </li>
-                        <li class="nav-item" data-src="">
-                            <a href="#"> Low Stock </a>
-                        </li>
-                        <li class="nav-item" data-src="">
-                            <a href="#"> Best Sellers </a>
-                        </li>
-                        <li class="nav-item" data-src="">
-                            <a href="#"> Search Terms </a>
-                        </li>
-                        <li class="nav-item" data-src="">
-                            <a href="#"> Reviews </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="menu">
-                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle nav-item">
-                        <div class="">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <span>Order Management</span>
-                        </div>
-                    </a>
-                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample" style="">
-                        <li>
-                            <a class="nav-item" href="#"> View Cart </a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="#"> Orders </a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="#"> Checkout </a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="#"> Invoice </a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="#"> Shipments </a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="#"> Products in Cart </a>
-                        </li>
-                        <li>
-                            <a class="nav-item" href="#"> Refunds </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="menu">
-                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle ">
-                        <div class="">
-                            <i class="fa-brands fa-space-awesome"></i>
-                            <span>Promotion program</span>
-                        </div>
-                    </a>
-                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample" style="">
-                        <li>
-                            <a class="" href="#"> Coupons </a>
-                        </li>
-                        <li>
-                            <a class="" href="#"> Newsletters </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="menu">
-                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle ">
-                        <div class="">
-                            <i class="fa-solid fa-magnifying-glass-chart"></i>
-                            <span>Analysis</span>
-                        </div>
-                    </a>
-                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample" style="">
-                        <li>
-                            <a class="" href="#"> DataTables </a>
-                        </li>
-                        <li>
-                            <a class="  " href="#"> chart </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <script src="{% static 'style/js/component-js/AdminSidebar.js' %}"></script>
-
-        </body>
-
-    </div>
-
-
-    <div class="main">
-        <div id="header" class="">
-            {% include 'g_admin/AdminHeader.html' %}
-        </div>
-
-        <div id="body">
-            {% include 'g_admin/Dashboard.html' %}
+{##}
+{#        <body>#}
+{#        <nav id="sidebar">#}
+{##}
+{#            <ul class="navbar-nav ">#}
+{#                <li class="nav-item theme-text" data-src="abdb">#}
+{#                    <img class="logo" src="{% static 'resource/Image/logo/KoNen_logoNgang_Ngang2.png' %}"#}
+{#                         alt=" Image Logo ">#}
+{#                </li>#}
+{#            </ul>#}
+{##}
+{##}
+{#            <ul class="list-unstyled" id="accordionExample">#}
+{##}
+{#                <li class="menu nav-item" data-src="">#}
+{#                    <a href="/admin/" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">#}
+{#                        <div class="">#}
+{#                            <i class="fa-solid fa-users"></i>#}
+{#                            <span>Dashboard</span>#}
+{#                        </div>#}
+{##}
+{#                    </a>#}
+{##}
+{#                </li>#}
+{##}
+{#                <li class="menu">#}
+{#                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">#}
+{#                        <div class="">#}
+{#                            <i class="fa-solid fa-list-check"></i>#}
+{#                            <span>Product Management</span>#}
+{#                        </div>#}
+{#                    </a>#}
+{#                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample">#}
+{#                        <li class="nav-item" data-src="{% url 'g_admin:admin_get_product' %}">#}
+{#                            <a href="#"> Products </a>#}
+{#                        </li>#}
+{#                        <li class="nav-item" data-src="">#}
+{#                            <a href="#"> Product Catalog </a>#}
+{#                        </li>#}
+{##}
+{#                        <li class="nav-item"   id="add-product-link" data-src ="{% url 'g_admin:creatProduct' %}">#}
+{#                            <a href="#">Thêm sản phẩm</a>#}
+{#                        </li>#}
+{##}
+{#                        <li class="nav-item" data-src="">#}
+{#                            <a href="#"> Add/Edit Categories </a>#}
+{#                        </li>#}
+{#                        <li class="nav-item" data-src="">#}
+{#                            <a href="#"> Low Stock </a>#}
+{#                        </li>#}
+{#                        <li class="nav-item" data-src="">#}
+{#                            <a href="#"> Best Sellers </a>#}
+{#                        </li>#}
+{#                        <li class="nav-item" data-src="">#}
+{#                            <a href="#"> Search Terms </a>#}
+{#                        </li>#}
+{#                        <li class="nav-item" data-src="">#}
+{#                            <a href="#"> Reviews </a>#}
+{#                        </li>#}
+{##}
+{#                    </ul>#}
+{#                </li>#}
+{##}
+{#                <li class="menu">#}
+{#                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle nav-item">#}
+{#                        <div class="">#}
+{#                            <i class="fa-solid fa-cart-shopping"></i>#}
+{#                            <span>Order Management</span>#}
+{#                        </div>#}
+{#                    </a>#}
+{#                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample" style="">#}
+{#                        <li>#}
+{#                            <a class="nav-item" href="#"> View Cart </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="nav-item" href="#"> Orders </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="nav-item" href="#"> Checkout </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="nav-item" href="#"> Invoice </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="nav-item" href="#"> Shipments </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="nav-item" href="#"> Products in Cart </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="nav-item" href="#"> Refunds </a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </li>#}
+{##}
+{#                <li class="menu">#}
+{#                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle ">#}
+{#                        <div class="">#}
+{#                            <i class="fa-brands fa-space-awesome"></i>#}
+{#                            <span>Promotion program</span>#}
+{#                        </div>#}
+{#                    </a>#}
+{#                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample" style="">#}
+{#                        <li>#}
+{#                            <a class="" href="#"> Coupons </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="" href="#"> Newsletters </a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </li>#}
+{##}
+{#                <li class="menu">#}
+{#                    <a href="#" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle ">#}
+{#                        <div class="">#}
+{#                            <i class="fa-solid fa-magnifying-glass-chart"></i>#}
+{#                            <span>Analysis</span>#}
+{#                        </div>#}
+{#                    </a>#}
+{#                    <ul class="submenu list-unstyled collapse show" data-parent="#accordionExample" style="">#}
+{#                        <li>#}
+{#                            <a class="" href="#"> DataTables </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a class="  " href="#"> chart </a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </nav>#}
+{##}
+{#        <script src="{% static 'style/js/component-js/AdminSidebar.js' %}"></script>#}
+{##}
+{#        </body>#}
+{##}
+{#    </div>#}
+{##}
+{##}
+{#    <div class="main">#}
+{#        <div id="header" class="">#}
+{#            {% include 'g_admin/AdminHeader.html' %}#}
+{#        </div>#}
+{##}
+{#        <div id="body">#}
+{#            {% include 'g_admin/Dashboard.html' %}#}
 {#            {% include 'product/AddProduct.html' %}#}
-
-        </div>
-
-
-    </div>
-
-</div>
-<script src="{% static 'style/js/page/admin-js/Admin.js' %}"></script>
-
-<script>
-
-    navItem = Array.from( document.getElementsByClassName('nav-item'));
-    navItem.forEach( i => {
-        i.addEventListener('click', function (event){
-             event.preventDefault();
-        link = (this.getAttribute('data-src'))
-        if (link){
-            fetch(link)
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('body').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Có lỗi xảy ra:', error);
-            });
-        }
-        })
-    })
-
-</script>
+{##}
+{#        </div>#}
+{##}
+{##}
+{#    </div>#}
+{##}
+{#</div>#}
+{#<script src="{% static 'style/js/page/admin-js/Admin.js' %}"></script>#}
+{##}
+{#<script>#}
+{##}
+{#    navItem = Array.from( document.getElementsByClassName('nav-item'));#}
+{#    navItem.forEach( i => {#}
+{#        i.addEventListener('click', function (event){#}
+{#             event.preventDefault();#}
+{#        link = (this.getAttribute('data-src'))#}
+{#        if (link){#}
+{#            fetch(link)#}
+{#            .then(response => response.text())#}
+{#            .then(html => {#}
+{#                document.getElementById('body').innerHTML = html;#}
+{#            })#}
+{#            .catch(error => {#}
+{#                console.error('Có lỗi xảy ra:', error);#}
+{#            });#}
+{#        }#}
+{#        })#}
+{#    })#}
+{##}
+{#</script>#}
 
 </body>
