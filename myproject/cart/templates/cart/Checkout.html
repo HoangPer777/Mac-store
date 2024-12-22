@@ -27,7 +27,7 @@
                     <div class="product" style=" display: flex; align-items: center; ">
                     <td class="text-start">
                         <div class="d-none d-xl-block me-2">
-                            <a class="product_link" href="{{ item.product.url }}" target="_blank">
+                            <a class="product_link" href="{{ item.ProductImage.url }}" target="_blank">
                                 <img class="mx-auto product_image"  src="{{ item.product.image }}" alt="{{ item.product.name }}">
                             </a>
                         </div>
@@ -55,6 +55,7 @@
                             <div class="priceFormat total_price fw-bold"  data-number="{{ item.total_price|floatformat:0 }}" data-formatted="{{ item.total_price|floatformat:0 }}">
                                 = {{ item.total_price|floatformat:0 }} ₫
                             </div>
+
                         </td>
                     </div>
 
@@ -110,62 +111,53 @@
             </div>
 
             <div class="payment">
-                <div class="payment_title row ">
-                    <span class="">Phương thức thanh toán</span>
-                </div>
+    <div class="payment_title row">
+        <span>Phương thức thanh toán</span>
+    </div>
 
-                <div class="payment_body col">
+    <div class="payment_body col">
+        <!-- Thanh toán khi nhận hàng -->
+        <div class="item mid_align cod">
+            <i class="fa-solid fa-money-bill"></i>
+            <span>Thanh toán khi nhận hàng</span>
+            <input type="radio" name="payment-method" value="Thanh toán khi nhận hàng" checked>
+        </div>
 
-                    <div class="item mid_align cod">
-                        <i class="fa-solid fa-money-bill"></i>
-                        <span>Thanh toán khi nhận hàng</span>
-                        <input type="radio" name="payment-method" checked>
-                    </div>
-
-
-                    <div class="item mid_align banking col" >
-
-                        <div class="title">
-                            <i class="fa-solid fa-building-columns"></i>
-                            <span>Thanh toán qua ngân hàng</span>
-                        </div>
-
-
-                        <div class="card_list col">
-                            <div class="card_item">
-                                <div class="wrap_card">
-                                    <i class="fa-brands fa-cc-visa"></i>
-                                    <span>**** 5634</span>
-                                    <input type="radio" name="payment-method">
-                                </div>
-                            </div>
-
-                            <div class="card_item">
-                                <div class="wrap_card">
-                                    <i class="fa-brands fa-cc-jcb"></i>
-                                    <span>**** 4212</span>
-                                    <input type="radio" name="payment-method">
-                                </div>
-                            </div>
-
-                            <div class="card_item">
-                                <div class="wrap_card">
-                                    <i class="fa-brands fa-cc-mastercard"></i>
-                                    <span>**** 1232</span>
-                                    <input type="radio" name="payment-method">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-
+        <!-- Thanh toán qua ngân hàng -->
+        <div class="item mid_align banking col">
+            <div class="title">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Thanh toán qua ngân hàng</span>
             </div>
 
+            <div class="card_list col">
+                <div class="card_item">
+                    <div class="wrap_card">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <span>**** 5634</span>
+                        <input type="radio" name="payment-method" value="Thanh toán qua ngân hàng (Visa)">
+                    </div>
+                </div>
+
+                <div class="card_item">
+                    <div class="wrap_card">
+                        <i class="fa-brands fa-cc-jcb"></i>
+                        <span>**** 4212</span>
+                        <input type="radio" name="payment-method" value="Thanh toán qua ngân hàng (JCB)">
+                    </div>
+                </div>
+
+                <div class="card_item">
+                    <div class="wrap_card">
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <span>**** 1232</span>
+                        <input type="radio" name="payment-method" value="Thanh toán qua ngân hàng (MasterCard)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         </div>
 
@@ -184,7 +176,7 @@
 {#                    <span class="title">Nhập Mã Khuyến Mãi</span>#}
 
                     <div class="wrap_input">
-                        <input id="voucher" type="text" placeholder="Voucher hoặc gift code ">
+                        <input id="voucher"  name="voucher" type="text" placeholder="Voucher hoặc gift code ">
                         <button id="apply-voucher" type="button">Áp Dụng</button>
                     </div>
 

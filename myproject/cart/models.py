@@ -33,9 +33,13 @@ class Cart(object):
 
     def __iter__(self):
         product_ids = self.cart.keys()
-        products = Product.objects.filter(id__in=product_ids)
+        products = Product.objects.filter(id__in=product_ids).prefetch_related('images')
+
         for product in products:
+            primary_image = product.images.filter(is_primary=True).first()
             self.cart[str(product.id)]['product'] = product
+            self.cart[str(product.id)][
+                'product_image'] = primary_image.image if primary_image else None  # Lưu đối tượng ảnh, không phải URL
 
         for item in self.cart.values():
             item['id'] = item['product'].id
@@ -51,7 +55,6 @@ class Cart(object):
         if total_price <= 0:
              print("Giá trị tổng không hợp lệ:", total_price)
              return 0
-
         return total_price
 
 

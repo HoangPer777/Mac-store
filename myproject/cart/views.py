@@ -16,7 +16,9 @@ from django.http import JsonResponse
 
 from django.db import transaction
 from orders.models import Order
-
+from order_detail.models import OrderDetail
+from product.models import ProductImage
+from decimal import Decimal, InvalidOperation
 
 def cart_add(request, product_id):
     cart = Cart(request)
@@ -33,6 +35,9 @@ def cart_detail(request):
     for item in cart:
         print(item['product'].id)
     coupon_apply_form = CouponApplyForm()
+
+
+
     return render(request, 'cart/Cart.html', {'cart': cart})
 
 
@@ -158,22 +163,51 @@ def apply_coupon(request):
             return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)
 
 
-# @transaction.atomic
+
+@transaction.atomic
 def process_payment(request):
+
     if request.method == "POST":
         try:
             cart = Cart(request)
             user = request.user
-            # if not user.is_authenticated:
-            #     return JsonResponse({"status": "error", "message": "Bạn cần đăng nhập để thanh toán."}, status=401)
+            if not user.is_authenticated:
+                return JsonResponse({"status": "error", "message": "Bạn cần đăng nhập để thanh toán."}, status=401)
 
+            # Lấy mã giảm giá từ POST
+            coupon_code = request.POST.get('voucher', None)
+            coupon = None
+
+            if coupon_code:
+                try:
+                    # Kiểm tra mã giảm giá có tồn tại
+                    coupon = Coupon.objects.get(code=coupon_code)
+                except Coupon.DoesNotExist:
+                    coupon = None  # Không gán coupon nếu không tìm thấy mã giảm giá
+                    print(f"DEBUG: Mã giảm giá không tồn tại: {coupon_code}")
+
+            # Tính tổng giá giỏ hàng
+            total_price = Decimal('0.00')
+            for item in cart:
+                product = get_object_or_404(Product, id=item['product'].id)
+                total_price += product.price * item['quantity']
+            if coupon:
+                discount_amount = (total_price * coupon.discount) / 100
+                if discount_amount > coupon.maxValue:
+                    discount_amount = coupon.maxValue
+                total_price -= discount_amount
+            print(type(total_price))
             # Tạo đơn hàng
-            # order = Order.objects.create(
-            #     paymentStatus="Pending",
-            #     totalPrice=cart.get_total_price(),
-            #     paymentMethod=request.POST.get('payment-method', 'COD'),
-            #     userId=user
-            # )
+            order = Order.objects.create(
+                paymentStatus="Wait",
+                dateOrder=timezone.now(),
+                totalPrice=Decimal(str(total_price)) , # lỗi chuyển định dạng
+                couponID=coupon,
+                paymentMethod=request.POST.get('payment-method', 'Thanh toán khi nhận hàng'),
+                userId=user
+            )
+
+
 
             # Duyệt qua sản phẩm trong giỏ hàng
             for item in cart:
@@ -188,6 +222,14 @@ def process_payment(request):
                 product.noOfSolds += item['quantity']
                 product.save()
 
+                # Tạo bản ghi OrderDetail cho mỗi sản phẩm trong đơn hàng
+                OrderDetail.objects.create(
+                    order_id=order,
+                    product_id=product,
+                    quantity=item['quantity'],
+                    total_price=Decimal(str(product.price * item['quantity']))
+                )
+
             # Xóa giỏ hàng sau khi thanh toán
             cart.clear()
 
@@ -196,6 +238,8 @@ def process_payment(request):
             return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)
     else:
         return JsonResponse({"status": "error", "message": "Phương thức không hợp lệ."}, status=405)
+
+
 
 
 def thank_you(request):
