@@ -2,134 +2,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Gapple - View Category</title>
     <link rel="stylesheet" href="{% static 'style/css/admin-css/ViewCategory.css' %}">
     <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">
 </head>
 <body>
-<div class="view-category-container">
-
-    <!-- Page Title -->
-    <div class="vc-title">
-        <h1>View Category</h1>
+<div id="container">
+    <div id="menu-sidebar">
+        {% include 'g_admin/AdminSidebar.html' %}
     </div>
 
-    <!-- Status Section -->
-    <div class="vc-status-section">
-        <div class="vc-status-block">
-            <div class="vc-status-text">
-                <h2>Total Product Items</h2>
-                <div class="vc-status-data">
-                    <span class="vc-num">{{ total_products }}</span>
-                    <p class="vc-unit">(Items)</p>
+    <div class="view-category-container">
+
+        <!-- Page Title -->
+        <div class="vc-title">
+            <h1>View Category</h1>
+        </div>
+
+
+
+
+        <!-- Status Section -->
+        <div class="vc-status-section">
+            <div class="vc-status-block">
+                <div class="vc-status-text">
+                    <h2>Total Product Items</h2>
+                    <div class="vc-status-data">
+                        <span class="vc-num">{{ total_products }}</span>
+                        <p class="vc-unit">(Items)</p>
+                    </div>
+                </div>
+                <div class="vc-status-icon">
+                    <i class="fas fa-box"></i>
                 </div>
             </div>
-            <div class="vc-status-icon">
-                <i class="fas fa-box"></i>
+
+            <div class="vc-status-block">
+                <div class="vc-status-text">
+                    <h2>In Stock Products</h2>
+                    <div class="vc-status-data">
+                        <span class="vc-num">{{ in_stock }}</span>
+                        <p class="vc-unit">(Items)</p>
+                    </div>
+                </div>
+                <div class="vc-status-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+            </div>
+
+            <div class="vc-status-block">
+                <div class="vc-status-text">
+                    <h2>Out of Stock Products</h2>
+                    <div class="vc-status-data">
+                        <span class="vc-num">{{ out_of_stock }}</span>
+                        <p class="vc-unit">(Items)</p>
+                    </div>
+                </div>
+                <div class="vc-status-icon">
+                    <i class="fas fa-times-circle"></i>
+                </div>
             </div>
         </div>
 
-        <div class="vc-status-block">
-            <div class="vc-status-text">
-                <h2>In Stock Products</h2>
-                <div class="vc-status-data">
-                    <span class="vc-num">{{ in_stock }}</span>
-                    <p class="vc-unit">(Items)</p>
-                </div>
-            </div>
-            <div class="vc-status-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
+
+
+       <!-- Form Actions -->
+        <div class="vc-form-actions">
+            <input type="text" class="vc-form-control" placeholder="Product ID">
+            <button type="submit" class="vc-btn vc-btn-outline">Search Product</button>
         </div>
 
-        <div class="vc-status-block">
-            <div class="vc-status-text">
-                <h2>Out of Stock Products</h2>
-                <div class="vc-status-data">
-                    <span class="vc-num">{{ out_of_stock }}</span>
-                    <p class="vc-unit">(Items)</p>
-                </div>
-            </div>
-            <div class="vc-status-icon">
-                <i class="fas fa-times-circle"></i>
-            </div>
-        </div>
-    </div>
 
-    <!-- Product Table Section -->
-    <div class="vc-table-section">
-        <form method="post">
-            <div class="vc-table-responsive">
-                <table class="vc-table">
-                    <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Product ID</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for product in products %}
+
+
+        <!-- Product Table Section -->
+        <div class="vc-table-section">
+            <form method="post">
+                <div class="vc-table-responsive">
+                    <table class="vc-table">
+                        <thead>
                         <tr>
-                            <td>
-                                <div class="vc-product-info">
-                                    <div class="vc-product-image">
-                                        {% if product.images.first %}
-                                            <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}"
-                                                 class="vc-product-thumbnail">
-                                        {% else %}
-                                            <img src="{% static 'images/default_image.jpg' %}" alt="Default Product"
-                                                 class="vc-product-thumbnail">
-                                        {% endif %}
-                                    </div>
-                                    <div class="vc-product-details">
-                                        <h3>{{ product.name }}</h3>
-                                    </div>
-                                </div>
-
-                            </td>
-
-
-                            <!-- Product ID -->
-                            <td>#{{ product.id }}</td>
-
-                            <!-- Product Price -->
-                            <td>${{ product.price }}</td>
-
-                            <!-- Stock Quantity -->
-                            <td>
-                                <input type="number" class="vc-form-control" value="{{ product.stock_quantity }}"
-                                       min="0">
-                            </td>
-
-                            <!-- Actions -->
-                            <td>
-                                <div class="vc-action">
-                                    <a href="#" class="vc-btn vc-btn-edit">
-                                        <i class="fa-regular fa-pen-to-square"></i> Edit
-                                    </a>
-                                    <a href="#" class="vc-btn vc-btn-remove">
-                                        <i class="fa-solid fa-xmark"></i> Remove
-                                    </a>
-                                </div>
-                            </td>
+                            <th>Product</th>
+                            <th>Product ID</th>
+                            <th>Price</th>
+                            <th>Views</th>
+                            <th>Sold</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td>
+                                    <div class="vc-product-info">
+                                        <div class="vc-product-image">
+                                            {% if product.images.first %}
+                                                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}"
+                                                     class="vc-product-thumbnail">
+                                            {% else %}
+                                                <img src="{% static 'resource/Image/def_product.png' %}" alt="Default Product"
+                                                     class="vc-product-thumbnail">
+                                            {% endif %}
+                                        </div>
+                                        <div class="vc-product-details">
+                                            <h3>{{ product.name }}</h3>
+                                        </div>
+                                    </div>
 
-            <!-- Form Actions -->
-            <div class="vc-form-actions">
-                <input type="text" class="vc-form-control" placeholder="Product ID">
-                <button type="submit" class="vc-btn vc-btn-outline">Search Product</button>
-            </div>
-        </form>
+                                </td>
+
+
+                                <!-- Product ID -->
+                                <td>#{{ product.id }}</td>
+
+                                <!-- Product Price -->
+                                <td>${{ product.price }}</td>
+
+                                <td>{{ product.noOfViews }}</td>
+
+                                <td>{{ product.noOfSolds }}</td>
+
+                                <!-- Stock Quantity -->
+                                <td>{{ product.stock_quantity }} </td>
+
+                                <!-- Actions -->
+                                <td>
+                                    <div class="vc-action">
+                                        <a href="#" class="vc-btn vc-btn-edit">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </a>
+                                        <a href="#" class="vc-btn vc-btn-remove">
+                                            <i class="fa-solid fa-xmark" style="color: red"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </form>
+        </div>
     </div>
+
+
 </div>
 </body>
 
