@@ -39,7 +39,6 @@ def product_create(request):
             if 'product_images' in request.FILES:
                 for image in request.FILES.getlist('product_images'):
                     ProductImage.objects.create(product=product, image=image)
-
         else:
             print(form.errors)
     else:

@@ -8,5 +8,5 @@ urlpatterns = [
     path('dashboard/', views.get_dashboard, name='g_admin_dashboard'),
     path('product/list/', views.admin_get_product, name='admin_get_product'),
     path('product/add', views.creatProduct, name='creatProduct'),
-
+    path('coupon/list/', views.get_coupon_list, name='coupon_list'),
 ]

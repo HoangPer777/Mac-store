@@ -7,8 +7,6 @@ from .forms import CouponForm
 from django.shortcuts import render
 
 
-
-
 def apply_coupon(request):
     message = ""
     discount_amount = 0  # Giá trị giảm được
