@@ -50,8 +50,6 @@ function removeOptionGroup(button) {
     container.removeChild(optionGroup); // Xóa nhóm tùy chọn khỏi container
 }
 
-
-
 document.getElementById('fileInput').addEventListener('change', function (event) {
     const files = Array.from(event.target.files);
     const imagePreviewContainer = document.getElementById('imagePreviewContainer');
