@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from category.models import Category
 from g_admin import templates
 from product.models import Product
 
@@ -11,7 +13,8 @@ def get_admin(request):
 
 
 def creatProduct(request):
-    return render(request, 'product/AddProduct.html')
+    category = Category.objects.all()
+    return render(request, 'product/AddProduct.html', {"category": category})
 
 
 def admin_get_product(request):

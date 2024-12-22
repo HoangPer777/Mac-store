@@ -1,3 +1,5 @@
+from django.contrib import messages
+
 from django.core.serializers import json
 from django.db.models import Q
 from django.shortcuts import render
@@ -6,7 +8,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 
 from .forms import ProductForm
-from .models import Product
+from .models import Product, ProductImage
 from django.http import JsonResponse
 
 
@@ -28,12 +30,22 @@ def product_detail(request, product_id):
 def product_create(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
+        print(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('product_list')
+            product = form.save()
+            print(product)
+            messages.success(request, "Product created successfully!")
+            # return redirect('product_list')
+            if 'product_images' in request.FILES:
+                for image in request.FILES.getlist('product_images'):
+                    ProductImage.objects.create(product=product, image=image)
+
+        else:
+            print(form.errors)
     else:
+
         form = ProductForm()
-    return render(request, 'product/AddProduct.html', {'form': form})
+    return render(request, 'g_admin/ViewCategory.html', {'form': form})
 
 
 # Thêm sản phẩm vào giỏ hàng

@@ -1,8 +1,116 @@
-{%load static%}
+{#{%load static%}#}
+{##}
+{#<head>#}
+{##}
+{#    <link href="{% static 'style/css/admin-css/AddProduct.css' %}" rel="stylesheet">#}
+{#    <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">#}
+{##}
+{#</head>#}
+{#<body>#}
+{##}
+{#<div class="page-header">#}
+{#    <div class="row align-items-center">#}
+{#        <div class="col-sm mb-2 mb-sm-0">#}
+{#            <h1 class="page-header-title">Add Product</h1>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="main-container">#}
+{#    <div class="left-column">#}
+{#        <div class="product-information">#}
+{#            <h2>Information </h2>#}
+{#            <form method="POST" action="{% url 'product:product_create' %}" enctype="multipart/form-data">#}
+{##}
+{##}
+{##}
+{#            {% csrf_token %} <!-- CSRF Token để bảo vệ -->#}
+{#                {{ form.as_p }}#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="productName">Name</label>#}
+{#                    <input type="text" id="productName" name="name" placeholder="" required>#}
+{#                </div>#}
+{##}
+{#                <div class="form-row">#}
+{#                    <div class="form-group half-width">#}
+{#                        <label for="sku">SKU</label>#}
+{#                        <input type="text" id="sku" name="sku" placeholder="" required>#}
+{#                    </div>#}
+{#                    <div class="form-group half-width">#}
+{#                        <label for="category">Category</label>#}
+{#                        <select id="category" name="category" class="option-select">#}
+{#                            {% for cate in category %}#}
+{#                                <option  value="{{ cate.id }}">{{cate.name}}</option>#}
+{#                            {% endfor %}#}
+{##}
+{#                            <option value="color">Máy giặt</option>#}
+{#                            <option value="material">Máy lạnh</option>#}
+{#                            <option value="style">Lò nướng</option>#}
+{#                            <option value="title">Máy hút bụi</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="form-group">#}
+{#                    <label for="description">Descriptions</label>#}
+{#                    <textarea id="description" name="description" placeholder="" rows="4"></textarea>#}
+{#                </div>#}
+{##}
+{#                <div class="media-section">#}
+{#                    <h2>Image</h2>#}
+{#                    <div class="media-upload-box">#}
+{#                        <input type="file" id="fileInput" name="image" accept="image/*"  required multiple />#}
+{#                        <button type="button" onclick="document.getElementById('fileInput').click();"></button>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{##}
+{##}
+{##}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="right-column">#}
+{#        <div class="section pricing-section">#}
+{#            <h2>Price and Quality</h2>#}
+{#            <label for="price">Price</label>#}
+{#            <input type="text" id="price" name="price" placeholder="0.00" required>#}
+{##}
+{#            <label for="stock_quantity">Quality</label>#}
+{#            <input type="number" id="stock_quantity" name="stock_quantity" placeholder="0" required>#}
+{#        </div>#}
+{##}
+{#        <div class="section organization-section">#}
+{#            <h2>Other</h2>#}
+{#            <label for="vendor">Brand</label>#}
+{#            <input type="text" id="vendor" name="vendor" placeholder="eg. Nike">#}
+{##}
+{##}
+{#            <label for="tags">Tag</label>#}
+{#            <input type="text" id="tags" name="tags" placeholder="">#}
+{#        </div>#}
+{##}
+{#          <div class="save">#}
+{#              <button type="submit">Save</button>#}
+{#          </div>#}
+{##}
+{#    </div>#}
+{##}
+{##}
+{#</div>#}
+{##}
+{##}
+{##}
+{#<script src="{% static 'style/js/component-js/AddProduct.js' %}"></script>#}
+{##}
+{#</body>#}
+
+{% load static %}
 
 <head>
-    <meta charset="UTF-8">
-    <title>Thêm Sản Phẩm</title>
+
     <link href="{% static 'style/css/admin-css/AddProduct.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">
 
@@ -12,108 +120,90 @@
 <div class="page-header">
     <div class="row align-items-center">
         <div class="col-sm mb-2 mb-sm-0">
-            <h1 class="page-header-title">Thêm sản phẩm</h1>
+            <h1 class="page-header-title">Add Product</h1>
         </div>
     </div>
 </div>
 
 <div class="main-container">
-    <div class="left-column">
-        <div class="product-information">
-            <h2>Thông tin sản phẩm</h2>
-            <form method="POST" action="{% url 'product:product_create' %}" enctype="multipart/form-data">
+    <form id="form" method="POST" action="{% url 'product:product_create' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <div class="left-column">
+            <div class="product-information">
+                <h2>Information </h2>
 
 
-
-            {% csrf_token %} <!-- CSRF Token để bảo vệ -->
                 <div class="form-group">
-                    <label for="productName">Tên sản phẩm</label>
-                    <input type="text" id="productName" name="name" placeholder="Tủ lạnh, máy giặt, v.v." required>
+                    <label for="productName">Name</label>
+                    <input type="text" id="productName" name="name" placeholder="Enter product name" required>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group half-width">
-                        <label for="sku">Mã SKU</label>
-                        <input type="text" id="sku" name="sku" placeholder="Ví dụ: 348121032" required>
+                        <label for="sku">SKU</label>
+                        <input type="text" id="sku" name="sku" placeholder="Enter SKU" required>
                     </div>
                     <div class="form-group half-width">
-                        <label for="category">Danh mục</label>
-                        <select id="category" name="category" class="option-select">
-                            <option value="size">Tủ lạnh</option>
-                            <option value="color">Máy giặt</option>
-                            <option value="material">Máy lạnh</option>
-                            <option value="style">Lò nướng</option>
-                            <option value="title">Máy hút bụi</option>
+                        <label for="category">Category</label>
+                        <select id="category" name="category" class="option-select" required>
+                            {% for cate in category %}
+                                <option value="{{ cate.id }}">{{ cate.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Mô tả (Tùy chọn)</label>
-                    <textarea id="description" name="description" placeholder="Nhập mô tả của bạn..." rows="4"></textarea>
+                    <label for="description">Descriptions</label>
+                    <textarea id="description" name="description" placeholder="Enter description" rows="4"
+                              required></textarea>
                 </div>
 
                 <div class="media-section">
-                    <h2>Hình ảnh</h2>
+                    <h2>Image</h2>
                     <div class="media-upload-box">
-                        <input type="file" id="fileInput" name="image" accept="image/*" required />
-                        <button type="button" onclick="document.getElementById('fileInput').click();">Tải ảnh lên</button>
+                        <input type="file" id="fileInput" name="product_images" accept="image/*" required multiple/>
                     </div>
                 </div>
 
-                <div class="options-section">
-                    <h2>Biến thể</h2>
-                    <div id="optionsContainer" class="options-container">
-                        <div class="option-group">
-                            <select class="option-select" name="variant_type">
-                                <option value="size">Kích thước</option>
-                                <option value="color">Màu sắc</option>
-                                <option value="material">Chất liệu</option>
-                                <option value="style">Kiểu dáng</option>
-                                <option value="title">Tiêu đề</option>
-                            </select>
-                            <input type="text" name="variant_value" placeholder="Nhập giá trị biến thể" class="variant-input">
-                            <button type="button" class="remove-option-button" onclick="removeOptionGroup(this)">×</button>
-                        </div>
-                    </div>
-                    <button type="button" class="add-option-button" onclick="addOptionGroup('optionsContainer')">+ Thêm biến thể</button>
-                </div>
 
-                <div class="save">
-                    <button type="submit">Lưu sản phẩm</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="right-column">
-        <div class="section pricing-section">
-            <h2>Giá & Số lượng</h2>
-            <label for="price">Giá</label>
-            <input type="text" id="price" name="price" placeholder="0.00" required>
-
-            <label for="stock_quantity">Số lượng</label>
-            <input type="number" id="stock_quantity" name="stock_quantity" placeholder="0" required>
+            </div>
         </div>
 
-        <div class="section organization-section">
-            <h2>Thuộc tính</h2>
-            <label for="vendor">Nhà cung cấp</label>
-            <input type="text" id="vendor" name="vendor" placeholder="eg. Nike">
+        <div class="right-column">
+            <div class="section pricing-section">
+                <h2>Price and Quality</h2>
+                <label for="price">Price</label>
+                <input type="text" id="price" name="price" placeholder="" required>
 
-            <label for="collections">Bộ sưu tập</label>
-            <select id="collections" name="collections">
-                <option value="winter">Nhà bếp</option>
-                <option value="summer">Phòng khách</option>
-                <option value="bedroom">Phòng ngủ</option>
-                <option value="other">Khác</option>
-            </select>
+                <label for="stock_quantity">Quality</label>
+                <input type="number" id="stock_quantity" name="stock_quantity" placeholder="0" required>
+            </div>
 
-            <label for="tags">Thẻ</label>
-            <input type="text" id="tags" name="tags" placeholder="Nhập thẻ tại đây">
+            <div class="section organization-section">
+                <h2>Other</h2>
+                <label for="vendor">Brand</label>
+                <input type="text" id="vendor" name="vendor" placeholder="eg. Nike">
+
+
+                <label for="tags">Tag</label>
+                <input type="text" id="tags" name="tags" placeholder="">
+            </div>
+
+            <div class="save">
+                <button type="submit">Save</button>
+            </div>
+
         </div>
-    </div>
+
+
+    </form>
+
 </div>
+
+
 <script src="{% static 'style/js/component-js/AddProduct.js' %}"></script>
 
 </body>
