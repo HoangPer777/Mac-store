@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.coupon-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+
+}
+
+.coupon-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.coupon-title h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.add-coupon-btn {
+    background-color: #7AAC43;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+
+.add-coupon-btn:hover {
+    background-color: #4d7220;
+}
+
+.coupon-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border :1px solid;
+}
+
+.coupon-table th,
+.coupon-table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.coupon-table th {
+    background-color: #7AAC43;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.coupon-table td {
+    font-size: 14px;
+    color: #555;
+}
+
+.coupon-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.edit-btn,
+.delete-btn {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.delete-btn {
+    color: #d9534f;
+}
+
+.edit-btn:hover {
+    text-decoration: underline;
+}
+
+.delete-btn:hover {
+    text-decoration: underline;
+}
