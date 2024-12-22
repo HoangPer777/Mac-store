@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'card',
     'cloudinary_storage',
     'cloudinary',
-    'g_admin'
+    'g_admin',
 ]
 
 MIDDLEWARE = [

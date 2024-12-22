@@ -18,6 +18,7 @@ urlpatterns = [
                   path('auth/', include('auth.urls')),
                      # path('checkout/', include('checkout.urls')),
                      path('admin/', include('g_admin.url')),
+                path('user/', include('user.urls')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

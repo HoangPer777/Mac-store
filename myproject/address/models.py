@@ -7,6 +7,3 @@ class Address(models.Model):
     district = models.CharField(max_length=100,null=True)
     commune = models.CharField(max_length=100,null=True)
     detail = models.CharField(max_length=100,null=True)
-    name = models.CharField(max_length=50,null=True)
-    phone = models.CharField(max_length=11,null=True)
-    type = models.CharField(max_length=50,null=True)
