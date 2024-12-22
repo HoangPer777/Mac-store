@@ -19,8 +19,9 @@
     </div>
 
     <div id="main">
-        <form action="">
-            <div id="addCoupon">
+        <form method="POST" action="{% url 'coupon:create_coupon' %}">
+               {% csrf_token %}
+             <div id="addCoupon">
                 <h2 class="page-title">Add Coupon</h2>
 
                 <div class="form-container">
@@ -30,11 +31,11 @@
 
                             <div class="form-checkbox-group">
                                 <label>
-                                    <input name="coupon_type" type="radio" value="product" > For Products </label>
+                                    <input  name="type" type="radio" value="product" required > For Products </label>
                                 <label>
-                                    <input name="coupon_type"  type="radio" value="customer"> For Customer  </label>
+                                    <input name="type"  type="radio" value="customer" required> For Customer  </label>
                                 <label>
-                                    <input name="coupon_type"  type="radio" value="category"> For Category  </label>
+                                    <input name="type"  type="radio" value="category" required > For Category  </label>
                             </div>
 
 
@@ -50,7 +51,7 @@
                                             Percentage
                                         </label>
                                     </h4>
-                                    <input type="text" id="percentageInput" placeholder="e.g: 10%" disabled>
+                                    <input type="text" id="percentageInput" name="percent" placeholder="e.g: 10%" disabled>
                                 </div>
 
                                 <!-- Amount Input -->
@@ -61,12 +62,12 @@
                                             Amount
                                         </label>
                                     </h4>
-                                    <input type="text" id="amountInput" placeholder="e.g: 10000" disabled>
+                                    <input type="text" name="amount" id="amountInput" placeholder="e.g: 10000" disabled>
                                 </div>
 
                                 <div class="form-input-group">
                                     <h4 class="form-label">Max value</h4>
-                                    <input id="max_value" type="text" placeholder="Max value">
+                                    <input id="max_value" name="maxValue" type="text" placeholder="Max value">
                                 </div>
 
 
@@ -80,13 +81,13 @@
                              <!-- Start Date -->
                                 <div class="form-input-group">
                                     <h4 class="form-label">Start Date</h4>
-                                    <input id="startDate" type="date" placeholder="Start Date">
+                                    <input id="startDate" name="from_date" type="date" placeholder="Start Date">
                                 </div>
 
                                 <!-- End Date -->
                                 <div class="form-input-group">
                                     <h4 class="form-label">End Date</h4>
-                                    <input id="endDate" type="date" placeholder="End Date">
+                                    <input id="endDate" name="to_date" type="date" placeholder="End Date">
                                 </div>
 
 
@@ -94,17 +95,17 @@
 
                         <div class="form-section">
                             <h4 class="form-label">Coupon Code</h4>
-                            <input  class="input-filed" type="text" placeholder="Coupon ID, e.g: student383">
+                            <input  class="input-filed" name="code" type="text" placeholder="Coupon ID, e.g: student383">
                         </div>
 
                         <div class="form-section">
                             <h4 class="form-label">Product Code</h4>
-                            <input class="input-filed" type="text" placeholder="Product ID, e.g: Mac-M4">
+                            <input class="input-filed" name="forProduct" type="text" placeholder="Product ID, e.g: Mac-M4">
                         </div>
 
                         <div class="form-section">
                             <h4 class="form-label">Number Available</h4>
-                            <input class="input-filed"   type="text" placeholder="1000">
+                            <input class="input-filed" name="remaining"   type="text" placeholder="1000">
                         </div>
 
                         <div class="form-section">

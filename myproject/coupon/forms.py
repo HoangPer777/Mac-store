@@ -10,4 +10,4 @@ class CouponApplyForm(forms.Form):
 class CouponForm(forms.ModelForm):
     class Meta:
         model = Coupon
-        fields = ['code', 'type', 'percent', 'amount', 'maxValue', 'from_date', 'to_date', 'active','remaining']
+        fields = ['code', 'type', 'percent', 'amount', 'maxValue', 'from_date', 'to_date','remaining']

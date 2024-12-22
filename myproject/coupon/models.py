@@ -13,7 +13,7 @@ class Coupon(models.Model):
     percent = models.IntegerField(null=True, blank=True,validators=[MinValueValidator(0), MaxValueValidator(100)]) # %giảm
     amount = models.IntegerField(null=True, blank=True)
     maxValue = models.DecimalField(max_digits=10, decimal_places=2) # nếu theo % thì giảm max bao nhiêu
-
+    forProduct = models.IntegerField(null=True, blank=True)
 
     from_date = models.DateTimeField()
     to_date = models.DateTimeField()
