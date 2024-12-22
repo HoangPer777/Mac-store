@@ -13,5 +13,5 @@ urlpatterns = [
     path('apply-coupon/', views.apply_coupon, name='apply_coupon'),
     path('checkout/pay/', views.process_payment, name='process_payment'),
     path('cart/thank-you/', views.thank_you, name='thank_you'),
-
+    path('total-items/', views.total_items_in_cart, name='cart_total_items'),
 ]

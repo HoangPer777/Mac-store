@@ -57,6 +57,7 @@ def register_view(request):
 
 
 #login
+@csrf_exempt
 def login_view(request):
 
     if request.method == 'GET':
