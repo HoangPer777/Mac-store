@@ -1,312 +1,156 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
+    <title>Gapple - View Category</title>
     <link rel="stylesheet" href="{% static 'style/css/admin-css/ViewCategory.css' %}">
-    <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css'%}">
-    <title>Gapple</title>
+    <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">
 </head>
 <body>
-    <div class="container">
-        <div class="title">
-            <span>View category</span>
+<div id="container">
+    <div id="menu-sidebar">
+        {% include 'g_admin/AdminSidebar.html' %}
+    </div>
+
+    <div class="view-category-container">
+
+        <!-- Page Title -->
+        <div class="vc-title">
+            <h1>View Category</h1>
         </div>
-        
-       <div id="container__status">
-            <div class="status padding-page">
-                <div class="status__totalItems status__block">
-                    <div class="container__text">
-                        <span class="status__block-title">Total Product Items</span>
-                        <div class="status__block-data">
-                            <span class="num">3721</span>
-                            <p class="unit">(Item)</p>
-                        </div>
-                    </div>
-                    <div class="status__block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M21.984 10c-.037-1.311-.161-2.147-.581-2.86c-.598-1.015-1.674-1.58-3.825-2.708l-2-1.05C13.822 2.461 12.944 2 12 2s-1.822.46-3.578 1.382l-2 1.05C4.271 5.56 3.195 6.125 2.597 7.14C2 8.154 2 9.417 2 11.942v.117c0 2.524 0 3.787.597 4.801c.598 1.015 1.674 1.58 3.825 2.709l2 1.049C10.178 21.539 11.056 22 12 22s1.822-.46 3.578-1.382l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708c.42-.713.544-1.549.581-2.86M21 7.5l-4 2M12 12L3 7.5m9 4.5v9.5m0-9.5l4.5-2.25l.5-.25m0 0V13m0-3.5l-9.5-5"></path></svg>
-                    </div>
-                </div>
-                <div class="status__inStock status__block">
-                    <div class="container__text">
-                        <span class="status__block-title">In Stock Product</span>
-                        <div class="status__block-data">
-                            <span class="num">1321</span>
-                            <p class="unit">(Item)</p>
-                        </div>
-                       
-                    </div>
-                    <div class="status__block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M19 10h-8m-6 0h2m-2 8h8m6 0h-2m2-4H5m14-8H5"></path></svg>
+
+
+
+
+        <!-- Status Section -->
+        <div class="vc-status-section">
+            <div class="vc-status-block">
+                <div class="vc-status-text">
+                    <h2>Total Product Items</h2>
+                    <div class="vc-status-data">
+                        <span class="vc-num">{{ total_products }}</span>
+                        <p class="vc-unit">(Items)</p>
                     </div>
                 </div>
-                <div class="status__outOfStock status__block">
-                    <div class="container__text">
-                        <span class="status__block-title">Out Of Stock Product</span>
-                        <div class="status__block-data">
-                            <span class="num">321</span>
-                            <p class="unit">(Item)</p>
-                        </div>
-                    </div>
-                    <div class="status__block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="m14 12l-4 4m0-4l4 4M9 6V5a3 3 0 1 1 6 0v1"></path><path d="M20.224 12.526c-.586-3.121-.878-4.682-1.99-5.604C17.125 6 15.537 6 12.36 6h-.72c-3.176 0-4.764 0-5.875.922s-1.403 2.483-1.989 5.604c-.823 4.389-1.234 6.583-.034 8.029S7.174 22 11.639 22h.722c4.465 0 6.698 0 7.897-1.445c.696-.84.85-1.93.696-3.555"></path></g></svg>
-                    </div>
-                </div>
-                <div class="status__totalVisited status__block">
-                    <div class="container__text">
-                        <span class="status__block-title">Visited Customer</span>
-                        <div class="status__block-data">
-                            <span class="num">5321</span>
-                            <p class="unit">(Last week)</p>
-                        </div>
-                    </div>
-                    <div class="status__block-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="6" r="4"></circle><path stroke-linecap="round" d="M18 9c1.657 0 3-1.12 3-2.5S19.657 4 18 4M6 9C4.343 9 3 7.88 3 6.5S4.343 4 6 4m11.197 11c.51.588.803 1.271.803 2c0 2.21-2.686 4-6 4s-6-1.79-6-4s2.686-4 6-4q.511 0 1 .055M20 19c1.754-.385 3-1.359 3-2.5s-1.246-2.115-3-2.5M4 19c-1.754-.385-3-1.359-3-2.5s1.246-2.115 3-2.5"></path></g></svg>
-                    </div>
+                <div class="vc-status-icon">
+                    <i class="fas fa-box"></i>
                 </div>
             </div>
-       </div>
-    
-       <div id="container__content">
-        <div class="col-md-12 padding-page">
+
+            <div class="vc-status-block">
+                <div class="vc-status-text">
+                    <h2>In Stock Products</h2>
+                    <div class="vc-status-data">
+                        <span class="vc-num">{{ in_stock }}</span>
+                        <p class="vc-unit">(Items)</p>
+                    </div>
+                </div>
+                <div class="vc-status-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+            </div>
+
+            <div class="vc-status-block">
+                <div class="vc-status-text">
+                    <h2>Out of Stock Products</h2>
+                    <div class="vc-status-data">
+                        <span class="vc-num">{{ out_of_stock }}</span>
+                        <p class="vc-unit">(Items)</p>
+                    </div>
+                </div>
+                <div class="vc-status-icon">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+       <!-- Form Actions -->
+        <div class="vc-form-actions">
+            <input type="text" class="vc-form-control" placeholder="Product ID">
+            <button type="submit" class="vc-btn vc-btn-outline">Search Product</button>
+        </div>
+
+
+
+
+        <!-- Product Table Section -->
+        <div class="vc-table-section">
             <form method="post">
-                <div class="table-responsive ">
-                    <table class="table view-cart-table">
+                <div class="vc-table-responsive">
+                    <table class="vc-table">
                         <thead>
-                            <tr>
-                                <th class="col-thumbnail">
-                                    <p>Product</p>  
-                                </th>
-                                <th class="col-id">
-                                    <p>Product id</p>
-                                </th>
-                                <th class="col-price">
-                                    <p>Price</p>
-                                </th>
-                                <th class="col-stock">
-                                    <p>Stock</p>
-                                </th>
-                                <th class="col-manager">
-                                    <p></p>
-                                </th>
-                                <th class="col-remove">
-                                    <p>Action</p>
-                                </th>
-                            </tr>
+                        <tr>
+                            <th>Product</th>
+                            <th>Product ID</th>
+                            <th>Price</th>
+                            <th>Views</th>
+                            <th>Sold</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
                         </thead>
                         <tbody>
+                        {% for product in products %}
                             <tr>
-                                <td class="product">
-                                    <a href="#">
-                                        <img class="product-thumbnail img-fluid" src="../../../../backend/static/resource/Image/2020_11_12_637407982638531818_mba-2020-gray-1.jpeg" alt="">
-                                        <div>
-                                            <h6 class="mb-0"><a href="#">MacBook air M1</a></h6>
-                                            <p><small>Color : while | Ram : 8gb</small></p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>#Mac-01</td>
-                                <td>$3000.00</td>
                                 <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="4234">
-                                </td>
-                                <td></td>
-                                <td >
-                                    <div class="action">
-                                        <div class="action-edit">
-                                            <a class="btn btn-edit">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </a>
+                                    <div class="vc-product-info">
+                                        <div class="vc-product-image">
+                                            {% if product.images.first %}
+                                                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}"
+                                                     class="vc-product-thumbnail">
+                                            {% else %}
+                                                <img src="{% static 'resource/Image/def_product.png' %}" alt="Default Product"
+                                                     class="vc-product-thumbnail">
+                                            {% endif %}
                                         </div>
-                                        <div class="action-remove">
-                                            <a class="btn btn-remove">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </a>
-                                       </div>
+                                        <div class="vc-product-details">
+                                            <h3>{{ product.name }}</h3>
+                                        </div>
+                                    </div>
+
+                                </td>
+
+
+                                <!-- Product ID -->
+                                <td>#{{ product.id }}</td>
+
+                                <!-- Product Price -->
+                                <td>${{ product.price }}</td>
+
+                                <td>{{ product.noOfViews }}</td>
+
+                                <td>{{ product.noOfSolds }}</td>
+
+                                <!-- Stock Quantity -->
+                                <td>{{ product.stock_quantity }} </td>
+
+                                <!-- Actions -->
+                                <td>
+                                    <div class="vc-action">
+                                        <a href="#" class="vc-btn vc-btn-edit">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </a>
+                                        <a href="#" class="vc-btn vc-btn-remove">
+                                            <i class="fa-solid fa-xmark" style="color: red"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="product">
-                                    <a href="#">
-                                        <img class="product-thumbnail img-fluid" src="../../../../backend/static/resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
-                                        <div>
-                                            <h6 class="mb-0"><a href="#">MacBook air M2</a></h6>
-                                            <p><small>Color : while | Ram : 16gb</small></p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>#Mac-02</td>
-                                <td>$3500.00</td>
-                                <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="5134">
-                                </td>
-                                <td></td>
-                                <td >
-                                    <div class="action">
-                                        <div class="action-edit">
-                                            <a class="btn btn-edit">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </a>
-                                        </div>
-                                        <div class="action-remove">
-                                            <a class="btn btn-remove">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </a>
-                                       </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="product">
-                                    <a href="#">
-                                        <img class="product-thumbnail img-fluid" src="../../../../backend/static/resource/Image/2020_11_12_637407982638531818_mba-2020-gray-1.jpeg" alt="">
-                                        <div>
-                                            <h6 class="mb-0"><a href="#">MacBook pro M1</a></h6>
-                                            <p><small>Color : gold | Ram : 8gb</small></p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>#Mac-03</td>
-                                <td>$3700.00</td>
-                                <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="1234">
-                                </td>
-                                <td></td>
-                                <td >
-                                    <div class="action">
-                                        <div class="action-edit">
-                                            <a class="btn btn-edit">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </a>
-                                        </div>
-                                        <div class="action-remove">
-                                            <a class="btn btn-remove">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </a>
-                                       </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="product">
-                                    <a href="#">
-                                        <img class="product-thumbnail img-fluid" src="../../../../backend/static/resource/Image/2024_3_20_638465302276858353_macbook-air-m3-13-2024-vang-1.jpg" alt="">
-                                        <div>
-                                            <h6 class="mb-0"><a href="#">MacBook pro M1</a></h6>
-                                            <p><small>Color : gold | Ram : 8gb</small></p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>#Mac-04</td>
-                                <td>$3800.00</td>
-                                <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="1704">
-                                </td>
-                                <td></td>
-                                <td >
-                                    <div class="action">
-                                        <div class="action-edit">
-                                            <a class="btn btn-edit">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </a>
-                                        </div>
-                                        <div class="action-remove">
-                                            <a class="btn btn-remove">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </a>
-                                       </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="product">
-                                    <a href="#">
-                                        <img class="product-thumbnail img-fluid" src="../../../../backend/static/resource/Image/macbook-air-m3-13-2024-xanh-1.jpg" alt="">
-                                        <div>
-                                            <h6 class="mb-0"><a href="#">MacBook pro M2</a></h6>
-                                            <p><small>Color : Starlight | Ram : 16gb</small></p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>#Mac-05</td>
-                                <td>$4000.00</td>
-                                <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="3237">
-                                </td>
-                                <td></td>
-                                <td >
-                                    <div class="action">
-                                        <div class="action-edit">
-                                            <a class="btn btn-edit">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </a>
-                                        </div>
-                                        <div class="action-remove">
-                                            <a class="btn btn-remove">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </a>
-                                       </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="product">
-                                    <a href="#">
-                                        <img class="product-thumbnail img-fluid" src="../../../../backend/static/resource/Image/2024_3_20_638465245213555683_macbook-air-m3-13-2024-bac-1.jpg" alt="">
-                                        <div>
-                                            <h6 class="mb-0"><a href="#">MacBook air M3</a></h6>
-                                            <p><small>Color : while | Ram : 8gb</small></p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td>#Mac-06</td>
-                                <td>$3200.00</td>
-                                <td>
-                                    <input class="form-control" type="number" step="1" min="1" value="4294">
-                                </td>
-                                <td></td>
-                                <td >
-                                    <div class="action">
-                                        <div class="action-edit">
-                                            <a class="btn btn-edit">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </a>
-                                        </div>
-                                        <div class="action-remove">
-                                            <a class="btn btn-remove">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </a>
-                                       </div>
-                                    </div>
-                                </td>
-                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="product id: ">
-                        </div>
-                        <div class="form-group">
-                            <a class="btn btn-outline-dark btn-rounded" >
-                                <span>Search product</span>
-                            </a>
-                        </div>
-                        <div class="form-group text-md-right">
-                            <a class="btn btn-primary btn-rounded" >
-                                <span>Update Cart</span>
-                            </a>
-                        </div>
-                    </div>
-
-
                 </div>
-                
+
+
             </form>
         </div>
-       </div>
-
-       
-        
     </div>
-    
+
+
+</div>
 </body>
+
+</html>

@@ -77,6 +77,12 @@ ul.sub-submenu li {
     padding-left: 50px;
 }
 
+.sub-submenu li a{
+    height: 100%;
+    width: 100%;
+}
+
+
 /* Active and open menu items */
 .menu.active > a, 
 .menu.active > a:hover {

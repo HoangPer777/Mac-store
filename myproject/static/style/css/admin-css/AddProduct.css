@@ -7,6 +7,31 @@
 body{
 
 }
+
+
+#container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#menu-sidebar{
+    width: 15%;
+    height: 100%;
+}
+
+#main{
+    width: 85%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
 .page-header {
     padding: 10px;
 }
@@ -292,11 +317,19 @@ textarea:focus {
 
 .main-container {
     display: flex;
-    gap: 20px;
+    gap: 50px;
     padding: 20px;
+    justify-content: center;
 }
-.left-column{
+#form{
+    width: 100%;
+    display: flex;
+    gap: 50px;
+}
 
+
+.left-column{
+    width: 50%;
 }
 
 .right-column {
@@ -304,6 +337,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 30%;
 }
 
 
@@ -396,7 +430,7 @@ textarea:focus {
     transform: translateX(20px);
 }
 .save{
-    padding-left: 380px;
+    margin-left: auto;
 }
 .save button{
     display: inline-block;
