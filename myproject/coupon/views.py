@@ -55,7 +55,7 @@ def create_coupon(request):
         if form.is_valid():
             print(form)
             form.save()
-            # return redirect('coupon_list')
+            return redirect('g_admin:coupon_list')
     else:
         form = CouponForm()
     return render(request, 'g_admin/Dashboard.html', {'form': form})
