@@ -17,4 +17,7 @@ def get_home(request):
     }
     return render(request ,'userHome.html' , context)
 
+def home_view(request):
+    return render(request, 'userHome.html')
+
 
