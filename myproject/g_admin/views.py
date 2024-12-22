@@ -3,6 +3,7 @@ from django.shortcuts import render
 from category.models import Category
 from g_admin import templates
 from product.models import Product
+from coupon.models import Coupon
 
 # Create your views here.
 app_name = 'g_admin'
@@ -34,10 +35,14 @@ def admin_get_product(request):
     return render(request, 'g_admin/ViewCategory.html', context)
 
 
-
 def creatProduct(request):
     category = Category.objects.all()
     return render(request, 'product/AddProduct.html', {"category": category})
 
 
-
+def get_coupon_list(request):
+    coupons = Coupon.objects.all().order_by('-to_date')
+    context = {
+        'coupons': coupons,
+    }
+    return render(request, 'g_admin/CouponList.html', context)
