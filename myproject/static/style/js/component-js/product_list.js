@@ -35,12 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error:', error)); // Bắt lỗi
 });
 
+
+
 // Khởi tạo ban đầu
 updateCartBadge(cartCount);
 cartLink.addEventListener('click', (e) => {
     // Không ngăn chặn sự kiện mặc định
     console.log("Đi đến trang giỏ hàng");
 });
+
 function addToCart(productId) {
     fetch(`/product/add/` + productId + `/`, {
         method: 'POST',

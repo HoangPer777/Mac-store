@@ -104,6 +104,17 @@ def cart_remove(request, product_id):
         "new_total_price": cart_total_price
     })
 
+
+def total_items_in_cart(request):
+    # Lấy giỏ hàng từ session
+    cart = request.session.get('cart', {})
+
+    # Tính tổng số lượng sản phẩm
+    total_items = sum(item['quantity'] for item in cart.values())
+
+    # Trả về dữ liệu JSON
+    return JsonResponse({'total_items': total_items})
+
 # @login_required
 def checkout(request):
     cart = Cart(request)
