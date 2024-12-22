@@ -36,8 +36,6 @@ def cart_detail(request):
         print(item['product'].id)
     coupon_apply_form = CouponApplyForm()
 
-
-
     return render(request, 'cart/Cart.html', {'cart': cart})
 
 

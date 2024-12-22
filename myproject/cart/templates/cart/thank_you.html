@@ -21,7 +21,7 @@
             <h1>Cảm ơn bạn</h1>
             <h3>Chúng tôi đã nhận được đơn hàng của bạn, chúng tôi sẽ gửi nó tới tay bạn sớm nhất có thể</h3>
             <div class="row">
-                <a href="" class="btn btn-primary" id="continue_buy">Tiếp tục mua sắm</a>
+                <a href="/" class="btn btn-primary" id="continue_buy">Tiếp tục mua sắm</a>
             </div>
         </div>
     </div>
@@ -29,13 +29,5 @@
 
 
 </body>
-<script>
-    $(document).ready(function () {
-        $("#continue_buy").on('click', function (e) {
-            e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
-            window.location.href = "{% url 'home' %}";
-        });
 
-    });
-</script>
 </html>

@@ -33,26 +33,25 @@
         </tr>
         </thead>
         <tbody>
-        {% for item in cart %}
+                    {% for item in cart %}
             <tr class="product_cart_item" id="product_cart_item_{{ item.id }}" data-key="{{ item.id }}">
-                <td class="text-center"><div class="cart_index">{{ forloop.counter }}</div></td>
+                <td class="text-center">
+                    <div class="cart_index">{{ forloop.counter }}</div>
+                </td>
                 <td class="text-start">
                     <div class="d-flex flex-row align-items-center">
                         <div class="d-none d-xl-block me-2">
                             <div class="d-flex flex-column justify-content-center">
-                                <p>{{ item.product.url }}</p>
-                                <a class="product_link" href="{{ item.product.url }}" target="_blank">
-                                    <img class="mx-auto product_image" src="{{ item.product_image }}" alt="{{ item.product.name }}">
+                                <a class="product_link" href="#" target="_blank">
+                                    <img class="mx-auto product_image" src="{{ item.product_image.url }}" alt="{{ item.product.name }}">
                                 </a>
                             </div>
                         </div>
-
                         <div>
-                            <div class="text-truncate- fw-bold product_title">{{ item.product.name }}</div>
+                            <div class="text-truncate fw-bold product_title">{{ item.product.name }}</div>
                         </div>
                     </div>
                 </td>
-
                 <td class="text-center">
                     <div class="quantity-control">
                         <button class="quantity-btn" onclick="decreaseQuantity(this)" data-product-id="{{ item.id }}">-</button>
@@ -60,29 +59,27 @@
                         <button class="quantity-btn" onclick="increaseQuantity(this)" data-product-id="{{ item.id }}">+</button>
                     </div>
                 </td>
-
                 <td class="text-end">
-                    <div class="priceFormat unit_price" data-number="{{ item.product.price|floatformat:0 }}" data-formatted="{{ item.product.price|floatformat:0 }}">
-                        {{ item.product.price|floatformat:0 }} ₫
+                    <div class="priceFormat unit_price" data-number="{{ item.price }}" data-formatted="{{ item.price|floatformat:0 }}">
+                        {{ item.price|floatformat:0 }} ₫
                     </div>
                 </td>
                 <td class="text-end">
-                    <div class="priceFormat total_price fw-bold" data-number="{{ item.total_price|floatformat:0 }}" data-formatted="{{ item.total_price|floatformat:0 }}">
+                    <div class="priceFormat total_price fw-bold" data-number="{{ item.total_price }}" data-formatted="{{ item.total_price|floatformat:0 }}">
                         {{ item.total_price|floatformat:0 }} ₫
-
                     </div>
                 </td>
-
                 <td class="text-center">
                     <a href="javascript:void(0);" onclick="removeCart('{{ item.id }}')" class="cart-item-remove-container" data-bs-toggle="tooltip" data-bs-title="Xoá Khỏi Giỏ Hàng?">
                         <i class="fa fa-trash cart-item-remove"></i>
                     </a>
                 </td>
-
-
-
             </tr>
-        {% endfor %}
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">Giỏ hàng của bạn đang trống.</td>
+            </tr>
+            {% endfor %}
         </tbody>
         <tfoot>
         <tr>
