@@ -51,3 +51,8 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {'Primary' if self.is_primary else 'Secondary'}"
+
+    def get_image_url(self):
+        if self.image:
+            return self.image.url
+        return None
