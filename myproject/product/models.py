@@ -9,16 +9,16 @@ class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     description = models.TextField(blank=True)
     price = models.IntegerField()
-    available = models.BooleanField(default=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    available = models.BooleanField(default=True,  blank= True)
+    created = models.DateTimeField(auto_now_add=True, blank= True)
+    updated = models.DateTimeField(auto_now=True,  blank= True)
     stock_quantity = models.PositiveIntegerField(default=0)
-    slug = models.SlugField(max_length=200, db_index=True)
+    slug = models.SlugField(max_length=200, db_index=True, blank= True)
     vendor = models.CharField(max_length=200, blank=True)
     collections = models.CharField(max_length=200, blank=True)
     tags = models.CharField(max_length=200, blank=True)
-    noOfViews = models.IntegerField(default=0)
-    noOfSolds = models.IntegerField(default=0)
+    noOfViews = models.IntegerField(default=0,  blank=True)
+    noOfSolds = models.IntegerField(default=0,  blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
 
     class Meta:
@@ -31,10 +31,17 @@ class Product(models.Model):
         return self.name
 
 
+
+
+
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
     image = CloudinaryField('image')
     is_primary = models.BooleanField(default=False)
+
+
+
+
 
     def save(self, *args, **kwargs):
         if self.is_primary:
