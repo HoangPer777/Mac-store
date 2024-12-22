@@ -7,6 +7,31 @@
 body{
 
 }
+
+
+#container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#menu-sidebar{
+    width: 15%;
+    height: 100%;
+}
+
+#main{
+    width: 85%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
 .page-header {
     padding: 10px;
 }

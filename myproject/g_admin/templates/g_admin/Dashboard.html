@@ -4,42 +4,48 @@
     <link rel="stylesheet" href="{% static 'style/css/admin-css/Dashboard.css' %}">
 </head>
 {% block content %}
-<body>
-<div id="body">
+    <body>
+    <div id="container">
 
-    <div class="title">
-        <span>G-Apple DashBoard</span>
+        <div id="menu_sidebar">
+            {% include 'g_admin/AdminSidebar.html' %}
+        </div>
+        <div id="body">
+
+            <div class="title">
+                <span>G-Apple DashBoard</span>
+            </div>
+
+            <div class="card_list row mid_align">
+                <div class="card ">
+                    {% include 'g_admin/Viewport.html' %}
+
+                </div>
+
+
+                <div class="card">
+                    {% include 'g_admin/PieChart.html' %}
+                </div>
+
+                <div class="card">
+                    {% include 'g_admin/TotalUser.html' %}
+                </div>
+
+
+                <div class="card">
+                    {% include 'g_admin/NewUser.html' %}
+
+
+                </div>
+            </div>
+
+
+            <div class="over_view mid_align">
+                {% include 'g_admin/ChartComponent.html' %}
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="card_list row mid_align">
-        <div class="card ">
-            {% include 'g_admin/Viewport.html' %}
-
-        </div>
-
-
-        <div class="card">
-            {% include 'g_admin/PieChart.html' %}
-        </div>
-
-        <div class="card">
-            {% include 'g_admin/TotalUser.html' %}
-        </div>
-
-
-        <div class="card">
-            {% include 'g_admin/NewUser.html' %}
-
-
-        </div>
-    </div>
-
-
-    <div class="over_view mid_align">
-        {% include 'g_admin/ChartComponent.html' %}
-    </div>
-
-</div>
-
-</body>
+    </body>
 {% endblock %}
