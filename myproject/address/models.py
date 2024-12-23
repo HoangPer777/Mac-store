@@ -7,3 +7,6 @@ class Address(models.Model):
     district = models.CharField(max_length=100,null=True)
     commune = models.CharField(max_length=100,null=True)
     detail = models.CharField(max_length=100,null=True)
+
+def __str__(self):
+    return f"{self.detail}, {self.district}, {self.province}"
