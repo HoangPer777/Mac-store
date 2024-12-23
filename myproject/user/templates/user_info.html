@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     <title>Nhập thông tin người dùng</title>
@@ -18,7 +19,40 @@
         font-weight: bold;
         font-family: "Segoe UI", system-ui, sans-serif;
         margin-top: 30px;
+        margin-bottom: 40px;
+
     }
+
+    .btn-primary {
+        padding-left: 60px;
+        padding-right: 60px;
+        font-weight: 500;
+        font-family: 'Roboto', Geneva, Verdana, sans-serif;
+        background-color: #1d914a;
+        border: #1d914a;
+    }
+
+     .btn-primary:hover {
+        background-color: #156733;
+    }
+
+     input {
+         height: 40px;
+         width: 30%;
+         border: none;
+         border-bottom: 1px solid #156733;
+         margin-left: 10px;
+         padding-left: 4px;
+     }
+
+     input:focus {
+         outline: none;
+         box-shadow: 0 0 5px rgba(29, 145, 74, 0.5);
+     }
+
+     #main-contain form label {
+         font-weight: bold;
+     }
 
 </style>
 <body>
@@ -29,11 +63,9 @@
                 <h1>Nhập thông tin người dùng</h1>
                 <form method="post">
                     {% csrf_token %}
-                    <h2>Thông tin người dùng</h2>
                     {{ user_form.as_p }}
-                    <h2>Địa chỉ</h2>
                     {{ address_form.as_p }}
-                    <button type="submit">Lưu</button>
+                    <button class="btn btn-primary" type="submit">Lưu</button>
                 </form>
             </div>
         </div>
