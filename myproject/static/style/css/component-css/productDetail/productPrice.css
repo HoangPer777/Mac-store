@@ -74,7 +74,7 @@
 .buy-now-price .price_value,
 .installment-price h3 {
     font-size: 22px;
-    color: #d32f2f;
+    color: #28A745;
     font-weight: bold;
 }
 
@@ -173,8 +173,8 @@
 
 .add-to-cart{
     background-color: #fff;
-    color: #d32f2f;
-    border: 1px solid #d32f2f;
+    color: #28A745;
+    border: 1px solid #134e20;
     padding: 10px;
     border-radius: 5px;
     font-size: 20px;
@@ -197,7 +197,7 @@
 }
 
 .buy-now-btn {
-    background-color: #d32f2f;
+    background-color: #28A745;
     color: #fff;
 }
 
@@ -223,7 +223,7 @@
 
 .contact-info span {
     font-weight: bold;
-    color: #d32f2f;
+    color: #28A745;
 }
 .student-discount::before {
     content: "🎓 Student - student - teacher privileges ";
