@@ -1,55 +1,102 @@
+
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica Neue, Helvetica, Arial, serif;
+}
+
+body {
+    height: 100%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#menu_sidebar {
+    width: 15%;
+    height: 100%;
+}
+
+#main {
+    width: 85%;
+    height: 100%;
+}
+
 #addCoupon {
-    width: 600px;
-    height: auto;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
     padding: 20px;
     border-radius: 6px;
-
-    box-shadow: -4px -1px 11px -6px rgba(0,0,0,1);
-    -webkit-box-shadow: -4px -1px 11px -6px rgba(0,0,0,1);
-    -moz-box-shadow: -4px -1px 11px -6px rgba(0,0,0,1);
 }
 
-h4.content__name {
-    font-weight: 400;
-}
-
-.container__title {
+.page-title {
     margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.container__content .content__name {
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-wrapper {
+    width: 80%;
+    padding: 20px;
+    box-shadow: 2px 2px 20px #909090;
+    border-radius: 5px;
+}
+
+.form-section {
     margin-top: 30px;
-    margin-bottom: 10px;
+}
+
+.form-label {
     font-size: 16px;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.content__input {
+.form-checkbox-group {
     display: flex;
+    justify-content: space-evenly;
     text-align: center;
 }
 
-.content__input label:first-child {
+.form-checkbox-group label {
     margin-right: 20px;
 }
 
-/* .container__content-left {
-    float: left;
-    width: 50%;
-}
-
-.container__content-right {
-    float: right;
-    width: 50%;
-} */
-
-.container__content-container {
+.form-flex-container {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
-.container__content input[type="text"] {
+.form-input-group {
+    flex: 1;
+    width: 300px;
+}
+
+.form-input-group input[type="text"],
+.form-input-group input[type="date"] {
     width: 100%;
     height: 35px;
     border: 1px solid #cfcfcf;
@@ -57,25 +104,26 @@ h4.content__name {
     padding: 0 10px;
 }
 
-.container__content input[type="date"] {
+.input-filed{
+    padding-left: 10px;
     width: 100%;
-    height: 35px;
-    border: 1px solid #cfcfcf;
-    border-radius: 4px;
-    padding: 0 10px;
+    height: 40px;
 }
 
-.container__content button {
-    margin-top: 40px;
+
+
+button[type="submit"] {
+    margin-top: 20px;
     padding: 8px 50px;
     font-size: 16px;
     color: white;
-    background-color: var(--primary-color);
     border: none;
+    background-color: #2BC06A;
     font-weight: bold;
     border-radius: 6px;
     text-align: center;
-
+    margin-left: auto;
+    cursor: pointer;
 }
 
 input[type="checkbox"] {
@@ -83,4 +131,3 @@ input[type="checkbox"] {
     height: 14px;
     background-color: var(--primary-color);
 }
-

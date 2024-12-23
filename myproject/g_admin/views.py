@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from urllib3 import request
 
 from category.models import Category
 from g_admin import templates
@@ -35,9 +36,15 @@ def admin_get_product(request):
     return render(request, 'g_admin/ViewCategory.html', context)
 
 
+
 def creatProduct(request):
     category = Category.objects.all()
     return render(request, 'product/AddProduct.html', {"category": category})
+
+
+def createCoupon(request):
+    return render(request, 'addCoupon.html' )
+
 
 
 def get_coupon_list(request):
