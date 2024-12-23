@@ -119,10 +119,24 @@ def total_items_in_cart(request):
     return JsonResponse({'total_items': total_items})
 
 # @login_required
+# def checkout(request):
+#     cart = Cart(request)
+#     total_price = cart.get_total_price()
+#     return render(request, 'cart/Checkout.html', {'cart': cart, 'total_price': total_price})
 def checkout(request):
     cart = Cart(request)
     total_price = cart.get_total_price()
-    return render(request, 'cart/Checkout.html', {'cart': cart, 'total_price': total_price})
+
+    address = None
+    if request.user.is_authenticated:
+        # Giả sử bạn có model Address để lưu địa chỉ của người dùng
+        address = request.user.address_set.first()
+
+    return render(request, 'cart/Checkout.html', {
+        'cart': cart,
+        'total_price': total_price,
+        'address': address
+    })
 
 
 
