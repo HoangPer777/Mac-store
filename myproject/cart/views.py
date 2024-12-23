@@ -30,6 +30,10 @@ def cart_add(request, product_id):
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
+        product = item['product']
+        # productImage = product.images.filter(is_primary=True).first()
+        productImage = product.images.first()
+        item['productImage'] = productImage.image.url if productImage else None
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'override': True})
 
     for item in cart:
