@@ -123,10 +123,24 @@ def total_items_in_cart(request):
     return JsonResponse({'total_items': total_items})
 
 # @login_required
+# def checkout(request):
+#     cart = Cart(request)
+#     total_price = cart.get_total_price()
+#     return render(request, 'cart/Checkout.html', {'cart': cart, 'total_price': total_price})
 def checkout(request):
     cart = Cart(request)
     total_price = cart.get_total_price()
-    return render(request, 'cart/Checkout.html', {'cart': cart, 'total_price': total_price})
+
+    address = None
+    if request.user.is_authenticated:
+        # Giả sử bạn có model Address để lưu địa chỉ của người dùng
+        address = request.user.address_set.first()
+
+    return render(request, 'cart/Checkout.html', {
+        'cart': cart,
+        'total_price': total_price,
+        'address': address
+    })
 
 
 
@@ -135,9 +149,15 @@ def apply_coupon(request):
         try:
             data = json.loads(request.body)
             code = data.get('coupon_code')
+            # customer_id = data.get('customer_id')
+            # product_ids = data.get('product_ids')
 
             # Kiểm tra mã giảm giá
-            coupon = Coupon.objects.filter(code=code, active=True, to_date__gte=timezone.now()).first()
+            coupon = Coupon.objects.filter(
+                code=code,
+                active=True,
+                to_date__gte=timezone.now()
+            ).first()
             if not coupon:
                 return JsonResponse({"status": "error", "message": "Mã giảm giá không hợp lệ hoặc đã hết hạn."}, status=400)
 
@@ -145,12 +165,33 @@ def apply_coupon(request):
             cart_total = cart.get_total_price()
 
             # Tính toán giá giảm
-            discount_amount = (cart_total * coupon.discount) / 100
-            if discount_amount > coupon.maxValue:
-                discount_amount = coupon.maxValue
+            discount_amount = 0
+            if coupon.type == 'customer':
+                if coupon.percent:
+                    discount_amount = (cart_total * coupon.percent) / 100
+                    if discount_amount > coupon.maxValue:
+                        discount_amount = coupon.maxValue
+                if coupon.amount:
+                    discount_amount = coupon.amount
+            # else:
+            #     return JsonResponse({"status": "error", "message": "Không đúng loại."}, status=400)
+
+
+            ## Tính toán giá giảm
+            # discount_amount = (cart_total * coupon.discount) / 100
+            # if discount_amount > coupon.maxValue:
+            #     discount_amount = coupon.maxValue
+            #
+            # new_total = cart_total - discount_amount
+
+            # Giảm số lượng mã còn lại
+            if coupon.remaining > 0:
+                coupon.remaining -= 1
+                coupon.save()
+            else:
+                return JsonResponse({"status": "error", "message": "Mã giảm giá đã hết lượt sử dụng."}, status=400)
 
             new_total = cart_total - discount_amount
-
             # Trả về JSON kết quả mới
             return JsonResponse({
                 "status": "success",

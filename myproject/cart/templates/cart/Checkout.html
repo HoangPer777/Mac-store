@@ -96,7 +96,8 @@
 
                     <div class="address_detail">
                         {% if user.is_authenticated %}
-                            <span>{{ address.detail }}, {{ address.district }}, {{ address.province }}</span>
+{#                            <span>{{ address.detail }}, {{ address.district }}, {{ address.province }}</span>#}
+                           <span>{{ address.detail }}, {{ address.district }}, {{ address.province }}</span>
                         {% else %}
                             <span>Địa chỉ chưa đăng nhập</span>
                         {% endif %}
