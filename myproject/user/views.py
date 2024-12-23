@@ -25,7 +25,7 @@ def user_info(request):
             address.user = user
             address.save()
 
-            return redirect('success')  # Điều hướng đến trang thành công
+            return redirect('home')  # Điều hướng đến trang thành công
     else:
         # Nếu user đã có thông tin, hiển thị trong form
         user_form = UserForm(instance=user)
