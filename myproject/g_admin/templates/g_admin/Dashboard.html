@@ -1,51 +1,135 @@
 {% load static %}
 <head>
-    <title>Title</title>
+    <title>G-Apple Dashboard</title>
     <link rel="stylesheet" href="{% static 'style/css/admin-css/Dashboard.css' %}">
 </head>
 {% block content %}
-    <body>
-    <div id="container">
-
-        <div id="menu_sidebar">
-            {% include 'g_admin/AdminSidebar.html' %}
-        </div>
-        <div id="body">
-
-            <div class="title">
-                <span>G-Apple DashBoard</span>
-            </div>
-
-            <div class="card_list row mid_align">
-                <div class="card ">
-                    {% include 'g_admin/Viewport.html' %}
-
-                </div>
-
-
-                <div class="card">
-                    {% include 'g_admin/PieChart.html' %}
-                </div>
-
-                <div class="card">
-                    {% include 'g_admin/TotalUser.html' %}
-                </div>
-
-
-                <div class="card">
-                    {% include 'g_admin/NewUser.html' %}
-
-
-                </div>
-            </div>
-
-
-            <div class="over_view mid_align">
-                {% include 'g_admin/ChartComponent.html' %}
-            </div>
-
-        </div>
-
+<body>
+<div id="dashboard-container">
+    <!-- Sidebar -->
+    <div id="dashboard-menu-sidebar">
+        {% include 'g_admin/AdminSidebar.html' %}
     </div>
-    </body>
+
+    <!-- Main Content -->
+    <div id="dashboard-body">
+        <!-- Title -->
+        <div class="dashboard-title">
+            <span>G-Apple Dashboard</span>
+        </div>
+
+        <!-- Cards Section -->
+        <div class="dashboard-card-list dashboard-row">
+            <div class="dashboard-card">
+                {% include 'g_admin/Viewport.html' %}
+            </div>
+            <div class="dashboard-card">
+                {% include 'g_admin/PieChart.html' %}
+            </div>
+            <div class="dashboard-card">
+                {% include 'g_admin/TotalUser.html' %}
+            </div>
+            <div class="dashboard-card">
+                {% include 'g_admin/NewUser.html' %}
+            </div>
+        </div>
+
+        <!-- Overview Section -->
+        <div class="dashboard-overview dashboard-row">
+            {% include 'g_admin/ChartComponent.html' %}
+        </div>
+
+        <!-- Tables Section -->
+        <div class="dashboard-product-tables">
+            <!-- Top 10 Best Selling Products -->
+            <div class="dashboard-table-section">
+                <h1>Top 10 Best Selling Products</h1>
+                <div class="dashboard-table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Product ID</th>
+                            <th>Price</th>
+                            <th>Sold</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in top_sold_products %}
+                            <tr>
+                                <td>
+                                    <div class="dashboard-product-info">
+                                        <div class="dashboard-product-image">
+                                            {% if product.images.first %}
+                                                <img src="{{ product.images.first.image.url }}"
+                                                     alt="{{ product.name }}"
+                                                     class="dashboard-product-thumbnail">
+                                            {% else %}
+                                                <img src="{% static 'resource/Image/def_product.png' %}"
+                                                     alt="Default Product"
+                                                     class="dashboard-product-thumbnail">
+                                            {% endif %}
+                                        </div>
+                                        <div class="dashboard-product-details">
+                                            <h3>{{ product.name }}</h3>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>#{{ product.id }}</td>
+                                <td>${{ product.price }}</td>
+                                <td>{{ product.noOfSolds }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Top 10 Most Viewed Products -->
+            <div class="dashboard-table-section">
+                <h1>Top 10 Most Viewed Products</h1>
+                <div class="dashboard-table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Product ID</th>
+                            <th>Price</th>
+                            <th>Views</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in top_viewed_products %}
+                            <tr>
+                                <td>
+                                    <div class="dashboard-product-info">
+                                        <div class="dashboard-product-image">
+                                            {% if product.images.first %}
+                                                <img src="{{ product.images.first.image.url }}"
+                                                     alt="{{ product.name }}"
+                                                     class="dashboard-product-thumbnail">
+                                            {% else %}
+                                                <img src="{% static 'resource/Image/def_product.png' %}"
+                                                     alt="Default Product"
+                                                     class="dashboard-product-thumbnail">
+                                            {% endif %}
+                                        </div>
+                                        <div class="dashboard-product-details">
+                                            <h3>{{ product.name }}</h3>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>#{{ product.id }}</td>
+                                <td>${{ product.price }}</td>
+                                <td>{{ product.noOfViews }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 {% endblock %}
