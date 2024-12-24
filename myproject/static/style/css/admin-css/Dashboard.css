@@ -1,96 +1,181 @@
-/* Reset CSS */
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: Helvetica Neue, Helvetica, Arial, serif;
 }
 
-html, body {
+html{
     width: 100%;
     height: 100%;
-    overflow: hidden;
+}
+ body{
+    width: 100%;
+    height: 100%;
+     overflow: hidden;
 }
 
-/* Container Styles */
-#dashboard-container {
+/*Reuse*/
+/* Cho phép cuộn toàn bộ trang */
+html, body {
+    height: 100%; /* Đảm bảo trang chiếm hết chiều cao màn hình */
+    margin: 0;
+    overflow: hidden; /* Không cho phép cuộn ngoài phạm vi của trang */
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow: hidden; /* Ẩn cuộn ngang của container */
+}
+
+#body {
+    width: 85%;
+    height: 100%;
+    background-color: rgba(243, 243, 243, 0.26);
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    padding: 20px;
+}
+
+/* Bảng có thể cuộn nếu có nhiều dữ liệu */
+.dashboard-table-wrapper {
+    max-height: 400px;  /* Giới hạn chiều cao của bảng */
+    overflow-y: auto;   /* Cho phép cuộn dọc nếu nội dung quá dài */
+}
+
+
+
+.mid_align{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.rec_horizontal{
+    width: 70%;
+    height: 1px;
+    background-color: #cfcfcf;
+}
+
+i{
+    color: #616060;
+}
+
+
+#container{
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
-#dashboard-menu-sidebar {
+
+
+
+/*Body*/
+
+#menu_sidebar{
     width: 15%;
     height: 100%;
-    overflow-y: auto;
 }
 
-#dashboard-body {
+#body{
     width: 85%;
     height: 100%;
     background-color: rgba(243, 243, 243, 0.26);
-    overflow-y: auto;
-    padding: 20px;
 }
 
-/* Title Styles */
-.dashboard-title {
+.title{
+    padding: 20px 100px;
     font-size: 26px;
     font-weight: bold;
+    font-family: Roboto, sans-serif;
+}
+
+
+
+/*Card List*/
+.card_list{
+    width: 100%;
+    height: 250px;
+    justify-content: center;
+}
+.card_list .card {
+    width: 20%;
+    height: 220px;
+    margin: 0 20px;
+    background-color: rgba(243, 243, 243, 0.2);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card iframe{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+}
+
+
+/*Over View*/
+
+.over_view{
+    width: 100%;
+    height: 450px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+#frame_over_view{
+    width: 100%;
+    height: 90%;
+
+}
+/* Dashboard Table Styles */
+.dashboard-table-wrapper {
+    margin: 20px;
+    background-color: white;
     padding: 20px;
-    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Card List */
-.dashboard-card-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.dashboard-table-wrapper h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
-}
-
-.dashboard-card {
-    flex: 1;
-    height: 200px;
-    background-color: rgba(243, 243, 243, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Overview Section */
-.dashboard-overview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-/* Table Section */
-.dashboard-product-tables {
-    margin-top: 20px;
-}
-
-.dashboard-table-section {
-    margin-bottom: 30px;
 }
 
 .dashboard-table-responsive {
-    width: 100%;
-    overflow-x: auto;
+    overflow-x: auto; /* Cho phép cuộn ngang khi cần thiết */
 }
 
 .dashboard-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.dashboard-table th, .dashboard-table td {
+.dashboard-table th,
+.dashboard-table td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -102,20 +187,43 @@ html, body {
     font-weight: bold;
 }
 
-.dashboard-table tr:hover {
+.dashboard-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Product Info */
+.dashboard-table tr:hover {
+    background-color: #f1f1f1;
+}
+
 .dashboard-product-info {
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
 .dashboard-product-thumbnail {
+    margin-right: 15px;
     width: 50px;
     height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
+    overflow: hidden;
+    border-radius: 50%;
 }
+
+.dashboard-product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dashboard-product-details h3 {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the table wrapper has a max-height and scrolls if content overflows */
+.dashboard-table-wrapper {
+    max-height: 400px;  /* Giới hạn chiều cao của bảng */
+    overflow-y: auto;   /* Cho phép cuộn dọc nếu nội dung quá dài */
+}
+
