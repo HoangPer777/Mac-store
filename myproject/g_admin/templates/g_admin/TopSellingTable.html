@@ -1,0 +1,38 @@
+<div class="dashboard-table-wrapper">
+    <h1>Top 10 Best Selling Products</h1>
+    <div class="dashboard-table-responsive">
+        <table class="dashboard-table">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Product ID</th>
+                <th>Price</th>
+                <th>Sold</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in top_sold_products %}
+                <tr>
+                    <td>
+                        <div class="dashboard-product-info">
+                            <div class="dashboard-product-thumbnail">
+                                {% if product.images.first %}
+                                    <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+{#                                {% else %}#}
+{#                                    <img src="{% static 'resource/Image/def_product.png' %}" alt="Default Product">#}
+                                {% endif %}
+                            </div>
+                            <div class="dashboard-product-details">
+                                <h3>{{ product.name }}</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td>#{{ product.id }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>{{ product.noOfSolds }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
