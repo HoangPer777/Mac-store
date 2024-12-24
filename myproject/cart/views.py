@@ -136,6 +136,12 @@ def checkout(request):
         # Giả sử bạn có model Address để lưu địa chỉ của người dùng
         address = request.user.address_set.first()
 
+    for item in cart:
+        product = item['product']
+        # productImage = product.images.filter(is_primary=True).first()
+        productImage = product.images.first()
+        item['productImage'] = productImage.image.url if productImage else None
+
     return render(request, 'cart/Checkout.html', {
         'cart': cart,
         'total_price': total_price,

@@ -22,6 +22,8 @@ def product_list(request, category_id=None):
 
 def product_detail(request, product_id):
     product = Product.objects.get(id=product_id)
+    product.noOfViews += 1
+    product.save()
 
     return render(request, 'product/productDetail.html', {'product': product})
 
