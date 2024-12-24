@@ -16,6 +16,33 @@ html{
 }
 
 /*Reuse*/
+/* Cho phép cuộn toàn bộ trang */
+html, body {
+    height: 100%; /* Đảm bảo trang chiếm hết chiều cao màn hình */
+    margin: 0;
+    overflow: hidden; /* Không cho phép cuộn ngoài phạm vi của trang */
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow: hidden; /* Ẩn cuộn ngang của container */
+}
+
+#body {
+    width: 85%;
+    height: 100%;
+    background-color: rgba(243, 243, 243, 0.26);
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    padding: 20px;
+}
+
+/* Bảng có thể cuộn nếu có nhiều dữ liệu */
+.dashboard-table-wrapper {
+    max-height: 400px;  /* Giới hạn chiều cao của bảng */
+    overflow-y: auto;   /* Cho phép cuộn dọc nếu nội dung quá dài */
+}
 
 
 
@@ -120,15 +147,83 @@ i{
     height: 90%;
 
 }
+/* Dashboard Table Styles */
+.dashboard-table-wrapper {
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.dashboard-table-wrapper h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
+.dashboard-table-responsive {
+    overflow-x: auto; /* Cho phép cuộn ngang khi cần thiết */
+}
 
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
 
+.dashboard-table th,
+.dashboard-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
 
+.dashboard-table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
 
+.dashboard-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
+.dashboard-table tr:hover {
+    background-color: #f1f1f1;
+}
 
+.dashboard-product-info {
+    display: flex;
+    align-items: center;
+}
 
+.dashboard-product-thumbnail {
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
 
+.dashboard-product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.dashboard-product-details h3 {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the table wrapper has a max-height and scrolls if content overflows */
+.dashboard-table-wrapper {
+    max-height: 400px;  /* Giới hạn chiều cao của bảng */
+    overflow-y: auto;   /* Cho phép cuộn dọc nếu nội dung quá dài */
+}
 
