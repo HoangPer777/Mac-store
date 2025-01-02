@@ -60,7 +60,7 @@ body {
 .form-wrapper {
     width: 80%;
     padding: 20px;
-    box-shadow: 2px 2px 20px #909090;
+    /*box-shadow: 2px 2px 20px #909090;*/
     border-radius: 5px;
 }
 

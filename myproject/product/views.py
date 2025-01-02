@@ -2,22 +2,33 @@ from django.contrib import messages
 
 from django.core.serializers import json
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from django.shortcuts import render, redirect
 
+from coupon.models import Coupon
 from .forms import ProductForm
 from .models import Product, ProductImage
 from django.http import JsonResponse
 
 
 def product_list(request, category_id=None):
+    # coupon = Coupon.objects.all().first()
     if category_id:
         products = Product.objects.filter(category=category_id)
     else:
         products = Product.objects.all()
-    return render(request, 'product/product_list.html', {'products': products})
+
+
+
+
+
+    context = {
+        'products': products,
+        # 'coupon': coupon,
+    }
+    return render(request, 'product/product_list.html', context)
 
 
 def product_detail(request, product_id):

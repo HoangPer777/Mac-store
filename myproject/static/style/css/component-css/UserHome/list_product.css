@@ -1,9 +1,10 @@
 
 /* General Styles */
 body {
-    background-color: #F5F5F7 !important; /* Màu xám nhạt */
+    background-color:white !important; /* Màu xám nhạt */
     font-family: 'Roboto', sans-serif;
     color: #333;
+
 }
 
 .product-img {
@@ -16,6 +17,7 @@ body {
     font-size: 24px;
     text-align: center;
     color: #222;
+    padding-bottom: 20px;
 }
 
 .macbook-nav {
@@ -51,7 +53,7 @@ body {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    /*gap: 30px;*/
+    gap: 40px;
     justify-content: space-evenly;
 }
 
@@ -61,7 +63,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
     width: 270px;
-    height: 400px;
+    height: 380px;
     margin-bottom: 40px;
 }
 
@@ -70,8 +72,20 @@ body {
 }
 
 .card.custom-card .card-body {
+   justify-content: space-around;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
 }
+
+.card-body-content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+
 
 .card.custom-card .card-title {
     font-size: 16px;
@@ -83,6 +97,7 @@ body {
 .card.custom-card .card-text {
     font-size: 12px;
     color: #777;
+    padding-left: 5px;
 }
 
 .cost {
@@ -91,6 +106,29 @@ body {
     font-size: 20px;
     text-align: center;
 }
+
+.price{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /*justify-content: center;*/
+}
+
+.price .new-price{
+    margin-bottom: 0;
+
+}
+.price .old-price{
+    /*padding-left: 20px;*/
+    font-size: 12px;
+    color: black;
+    text-decoration: line-through;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+
 
 .badge {
     position: absolute;
@@ -104,19 +142,25 @@ body {
     font-weight: bold;
 }
 
-.badge-new {
+.discount {
     background-color: #7ac142;
 }
 
-.badge-hot {
+.supper-discount {
     background-color: #d91656;
 }
-
-img.card-img-top {
+.wrap_img{
+    width: 270px;
     height: 220px;
-    object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+
+    border-radius: 2px;
+}
+img.card-img-top {
+    height: 100%;
+    width: 100%;
+
+    /*border-top-left-radius: 8px;*/
+    /*border-top-right-radius: 8px;*/
     object-fit: contain;
 }
 
