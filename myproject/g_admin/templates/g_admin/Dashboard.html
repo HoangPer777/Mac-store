@@ -35,11 +35,18 @@
                 <div class="card">
                     {% include 'g_admin/NewUser.html' %}
 
-
                 </div>
             </div>
+           <div>
+               <h1 class="product-title">Top 10 Best Selling Products</h1>
+                {% include 'g_admin/TopSellingTable.html' %}
 
+            </div>
+            <div>
+                    <h1 class="product-title">Top 10 Most Viewed Products</h1>
+                {% include 'g_admin/MostViewedTable.html' %}
 
+            </div>
             <div class="over_view mid_align">
                 {% include 'g_admin/ChartComponent.html' %}
             </div>
