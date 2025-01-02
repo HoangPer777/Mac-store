@@ -41,6 +41,29 @@ h1 {
     align-items: center;
 }
 
+
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.discount {
+    background-color: #7ac142;
+}
+
+.supper-discount {
+    background-color: #d91656;
+}
+
 .product:hover {
     transform: scale(1.05);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -50,7 +73,7 @@ h1 {
     text-align: center;
     margin: 10px 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     color: #333;
     text-decoration: none;
 

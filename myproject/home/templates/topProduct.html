@@ -7,14 +7,43 @@
     <h1>Top Products</h1>
     <main>
         <div class="product-container">
-            {% for product in top4 %}
-                <div class="product">
-                    <div class="wrap_img">
-                        <img src="{{product.images.first.image.url  }}" alt="{{ product.name }}">
-                    </div>
-                    <a href="/product/detail/{{product.id}}" class="name"> {{ product.name }}</a>
-                    <p class="price"> {{product.price|intcomma }} ₫</p>
+                {% for product in top4 %}
+
+                    
+                    <div class="card custom-card">
+
+            {% if coupon and coupon.percent and coupon.percent >= 50 %}
+                <div class="badge  supper-discount">-{{ coupon.percent }}%</div>
+
+            {% elif coupon and coupon.percent and coupon.percent < 50 %}
+                <div class="badge  discount">-{{ coupon.percent }}%</div>
+
+            {% endif %}
+
+            <div class="wrap_img">
+                  <img src="{{ product.images.first.image.url }}" class="card-img-top" alt="{{ product.name }}}">
+            </div>
+            <div class="card-body">
+                <div class="card-body-content">
+                    <a href="/product/detail/{{ product.id }}" class="card-title">{{ product.name }}</a>
+                    <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
                 </div>
+
+
+
+
+                {% if coupon %}
+                    <div class="price">
+                        <p class="cost new-price"> {{ product.price|intcomma }} ₫</p>
+                        <p class="cost old-price"> {{ product.price|intcomma }} ₫</p>
+                    </div>
+                {% else %}
+                    <p class="cost"> {{ product.price|intcomma }} ₫</p>
+                {% endif %}
+
+
+            </div>
+        </div>
             {% endfor %}
         </div>
     </main>
