@@ -10,3 +10,23 @@ class AddressForm(forms.ModelForm):
              'commune':'Xã',
              'detail':'Chi tiết',
          }
+
+         widgets = {
+             'province': forms.TextInput(attrs={
+                 'class': 'input_form',
+                 'placeholder': 'Nhập Tỉnh/Thành phố',
+             }),
+             'district': forms.TextInput(attrs={
+                 'class': 'input_form',
+                 'placeholder': 'Nhập huyện/Quận',
+             }),
+             'commune': forms.TextInput(attrs={
+                 'class': 'input_form',
+                 'placeholder': 'Nhập Xã/Phường',
+             }),
+             'detail': forms.TextInput(attrs={
+                 'class': 'input_form',
+                 'placeholder' : "Nhập ghi chú cụ thể"
+             })
+
+         }
