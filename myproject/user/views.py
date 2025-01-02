@@ -5,27 +5,29 @@ from .models import User
 
 
 def user_info(request):
-    if not request.user.is_authenticated:
-        # Điều hướng nếu người dùng chưa đăng nhập
+    if not request.user.is_authenticated: #kt login
         return redirect('login')
-
-        # Lấy thông tin của user đang đăng nhập
     user = request.user
 
     if request.method == 'POST':
+
+        # if 'logout' in request.POST:
+        #     logout(request)
+        #     return redirect('login')
+
+
+
         # Lấy dữ liệu từ biểu mẫu
         user_form = UserForm(request.POST, instance=user)
         address_form = AddressForm(request.POST)
         if user_form.is_valid() and address_form.is_valid():
-            # Lưu thông tin người dùng
             user_form.save()
 
-            # Lưu thông tin địa chỉ
             address = address_form.save(commit=False)
             address.user = user
             address.save()
 
-            return redirect('home')  # Điều hướng đến trang thành công
+            return redirect('/')
     else:
         # Nếu user đã có thông tin, hiển thị trong form
         user_form = UserForm(instance=user)
