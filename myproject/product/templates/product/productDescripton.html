@@ -3,58 +3,16 @@
     {% load  static %}
     <title>Product Comparison</title>
     <link rel="stylesheet" href="{% static 'style/css/component-css/productDetail/productDescripton.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <div class="container my-5">
         <div class="row align-items-start">
             <div class="row">
-                <!-- Carousel -->
 
-
-
-                <!-- Product Descriptions and Images -->
                 <div class="product-description">
-
-{#                    <img src="{% static 'resource/Image/product_description/mba13-m3-midnight-gallery1-202402.jpeg'%} "#}
-{#                        class="img-fluid my-3" alt="#">#}
-
-                    <h6>Breakthrough power from Apple M4 chip</h6>
-                    <p>The MacBook Pro 14 2024 is powered by the new generation M4 chip, which can handle all tasks very
-                        quickly and smoothly. Apple has upgraded the CPU performance both single-threaded and
-                        multi-threaded, along with super-fast unified memory. Compared to the M1 chip version, the
-                        MacBook Pro M4 is up to 3.4 times faster, making office tasks like Excel, Slack or web browsing
-                        a breeze. In addition, the 24GB RAM capacity makes it easy to multitask between tasks without
-                        interruption.</p>
-{#                    <img src="../../../resource/Image/product_description/macbook_pro_14_m4_2024_6_3d5ae2007a.jpg"#}
-{#                        class="img-fluid my-3" alt="#">#}
-
-                    <h6>Ultra-realistic graphics, unlimited experience</h6>
-                    <p>With a powerful GPU and hardware ray tracing, the MacBook Pro M4 takes graphics processing to the
-                        next level. It can run heavy games and complex design applications smoothly, making every frame
-                        sharper and more vivid than ever. Dynamic Caching technology optimizes memory to boost GPU
-                        utilization, ensuring fast response and stable performance even when handling graphics-intensive
-                        tasks.</p>
-{#                    <img src="../../../resource/Image/product_description/macbook_pro_14_m4_2024_e_dbb8b76946.jpg"#}
-{#                        class="img-fluid my-3" alt="#">#}
-
-                    <h6>Excellent battery life with 24 hours of experience</h6>
-                    <p>With an impressive 24 hours of battery life, the MacBook Pro 2024 is proudly introduced by Apple
-                        as the Mac model with the best battery life ever. You no longer have to worry about charging the
-                        battery regularly during the day. Fast charging technology allows 50% energy regeneration in
-                        just 30 minutes, ensuring it is always ready when you need it. Whether working in the office or
-                        on a business trip, this laptop is always a reliable companion.</p>
-{#                    <img src="../../../resource/Image/product_description/macbook_pro_14_m4_2024_10cpu_10gpu_16gb_512gb_a_199d2c6e56.jpg"#}
-{#                        class="img-fluid my-3" alt="#">#}
-
-                    <h6>macOS: The Platform for Professionals</h6>
-                    <p>MacBook Pro M4 is optimized for macOS, smoothly supporting everything from Microsoft 365, Slack,
-                        Zoom to specialized software like Adobe InDesign, Blender, Xcode, Logic Pro or Final Cut Pro.
-                        Whether you are a designer, programmer or content producer, this ecosystem fully meets your
-                        needs, helping to increase productivity and creativity.</p>
-{#                    <img src="../../../resource/Image/product_description/macbook_pro_14_m4_2024_10cpu_10gpu_16gb_512gb_2_c0a0418a05.jpg"#}
-{#                        class="img-fluid my-3" alt="#">#}
+                    <h6>Descriptions</h6>
+                    <p>{{ product.description }}</p>
 
                 </div>
             </div>
