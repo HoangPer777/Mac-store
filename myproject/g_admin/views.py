@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from urllib3 import request
 
 from category.models import Category
@@ -60,3 +60,24 @@ def get_coupon_list(request):
         'coupons': coupons,
     }
     return render(request, 'g_admin/CouponList.html', context)
+
+
+from django.shortcuts import render, get_object_or_404, redirect
+from product.models import Product
+from product.forms import ProductForm  # Form để xử lý sản phẩm
+
+
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('g_admin:admin_get_product')
+        else:
+            print(form.errors)  # In lỗi của form ra console
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'product/EditProduct.html', {'form': form, 'product': product})

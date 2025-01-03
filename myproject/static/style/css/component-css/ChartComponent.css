@@ -1,29 +1,124 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-html, body{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
+/* Reset Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    height: 100%;
-    width: 100%;
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Chart Component Container */
+.chart-component {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-/* Điều chỉnh biểu đồ */
+/* Header Section */
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-#grid-chart {
-    min-width: 1100px;
-    min-height: 200px !important;
-    height: 50%;
-    top: 25%;
+.chart-header .chart-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
 
+.chart-header .chart-stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4CAF50;
+}
+
+.chart-header .chart-stats svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Chart Area */
+.chart-area {
+    width: 100%;
+    height: 300px;
+}
+
+/* Dropdown Menu */
+.chart-dropdown {
+    z-index: 1050;
+    position: relative;
+}
+
+.chart-dropdown-toggle {
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.chart-dropdown-toggle:hover {
+    background-color: #e5e5e5;
+}
+
+.chart-dropdown-menu {
+    position: absolute;
+    z-index: 1050; /* Đảm bảo luôn hiển thị trên Sidebar */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Ẩn mặc định */
+}
+
+.chart-dropdown-menu.active {
+    display: block;
+}
+
+.chart-dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.chart-dropdown-menu li {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.chart-dropdown-menu li:hover {
+     background-color: #f3f4f6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chart-component {
+        padding: 15px;
+    }
+
+    .chart-header .chart-title {
+        font-size: 20px;
+    }
+
+    .chart-area {
+        height: 250px;
+    }
 }
