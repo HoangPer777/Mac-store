@@ -10,6 +10,7 @@
         <div id="menu_sidebar">
             {% include 'g_admin/AdminSidebar.html' %}
         </div>
+
         <div id="body">
 
             <div class="title">
@@ -17,11 +18,9 @@
             </div>
 
             <div class="card_list row mid_align">
-                <div class="card ">
+                <div class="card">
                     {% include 'g_admin/Viewport.html' %}
-
                 </div>
-
 
                 <div class="card">
                     {% include 'g_admin/PieChart.html' %}
@@ -31,25 +30,19 @@
                     {% include 'g_admin/TotalUser.html' %}
                 </div>
 
-
                 <div class="card">
                     {% include 'g_admin/NewUser.html' %}
-
                 </div>
             </div>
-           <div>
-               <h1 class="product-title">Top 10 Best Selling Products</h1>
-                {% include 'g_admin/TopSellingTable.html' %}
 
-            </div>
-            <div>
-                    <h1 class="product-title">Top 10 Most Viewed Products</h1>
-                {% include 'g_admin/MostViewedTable.html' %}
-
-            </div>
             <div class="over_view mid_align">
                 {% include 'g_admin/ChartComponent.html' %}
             </div>
+            <div>
+                <h1 class="product-title">Top 10 Best Selling Products</h1>
+                {% include 'g_admin/TopSellingTable.html' %}
+            </div>
+
 
         </div>
 

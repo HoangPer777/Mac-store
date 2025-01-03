@@ -20,10 +20,6 @@
         <div class="vc-title">
             <h1>View Category</h1>
         </div>
-
-
-
-
         <!-- Status Section -->
         <div class="vc-status-section">
             <div class="vc-status-block">
@@ -67,14 +63,11 @@
         </div>
 
 
-
-       <!-- Form Actions -->
+        <!-- Form Actions -->
         <div class="vc-form-actions">
             <input type="text" class="vc-form-control" placeholder="Product ID">
             <button type="submit" class="vc-btn vc-btn-outline">Search Product</button>
         </div>
-
-
 
 
         <!-- Product Table Section -->
@@ -103,7 +96,8 @@
                                                 <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}"
                                                      class="vc-product-thumbnail">
                                             {% else %}
-                                                <img src="{% static 'resource/Image/def_product.png' %}" alt="Default Product"
+                                                <img src="{% static 'resource/Image/def_product.png' %}"
+                                                     alt="Default Product"
                                                      class="vc-product-thumbnail">
                                             {% endif %}
                                         </div>
@@ -131,7 +125,7 @@
                                 <!-- Actions -->
                                 <td>
                                     <div class="vc-action">
-                                        <a href="#" class="vc-btn vc-btn-edit">
+                                        <a href="{% url 'g_admin:edit_product' product.id %}" class="vc-btn vc-btn-edit">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
                                         <a href="#" class="vc-btn vc-btn-remove">
