@@ -19,6 +19,8 @@ from orders.models import Order
 from order_detail.models import OrderDetail
 from product.models import ProductImage
 from decimal import Decimal, InvalidOperation
+from django.utils import timezone
+
 
 def cart_add(request, product_id):
     cart = Cart(request)
@@ -29,9 +31,15 @@ def cart_add(request, product_id):
 
 def cart_detail(request):
     cart = Cart(request)
+    coupon = Coupon.objects.filter(type='products', active=True, to_date__gte=timezone.now()).first()
     for item in cart:
         product = item['product']
-        # productImage = product.images.filter(is_primary=True).first()
+        if (coupon):
+            price = item['price']
+            value = coupon.percent
+            new_price = price - (price * value /100 )
+            item['price'] = new_price
+
         productImage = product.images.first()
         item['productImage'] = productImage.image.url if productImage else None
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'override': True})
