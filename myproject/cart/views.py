@@ -127,26 +127,6 @@ def total_items_in_cart(request):
 #     cart = Cart(request)
 #     total_price = cart.get_total_price()
 #     return render(request, 'cart/Checkout.html', {'cart': cart, 'total_price': total_price})
-def checkout(request):
-    cart = Cart(request)
-    total_price = cart.get_total_price()
-
-    address = None
-    if request.user.is_authenticated:
-        # Giả sử bạn có model Address để lưu địa chỉ của người dùng
-        address = request.user.address_set.first()
-
-    for item in cart:
-        product = item['product']
-        # productImage = product.images.filter(is_primary=True).first()
-        productImage = product.images.first()
-        item['productImage'] = productImage.image.url if productImage else None
-
-    return render(request, 'cart/Checkout.html', {
-        'cart': cart,
-        'total_price': total_price,
-        'address': address
-    })
 
 
 
@@ -293,3 +273,60 @@ def process_payment(request):
 
 def thank_you(request):
     return render(request, 'cart/thank_you.html')
+
+def checkout(request):
+    cart = Cart(request)
+    total_price = cart.get_total_price()
+    product_id = request.GET.get('product_id')
+    quantity = request.GET.get('quantity', 1)
+    address = None
+    if request.user.is_authenticated:
+        # Giả sử bạn có model Address để lưu địa chỉ của người dùng
+        address = request.user.address_set.first()
+
+    for item in cart:
+        product = item['product']
+        # productImage = product.images.filter(is_primary=True).first()
+        productImage = product.images.first()
+        item['productImage'] = productImage.image.url if productImage else None
+
+    return render(request, 'cart/Checkout.html', {
+        'cart': cart,
+        'total_price': total_price,
+        'address': address
+    })
+
+
+def checkout_buy_now(request):
+    cart = Cart(request)  # Đảm bảo giỏ hàng đã được khởi tạo
+
+    # Lấy thông tin từ GET request
+    product_id = request.GET.get('product_id')
+    quantity = request.GET.get('quantity', 1)
+
+    if product_id:
+        try:
+            # Tìm sản phẩm trong database
+            product = Product.objects.get(id=product_id)
+
+            # Thêm sản phẩm vào giỏ hàng
+            cart.add(product, int(quantity))
+
+            # Lấy thông tin sản phẩm đã thêm vào giỏ hàng
+            product_data = {
+                'id': product.id,
+                'name': product.name,
+                'price': product.price,
+                'image': product.images.first().image.url if product.images.exists() else None,
+            }
+
+            # Trả về JSON với thông tin sản phẩm đã được thêm vào giỏ hàng
+            return JsonResponse({
+                'message': 'Sản phẩm đã được thêm vào giỏ hàng!',
+                'product': product_data
+            })
+
+        except Product.DoesNotExist:
+            return JsonResponse({'error': 'Sản phẩm không tồn tại'}, status=404)
+
+    return JsonResponse({'error': 'Không có sản phẩm được chọn'}, status=400)

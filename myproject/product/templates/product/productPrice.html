@@ -22,9 +22,10 @@
     </div>
 
     <div class="button-container">
-        <a href="#" class="add-to-cart" data-product-id="{{ product.id }}"><i class="fas fa-shopping-cart"></i></a>
+        <a href="" class="add-to-cart" data-product-id="{{ product.id }}"><i class="fas fa-shopping-cart"></i></a>
 
-        <button class="buy-now-btn">Buy Now</button>
+        <button class="buy-now-btn" data-product-id="{{ product.id }}" data-quantity="1">Mua Ngay</button>
+
     </div>
 
     <p class="contact-info"><i class="fa-solid fa-phone"></i> Call <span>1800-6601</span> for purchase advice (Free)</p>
@@ -92,6 +93,38 @@
         const cookie = document.cookie.split(';').find(item => item.trim().startsWith('csrftoken='));
         return cookie ? cookie.split('=')[1] : '';
     }
+
+
+    const buyNowButton = document.querySelector('.buy-now-btn');
+
+    buyNowButton.addEventListener('click', function () {
+        const productId = "{{ product.id }}";  // Lấy product_id từ template nếu có
+        const productQuantity = 1;  // Số lượng sản phẩm mặc định là 1
+
+        // Kiểm tra nếu productId có giá trị hợp lệ trước khi gửi yêu cầu
+        if (productId && productId !== '') {
+            fetch('/cart/checkout_buy_now/?product_id=' + productId + '&quantity=' + productQuantity, {
+                method: 'GET',
+                headers: {
+                    'X-CSRFToken': getCSRFToken(),  // Lấy CSRF token từ cookie
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        console.log(data.message);
+                        // Chuyển hướng đến trang checkout sau khi thêm sản phẩm vào giỏ hàng
+                        window.location.href = '/cart/checkout';
+
+                    } else {
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        } else {
+            console.error('Sản phẩm không hợp lệ!');
+        }
+    });
 
 
 
