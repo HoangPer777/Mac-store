@@ -1,7 +1,4 @@
 
-
-
-
 {% load humanize %}
 {% load static %}
 
@@ -33,7 +30,7 @@
 
                             <div class="form-checkbox-group">
                                 <label>
-                                    <input  name="type" type="radio" value="product" required > For Products </label>
+                                    <input  name="type" type="radio" value="products" required > For Products </label>
                                 <label>
                                     <input name="type"  type="radio" value="customer" required> For Customer  </label>
                                 <label>
@@ -100,15 +97,17 @@
                             <input  class="input-filed" name="code" type="text" placeholder="Coupon ID, e.g: student383">
                         </div>
 
-                        <div class="form-section">
-                            <h4 class="form-label">Product Code</h4>
-                            <input class="input-filed" name="forProduct" type="text" placeholder="Product ID, e.g: Mac-M4">
-                        </div>
 
                         <div class="form-section">
                             <h4 class="form-label">Number Available</h4>
                             <input class="input-filed" name="remaining"   type="text" placeholder="1000">
                         </div>
+
+{#                        <div class="form-section">#}
+{#                            <h4 class="form-label">Product Code</h4>#}
+{#                            <input class="input-filed" name="forProduct" type="text" placeholder="Product ID, e.g: Mac-M4">#}
+{#                        </div>#}
+
 
                         <div class="form-section">
                             <button type="submit">Save</button>

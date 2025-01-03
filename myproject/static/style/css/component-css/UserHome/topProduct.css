@@ -7,7 +7,7 @@ body {
 
 h1 {
     text-align: center;
-    color: white;
+    /*color: white;*/
     font-size: 2rem;
     margin-top: 20px;
     letter-spacing: 2px;
@@ -19,6 +19,7 @@ h1 {
     padding: 20px 200px;
     overflow-x: auto;
     scrollbar-width: none;
+    /*gap:40px;*/
 }
 .product-container::-webkit-scrollbar {
     display: none; 
@@ -41,6 +42,29 @@ h1 {
     align-items: center;
 }
 
+
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.discount {
+    background-color: #7ac142;
+}
+
+.supper-discount {
+    background-color: #d91656;
+}
+
 .product:hover {
     transform: scale(1.05);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -50,7 +74,7 @@ h1 {
     text-align: center;
     margin: 10px 0;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     color: #333;
     text-decoration: none;
 
@@ -79,41 +103,4 @@ h1 {
 .product img:hover {
     transform: scale(1.025);
     cursor: pointer;
-}
-
-.pagination {
-    text-align: center;
-    margin: 30px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pagination button {
-    padding: 12px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    opacity: 0.3;
-    border: none;
-    background-color: #AEAEAE;
-    color: white;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-
-.pagination button:hover {
-    background-color: #7DBD44;
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.pagination .active {
-    background-color: #7DBD44;
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.pagination button:focus {
-    outline: none;
-    transform: scale(1.05);
 }

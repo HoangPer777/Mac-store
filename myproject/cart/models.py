@@ -1,5 +1,5 @@
 from product.models import Product
-
+from django.shortcuts import render, get_object_or_404
 
 class Cart(object):
     def __init__(self, request):
@@ -14,9 +14,9 @@ class Cart(object):
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 0, 'price': str(product.price)}
         if override_quantity:
-            self.cart[product_id]['quantity'] = quantity
+            self.cart[product_id]['quantity'] =  int(quantity)
         else:
-            self.cart[product_id]['quantity'] += quantity
+            self.cart[product_id]['quantity'] +=  int(quantity)
 
         # Cập nhật session để lưu trạng thái mới của giỏ hàng
         self.save()
@@ -67,3 +67,5 @@ class Cart(object):
         if product_id in self.cart:
             self.cart[product_id]['quantity'] = int(quantity)
             self.save()
+
+
