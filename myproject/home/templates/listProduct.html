@@ -4,12 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
     <link href="{% static 'style/css/component-css/UserHome/list_product.css' %} " rel="stylesheet">
-  
+
 
 </head>
 
 <body>
-
 
 
 <div class="container text-center my-5">
@@ -32,11 +31,11 @@
             <div class="wrap_img">
                 <img src="{{ pro.images.first.image.url }}" class="card-img-top" alt="{{ pro.name }}}">
             </div>
-        
+
             <div class="card-body">
                 <div class="card-body-content">
                     <a href="/product/detail/{{ pro.id }}" class="card-title">{{ pro.name }}</a>
-                    <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
+                    <p class="card-text">{{ pro.description }}</p>
                 </div>
 
 
@@ -75,12 +74,13 @@
             {% endif %}
 
             <div class="wrap_img">
-                  <img src="{{ air.images.first.image.url }}" class="card-img-top" alt="{{ air.name }}}">
+                <img src="{{ air.images.first.image.url }}" class="card-img-top" alt="{{ air.name }}}">
             </div>
             <div class="card-body">
                 <div class="card-body-content">
                     <a href="/product/detail/{{ air.id }}" class="card-title">{{ air.name }}</a>
-                    <p class="card-text">Core i7 2.3GHz 32GB RAM 1TB SSD – Like New</p>
+                    <p class="card-text">{{ air.description }}</p>
+
                 </div>
 
 
@@ -103,7 +103,7 @@
 
 
 <script>
-    window.onload = function() {
+    window.onload = function () {
         const products = document.querySelectorAll('.custom-card');
 
         products.forEach(product => {
@@ -112,23 +112,22 @@
 
             if (!oldPriceElement || !newPriceElement) return;
 
-            
-            const discountPercent = parseInt("{{ coupon.percent }}") || 0;  
-             let oldPrice = oldPriceElement.innerText.replace(' ₫', '').replace(/,/g, '');
-            
+
+            const discountPercent = parseInt("{{ coupon.percent }}") || 0;
+            let oldPrice = oldPriceElement.innerText.replace(' ₫', '').replace(/,/g, '');
+
             const newPrice = (oldPrice * (100 - discountPercent)) / 100;
- 
-             
+
+
             const formattedOldPrice = parseInt(oldPrice).toLocaleString();
             const formattedNewPrice = parseInt(newPrice).toLocaleString();
 
-         
+
             newPriceElement.innerText = formattedNewPrice + " ₫";
             oldPriceElement.innerText = formattedOldPrice + " ₫";
         });
     };
 </script>
-
 
 
 </body>
