@@ -2,7 +2,7 @@ from django.contrib import messages
 
 from django.core.serializers import json
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
 
 # Create your views here.
 from django.shortcuts import render, redirect
@@ -14,21 +14,19 @@ from django.http import JsonResponse
 
 
 def product_list(request, category_id=None):
-    # coupon = Coupon.objects.all().first()
+    coupon = Coupon.objects.filter(type='products', active=True, to_date__gte=timezone.now()).first()
+
     if category_id:
         products = Product.objects.filter(category=category_id)
     else:
         products = Product.objects.all()
 
-
-
-
-
     context = {
         'products': products,
-        # 'coupon': coupon,
+        'coupon': coupon,
     }
     return render(request, 'product/product_list.html', context)
+
 
 
 def product_detail(request, product_id):

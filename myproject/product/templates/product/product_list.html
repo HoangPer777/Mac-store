@@ -1,14 +1,15 @@
 
 
-    {% load static %}
-    {% load humanize %}
+{% load static %}
+{% load humanize %}
 <head>
-    <meta charset="UTF-8">
+
     <title>MacOne</title>
     <style>
-        *{
-             font-family: 'Roboto', sans-serif;
+        * {
+            font-family: 'Roboto', sans-serif;
         }
+
         body {
             background-color: #f5f5f7;
         }
@@ -20,9 +21,9 @@
             flex-direction: column;
         }
 
-        .center{
+        .center {
             display: flex;
-           align-items: center;
+            align-items: center;
             text-align: center;
             justify-content: center;
         }
@@ -35,14 +36,22 @@
         }
 
         .product__container {
-
+            position: relative;
             transition: all 0.3s ease-in-out;
+
         }
+
+
+        .product__container:hover {
+            scale: 1.02;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
 
         .product {
             text-align: center;
             border-radius: 8px;
-                padding: 15px;
+            padding: 15px;
             width: 270px;
             height: 400px;
             background-color: #ffffff;
@@ -51,19 +60,15 @@
             flex-direction: column;
         }
 
-        .product:hover {
-            scale: 1.045;
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-        }
 
         .product-img {
-            width: 210px;
+            width: 100%;
             height: 190px;
             border-radius: 6px;
             margin-bottom: 15px;
         }
 
-        .product-img img{
+        .product-img img {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -72,15 +77,30 @@
         .product .name {
             font-size: 16px;
             color: #333;
-            margin: 10px 0;
+            margin-bottom: 10px;
             font-weight: bold;
             width: 100%;
+            height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 0;
+        }
+
+        .product .descriptions {
+            font-size: 12px;
+            font-weight: 200;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical; /* Đặt hướng dọc cho các dòng */
+            -webkit-line-clamp: 2; /* Hiển thị tối đa 3 dòng */
+            line-clamp: 2;
         }
 
         .product .price {
-            font-size: 16px;
+            font-size: 20px;
             color: #e04945;
-            margin-bottom: 15px;
+
             font-weight: bold;
         }
 
@@ -119,7 +139,7 @@
         }
 
         .buy-now {
-            background-color:#28A745;
+            background-color: #28A745;
             color: white;
         }
 
@@ -127,11 +147,54 @@
             background-color: #22973d;
         }
 
-       .row {
+        .row {
             display: flex;
             flex-wrap: wrap; /* Tự động xuống hàng */
             gap: 30px; /* Khoảng cách đều giữa các sản phẩm */
-       }
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .discount {
+            background-color: #7ac142;
+        }
+
+        .supper-discount {
+            background-color: #d91656;
+        }
+
+
+        .cost {
+            color: #d9534f;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .price .new-price {
+            margin-bottom: 0;
+
+        }
+
+        .price .old-price {
+
+            font-size: 12px;
+            color: black;
+            text-decoration: line-through;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
 
 
     </style>
@@ -142,23 +205,65 @@
 <div class="container center">
     <h2>Danh sách sản phẩm</h2>
     <div class="row center">
-       {% for product in products %}
-           <div class="col-lg-3 col-6 product__container">
+        {% for product in products %}
+            <div class="col-lg-3 col-6 product__container">
+
+
+                {% if coupon and coupon.percent and coupon.percent >= 50 %}
+                    <div class="badge  supper-discount">-{{ coupon.percent }}%</div>
+
+                {% elif coupon and coupon.percent and coupon.percent < 50 %}
+                    <div class="badge  discount">-{{ coupon.percent }}%</div>
+
+
+                {% else %}
+                    <p>Not found</p>
+
+                {% endif %}
+
+
                 <div class="product center">
                     <div class="product-img center">
-                        <img src="{{product.images.first.image.url  }}" alt="{{ product.name }}">
+                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
                     </div>
+
+
                     <div class="product__body">
-                        <a href="/product/detail/{{product.id}}" class="name"> {{ product.name }}</a>
-                       <p class="price"> {{product.price|intcomma }} ₫</p>
+
+                        <div class="infor">
+                            <a href="/product/detail/{{ product.id }}" class="name"> {{ product.name }}</a>
+                            <p class="descriptions">{{ product.description }}</p>
+
+                        </div>
+
+
+
+
+                        {% if coupon %}
+                            <div class="price">
+                                <p class="cost new-price"> {{ product.price|intcomma }} ₫</p>
+                                <p class="cost old-price"> {{ product.price|intcomma }} ₫</p>
+                            </div>
+                        {% else %}
+                            <p class="cost"> {{ product.price|intcomma }} ₫</p>
+                        {% endif %}
+
+
+
+
                         <div class="buttons">
-                            <a href="#" class="add-to-cart" data-product-id="{{ product.id }}"><i class="fa-solid fa-cart-shopping"></i></a>
+                            <a href="#" class="add-to-cart" data-product-id="{{ product.id }}"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
                             <a href="#" class="buy-now" data-product-id="{{ product.id }}">Mua ngay</a>
                         </div>
+
+
                     </div>
+
+
                 </div>
-           </div>
-       {% endfor %}
+            </div>
+        {% endfor %}
     </div>
 </div>
 
@@ -166,10 +271,42 @@
 
 <script src="../../../static/style/js/component-js/product_list.js"></script>
 <script>
-    function getCSRFToken() {
+
+
+    window.onload = function () {
+        const products = document.querySelectorAll('.product__container');
+
+        products.forEach(product => {
+            const oldPriceElement = product.querySelector('.old-price');
+            const newPriceElement = product.querySelector('.new-price');
+
+            if (!oldPriceElement || !newPriceElement) return;
+
+
+            const discountPercent = parseInt("{{ coupon.percent }}") || 0;
+            let oldPrice = oldPriceElement.innerText.replace(' ₫', '').replace(/,/g, '');
+
+            const newPrice = (oldPrice * (100 - discountPercent)) / 100;
+
+
+            const formattedOldPrice = parseInt(oldPrice).toLocaleString();
+            const formattedNewPrice = parseInt(newPrice).toLocaleString();
+
+
+            console.log(formattedOldPrice)
+            console.log(formattedNewPrice)
+
+            newPriceElement.innerText = formattedNewPrice + " ₫";
+            oldPriceElement.innerText = formattedOldPrice + " ₫";
+        });
+    };
+
+
+     function getCSRFToken() {
         let cookie = document.cookie.split(';').find(item => item.trim().startsWith('csrftoken='));
         return cookie ? cookie.split('=')[1] : '';
     }
+
 </script>
 </body>
 
