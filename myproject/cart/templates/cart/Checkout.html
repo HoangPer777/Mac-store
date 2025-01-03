@@ -22,13 +22,13 @@
 
         <div class="left-side">
             <div class="list_product">
-            {% if cart %}
+                {% if cart %}
                 {% for item in cart %}
-                    <div class="product" style=" display: flex; align-items: center; ">
+                <div class="product" style="display: flex; align-items: center;">
                     <td class="text-start">
                         <div class="d-none d-xl-block me-2">
-                            <a class="product_link" href="{{ item.ProductImage.url }}" target="_blank">
-                                <img class="mx-auto product_image"  src="{{ item.productImage }}" alt="{{ item.product.name }}">
+                            <a class="product_link" href="{{ item.product.image.url }}" target="_blank">
+                                <img class="mx-auto product_image" src="{{ item.productImage }}" alt="{{ item.product.name }}">
                             </a>
                         </div>
 
@@ -52,28 +52,17 @@
                         </div>
 
                         <td class="text-end">
-                            <div class="priceFormat total_price fw-bold"  data-number="{{ item.total_price|floatformat:0 }}" data-formatted="{{ item.total_price|floatformat:0 }}">
+                            <div class="priceFormat total_price fw-bold" data-number="{{ item.total_price|floatformat:0 }}" data-formatted="{{ item.total_price|floatformat:0 }}">
                                 = {{ item.total_price|floatformat:0 }} ₫
                             </div>
-
                         </td>
                     </div>
-
-{#                    <td class="text-center">#}
-{#                        <a href="javascript:void(0);" onclick="removeCart('{{ item.id }}')" class="cart-item-remove-container" data-bs-toggle="tooltip" data-bs-title="Xoá Khỏi Giỏ Hàng?">#}
-{#                            <i class="fa fa-trash cart-item-remove"></i>#}
-{#                        </a>#}
-{#                    </td>#}
-
                 </div>
-
-
-            </tr>
                 {% endfor %}
-            {% else %}
-
+                {% else %}
                 <p>Giỏ hàng của bạn trống. <a href="">Tiếp tục mua sắm</a></p>
-            {% endif %}
+                {% endif %}
+
             </div>
 
 
