@@ -38,7 +38,7 @@ def product_detail(request, product_id):
         'coupon': coupon,
 
     }
-    return render(request, 'product/productDetail.html', )
+    return render(request, 'product/productDetail.html', context )
 
 
 # Create
