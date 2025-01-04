@@ -60,3 +60,11 @@ def get_coupon_list(request):
         'coupons': coupons,
     }
     return render(request, 'g_admin/CouponList.html', context)
+
+
+def get_reviews(request):
+
+
+
+
+    return render(request, 'g_admin/AdminReviews.html')
