@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="{% static 'style/css/admin-css/EditProduct.css' %}">
+</head>
+<body>
+<div class="edit-product-container">
+    <h1>Edit Product : {{ product.name }}</h1>
+
+    <form method="POST" action="{% url 'g_admin:edit_product' product.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            {{ form.name }}
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price (đ):</label>
+            {{ form.price }}
+        </div>
+
+        <div class="form-group">
+            <label for="stock_quantity">Stock quantity:</label>
+            {{ form.stock_quantity }}
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5">{{ product.description }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="id_image">Product Image:</label>
+
+            <!-- Hiển thị hình ảnh hiện tại -->
+            {% if product.images.first %}
+                <img src="{{ product.images.first.image.url }}" alt="Current Image" class="current-image">
+            {% endif %}
+
+            <!-- Upload hình ảnh mới -->
+            <label for="image_upload">Upload New Image:</label>
+            <input type="file" id="image_upload" name="product_images">
+
+            <!-- Nhập URL hình ảnh -->
+            <label for="image_url">Or Enter Image URL:</label>
+            <input type="url" id="image_url" name="image_url" placeholder="https://example.com/image.jpg">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-save">Save</button>
+            <a href="{% url 'g_admin:admin_get_product' %}" class="btn btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
