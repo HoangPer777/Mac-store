@@ -125,10 +125,13 @@
                                 <!-- Actions -->
                                 <td>
                                     <div class="vc-action">
-                                        <a href="{% url 'g_admin:edit_product' product.id %}" class="vc-btn vc-btn-edit">
+                                        <a href="{% url 'g_admin:edit_product' product.id %}"
+                                           class="vc-btn vc-btn-edit">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
-                                        <a href="#" class="vc-btn vc-btn-remove">
+                                        <a href="{% url 'g_admin:remove_product' product.id %}"
+                                           class="vc-btn vc-btn-remove"
+                                           onclick="return confirm('Are you sure you want to delete this product?');">
                                             <i class="fa-solid fa-xmark" style="color: red"></i>
                                         </a>
                                     </div>
