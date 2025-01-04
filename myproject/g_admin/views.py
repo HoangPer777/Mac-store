@@ -65,24 +65,22 @@ def get_coupon_list(request):
     return render(request, 'g_admin/CouponList.html', context)
 def edit_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
+    categories = Category.objects.all()
+
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
-            image_url = request.POST.get('image_url')
-            if image_url:
-                try:
-                    response = requests.get(image_url)
-                    if response.status_code == 200:
-                        file_name = image_url.split("/")[-1]
-                        product.product_images.save(file_name, File(BytesIO(response.content)))
-                except Exception as e:
-                    print(f"Error downloading image: {e}")
             form.save()
             return redirect('g_admin:admin_get_product')
-        else:
-            print(form.errors)  # Debug lỗi của form
     else:
         form = ProductForm(instance=product)
+
+    return render(request, 'product/EditProduct.html', {
+        'form': form,
+        'product': product,
+        'categories': categories,
+    })
+
     return render(request, 'product/EditProduct.html', {'form': form, 'product': product})
 def remove_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
