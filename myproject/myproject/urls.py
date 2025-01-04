@@ -20,7 +20,7 @@ urlpatterns = [
                   path('admin/', include('g_admin.url')),
                 path('coupon/', include('coupon.urls')),
 
-                     # path('checkout/', include('checkout.urls')),
+#                      path('checkout/', include('cart.urls')),
                 path('user/', include('user.urls')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
