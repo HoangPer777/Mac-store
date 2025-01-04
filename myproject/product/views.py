@@ -28,13 +28,17 @@ def product_list(request, category_id=None):
     return render(request, 'product/product_list.html', context)
 
 
-
 def product_detail(request, product_id):
     product = Product.objects.get(id=product_id)
     product.noOfViews += 1
     product.save()
+    coupon = Coupon.objects.filter(type='products', active=True, to_date__gte=timezone.now()).first()
+    context = {
+        'product': product,
+        'coupon': coupon,
 
-    return render(request, 'product/productDetail.html', {'product': product})
+    }
+    return render(request, 'product/productDetail.html', context )
 
 
 # Create
