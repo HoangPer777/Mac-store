@@ -2,12 +2,15 @@ from django import forms
 from .models import Product, ProductImage
 from cloudinary.uploader import upload as cloudinary_upload
 
+
 class ProductForm(forms.ModelForm):
-    product_images = forms.FileField(widget=forms.ClearableFileInput(attrs={'allow_multiple_selected': False}), required=False)
+    product_images = forms.FileField(widget=forms.ClearableFileInput(attrs={'allow_multiple_selected': False}),
+                                     required=False)
 
     class Meta:
         model = Product
-        fields = ['name', 'description', 'price', 'stock_quantity', 'vendor', 'tags', 'category','product_images' ]
+        fields = ['name', 'description', 'vendor', 'tags', 'price', 'category','stock_quantity',
+                  'product_images']
 
     def clean_image(self):
         image = self.cleaned_data.get('image')
@@ -17,5 +20,3 @@ class ProductForm(forms.ModelForm):
             # Trả về URL của ảnh đã upload
             return upload_result.get('url')
         return image
-
-
