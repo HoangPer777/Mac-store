@@ -7,7 +7,8 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['name', 'price', 'stock_quantity', 'description', 'product_images']
+        fields = ['name', 'description', 'price', 'stock_quantity', 'vendor', 'tags', 'category','product_images' ]
+
     def clean_image(self):
         image = self.cleaned_data.get('image')
         if image and not isinstance(image, str):  # Kiểm tra nếu image không phải URL
