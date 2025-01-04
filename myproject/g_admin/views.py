@@ -87,3 +87,11 @@ def remove_product(request, product_id):
     product.delete()
     return redirect('g_admin:admin_get_product')
 
+
+
+def get_reviews(request):
+
+
+
+
+    return render(request, 'g_admin/AdminReviews.html')
