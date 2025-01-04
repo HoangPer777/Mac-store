@@ -1,4 +1,6 @@
 {%load static%}
+{% load humanize %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,48 +23,69 @@
     <div class="container row">
 
         <div class="left-side">
+<!--            <div class="list_product">-->
+<!--                {% if cart %}-->
+<!--                {% for item in cart %}-->
+<!--                <div class="product" style="display: flex; align-items: center;">-->
+<!--                    <td class="text-start">-->
+<!--                        <div class="d-none d-xl-block me-2">-->
+<!--                            <a class="product_link" href="{{ item.product.image.url }}" target="_blank">-->
+<!--                                <img class="mx-auto product_image" src="{{ item.productImage }}" alt="{{ item.product.name }}">-->
+<!--                            </a>-->
+<!--                        </div>-->
+
+<!--                        <div>-->
+<!--                            <div class="product_title">{{ item.product.name }}</div>-->
+<!--                        </div>-->
+<!--                    </td>-->
+
+<!--                    <div class="product__price">-->
+<!--                        <div class="product__price_prefix">-->
+<!--                            <td class="text-end">-->
+<!--                                <div class="priceFormat unit_price" data-number="{{ item.product.price|floatformat:0 }}" data-formatted="{{ item.product.price|floatformat:0 }}">-->
+<!--                                    {{ item.product.price|floatformat:0 }} ₫-->
+<!--                                </div>-->
+<!--                            </td>-->
+<!--                            <td class="text-center">-->
+<!--                                <div class="quantity-control">-->
+<!--                                    <span class="num mid_align">x{{ item.quantity }}</span>-->
+<!--                                </div>-->
+<!--                            </td>-->
+<!--                        </div>-->
+
+<!--                        <td class="text-end">-->
+<!--                            <div class="priceFormat total_price fw-bold" data-number="{{ item.total_price|floatformat:0 }}" data-formatted="{{ item.total_price|floatformat:0 }}">-->
+<!--                                = {{ item.total_price|floatformat:0 }} ₫-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--                {% else %}-->
+<!--                <p>Giỏ hàng của bạn trống. <a href="">Tiếp tục mua sắm</a></p>-->
+<!--                {% endif %}-->
+
+<!--            </div>-->
             <div class="list_product">
-                {% if cart %}
+                {% if source == 'buy-now' %}
+                <p>Bạn đã chọn mua ngay sản phẩm sau:</p>
                 {% for item in cart %}
-                <div class="product" style="display: flex; align-items: center;">
-                    <td class="text-start">
-                        <div class="d-none d-xl-block me-2">
-                            <a class="product_link" href="{{ item.product.image.url }}" target="_blank">
-                                <img class="mx-auto product_image" src="{{ item.productImage }}" alt="{{ item.product.name }}">
-                            </a>
-                        </div>
-
-                        <div>
-                            <div class="product_title">{{ item.product.name }}</div>
-                        </div>
-                    </td>
-
-                    <div class="product__price">
-                        <div class="product__price_prefix">
-                            <td class="text-end">
-                                <div class="priceFormat unit_price" data-number="{{ item.product.price|floatformat:0 }}" data-formatted="{{ item.product.price|floatformat:0 }}">
-                                    {{ item.product.price|floatformat:0 }} ₫
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="quantity-control">
-                                    <span class="num mid_align">x{{ item.quantity }}</span>
-                                </div>
-                            </td>
-                        </div>
-
-                        <td class="text-end">
-                            <div class="priceFormat total_price fw-bold" data-number="{{ item.total_price|floatformat:0 }}" data-formatted="{{ item.total_price|floatformat:0 }}">
-                                = {{ item.total_price|floatformat:0 }} ₫
-                            </div>
-                        </td>
-                    </div>
+                <div class="product">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    <p>{{ item.quantity }} x {{ item.product.price|intcomma }} ₫</p>
+                    <p>Tổng: {{ item.total_price|intcomma }} ₫</p>
                 </div>
                 {% endfor %}
                 {% else %}
-                <p>Giỏ hàng của bạn trống. <a href="">Tiếp tục mua sắm</a></p>
+                <p>Sản phẩm trong giỏ hàng:</p>
+                {% for item in cart %}
+                <div class="product">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    <p>{{ item.quantity }} x {{ item.product.price|intcomma }} ₫</p>
+                    <p>Tổng: {{ item.total_price|intcomma }} ₫</p>
+                </div>
+                {% endfor %}
                 {% endif %}
-
             </div>
 
 
@@ -158,7 +181,8 @@
                 <div class="wrap_total">
                     <div class="total">
                         <span>Tổng cộng</span>
-                        <span class="priceFormat" data-number="{{ cart.get_total_price }}">{{ cart.get_total_price }}</span>
+                        <span class="priceFormat" data-number="{{ total_price }}">{{ total_price|intcomma }}</span>
+
                     </div>
                 </div>
 
@@ -176,9 +200,9 @@
                 <div class="wrap_total">
                     <div class="total">
                         <span>Thành tiền</span>
-                        <span class="last_price priceFormat" data-number="{{ cart.get_total_price}}"> {{ new_total|default:cart.get_total_price}}</span>
+                        <span class="last_price priceFormat" data-number="{{ total_price }}">{{ new_total|default:total_price|intcomma }} ₫</span>
                     </div>
-                    <span class="note">Đẫ bao gồm thuế GTGT</span>
+                    <span class="note">Đã bao gồm thuế GTGT</span>
                 </div>
 
 
@@ -300,32 +324,34 @@ document.addEventListener('DOMContentLoaded', function() {
     formatAllPrices();
 });
 
-
-$(document).ready(function () {
-    $('#pay').on('click', function () {
-        const paymentMethod = $('input[name="payment-method"]:checked').val();
-
-        $.ajax({
-            url: "{% url 'cart:process_payment' %}",
-            type: "POST",
-            data: { payment_method: paymentMethod },
-            headers: {
-                "X-CSRFToken": "{{ csrf_token }}"
-            },
-            success: function (response) {
-                alert(response.message);
-                if (response.status === "success") {
-                    // Redirect hoặc xử lý giao diện
-                    window.location.href = "{% url 'cart:thank_you' %}";
-                }
-            },
-            error: function (response) {
-                const errorMessage = response.responseJSON?.message || "Có lỗi xảy ra.";
-                alert(errorMessage);
+    $(document).ready(function () {
+        $('#pay').on('click', function () {
+            const paymentMethod = $('input[name="payment-method"]:checked').val();
+            if (!paymentMethod) {
+                alert("Vui lòng chọn phương thức thanh toán.");
+                return;
             }
+
+            $.ajax({
+                url: "{% url 'cart:process_payment' %}",
+                type: "POST",
+                data: { payment_method: paymentMethod },
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                success: function (response) {
+                    alert(response.message);
+                    if (response.status === "success") {
+                        window.location.href = "{% url 'cart:thank_you' %}";
+                    }
+                },
+                error: function (response) {
+                    const errorMessage = response.responseJSON?.message || "Có lỗi xảy ra.";
+                    alert(errorMessage);
+                }
+            });
         });
     });
-});
 
 </script>
 

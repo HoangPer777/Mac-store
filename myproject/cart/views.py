@@ -201,13 +201,22 @@ def apply_coupon(request):
 
 
 
+def safe_decimal(value):
+    try:
+        # Chuyển đổi giá trị thành Decimal nếu hợp lệ
+        return Decimal(value)
+    except (InvalidOperation, TypeError, ValueError):
+        # Nếu lỗi, in log để kiểm tra và trả về giá trị mặc định
+        print(f"Invalid Decimal value: {value}")
+        return Decimal('0.00')
+
 @transaction.atomic
 def process_payment(request):
-
     if request.method == "POST":
         try:
             cart = Cart(request)
             user = request.user
+
             if not user.is_authenticated:
                 return JsonResponse({"status": "error", "message": "Bạn cần đăng nhập để thanh toán."}, status=401)
 
@@ -220,51 +229,52 @@ def process_payment(request):
                     # Kiểm tra mã giảm giá có tồn tại
                     coupon = Coupon.objects.get(code=coupon_code)
                 except Coupon.DoesNotExist:
-                    coupon = None  # Không gán coupon nếu không tìm thấy mã giảm giá
-                    print(f"DEBUG: Mã giảm giá không tồn tại: {coupon_code}")
+                    coupon = None
 
-            # Tính tổng giá giỏ hàng
+            # Tính tổng giá trị giỏ hàng
             total_price = Decimal('0.00')
             for item in cart:
                 product = get_object_or_404(Product, id=item['product'].id)
-                total_price += product.price * item['quantity']
+                product_price = safe_decimal(product.price)  # Xử lý giá an toàn
+                quantity = safe_decimal(item['quantity'])  # Xử lý số lượng an toàn
+                total_price += product_price * quantity  # Tính toán an toàn
+
             if coupon:
-                discount_amount = (total_price * coupon.discount) / 100
-                if discount_amount > coupon.maxValue:
-                    discount_amount = coupon.maxValue
+                discount_amount = (total_price * safe_decimal(coupon.discount)) / 100
+                if discount_amount > safe_decimal(coupon.maxValue):
+                    discount_amount = safe_decimal(coupon.maxValue)
                 total_price -= discount_amount
-            print(type(total_price))
+
+            if total_price <= 0:
+                return JsonResponse({"status": "error", "message": "Tổng giá trị không hợp lệ."}, status=400)
+
             # Tạo đơn hàng
             order = Order.objects.create(
                 paymentStatus="Wait",
                 dateOrder=timezone.now(),
-                totalPrice=Decimal(str(total_price)) , # lỗi chuyển định dạng
+                totalPrice=total_price,  # Đã được tính toán an toàn
                 couponID=coupon,
                 paymentMethod=request.POST.get('payment-method', 'Thanh toán khi nhận hàng'),
                 userId=user
             )
 
-
-
-            # Duyệt qua sản phẩm trong giỏ hàng
+            # Xử lý chi tiết đơn hàng
             for item in cart:
                 product = get_object_or_404(Product, id=item['product'].id)
+                quantity = safe_decimal(item['quantity'])
 
-                # Kiểm tra số lượng hàng tồn
-                if product.stock_quantity < item['quantity']:
+                if product.stock_quantity < quantity:
                     raise ValueError(f"Sản phẩm {product.name} không đủ số lượng.")
 
-                # Trừ số lượng tồn kho
-                product.stock_quantity -= item['quantity']
-                product.noOfSolds += item['quantity']
+                product.stock_quantity -= quantity
+                product.noOfSolds += quantity
                 product.save()
 
-                # Tạo bản ghi OrderDetail cho mỗi sản phẩm trong đơn hàng
                 OrderDetail.objects.create(
                     order_id=order,
                     product_id=product,
-                    quantity=item['quantity'],
-                    total_price=Decimal(str(product.price * item['quantity']))
+                    quantity=quantity,
+                    total_price=safe_decimal(product.price) * quantity
                 )
 
             # Xóa giỏ hàng sau khi thanh toán
@@ -275,8 +285,6 @@ def process_payment(request):
             return JsonResponse({"status": "error", "message": f"Đã xảy ra lỗi: {str(e)}"}, status=500)
     else:
         return JsonResponse({"status": "error", "message": "Phương thức không hợp lệ."}, status=405)
-
-
 
 
 def thank_you(request):
@@ -304,37 +312,64 @@ def checkout(request):
         'address': address
     })
 
-
 def checkout_buy_now(request):
-    cart = Cart(request)  # Đảm bảo giỏ hàng đã được khởi tạo
-
-    # Lấy thông tin từ GET request
     product_id = request.GET.get('product_id')
-    quantity = request.GET.get('quantity', 1)
+    quantity = safe_decimal(request.GET.get('quantity', 1))  # Xử lý số lượng an toàn
 
     if product_id:
         try:
-            # Tìm sản phẩm trong database
             product = Product.objects.get(id=product_id)
+            product_price = safe_decimal(product.price)  # Xử lý giá an toàn
+            total_price = product_price * quantity
 
-            # Thêm sản phẩm vào giỏ hàng
-            cart.add(product, int(quantity))
+            cart = [
+                {
+                    "product": product,
+                    "quantity": quantity,
+                    "total_price": total_price
+                }
+            ]
 
-            # Lấy thông tin sản phẩm đã thêm vào giỏ hàng
-            product_data = {
-                'id': product.id,
-                'name': product.name,
-                'price': product.price,
-                'image': product.images.first().image.url if product.images.exists() else None,
-            }
-
-            # Trả về JSON với thông tin sản phẩm đã được thêm vào giỏ hàng
-            return JsonResponse({
-                'message': 'Sản phẩm đã được thêm vào giỏ hàng!',
-                'product': product_data
+            return render(request, 'cart/Checkout.html', {
+                "cart": cart,
+                "source": "buy-now",
+                "total_price": total_price,
+                "user": request.user,
             })
 
         except Product.DoesNotExist:
-            return JsonResponse({'error': 'Sản phẩm không tồn tại'}, status=404)
+            return JsonResponse({"status": "error", "message": "Sản phẩm không tồn tại."}, status=404)
 
-    return JsonResponse({'error': 'Không có sản phẩm được chọn'}, status=400)
+    return JsonResponse({"status": "error", "message": "Không có sản phẩm được chọn."}, status=400)
+
+
+def checkout_view(request):
+    source = request.GET.get('source', 'cart')
+    product_id = request.GET.get('product_id')
+    quantity = int(request.GET.get('quantity', 1))
+
+    if source == 'buy-now' and product_id:
+        try:
+            product = Product.objects.get(id=product_id)
+        except Product.DoesNotExist:
+            return HttpResponse("Không tìm thấy sản phẩm", status=404)
+
+        cart = [
+            {
+                "product": product,
+                "quantity": quantity,
+                "total_price": product.price * quantity,
+            }
+        ]
+        total_price = sum(item['total_price'] for item in cart)
+    else:
+        # Xử lý giỏ hàng thông thường
+        cart = request.session.get('cart', [])
+        total_price = sum(item['total_price'] for item in cart)
+
+    return render(request, 'cart/Checkout.html', {
+        "cart": cart,
+        "source": source,
+        "total_price": total_price,  # Tính tổng giá trị
+        "user": request.user,
+    })

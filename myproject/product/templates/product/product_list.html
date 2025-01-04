@@ -254,7 +254,13 @@
                         <div class="buttons">
                             <a href="#" class="add-to-cart" data-product-id="{{ product.id }}"><i
                                     class="fa-solid fa-cart-shopping"></i></a>
-                            <a href="#" class="buy-now" data-product-id="{{ product.id }}">Mua ngay</a>
+
+                            <a href="#" class="buy-now"
+                               data-product-id="{{ product.id }}"
+                               data-quantity="1"
+                               onclick="handleBuyNow({{ product.id }})">
+                                Mua Ngay</a>
+
                         </div>
 
 
@@ -307,6 +313,10 @@
         return cookie ? cookie.split('=')[1] : '';
     }
 
+    function handleBuyNow(productId) {
+        const checkoutUrl = `/cart/checkout/buy_now/?source=buy-now&product_id=${productId}&quantity=1`;
+        window.location.href = checkoutUrl;
+    }
 </script>
 </body>
 
