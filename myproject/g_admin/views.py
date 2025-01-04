@@ -1,12 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from urllib3 import request
 
 from category.models import Category
 from g_admin import templates
+from product.forms import ProductForm
 from product.models import Product
 from coupon.models import Coupon
 from django.core.paginator import Paginator
-
+from django.core.files import File
+import requests
+from io import BytesIO
 # Create your views here.
 app_name = 'g_admin'
 
@@ -60,6 +63,30 @@ def get_coupon_list(request):
         'coupons': coupons,
     }
     return render(request, 'g_admin/CouponList.html', context)
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    categories = Category.objects.all()
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('g_admin:admin_get_product')
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'product/EditProduct.html', {
+        'form': form,
+        'product': product,
+        'categories': categories,
+    })
+
+    return render(request, 'product/EditProduct.html', {'form': form, 'product': product})
+def remove_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    product.delete()
+    return redirect('g_admin:admin_get_product')
+
 
 
 def get_reviews(request):
