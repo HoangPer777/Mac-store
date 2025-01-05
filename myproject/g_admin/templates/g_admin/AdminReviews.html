@@ -1,0 +1,173 @@
+{% load static %}
+{% load humanize %}
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style/css/admin-css/AdminReviews.css' %}">
+    <link rel="stylesheet" href="{% static 'resource/fontawesome-free-6.6.0-web/css/all.css' %}">
+
+</head>
+<body>
+
+<div id="container">
+
+    <div id="menu-sidebar">
+        {% include 'g_admin/AdminSidebar.html' %}
+    </div>
+
+    <div class="body">
+
+        <div class="title">
+            <span>Reviews</span>
+        </div>
+
+        <div class="overview">
+
+
+            <div class="total_review">
+                <p class="title">Total Reviews</p>
+                <div class="wrap_value">
+                    <p class="value"> 10.0K </p>
+
+                    <div class="status">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <p class="value_status"> 12%</p>
+                    </div>
+
+                </div>
+                <p class="description">Growth in reviews on this year</p>
+            </div>
+
+            <div class="rectangle_vertical"></div>
+
+
+            <div class="avg_rating">
+                <p class="title">Average Rating</p>
+                <div class="wrap_value">
+                    <p class="value">4.0 </p>
+
+                    <div class="star">
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #bdbdbd;"></i>
+
+                    </div>
+
+                </div>
+                <p class="description">Average Rating on this year</p>
+            </div>
+
+
+            <div class="rectangle_vertical"></div>
+
+
+            <div class="chart">
+
+                <div class="chart_item five_star">
+                    <i class="fa-solid fa-star chart_star " style="color:#bdbdbd;"> 5</i>
+                    <div class="evaluate"><p class="color" style="background-color:#37B6A1;  width: 100%;"></p></div>
+                    <p class="value">2k</p>
+
+                </div>
+
+                <div class="chart_item four_star">
+                    <i class="fa-solid fa-star chart_star " style="color: #bdbdbd;"> 4</i>
+                    <div class="evaluate"><p class="color" style="background-color: #DF81FD;   width: 80%;"></p></div>
+                    <p class="value">2k</p>
+
+                </div>
+
+
+                <div class="chart_item five_star">
+                    <i class="fa-solid fa-star chart_star " style="color: #bdbdbd;"> 3</i>
+                    <div class="evaluate"><p class="color" style="background-color: #F4C23F;width: 60%;"></p></div>
+                    <p class="value">2k</p>
+
+                </div>
+
+                <div class="chart_item five_star">
+                    <i class="fa-solid fa-star chart_star " style="color: #bdbdbd;"> 2</i>
+                    <div class="evaluate"><p class="color" style="background-color: #2EC0F1;width: 40%;"></p></div>
+                    <p class="value">2k</p>
+
+                </div>
+
+
+                <div class="chart_item five_star">
+                    <i class="fa-solid fa-star chart_star " style="color:#bdbdbd;"> 1</i>
+                    <div class="evaluate"><p class="color" style="background-color: #EF781C; width: 5%;"></p></div>
+                    <p class="value">2k</p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="rectangle_horizontal"></div>
+
+        <div class="review">
+
+            <div class="review_item">
+                <div class="user_infor">
+
+                    <div class="avatar">
+                        <img src="https://resizing.flixster.com/iYBJuxcNM1Kt5-HodRFwq5ysASI=/fit-in/352x330/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/67369_v9_bd.jpg"
+                             alt="img     ">
+                    </div>
+
+                    <div class="infor_detail">
+                        <p class="name">Robert Downey Jr</p>
+                        <p class="time">Date: <strong>21/12/2024</strong></p>
+                        <p class="spend">Total: <strong>52,000,000 đ</strong></p>
+                    </div>
+
+
+                </div>
+
+
+                <div class="review_detail">
+
+                    <div class="rating">
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <p class="rating_value">5</p>
+                    </div>
+
+                    <div class="content">
+                        I recently bought the MacBook Air with the M2 chip, and I’m incredibly impressed!
+                        The performance is outstanding – apps open instantly, and multitasking is seamless.
+                        The battery life is phenomenal; I can easily go a full day without needing to charge it.
+                        The design is sleek and lightweight, making it perfect for carrying around.
+                        The Retina display is vibrant and makes everything look sharp.
+                        My only small complaint is that it gets a bit warm during intensive tasks, but overall,
+                        it’s an amazing laptop that’s worth the investment!
+                    </div>
+
+
+                    <div class="button">
+                        <button class="hidden" name="btn">Hidden</button>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
