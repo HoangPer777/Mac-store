@@ -74,3 +74,25 @@ def classify_feedback(request):
         })
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+
+@csrf_exempt
+def delete_feedback(request):
+    if request.method == 'POST':
+        try:
+            # Get the feedback IDs from the request
+            data = json.loads(request.body)
+            feedback_ids = data.get('feedback_ids', [])
+
+            if not feedback_ids:
+                return JsonResponse({'error': 'No feedback IDs provided'}, status=400)
+
+            # Delete the feedbacks from the database
+            Feedback.objects.filter(id__in=feedback_ids).delete()
+
+            return JsonResponse({'message': 'Selected feedbacks deleted successfully'})
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
+    return JsonResponse({'error': 'Invalid request method'}, status=405)

@@ -55,6 +55,8 @@
     </tbody>
 </table>
         <button onclick="classifyAll()">Phân loại tất cả</button>
+        <button id="delete-selected" onclick="deleteSelected()">Xóa bình luận đã chọn</button>
+
     </div>
 
 </div>
@@ -86,6 +88,41 @@
     $(document).ready(function() {
         $('#feedback-table').DataTable();
     });
+
+    function deleteSelected() {
+    const selectedFeedbacks = [];
+
+    // Get all checked checkboxes
+    document.querySelectorAll('.feedback-checkbox:checked').forEach(checkbox => {
+        const feedbackId = checkbox.getAttribute('data-feedback-id');
+        selectedFeedbacks.push(feedbackId);
+    });
+
+    if (selectedFeedbacks.length > 0) {
+        fetch('/feed_back/delete/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ feedback_ids: selectedFeedbacks }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            // Remove deleted rows from the table
+            selectedFeedbacks.forEach(id => {
+                const row = document.querySelector(`#feedback-row-${id}`);
+                if (row) {
+                    row.remove();
+                }
+            });
+        })
+        .catch(error => console.error('Error:', error));
+    } else {
+        alert('No feedback selected!');
+    }
+}
+
 </script>
 
 </body>
