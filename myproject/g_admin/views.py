@@ -10,6 +10,10 @@ from django.core.paginator import Paginator
 from django.core.files import File
 import requests
 from io import BytesIO
+
+from feed_back.models import Feedback
+
+
 # Create your views here.
 app_name = 'g_admin'
 
@@ -90,8 +94,11 @@ def remove_product(request, product_id):
 
 
 def get_reviews(request):
-
-
-
-
     return render(request, 'g_admin/AdminReviews.html')
+
+
+
+
+def admin_feedback_list(request):
+    feedbacks = Feedback.objects.all()
+    return render(request, 'g_admin/admin_feedback_list.html', {'feedbacks': feedbacks})
