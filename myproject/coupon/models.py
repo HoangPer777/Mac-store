@@ -6,7 +6,7 @@ from django.utils.timezone import now
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-# chỉ giảm theo phần trăm, có hạn mức giá trị lớn nhất,
+# giảm theo phần trăm, có hạn mức giá trị lớn nhất,
 class Coupon(models.Model):
     code = models.CharField(max_length=20, unique=True) # mã
     type = models.CharField(max_length=20)

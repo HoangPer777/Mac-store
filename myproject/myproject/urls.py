@@ -18,8 +18,8 @@ urlpatterns = [
                   path('auth/', include('auth.urls')),
                   # path('checkout/', include('checkout.urls')),
                   path('admin/', include('g_admin.url')),
-                path('coupon/', include('coupon.urls')),
-
+                    path('coupon/', include('coupon.urls')),
+                    path('feed_back/', include('feed_back.urls')),
 #                      path('checkout/', include('cart.urls')),
                 path('user/', include('user.urls')),
 
