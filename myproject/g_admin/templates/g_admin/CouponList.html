@@ -16,14 +16,13 @@
 
     <div id="menu_sidebar">
         {% include 'g_admin/AdminSidebar.html' %}
+
     </div>
-
     <div id="main">
-
         <div class="coupon-container">
             <div class="coupon-title">
                 <h1>Coupon List</h1>
-                <a href="#" class="add-coupon-btn">+ Add Coupon</a>
+                <a href="{% url 'g_admin:createCoupon' %}" class="add-coupon-btn">+ Add Coupon</a>
             </div>
 
             <table class="coupon-table">
@@ -88,9 +87,15 @@
                         <td>{{ coupon.remaining }}</td>
 
                         <td>
-                            <a href="#" class="edit-btn">Edit</a>
-                            <a href="#" class="delete-btn">Delete</a>
-                        </td>
+                            <a href="{% url 'g_admin:edit_coupon' coupon.id %}"
+                               class="edit-btn">
+                                Edit
+                            </a>
+                            <a href="{% url 'g_admin:removeCoupon' coupon.id %}"
+                               class="delete-btn"
+                               onclick="return confirm('Are you sure you want to delete this coupon?');">
+                                Delete
+                            </a></td>
                     </tr>
                 {% empty %}
                     <tr>
@@ -106,4 +111,3 @@
 
 
 </body>
-
