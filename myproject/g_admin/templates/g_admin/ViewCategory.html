@@ -65,8 +65,10 @@
 
         <!-- Form Actions -->
         <div class="vc-form-actions">
-            <input type="text" class="vc-form-control" placeholder="Product ID">
-            <button type="submit" class="vc-btn vc-btn-outline">Search Product</button>
+            <form method="get" action="{% url 'g_admin:view_category' %}">
+                <input type="text" class="vc-form-control" name="search" placeholder="Product ID or Name">
+                <button type="submit" class="vc-btn vc-btn-outline">Search Product</button>
+            </form>
         </div>
 
 
@@ -77,7 +79,7 @@
                     <table class="vc-table">
                         <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>Product Name</th>
                             <th>Product ID</th>
                             <th>Price</th>
                             <th>Views</th>

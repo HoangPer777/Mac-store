@@ -18,13 +18,11 @@
         {% include 'g_admin/AdminSidebar.html' %}
 
     </div>
-
     <div id="main">
-
         <div class="coupon-container">
             <div class="coupon-title">
                 <h1>Coupon List</h1>
-                <a href="#" class="add-coupon-btn">+ Add Coupon</a>
+                <a href="{% url 'g_admin:createCoupon' %}" class="add-coupon-btn">+ Add Coupon</a>
             </div>
 
             <table class="coupon-table">
