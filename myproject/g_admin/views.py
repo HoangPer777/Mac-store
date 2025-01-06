@@ -13,7 +13,7 @@ import requests
 from io import BytesIO
 from datetime import datetime
 from feed_back.models import Feedback
-
+from django.db.models import Q
 # Create your views here.
 app_name = 'g_admin'
 
@@ -124,3 +124,25 @@ def edit_coupon(request, coupon_id):
         'form': form,
         'coupon': coupon,
     })
+def view_category(request):
+    search_query = request.GET.get('search', '')
+    # Nếu có search_query, lọc sản phẩm
+    if search_query:
+        products = Product.objects.filter(
+            Q(id__icontains=search_query) |  # Tìm theo Product ID
+            Q(name__icontains=search_query)  # Tìm theo tên sản phẩm
+        )
+    else:
+        products = Product.objects.all()  # Hiển thị tất cả sản phẩm nếu không tìm kiếm
+    total_products = products.count()
+    in_stock = products.filter(stock_quantity__gt=0).count()
+    out_of_stock = products.filter(stock_quantity__lte=0).count()
+
+    context = {
+        'products': products,
+        'total_products': total_products,
+        'in_stock': in_stock,
+        'out_of_stock': out_of_stock,
+    }
+
+    return render(request, 'g_admin/ViewCategory.html', context)
