@@ -11,6 +11,7 @@ from django.core.files import File
 import requests
 from io import BytesIO
 from datetime import datetime
+from feed_back.models import Feedback
 # Create your views here.
 app_name = 'g_admin'
 
@@ -96,3 +97,11 @@ def remove_coupon(request,coupon_id):
     coupon = get_object_or_404(Coupon, id=request.POST.get('id'))
     coupon.delete()
     return redirect('g_admin:coupon_list')
+
+
+
+def get_reviews(request):
+    return render(request, 'g_admin/AdminReviews.html')
+def admin_feedback_list(request):
+    feedbacks = Feedback.objects.all()
+    return render(request, 'g_admin/admin_feedback_list.html', {'feedbacks': feedbacks})

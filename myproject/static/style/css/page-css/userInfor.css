@@ -1,0 +1,60 @@
+#main-contain .container .row{
+    text-align: center;
+}
+
+#main-contain .container .row h1 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    margin-top: 30px;
+    margin-bottom: 40px;
+
+}
+
+form p {
+    width: 610px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px auto;
+}
+
+input {
+     height: 40px;
+     width: 600px;
+     border: none;
+     border-bottom: 1px solid #156733;
+     margin-left: 10px;
+     padding-left: 4px;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #3e8f3e;
+}
+
+#main-contain form label {
+    font-weight: bold;
+}
+
+#id_gender {
+    border: none;
+    border-bottom: 1px solid #b7b7b7;
+}
+
+
+.input_form {
+    height: 40px;
+    width: 500px;
+    border-bottom: 1px solid #b7b7b7;
+}
+
+.navi {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    width: 350px;
+}
+
+
+

@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Feedback Management</title>
+    <link rel="stylesheet" href="{% static 'style/css/admin-css/feedback.css' %}">
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <style>
+
+
+    </style>
+</head>
+<body style="margin: 0;">
+<div id="container">
+{#    <div id="menu_sidebar" class="col-lg-3 col-md-3">#}
+{#        {% include 'g_admin/AdminSidebar.html' %}#}
+{#    </div>#}
+
+    <div id="main" >
+        <h1>Feedback Management</h1>
+        <table id="feedback-table" class="display">
+    <thead>
+        <tr>
+            <th>Select</th>
+            <th>Customer</th>
+            <th>Comment</th>
+            <th>Rating</th>
+            <th>Date</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for feedback in feedbacks %}
+        <tr id="feedback-row-{{ feedback.id }}">
+            <td><input type="checkbox" class="feedback-checkbox" data-feedback-id="{{ feedback.id }}"></td>
+            <td>{{ feedback.customerID }}</td>
+            <td>{{ feedback.comment }}</td>
+            <td>{{ feedback.rating }}</td>
+            <td>{{ feedback.date }}</td>
+            <td class="feedback-type">{% if feedback.type == 1 %}
+                                        toxic
+                                    {% elif feedback.type == 0 %}
+                                        normal
+                                    {% else %}
+                                        chưa phân loại
+                                    {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+        <button onclick="classifyAll()">Phân loại tất cả</button>
+        <button id="delete-selected" onclick="deleteSelected()">Xóa bình luận đã chọn</button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    function classifyAll() {
+        fetch('/feed_back/classify/', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+
+                // Cập nhật các dòng đã phân loại trong bảng
+                updateClassifiedFeedbacks(data.classified_feedbacks);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function updateClassifiedFeedbacks(classifiedFeedbacks) {
+        // Lặp qua danh sách feedback đã phân loại và cập nhật bảng
+        classifiedFeedbacks.forEach(feedback => {
+            const row = document.querySelector(`#feedback-row-${feedback.id}`);
+            if (row) {
+                row.querySelector('.feedback-type').textContent = feedback.type;
+            }
+        });
+    }
+    $(document).ready(function() {
+        $('#feedback-table').DataTable();
+    });
+
+    function deleteSelected() {
+    const selectedFeedbacks = [];
+
+    // Get all checked checkboxes
+    document.querySelectorAll('.feedback-checkbox:checked').forEach(checkbox => {
+        const feedbackId = checkbox.getAttribute('data-feedback-id');
+        selectedFeedbacks.push(feedbackId);
+    });
+
+    if (selectedFeedbacks.length > 0) {
+        fetch('/feed_back/delete/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ feedback_ids: selectedFeedbacks }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            // Remove deleted rows from the table
+            selectedFeedbacks.forEach(id => {
+                const row = document.querySelector(`#feedback-row-${id}`);
+                if (row) {
+                    row.remove();
+                }
+            });
+        })
+        .catch(error => console.error('Error:', error));
+    } else {
+        alert('No feedback selected!');
+    }
+}
+
+</script>
+
+</body>
+</html>
