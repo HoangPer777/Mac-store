@@ -23,24 +23,27 @@ vectorizer = joblib.load(VECTORIZER_PATH)
 @csrf_exempt
 def save_feedback(request):
     if request.method == 'POST':
-        customer_id = request.POST.get('customer_id')
+        user_id = request.POST.get('user_id')
+        product_id = request.POST.get('product_id')
         rating = int(request.POST.get('rating', 5))
         comment = request.POST.get('comment', '')
 
-        if not customer_id or not comment:
-            return JsonResponse({'error': 'Customer ID and comment are required'}, status=400)
+        if not user_id or not comment or not product_id:
+            return JsonResponse({'error': 'User ID, Product ID, and comment are required'}, status=400)
 
         # Sử dụng foreign key đúng
         feedback = Feedback.objects.create(
-            customerID_id=customer_id,  # Dùng customerID_id nếu lưu ID trực tiếp
+            userID_id=user_id,
+            productID_id=product_id,
             rating=rating,
             comment=comment,
             type=None  # Chưa phân loại
         )
 
-        return JsonResponse({'message': 'Feedback saved successfully', 'id': feedback.id})
+        return JsonResponse({'message': 'Lưu bình luận thành công', 'id': feedback.id})
 
     return JsonResponse({'error': 'Invalid request method'}, status=405)
+
 
 
 
@@ -51,7 +54,7 @@ def classify_feedback(request):
         pending_feedbacks = Feedback.objects.filter(type__isnull=True)
 
         if not pending_feedbacks.exists():
-            return JsonResponse({'message': 'No pending feedbacks to classify'})
+            return JsonResponse({'message': 'Không có bình luận nào đang chờ phân loại'})
 
         classified_feedbacks = []  # Danh sách các feedback đã được phân loại
 
@@ -68,7 +71,7 @@ def classify_feedback(request):
             })
 
         return JsonResponse({
-            'message': 'Classification completed successfully',
+            'message': 'Phân loại thành công',
             'classified_count': pending_feedbacks.count(),
             'classified_feedbacks': classified_feedbacks
         })
@@ -90,7 +93,7 @@ def delete_feedback(request):
             # Delete the feedbacks from the database
             Feedback.objects.filter(id__in=feedback_ids).delete()
 
-            return JsonResponse({'message': 'Selected feedbacks deleted successfully'})
+            return JsonResponse({'message': 'Đã xóa những bình luận được chọn'})
 
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
