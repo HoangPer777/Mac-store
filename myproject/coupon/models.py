@@ -15,7 +15,7 @@ class Coupon(models.Model):
     maxValue = models.DecimalField(max_digits=10, decimal_places=2) # nếu theo % thì giảm max bao nhiêu
     forProduct = models.IntegerField(null=True, blank=True)
 
-    from_date = models.DateTimeField()
+    from_date = models.DateTimeField(zz)
     to_date = models.DateTimeField()
     active = models.BooleanField(default=True, blank=True)
     remaining = models.PositiveIntegerField() # còn lại
