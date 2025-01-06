@@ -89,7 +89,10 @@
                         <td>{{ coupon.remaining }}</td>
 
                         <td>
-                            <a href="#" class="edit-btn">Edit</a>
+                            <a href="{% url 'g_admin:edit_coupon' coupon.id %}"
+                               class="edit-btn">
+                                Edit
+                            </a>
                             <a href="{% url 'g_admin:removeCoupon' coupon.id %}"
                                class="delete-btn"
                                onclick="return confirm('Are you sure you want to delete this coupon?');">

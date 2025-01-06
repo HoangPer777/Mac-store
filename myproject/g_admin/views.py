@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from urllib3 import request
 
 from category.models import Category
+from coupon.forms import CouponForm
 from g_admin import templates
 from product.forms import ProductForm
 from product.models import Product
@@ -12,6 +13,7 @@ import requests
 from io import BytesIO
 from datetime import datetime
 from feed_back.models import Feedback
+
 # Create your views here.
 app_name = 'g_admin'
 
@@ -65,10 +67,11 @@ def get_coupon_list(request):
         'coupons': coupons,
     }
     return render(request, 'g_admin/CouponList.html', context)
+
+
 def edit_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     categories = Category.objects.all()
-
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -83,17 +86,41 @@ def edit_product(request, product_id):
         'categories': categories,
     })
     # return render(request, 'product/EditProduct.html', {'form': form, 'product': product})
+
+
 def remove_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     product.delete()
     return redirect('g_admin:admin_get_product')
-def remove_coupon(request,coupon_id):
+
+
+def remove_coupon(request, coupon_id):
     coupon = get_object_or_404(Coupon, id=coupon_id)
     coupon.delete()
     return redirect('g_admin:coupon_list')
 
+
 def get_reviews(request):
     return render(request, 'g_admin/AdminReviews.html')
+
+
 def admin_feedback_list(request):
     feedbacks = Feedback.objects.all()
     return render(request, 'g_admin/admin_feedback_list.html', {'feedbacks': feedbacks})
+
+
+def edit_coupon(request, coupon_id):
+    coupon = get_object_or_404(Coupon, id=coupon_id)
+
+    if request.method == "POST":
+        form = CouponForm(request.POST, instance=coupon)
+        if form.is_valid():
+            form.save()
+            return redirect('g_admin:coupon_list')  # Redirect về danh sách coupon
+    else:
+        form = CouponForm(instance=coupon)
+
+    return render(request, 'editCoupon.html', {
+        'form': form,
+        'coupon': coupon,
+    })
