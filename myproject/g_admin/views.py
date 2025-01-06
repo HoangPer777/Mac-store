@@ -61,12 +61,6 @@ def createCoupon(request):
 
 def get_coupon_list(request):
     coupons = Coupon.objects.all().order_by('-to_date')
-    for coupon in coupons:
-        if isinstance(coupon.from_date, int):  # Nếu from_date là timestamp
-            coupon.from_date = datetime.fromtimestamp(
-                coupon.from_date / 1000)  # /1000 nếu timestamp tính bằng milliseconds
-        if isinstance(coupon.to_date, int):
-            coupon.to_date = datetime.fromtimestamp(coupon.to_date / 1000)
     context = {
         'coupons': coupons,
     }
@@ -94,11 +88,9 @@ def remove_product(request, product_id):
     product.delete()
     return redirect('g_admin:admin_get_product')
 def remove_coupon(request,coupon_id):
-    coupon = get_object_or_404(Coupon, id=request.POST.get('id'))
+    coupon = get_object_or_404(Coupon, id=coupon_id)
     coupon.delete()
     return redirect('g_admin:coupon_list')
-
-
 
 def get_reviews(request):
     return render(request, 'g_admin/AdminReviews.html')
