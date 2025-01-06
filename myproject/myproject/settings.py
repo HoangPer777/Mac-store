@@ -20,7 +20,6 @@ import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -31,7 +30,6 @@ SECRET_KEY = 'django-insecure-qmo3ipv(y0*ufjt-5ou*356#yyh3m0ye-orywo@%a7skpr2gdj
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -49,7 +47,7 @@ INSTALLED_APPS = [
     'user',
     'product',
     'order_detail',
-    'cart','address','customer',
+    'cart', 'address', 'customer',
     'category',
     'card',
     'cloudinary_storage',
@@ -67,7 +65,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-
 
 AUTH_USER_MODEL = 'user.User'
 ROOT_URLCONF = 'myproject.urls'
@@ -93,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -103,7 +99,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -123,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -135,16 +129,15 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [ #add   
+STATICFILES_DIRS = [  # add
     BASE_DIR / "static",
 
-    ]
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -165,11 +158,13 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',  # Chỉ render JSON
-    )
+    ),
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",  # Ví dụ: 2022-01-04 12:30:45
+    # 'DATE_FORMAT': "%Y-%m-%d",  # Nếu bạn muốn định dạng ngày
 }
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=15),  # Token sống 15 day
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),     # Refresh token sống 1 ngày
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Refresh token sống 1 ngày
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN': False,
@@ -177,9 +172,9 @@ SIMPLE_JWT = {
 
 # Configuration
 cloudinary.config(
-    cloud_name = "dshbh3gvj",
-    api_key = "849919465828344",
-    api_secret = "Al6Zb6SHDru3yMXbgEFyzNvUSKA",
+    cloud_name="dshbh3gvj",
+    api_key="849919465828344",
+    api_secret="Al6Zb6SHDru3yMXbgEFyzNvUSKA",
     secure=True
 )
 CLOUDINARY_STORAGE = {

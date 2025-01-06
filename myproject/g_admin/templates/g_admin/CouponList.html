@@ -1,6 +1,6 @@
 {% load humanize %}
 {% load static %}
-
+{% load custom_filters %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,14 +83,17 @@
                         </td>
 
 
-                        <td>{{ coupon.from_date|date:"Y-m-d" }}</td>
-                        <td>{{ coupon.to_date|date:"Y-m-d" }}</td>
+                        <td>{{ coupon.from_date|timestamp_to_date }}</td>
+                        <td>{{ coupon.to_date|timestamp_to_date }}</td>
                         <td>{{ coupon.active|yesno:"Yes,No" }}</td>
                         <td>{{ coupon.remaining }}</td>
 
                         <td>
                             <a href="#" class="edit-btn">Edit</a>
-                            <a href="#" class="delete-btn">Delete</a>
+                            <a href="{% url 'g_admin:removeCoupon' coupon.id %}"
+                               class="delete-btn"
+                               onclick="return confirm('Are you sure you want to delete this coupon?');">Delete
+                            </a>
                         </td>
                     </tr>
                 {% empty %}
@@ -102,9 +105,6 @@
             </table>
         </div>
     </div>
-
 </div>
-
-
 </body>
 
