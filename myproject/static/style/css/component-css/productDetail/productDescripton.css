@@ -171,10 +171,12 @@ h3, h4 {
 }
 
 .product-image {
-    width: 150px;
+    width: 100%;
+    /*max-width: 150px;*/
     height: auto;
-    margin-bottom: 10px;
     border-radius: 8px;
+    margin-bottom: 10px;
+
 }
 
 .review-btn {
