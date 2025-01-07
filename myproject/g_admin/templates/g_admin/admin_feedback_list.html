@@ -22,23 +22,25 @@
 {#    </div>#}
 
     <div id="main" >
-        <h1>Feedback Management</h1>
+        <h1>Quản lý bình luận</h1>
         <table id="feedback-table" class="display">
     <thead>
         <tr>
-            <th>Select</th>
-            <th>Customer</th>
-            <th>Comment</th>
+            <th>Lựa chọn</th>
+            <th>User</th>
+            <th>Sản phẩm</th>
+            <th>Bình luận</th>
             <th>Rating</th>
-            <th>Date</th>
-            <th>Type</th>
+            <th>Ngày tạo</th>
+            <th>Loại</th>
         </tr>
     </thead>
     <tbody>
         {% for feedback in feedbacks %}
         <tr id="feedback-row-{{ feedback.id }}">
             <td><input type="checkbox" class="feedback-checkbox" data-feedback-id="{{ feedback.id }}"></td>
-            <td>{{ feedback.customerID }}</td>
+            <td>{{ feedback.userID }}</td>
+            <td>{{ feedback.productID }}</td>
             <td>{{ feedback.comment }}</td>
             <td>{{ feedback.rating }}</td>
             <td>{{ feedback.date }}</td>
