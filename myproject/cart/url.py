@@ -12,7 +12,7 @@ urlpatterns = [
     path('checkout/', views.checkout, name='checkout'),
     path('apply-coupon/', views.apply_coupon, name='apply_coupon'),
     path('checkout/pay/', views.process_payment, name='process_payment'),
-
+    path('total-items/', views.total_items_in_cart, name='total_items_in_cart'),
     path('cart/thank-you/', views.thank_you, name='thank_you'),
 #     path('checkout_buy_now/', views.checkout_view, name='checkout_view'),
     path('checkout/buy_now/', views.checkout_buy_now, name='checkout_buy_now'),
