@@ -71,7 +71,7 @@
                 <p>Bạn đã chọn mua ngay sản phẩm sau:</p>
                 {% for item in cart %}
                 <div class="product">
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}">
                     <p>{{ item.quantity }} x {{ item.product.price|intcomma }} ₫</p>
                     <p>Tổng: {{ item.total_price|intcomma }} ₫</p>
                 </div>
@@ -80,7 +80,7 @@
                 <p>Sản phẩm trong giỏ hàng:</p>
                 {% for item in cart %}
                 <div class="product">
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    <img src="{{item.product.images.first.image.url  }}" alt="{{ item.product.name }}">
                     <p>{{ item.quantity }} x {{ item.product.price|intcomma }} ₫</p>
                     <p>Tổng: {{ item.total_price|intcomma }} ₫</p>
                 </div>

@@ -107,11 +107,10 @@
         border: none;
         margin: 20px 0;
         color: white;
-        font-weight: bold;
-        "; >
+        font-weight: bold;" {% if cart|length == 0 %} disabled style="background-color: #6c757d;" {% endif %}>
                 Thanh toán
+            </button>
 
-        </button>
             </a>
     </div>
 </body>
