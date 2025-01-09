@@ -235,9 +235,9 @@ def process_payment(request):
             total_price = Decimal('0.00')
             for item in cart:
                 product = get_object_or_404(Product, id=item['product'].id)
-                product_price = safe_decimal(product.price)  # Xử lý giá an toàn
-                quantity = safe_decimal(item['quantity'])  # Xử lý số lượng an toàn
-                total_price += product_price * quantity  # Tính toán an toàn
+                product_price = safe_decimal(product.price)
+                quantity = safe_decimal(item['quantity'])
+                total_price += product_price * quantity
 
             if coupon:
                 discount_amount = (total_price * safe_decimal(coupon.discount)) / 100

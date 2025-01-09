@@ -31,7 +31,6 @@ def save_feedback(request):
         if not user_id or not comment or not product_id:
             return JsonResponse({'error': 'User ID, Product ID, and comment are required'}, status=400)
 
-        # Sử dụng foreign key đúng
         feedback = Feedback.objects.create(
             userID_id=user_id,
             productID_id=product_id,
