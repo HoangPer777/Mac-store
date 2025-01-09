@@ -245,8 +245,8 @@ def process_payment(request):
                     discount_amount = safe_decimal(coupon.maxValue)
                 total_price -= discount_amount
 
-            if total_price <= 0:
-                return JsonResponse({"status": "error", "message": "Tổng giá trị không hợp lệ."}, status=400)
+#             if total_price <= 0:
+#                 return JsonResponse({"status": "error", "message": "Tổng giá trị không hợp lệ."}, status=400)
 
             # Tạo đơn hàng
             order = Order.objects.create(
@@ -373,3 +373,4 @@ def checkout_view(request):
         "total_price": total_price,  # Tính tổng giá trị
         "user": request.user,
     })
+

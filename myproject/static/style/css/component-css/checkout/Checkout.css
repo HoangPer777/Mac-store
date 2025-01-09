@@ -446,7 +446,8 @@ a{
     margin-bottom: 10px;
     border-radius: 10px;
     justify-content: space-around;
-
+    display: flex;
+    align-items: center;
     box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
 -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
 -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.1);
@@ -457,6 +458,10 @@ a{
     width: auto;
 }
 
+.product p{
+   color: red;
+    font-size: 20px;
+}
 .product__price_prefix {
     display: flex;
 }
